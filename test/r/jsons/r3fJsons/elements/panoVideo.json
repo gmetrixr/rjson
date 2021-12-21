@@ -1,0 +1,26 @@
+{
+  "ep": {
+    "group_eid": -1,
+    "autoplay": false,
+    "loop": false,
+    "pano_type": "video",
+    "hidden": false,
+    "locked": false,
+    "opacity": 1,
+    "muted": false,
+    "element_name": "Video 360_049",
+    "rotation_offset": 0,
+    "stereo": false,
+    "volume": 100,
+    "source": {
+      "uri": "common/defaults/videopano_default.mp4",
+      "id": 179159,
+      "file_urls": {
+        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/b97bbeee-250b-47cd-b218-d7a1f47063eb/o/s02_01_04_wrongAddress.mp4"
+      }
+    },
+    "element_type": "pano_video",
+    "element_id": 1615869750049,
+    "pano_radius": 900
+  }
+}

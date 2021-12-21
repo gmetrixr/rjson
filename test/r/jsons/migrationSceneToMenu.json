@@ -1,0 +1,67 @@
+{
+  "id": 1,
+  "props": {},
+  "name": "",
+  "type": "project",
+  "records": {
+    "scene": {
+      "order": [2, 8],
+      "map": {
+        "2": {
+          "id": 2,
+          "props": {},
+          "name": "",
+          "type": "scene",
+          "records": {
+            "element": {
+              "order": [3],
+              "map": {
+                "3": {
+                  "id": 3,
+                  "type": "element",
+                  "props": {},
+                  "name": "Pano Image"
+                }
+              }
+            }
+          }
+        },
+        "8": {
+          "id": 8,
+          "props": {},
+          "name": "",
+          "type": "scene",
+          "records": {
+            "element": {
+              "order": [7],
+              "map": {
+                "7": {
+                  "id": 7,
+                  "type": "element",
+                  "props": {},
+                  "name": "Pano Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "menu": {
+      "order": [
+        10
+      ],
+      "map": {
+        "10": {
+          "id": 10,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 2,
+            "menu_display_name": "Home",
+            "menu_show": true
+          }
+        }
+      }
+    }
+  }
+}

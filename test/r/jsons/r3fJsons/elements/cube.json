@@ -1,0 +1,36 @@
+{
+  "ep": {
+    "element_id": 1616398879179,
+    "element_name": "Cube_179",
+    "element_type": "cube",
+    "group_eid": -1,
+    "opacity": 1,
+    "color": "#9FFF8A",
+    "hidden": false,
+    "locked": false,
+    "wireframe": false,
+    "no_click_animation": false,
+    "pivot_point": "center",
+    "placer_3d": [
+      -2.7064194521998934,
+      -2.6302036187790923,
+      -6.991663654855637,
+      -1.440768409818514,
+      18.463452604285486,
+      -9.942376640407031e-17,
+      1,
+      1,
+      1
+    ],
+    "whd": [
+      1,
+      1,
+      1
+    ],
+    "scale": 1,
+    "animation": {
+      "name": "",
+      "speed": 1
+    }
+  }
+}

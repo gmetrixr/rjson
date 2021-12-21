@@ -1,0 +1,36 @@
+{
+  "ep": {
+    "group_eid": -1,
+    "icon_type": "",
+    "icon_id": "1f60a",
+    "animation": {
+      "name": "",
+      "speed": 1
+    },
+    "placer_3d": [
+      0,
+      0,
+      -8,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "scale": 1,
+    "hidden": false,
+    "icon_family": "",
+    "locked": false,
+    "opacity": 1,
+    "element_name": "Emoji_946",
+    "no_click_animation": false,
+    "icon_name": "blush",
+    "wh": [
+      2,
+      2
+    ],
+    "element_type": "icon",
+    "element_id": 1615875016946
+  }
+}

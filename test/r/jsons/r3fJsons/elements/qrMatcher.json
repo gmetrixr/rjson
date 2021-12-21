@@ -1,0 +1,18 @@
+{
+  "ep": {
+    "element_type": "qrcode_matcher",
+    "element_id": 1614061304843,
+    "element_name": "QR Matcher_843",
+    "group_eid": -1,
+    "qr_match_strings": {
+      "1614061021632": {
+        "match_string_id": 1614061021632,
+        "value": "https://gmetri.com/"
+      },
+      "1614060835874": {
+        "match_string_id": 1614060835874,
+        "value": "https://portal.gmetri.com/gmetri"
+      }
+    }
+  }
+}

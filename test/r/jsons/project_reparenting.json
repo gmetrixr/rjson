@@ -1,0 +1,725 @@
+{
+  "id": 1,
+  "type": "project",
+  "props": {
+    "show_menu": true,
+    "whitelabel": false,
+    "description": "",
+    "show_logout": false,
+    "disable_gyro": false,
+    "api_templates": [],
+    "custom_script": "",
+    "enforce_chrome": false,
+    "show_offlining": true,
+    "show_vr_button": true,
+    "zoom_level_fov": 75,
+    "enforce_vr_mode": false,
+    "optimize_images": false,
+    "enable_tour_mode": false,
+    "optimize_for_seo": false,
+    "json_substitution": {},
+    "show_screen_reset": true,
+    "show_click_to_start": false,
+    "autotrack_connection": false,
+    "show_language_screen": false,
+    "show_vr_instructions": false,
+    "enforce_landscape_mode": false,
+    "show_fullscreen_button": true,
+    "contact_support_message": "",
+    "enforce_fullscreen_mode": false,
+    "project_end_description": "",
+    "project_start_description": "",
+    "auto_add_new_scene_to_menu": true,
+    "enforce_supported_browsers": true,
+    "tour_mode_inactivity_seconds": 10,
+    "viewer_control_panel_position": "top_right",
+    "auto_add_new_scene_to_tour_mode": true,
+    "show_lead_gen": false,
+    "show_zoom_controls": true,
+    "allow_offlining": false,
+    "version": 113,
+    "initial_scene_id": 0
+  },
+  "records": {
+    "scene": {
+      "order": [
+        1625732430168,
+        1625732754463
+      ],
+      "map": {
+        "1625732430168": {
+          "id": 1625732430168,
+          "type": "scene",
+          "props": {
+            "scene_type": "first_person",
+            "scene_gyro_lock": false,
+            "scene_yaw_range": [
+              -180,
+              180
+            ],
+            "scene_pitch_range": [
+              -90,
+              90
+            ],
+            "scene_allow_zooming": true,
+            "scene_reset_rotation": true,
+            "scene_yaw_correction": 0,
+            "scene_pitch_correction": 0
+          },
+          "name": "Scene1",
+          "records": {
+            "element": {
+              "order": [
+                1625732783803,
+                1625732213669,
+                1625732943565,
+                1625753210433,
+                1626174199208,
+                1625752804648,
+                1625732980296
+              ],
+              "map": {
+                "1625732783803": {
+                  "id": 1625732783803,
+                  "type": "element",
+                  "props": {
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/pano_default_1.jpg",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                        "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                      }
+                    },
+                    "stereo": false,
+                    "opacity": 1,
+                    "pano_radius": 900,
+                    "element_type": "pano_image",
+                    "pano_pitch_correction": 0,
+                    "pano_yaw_correction": 0
+                  },
+                  "name": "Element1"
+                },
+                "1625732213669": {
+                  "id": 1625732213669,
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/image_flat.png",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                        "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      0.6208037321516121,
+                      1.8005640771632878,
+                      -7.67971367383884,
+                      0,
+                      -3.8445938970539597,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "element_type": "image_flat",
+                    "no_click_animation": false
+                  },
+                  "name": "Element2"
+                },
+                "1625732943565": {
+                  "id": 1625732943565,
+                  "type": "element",
+                  "props": {
+                    "element_type": "group"
+                  },
+                  "name": "Group1",
+                  "records": {
+                    "element": {
+                      "order": [
+                        1625732909131,
+                        1625732220225
+                      ],
+                      "map": {
+                        "1625732909131": {
+                          "id": 1625732909131,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": null,
+                              "uri": "common/defaults/image_flat.png",
+                              "file_urls": {
+                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                              }
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              1.9357903879107359,
+                              -1.1536668918500992,
+                              -7.592786405067034,
+                              0,
+                              -10.794486016154831,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "element_type": "image_flat",
+                            "no_click_animation": false
+                          },
+                          "name": "Element31"
+                        },
+                        "1625732220225": {
+                          "id": 1625732220225,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": null,
+                              "uri": "common/defaults/image_flat.png",
+                              "file_urls": {
+                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                              }
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              -0.3928790174918178,
+                              -1.1672579672414407,
+                              -7.869206535400099,
+                              0,
+                              5.50386474038546,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "element_type": "image_flat",
+                            "no_click_animation": false
+                          },
+                          "name": "Element32"
+                        }
+                      }
+                    }
+                  }
+                },
+                "1625753210433": {
+                  "id": 1625753210433,
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "loop": false,
+                    "muted": false,
+                    "scale": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/video_default.mp4",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/video/video_default.mp4",
+                        "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/video/video_default_thumbnail.png"
+                      }
+                    },
+                    "volume": 100,
+                    "opacity": 1,
+                    "autoplay": false,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      0,
+                      0,
+                      -8,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "chroma_color": "rgba(108, 175, 127, 1)",
+                    "element_type": "video_flat",
+                    "chroma_effect": false,
+                    "no_click_animation": false
+                  },
+                  "name": "Video_433"
+                },
+                "1626174199208": {
+                  "id": 1626174199208,
+                  "type": "element",
+                  "props": {
+                    "element_type": "group"
+                  },
+                  "name": "Group2",
+                  "records": {
+                    "element": {
+                      "order": [
+                        1626173788674,
+                        1626174302184
+                      ],
+                      "map": {
+                        "1626173788674": {
+                          "id": 1626173788674,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": null,
+                              "uri": "common/defaults/image_flat.png",
+                              "file_urls": {
+                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                              }
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              2.135790387910736,
+                              -1.3536668918500991,
+                              -7.592786405067034,
+                              0,
+                              -10.794486016154831,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "element_type": "image_flat",
+                            "no_click_animation": false
+                          },
+                          "name": "Element31 (1)"
+                        },
+                        "1626174302184": {
+                          "id": 1626174302184,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": null,
+                              "uri": "common/defaults/image_flat.png",
+                              "file_urls": {
+                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                              }
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "group_eid": 1626174199208,
+                            "placer_3d": [
+                              -0.1928790174918178,
+                              -1.3672579672414407,
+                              -7.869206535400099,
+                              0,
+                              5.50386474038546,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "element_type": "image_flat",
+                            "no_click_animation": false
+                          },
+                          "name": "Element32 (1)"
+                        }
+                      }
+                    }
+                  }
+                },
+                "1625752804648": {
+                  "id": 1625752804648,
+                  "type": "element",
+                  "props": {
+                    "element_type": "group"
+                  },
+                  "name": "Group3",
+                  "records": {
+                    "element": {
+                      "order": [
+                        1625752781674,
+                        1625752808582
+                      ],
+                      "map": {
+                        "1625752781674": {
+                          "id": 1625752781674,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": null,
+                              "uri": "common/defaults/gmetri_logo.gif",
+                              "file_urls": {
+                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/gif/gmetri_logo.gif",
+                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/gif/gmetri_logo.gif"
+                              }
+                            },
+                            "opacity": 1,
+                            "autoplay": true,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              0,
+                              0,
+                              -8,
+                              0,
+                              0,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "element_type": "gif",
+                            "no_click_animation": false
+                          },
+                          "name": "GIF_674"
+                        },
+                        "1625752808582": {
+                          "id": 1625752808582,
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              6.5,
+                              4
+                            ],
+                            "text": "#Welcome to the Metaverse!",
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "font_bold": false,
+                            "font_size": 1,
+                            "group_eid": 1625752804648,
+                            "placer_3d": [
+                              0,
+                              0,
+                              -8,
+                              0,
+                              0,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "font_color": "rgba(63, 191, 127, 1)",
+                            "element_type": "text",
+                            "no_click_animation": false
+                          },
+                          "name": "Text_582"
+                        }
+                      }
+                    }
+                  }
+                },
+                "1625732980296": {
+                  "id": 1625732980296,
+                  "type": "element",
+                  "props": {
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/pano_default.jpg"
+                    },
+                    "pano_radius": 1100,
+                    "element_type": "pano_image",
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "pano_type": "image",
+                    "pano_yaw_correction": 0
+                  },
+                  "name": "Background"
+                }
+              }
+            }
+          }
+        },
+        "1625732754463": {
+          "id": 1625732754463,
+          "type": "scene",
+          "props": {
+            "scene_type": "first_person",
+            "scene_gyro_lock": false,
+            "scene_yaw_range": [
+              -180,
+              180
+            ],
+            "scene_pitch_range": [
+              -90,
+              90
+            ],
+            "scene_allow_zooming": true,
+            "scene_reset_rotation": false,
+            "scene_yaw_correction": 0,
+            "scene_pitch_correction": 0
+          },
+          "name": "Scene2",
+          "records": {
+            "element": {
+              "order": [
+                1625732175692,
+                1625732891456,
+                1625732302586
+              ],
+              "map": {
+                "1625732175692": {
+                  "id": 1625732175692,
+                  "type": "element",
+                  "props": {
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/pano_default_1.jpg",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                        "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                      }
+                    },
+                    "stereo": false,
+                    "opacity": 1,
+                    "pano_radius": 900,
+                    "element_type": "pano_image",
+                    "pano_pitch_correction": 0,
+                    "pano_yaw_correction": 0
+                  },
+                  "name": "Element4"
+                },
+                "1625732891456": {
+                  "id": 1625732891456,
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/image_flat.png",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                        "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      2.2044213559879076,
+                      1.9068681346470602,
+                      -7.41366288473858,
+                      0,
+                      -13.31144649314535,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "element_type": "image_flat",
+                    "no_click_animation": false
+                  },
+                  "name": "Elment5"
+                },
+                "1625732302586": {
+                  "id": 1625732302586,
+                  "type": "element",
+                  "props": {
+                    "source": {
+                      "id": null,
+                      "uri": "common/defaults/pano_default.jpg"
+                    },
+                    "pano_radius": 1100,
+                    "element_type": "pano_image",
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "pano_type": "image",
+                    "pano_yaw_correction": 0
+                  },
+                  "name": "Background_586"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "variable": {
+      "order": [
+        -8,
+        -9,
+        -10
+      ],
+      "map": {
+        "-8": {
+          "id": -8,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_global": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "v_identifier_var"
+        },
+        "-9": {
+          "id": -9,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_global": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "platform_var"
+        },
+        "-10": {
+          "id": -10,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_global": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "browser_var"
+        }
+      }
+    },
+    "menu": {
+      "order": [
+        1625732530168,
+        1625732854463
+      ],
+      "map": {
+        "1625732530168": {
+          "id": 1625732530168,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1625732430168,
+            "menu_display_name": "",
+            "menu_show": false
+          }
+        },
+        "1625732854463": {
+          "id": 1625732854463,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1625732754463,
+            "menu_display_name": "Scene_463",
+            "menu_show": true
+          }
+        }
+      }
+    },
+    "shopping": {
+      "order": [
+        1
+      ],
+      "map": {
+        "1": {
+          "id": 1,
+          "type": "shopping",
+          "props": {
+            "store_name": null,
+            "plugin": null,
+            "endpoint": null,
+            "currency_prefix": "",
+            "show_cart": true
+          }
+        }
+      }
+    },
+    "tour_mode": {
+      "order": [
+        1625732854464
+      ],
+      "map": {
+        "1625732854464": {
+          "id": 1625732854464,
+          "type": "tour_mode",
+          "props": {
+            "tour_mode_scene_id": 1625732754463
+          }
+        }
+      }
+    }
+  }
+}

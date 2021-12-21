@@ -1,0 +1,22 @@
+{
+  "ep": {
+    "element_id": 1584638156159,
+    "element_name": "BG",
+    "element_type": "pano_image",
+    "group_eid": -1,
+    "source": {
+      "uri": "organization/.used/game/Pano Images/01.effectsResult.jpg",
+      "id": 128029,
+      "file_urls": {
+        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/ca662fc3-6a19-421f-b9fa-11c490492ea5/o/01.effectsResult.jpg"
+      }
+    },
+    "pano_type": "image",
+    "opacity": 1,
+    "rotation_offset": 0,
+    "hidden": false,
+    "locked": false,
+    "stereo": false,
+    "pano_radius": 900
+  }
+}

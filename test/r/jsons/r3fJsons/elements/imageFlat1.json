@@ -1,0 +1,39 @@
+{
+  "ep": {
+     "group_eid": -1,
+     "animation": {
+        "name": "",
+        "speed": 1
+     },
+     "placer_3d": [
+        0,
+        0,
+        -5,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+     ],
+     "scale": 1,
+     "hidden": false,
+     "locked": false,
+     "opacity": 1,
+     "element_name": "Image_319",
+     "no_click_animation": false,
+     "wh": [
+        3,
+        2
+     ],
+     "source": {
+        "uri": "common/defaults/image_flat.png",
+        "id": 164612,
+        "file_urls": {
+           "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-2/bpgubf/925716b9-e0de-4328-b836-868cdd3875a7/o/s01_welcome1.png"
+        }
+     },
+     "element_type": "image_flat",
+     "element_id": 1613578749319
+  }
+}

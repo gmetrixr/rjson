@@ -1,0 +1,80 @@
+{
+  "ep": {
+    "group_eid": -1,
+    "actionbar_head": "",
+    "actionbar_size": "medium",
+    "hidden": true,
+    "actionbar_position": "bottom",
+    "element_name": "Actionbar_328",
+    "items_order": [1613657041878, 1613657448907, 1613657598352, 1613657772507, 1613657113847], 
+    "items": {
+      "1613657041878": {
+        "id": 1613657041878,
+        "name": "Element 1",
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 213711,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/9e3cd57a-9940-4eff-958f-f54f07d276d5/o/Rectangle.png"
+          }
+        },
+        "fileName": "Rectangle"
+      },
+      "1613657448907": {
+        "id": 1613657448907,
+        "name": "Element 2",
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 213712,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/8a46b34d-fab1-4286-a4e7-95a1f6d9ba16/o/Rectangle__1_.png"
+          }
+        },
+        "fileName": "Rectangle__1_"
+      },
+      "1613657598352": {
+        "id": 1613657598352,
+        "name": "Element 3",
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 213713,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/ebe0c510-a28c-4162-a815-8e456b36dfff/o/Rectangle__2_.png"
+          }
+        },
+        "fileName": "Rectangle__2_"
+      },
+      "1613657772507": {
+        "id": 1613657772507,
+        "name": "Element 4",
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 213714,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/9abb646d-a195-46c9-b95a-0094f8d418ed/o/Rectangle__3_.png"
+          }
+        },
+        "fileName": "Rectangle__3_"
+      },
+      "1613657113847": {
+        "id": 1613657113847,
+        "name": "Element 5",
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 179287,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/d7e16a46-280b-4651-a53c-aacba4ac57a8/o/Rectangle__4_.png"
+          }
+        },
+        "fileName": "Rectangle__4_"
+      }
+    },
+    "element_type": "actionbar",
+    "element_id": 1613657212328
+  }
+}

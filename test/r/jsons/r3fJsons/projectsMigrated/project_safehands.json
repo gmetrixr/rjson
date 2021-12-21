@@ -1,0 +1,933 @@
+{
+  "id": 1,
+  "type": "project",
+  "props": {
+    "lead_gen_heading": "Let us know enough to get in touch if you win.",
+    "autotrack_connection": true,
+    "custom_script": "",
+    "description": "Gamifying the World Health Organization's guidelines on #safehands with a Spatial Interactive Learning Experience. Keep yourself and your family safe, play this now at g3d.in/safehands  Top the leader-board, get rewarded. Powered by GMetri.",
+    "enforce_vr_mode": false,
+    "enforce_fullscreen_mode": false,
+    "enforce_landscape_mode": false,
+    "enforce_supported_browsers": false,
+    "contact_support_message": "",
+    "project_end_description": "",
+    "project_start_description": "#safehands\nAn interactive game to learn WHO's Hand-Wash guidelines.",
+    "show_click_to_start": true,
+    "show_language_screen": false,
+    "show_logout": false,
+    "show_menu": true,
+    "show_offlining": true,
+    "show_screen_reset": true,
+    "show_vr_button": true,
+    "show_fullscreen_button": true,
+    "show_vr_instructions": false,
+    "whitelabel": false,
+    "zoom_level_fov": 75,
+    "auto_add_new_scene_to_menu": true,
+    "optimize_images": false,
+    "disable_gyro": false,
+    "api_templates": [],
+    "enforce_chrome": false,
+    "json_substitution": {},
+    "show_lead_gen": true,
+    "show_zoom_controls": false,
+    "allow_offlining": false,
+    "version": 110,
+    "initial_scene_id": 0
+  },
+  "records": {
+    "scene": {
+      "order": [
+        1584704711152
+      ],
+      "map": {
+        "1584704711152": {
+          "id": 1584704711152,
+          "type": "scene",
+          "props": {
+            "scene_yaw_correction": -20,
+            "scene_pitch_correction": 0,
+            "scene_reset_rotation": true,
+            "scene_gyro_lock": false
+          },
+          "name": "Home",
+          "records": {
+            "element": {
+              "order": [
+                1584704610140,
+                1584704979049,
+                1584705181018,
+                1584725793513,
+                1584704998046,
+                1584725662024,
+                1584719478087,
+                1585247753981,
+                1584726304780,
+                1584729163198,
+                1584704910131
+              ],
+              "map": {
+                "1584704610140": {
+                  "id": 1584704610140,
+                  "type": "element",
+                  "props": {
+                    "element_type": "pano_image",
+                    "source": {
+                      "uri": "organization/.used/templates/panos/grids/grid_02_white.jpg",
+                      "id": 128351,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/7d1547d7-f17f-45e3-bacd-603a8c36be33/o/grid_02_white.jpg"
+                      }
+                    },
+                    "opacity": 1,
+                    "rotation_offset": 0,
+                    "hidden": false,
+                    "locked": false,
+                    "stereo": false,
+                    "pano_radius": 900
+                  },
+                  "name": "BG"
+                },
+                "1584704979049": {
+                  "id": 1584704979049,
+                  "type": "element",
+                  "props": {
+                    "element_type": "video_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Videos/Learn/handwashIntro2.mp4",
+                      "id": 128052,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/c5dd2b00-4ffe-472d-b3a0-b6cc9f33b9f3/o/handwashIntro2.mp4"
+                      }
+                    },
+                    "opacity": 1,
+                    "volume": 100,
+                    "autoplay": false,
+                    "hidden": false,
+                    "locked": true,
+                    "muted": false,
+                    "loop": false,
+                    "no_click_animation": true,
+                    "placer_3d": [
+                      -3.220188203293558,
+                      -0.5416825161888106,
+                      -4.537648373064165,
+                      0,
+                      32.04114188332911,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      1.2,
+                      2
+                    ],
+                    "scale": 1.5000000000000004,
+                    "chroma_effect": true,
+                    "chroma_color": "rgba(0, 255, 11, 1)",
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    }
+                  },
+                  "name": "Animated Character"
+                },
+                "1584705181018": {
+                  "id": 1584705181018,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/Set 2/learn_4.png",
+                      "id": 127896,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/ad1f03e9-fc40-46aa-9ddc-ad08ae3ae643/o/learn_4.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "no_click_animation": true,
+                    "placer_3d": [
+                      -1.5105523641675174,
+                      -0.8575120699296519,
+                      -11.2806097787013,
+                      0,
+                      11.463333647846614,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      3.8,
+                      2
+                    ],
+                    "scale": 2,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    }
+                  },
+                  "name": "btn_learn"
+                },
+                "1584725793513": {
+                  "id": 1584725793513,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/Set 2/btn_proceed_2.png",
+                      "id": 127891,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/25215baa-a96c-4928-89b0-bef0d28ee337/o/btn_proceed_2.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "no_click_animation": false,
+                    "placer_3d": [
+                      -0.02176723210234613,
+                      -1.7072169322903816,
+                      -10.80990680238589,
+                      0,
+                      9.119739836062102,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      4.4,
+                      2
+                    ],
+                    "scale": 0.45,
+                    "animation": {
+                      "name": "fade",
+                      "speed": 1
+                    }
+                  },
+                  "name": "btn_learn_proceed"
+                },
+                "1584704998046": {
+                  "id": 1584704998046,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/Set 2/Test_4.png",
+                      "id": 127879,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/ac45d1cf-4501-4d66-8add-340a290293cb/o/Test_4.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "no_click_animation": true,
+                    "placer_3d": [
+                      5.401194829834016,
+                      -0.9343813122467665,
+                      -9.808884641468621,
+                      0,
+                      -24.155241915779683,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      3.8,
+                      2
+                    ],
+                    "scale": 1.7000000000000006,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    }
+                  },
+                  "name": "btn_test"
+                },
+                "1584725662024": {
+                  "id": 1584725662024,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/Set 2/btn_proceed_2.png",
+                      "id": 127891,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/25215baa-a96c-4928-89b0-bef0d28ee337/o/btn_proceed_2.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "no_click_animation": false,
+                    "placer_3d": [
+                      5.9477680928032255,
+                      -1.5721418930573117,
+                      -8.156638374353125,
+                      0,
+                      -24.155241915779683,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      4.4,
+                      2
+                    ],
+                    "scale": 0.4,
+                    "animation": {
+                      "name": "fade",
+                      "speed": 1
+                    }
+                  },
+                  "name": "btn_test_proceed"
+                },
+                "1584719478087": {
+                  "id": 1584719478087,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/Logo_2.png",
+                      "id": 127831,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/914f6810-48c5-4ffe-8d97-43a7563aaada/o/Logo_2.png"
+                      }
+                    },
+                    "opacity": 0.3,
+                    "hidden": true,
+                    "locked": true,
+                    "no_click_animation": false,
+                    "placer_3d": [
+                      5.190543564355135,
+                      1.9534329892259845,
+                      -19.202506835262643,
+                      3.964004891883046,
+                      -11.047610015892909,
+                      9.963068259626248e-17,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 11.299999999999995,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    }
+                  },
+                  "name": "Who logo"
+                },
+                "1585247753981": {
+                  "id": 1585247753981,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/logoNoCorona.png",
+                      "id": 127849,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/27e262bc-ec13-4b4a-801e-b06099e54afc/o/logoNoCorona.png"
+                      }
+                    },
+                    "opacity": 0.2,
+                    "hidden": false,
+                    "locked": false,
+                    "no_click_animation": false,
+                    "placer_3d": [
+                      3.8995348787543236,
+                      2.5942723481138814,
+                      -19.38196947924749,
+                      3.964004891882961,
+                      -7.383716732367034,
+                      1.9926136519252496e-16,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 8.600000000000005,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    }
+                  },
+                  "name": "coronalogo"
+                },
+                "1584726304780": {
+                  "id": 1584726304780,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "uri": "organization/.used/game/Assets/speech_bubbble_2.png",
+                      "id": 127852,
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/game/bf8daae0-7b8d-43eb-b903-ec1a91968cad/o/speech_bubbble_2.png"
+                      }
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "no_click_animation": false,
+                    "placer_3d": [
+                      -4.693066668667335,
+                      1.9385965262045728,
+                      -7.149151557580789,
+                      -1.2252807313922436,
+                      20.844417392221853,
+                      -1.0438581875310741e-15,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      3.4,
+                      2
+                    ],
+                    "scale": 0.5000000000000001,
+                    "animation": {
+                      "name": "bounce",
+                      "speed": 1
+                    }
+                  },
+                  "name": "speechbubble"
+                },
+                "1584729163198": {
+                  "id": 1584729163198,
+                  "type": "element",
+                  "props": {
+                    "element_type": "wayfinder",
+                    "text": "Look here",
+                    "color": "rgba(0, 64, 227, 1)",
+                    "wayfinder_size": "M"
+                  },
+                  "name": "Look here"
+                },
+                "1584704910131": {
+                  "id": 1584704910131,
+                  "type": "element",
+                  "props": {
+                    "element_type": "pano_image",
+                    "source": {},
+                    "rotation_offset": 0,
+                    "pano_radius": 1100,
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "pano_type": "image"
+                  },
+                  "name": "Background"
+                }
+              }
+            },
+            "rule": {
+              "order": [
+                1584866462592,
+                1584729250669,
+                1584707011031,
+                1584706179971,
+                1584704948744
+              ],
+              "map": {
+                "1584866462592": {
+                  "id": 1584866462592,
+                  "type": "rule",
+                  "props": {
+                    "accent_color": "#8ED1FC",
+                    "disabled": false,
+                    "tracked": false,
+                    "events_and": true
+                  },
+                  "name": "Connection_592",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1584866682473
+                      ],
+                      "map": {
+                        "1584866682473": {
+                          "id": 1584866682473,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_load",
+                            "properties": [],
+                            "co_id": -99,
+                            "co_type": "scene"
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1584866633638
+                      ],
+                      "map": {
+                        "1584866633638": {
+                          "id": 1584866633638,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "var_reset",
+                            "properties": [],
+                            "co_id": -2,
+                            "co_type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "1584729250669": {
+                  "id": 1584729250669,
+                  "type": "rule",
+                  "props": {
+                    "accent_color": "#8ED1FC",
+                    "disabled": false,
+                    "tracked": true,
+                    "events_and": true
+                  },
+                  "name": "Connection_669",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1584729438035
+                      ],
+                      "map": {
+                        "1584729438035": {
+                          "id": 1584729438035,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_end",
+                            "properties": [],
+                            "co_id": 1584704979049,
+                            "co_type": "video_flat"
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1584729476215
+                      ],
+                      "map": {
+                        "1584729476215": {
+                          "id": 1584729476215,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "point_to",
+                            "properties": [
+                              1584725793513
+                            ],
+                            "co_id": 1584729163198,
+                            "co_type": "wayfinder"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "1584707011031": {
+                  "id": 1584707011031,
+                  "type": "rule",
+                  "props": {
+                    "accent_color": "#8ED1FC",
+                    "disabled": false,
+                    "tracked": true,
+                    "events_and": false
+                  },
+                  "name": "Connection_031",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1584706300758,
+                        1584726074766
+                      ],
+                      "map": {
+                        "1584706300758": {
+                          "id": 1584706300758,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584704979049,
+                            "co_type": "video_flat"
+                          }
+                        },
+                        "1584726074766": {
+                          "id": 1584726074766,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584726304780,
+                            "co_type": "image_flat"
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1584707012070,
+                        1584726766249
+                      ],
+                      "map": {
+                        "1584707012070": {
+                          "id": 1584707012070,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "play_resume",
+                            "properties": [],
+                            "co_id": 1584704979049,
+                            "co_type": "video_flat"
+                          }
+                        },
+                        "1584726766249": {
+                          "id": 1584726766249,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "hide",
+                            "properties": [],
+                            "co_id": 1584726304780,
+                            "co_type": "image_flat"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "1584706179971": {
+                  "id": 1584706179971,
+                  "type": "rule",
+                  "props": {
+                    "accent_color": "#8ED1FC",
+                    "disabled": false,
+                    "tracked": true,
+                    "events_and": false
+                  },
+                  "name": "Connection_971",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1584706215416,
+                        1584725349582
+                      ],
+                      "map": {
+                        "1584706215416": {
+                          "id": 1584706215416,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584704998046,
+                            "co_type": "image_flat"
+                          }
+                        },
+                        "1584725349582": {
+                          "id": 1584725349582,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584725662024,
+                            "co_type": "image_flat"
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1584706457093
+                      ],
+                      "map": {
+                        "1584706457093": {
+                          "id": 1584706457093,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "change_scene",
+                            "properties": [
+                              1584645223487
+                            ],
+                            "co_id": -100,
+                            "co_type": "experience"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "1584704948744": {
+                  "id": 1584704948744,
+                  "type": "rule",
+                  "props": {
+                    "accent_color": "#8ED1FC",
+                    "disabled": false,
+                    "tracked": false,
+                    "events_and": false
+                  },
+                  "name": "Connection_744",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1584705194585,
+                        1584725842028
+                      ],
+                      "map": {
+                        "1584705194585": {
+                          "id": 1584705194585,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584705181018,
+                            "co_type": "image_flat"
+                          }
+                        },
+                        "1584725842028": {
+                          "id": 1584725842028,
+                          "type": "when_event",
+                          "props": {
+                            "event": "on_been_clicked",
+                            "properties": [],
+                            "co_id": 1584725793513,
+                            "co_type": "image_flat"
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1584705483294
+                      ],
+                      "map": {
+                        "1584705483294": {
+                          "id": 1584705483294,
+                          "type": "then_action",
+                          "props": {
+                            "delay": 0,
+                            "action": "change_scene",
+                            "properties": [
+                              1584636875821
+                            ],
+                            "co_id": -100,
+                            "co_type": "experience"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "variable": {
+      "order": [
+        -2,
+        -8,
+        -5,
+        -6,
+        -7,
+        -9,
+        -10
+      ],
+      "map": {
+        "-2": {
+          "id": -2,
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0
+          },
+          "name": "score"
+        },
+        "-8": {
+          "id": -8,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "v_identifier_var"
+        },
+        "-5": {
+          "id": -5,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "viewer_info_col1"
+        },
+        "-6": {
+          "id": -6,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "viewer_info_col2"
+        },
+        "-7": {
+          "id": -7,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "viewer_info_col3"
+        },
+        "-9": {
+          "id": -9,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_global": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "platform_var"
+        },
+        "-10": {
+          "id": -10,
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_global": false,
+            "var_default": "",
+            "var_readonly": true
+          },
+          "name": "browser_var"
+        }
+      }
+    },
+    "menu": {
+      "order": [
+        1584704811152,
+        1584636975821,
+        1584645323487
+      ],
+      "map": {
+        "1584704811152": {
+          "id": 1584704811152,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1584704711152,
+            "menu_display_name": "Home",
+            "menu_show": true
+          }
+        },
+        "1584636975821": {
+          "id": 1584636975821,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1584636875821,
+            "menu_display_name": "Learn",
+            "menu_show": true
+          }
+        },
+        "1584645323487": {
+          "id": 1584645323487,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1584645223487,
+            "menu_display_name": "Test",
+            "menu_show": true
+          }
+        }
+      }
+    },
+    "shopping": {
+      "order": [
+        1
+      ],
+      "map": {
+        "1": {
+          "id": 1,
+          "type": "shopping",
+          "props": {
+            "store_name": null,
+            "plugin": null,
+            "endpoint": null,
+            "currency_prefix": "",
+            "show_cart": true
+          }
+        }
+      }
+    },
+    "lead_gen_field": {
+      "order": [
+        1,
+        2,
+        3
+      ],
+      "map": {
+        "1": {
+          "id": 1,
+          "type": "lead_gen_field",
+          "props": {
+            "type": "text",
+            "enabled": true,
+            "required": true,
+            "is_viewername": true,
+            "var_id": -5
+          },
+          "name": "Name"
+        },
+        "2": {
+          "id": 2,
+          "type": "lead_gen_field",
+          "props": {
+            "type": "email",
+            "enabled": true,
+            "required": true,
+            "var_id": -6
+          },
+          "name": "Email"
+        },
+        "3": {
+          "id": 3,
+          "type": "lead_gen_field",
+          "props": {
+            "type": "text",
+            "enabled": false,
+            "required": false,
+            "var_id": -7
+          },
+          "name": ""
+        }
+      }
+    }
+  }
+}

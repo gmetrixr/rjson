@@ -1,0 +1,18 @@
+{
+  "ep": {
+    "element_type": "share",
+    "element_id": 1613715903365,
+    "element_name": "Share_365",
+    "group_eid": -1,
+    "share_attributes": {
+       "instruction": "If u liked the experience then share with ur friends",
+       "url": "https://gmetri.com/",
+       "text": "awesome",
+       "platforms": [
+          "facebook",
+          "twitter",
+          "linkedin"
+       ]
+    }
+ }
+}

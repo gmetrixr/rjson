@@ -1,0 +1,43 @@
+{
+  "ep": {
+    "autoplay": true,
+    "loop": true,
+    "muted": false,
+    "volume": 1,
+    "chroma_color": "#00ff00",
+    "chroma_effect": false,
+    "wh": [
+      3.6,
+      2
+    ],
+    "scale": 1,
+    "hidden": false,
+    "locked": false,
+    "opacity": 1,
+    "animation": {
+      "name": "none",
+      "speed": 0
+    },
+    "no_click_animation": true,
+    "placer_3d": [
+      -2.5,
+      0,
+      -5,
+      0,
+      -144.39735366753357,
+      0,
+      1,
+      1,
+      1
+    ],
+    "element_id": 16039626465668,
+    "element_name": "Video_539",
+    "element_type": "video_flat",
+    "source": {
+      "uri": "dummy",
+      "file_urls": {
+        "o": "https://s.gmetri.com/gb-web/r3f-ui/assets/video/step7.mp4"
+      }
+    }
+  }
+}

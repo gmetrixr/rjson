@@ -1,0 +1,14 @@
+{
+  "ep": {
+    "element_id": 1615297513825,
+    "element_name": "Capture Input_825",
+    "element_type": "capture_input",
+    "hidden": true,
+    "placeholder_text": "type here..",
+    "capture_iput_mode": "textbox",
+    "min": 0,
+    "max": 1000,
+    "regex": "",
+    "regex_error_msg": "Input text does not match the given requirements."
+  }
+}

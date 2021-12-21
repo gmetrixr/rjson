@@ -1,0 +1,61 @@
+{
+  "ep": {
+    "element_type": "carousel",
+    "element_id": 1614062810493,
+    "element_name": "Pop-up_493",
+    "group_eid": -1,
+    "hidden": true,
+    "items_order": [1614062671802, 1614062425005, 1614062339929, 1614062469642],
+    "items": {
+      "1614062671802" : {
+        "name": "Just a image",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquet nulla a velit lacinia viverra. Vestibulum egestas ut arcu quis faucibus. Nam eget justo augue. Phasellus vulputate massa erat, a elementum justo ultricies at. In luctus condimentum lectus, quis dapibus nunc condimentum at. Vestibulum cursus arcu ante, sed pharetra lectus mollis et. Phasellus in sapien nec nibh maximus pellentesque. Curabitur pulvinar nec ligula vel rutrum. Cras convallis tellus ex, at",
+        "source_type": "media",
+        "source": {
+          "id": 164555,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/ee26113d-d737-4537-8b44-f4b72f519a1d/o/s1.jpg"
+          }
+        },
+        "id": 1614062671802
+      },
+      "1614062425005": {
+        "name": "Just a image",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquet nulla a velit lacinia viverra.",
+        "source_type": "media",
+        "source": {
+          "id": 164612,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/01b88327-89df-4331-a749-b951fb839e1d/o/photo-of-person-holding-black-iphone-1434819.jpg"
+          }
+        },
+        "id": 1614062425005
+      },
+      "1614062339929": {
+        "start": "10",
+        "name": "You tube",
+        "description": "",
+        "source_type": "youtube",
+        "source": {
+          "id": ""
+        },
+        "url": "oVEuOtRLNzc",
+        "end": "32",
+        "id": 1614062339929
+      },
+      "1614062469642": {
+        "name": "Embed",
+        "description": "",
+        "embed_string": "<img src='https://www.w3schools.com/tags/img_girl.jpg' alt='Girl in a jacket' width='500' height='600'>",
+        "source_type": "embed_code",
+        "source": {
+          "id": ""
+        },
+        "id": 1614062469642
+      }
+    },
+    "background_source": {
+      "id": ""
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "ep": {
+    "group_eid": -1,
+    "autoplay": true,
+    "animation": {
+      "name": "",
+      "speed": 1
+    },
+    "placer_3d": [
+      0,
+      0,
+      -4,
+      0,
+      -144.39735366753357,
+      0,
+      1,
+      1,
+      1
+    ],
+    "scale": 1,
+    "hidden": false,
+    "locked": false,
+    "opacity": 1,
+    "element_name": "GIF_818",
+    "no_click_animation": false,
+    "wh": [
+      2,
+      2
+    ],
+    "source": {
+      "uri": "common/defaults/gmetri_logo.gif",
+      "id": null,
+      "file_urls": {
+        "o": "https://s.vrgmetri.com/gb-web/fv4/common/defaults/gmetri_logo.gif"
+      }
+    },
+    "element_type": "gif",
+    "element_id": 1614949513818
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "pp": {
+    "autotrack_connection": false,
+    "custom_script": "",
+    "description": "",
+    "enforce_vr_mode": false,
+    "enforce_fullscreen_mode": false,
+    "enforce_landscape_mode": false,
+    "enforce_supported_browsers": true,
+    "initial_scene_no": 0,
+    "languages": [],
+    "menu_structure": [
+      {
+        "name": "",
+        "show": false,
+        "scene_no": 1614923826275
+      }
+    ],
+    "contact_support_message": "",
+    "project_end_description": "",
+    "project_start_description": "",
+    "scenes_order": [
+      1615290760554
+    ],
+    "show_click_to_start": false,
+    "show_language_screen": false,
+    "show_logout": false,
+    "show_menu": true,
+    "show_offlining": true,
+    "show_screen_reset": true,
+    "show_vr_button": true,
+    "show_fullscreen_button": true,
+    "show_vr_instructions": false,
+    "whitelabel": false,
+    "zoom_level_fov": 75,
+    "auto_add_new_scene_to_menu": true,
+    "optimize_images": false,
+    "disable_gyro": true,
+    "api_templates": [],
+    "enforce_chrome": false,
+    "json_substitution": {},
+    "vars_order": [
+      -8,
+      -9,
+      -10
+    ],
+    "lead_gen_fields": {},
+    "show_lead_gen": false,
+    "show_zoom_controls": false,
+    "allow_offlining": false
+  },
+  "scenes": {
+    "1615290760554": {
+      "sp": {
+        "elements_order": [
+          1615289957494,
+          1615290215919,
+          1615290443340,
+          1615297513825
+        ],
+        "connections_order": [
+          1615290874902
+        ],
+        "scene_no": 1615290760554,
+        "scene_name": "Scene_017",
+        "scene_yaw_correction": 0,
+        "scene_pitch_correction": 0,
+        "scene_reset_rotation": true,
+        "scene_gyro_lock": false
+      },
+      "elements": {
+        "1615289957494": {
+          "ep": {
+            "element_id": 1615289957494,
+            "element_name": "Cube_494",
+            "element_type": "cube",
+            "opacity": 1,
+            "color": "#9FFF8A",
+            "hidden": false,
+            "locked": false,
+            "wireframe": false,
+            "no_click_animation": false,
+            "pivot_point": "center",
+            "placer_3d": [
+              -4.226715494502034,
+              0.8268580607445606,
+              -6.704465513955447,
+              0,
+              32.034330475830956,
+              0,
+              1,
+              1,
+              1
+            ],
+            "whd": [
+              1,
+              1,
+              1
+            ],
+            "scale": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            }
+          }
+        },
+        "1615290141221": {
+          "ep": {
+            "element_id": 1615290141221,
+            "element_name": "Background",
+            "element_type": "pano_image",
+            "source": {
+              "uri": "common/defaults/pano_default.jpg",
+              "id": null
+            },
+            "rotation_offset": 0,
+            "pano_radius": 900,
+            "opacity": 1,
+            "hidden": false,
+            "locked": false,
+            "pano_type": "image"
+          }
+        },
+        "1615290215919": {
+          "ep": {
+            "element_id": 1615290215919,
+            "element_name": "Embed HTML_919",
+            "element_type": "embedHtml",
+            "embed_string": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/JHX6PuiawYc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+            "embed_mode": "fullscreen",
+            "background_source": {
+              "uri": "",
+              "id": 251411,
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/8d288d57-0ea2-42cd-addb-799a2768861c/o/360_u-boat%20Engine%20room%20Panorama%20(Custom).jpg"
+              }
+            }
+          }
+        },
+        "1615290443340": {
+          "ep": {
+            "element_id": 1615290443340,
+            "element_name": "Image_340",
+            "element_type": "image_flat",
+            "source": {
+              "uri": "common/defaults/image_flat.png",
+              "id": 161252,
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/4e86afb7-c5a6-4637-b809-109aeb7c153b/o/s01_brown.png"
+              }
+            },
+            "opacity": 1,
+            "hidden": false,
+            "locked": false,
+            "no_click_animation": false,
+            "placer_3d": [
+              1.6333920380320148,
+              1.8670976134003214,
+              -7.548516798947112,
+              0,
+              -12.23696053927272,
+              0,
+              1,
+              1,
+              1
+            ],
+            "wh": [
+              2.2,
+              2
+            ],
+            "scale": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            }
+          }
+        },
+        "1615297513825": {
+          "ep": {
+            "element_id": 1615297513825,
+            "element_name": "Capture Text_825",
+            "element_type": "capture_text",
+            "hidden": true,
+            "placeholder_text": "type here..",
+            "capture_text_mode": "textbox",
+            "min": 0,
+            "max": 1000,
+            "regex": "",
+            "regex_error_msg": "Input text does not match the given requirements."
+          }
+        }
+      },
+      "connections": {
+        "1615290874902": {
+          "cp": {
+            "we_order": [
+              1615290170205
+            ],
+            "ta_order": [
+              1615290724894
+            ],
+            "connection_id": 1615290874902,
+            "connection_name": "Rule_902",
+            "accent_color": "#8ED1FC",
+            "disabled": false,
+            "tracked": false,
+            "events_and": true
+          },
+          "when_events": {
+            "1615290170205": {
+              "ce_id": 1615290443340,
+              "event": "on_been_clicked",
+              "ce_type": "image_flat",
+              "event_id": 1615290170205,
+              "properties": []
+            }
+          },
+          "then_actions": {
+            "1615290724894": {
+              "ce_id": 1615290215919,
+              "delay": 0,
+              "action": "show",
+              "ce_type": "embedHtml",
+              "action_id": 1615290724894,
+              "properties": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "vars": {
+    "-8": {
+      "var_id": -8,
+      "var_name": "v_identifier_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    },
+    "-9": {
+      "var_id": -9,
+      "var_name": "platform_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    },
+    "-10": {
+      "var_id": -10,
+      "var_name": "browser_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    }
+  },
+  "shopping": {
+    "endpoint": null,
+    "show_cart": true,
+    "plugin_name": null,
+    "product_map": {},
+    "currencyPrefix": "",
+    "product_map_order": []
+  },
+  "version": 22
+}

@@ -1,0 +1,569 @@
+{
+  "pp": {
+    "languages": [],
+    "show_menu": true,
+    "whitelabel": false,
+    "description": "",
+    "show_logout": false,
+    "disable_gyro": false,
+    "scenes_order": [
+      1616913415966
+    ],
+    "api_templates": [],
+    "custom_script": "",
+    "enforce_chrome": false,
+    "menu_structure": [
+      {
+        "name": "",
+        "show": false,
+        "scene_no": 1616913415966
+      }
+    ],
+    "show_offlining": true,
+    "show_vr_button": true,
+    "zoom_level_fov": 75,
+    "enforce_vr_mode": false,
+    "optimize_images": false,
+    "initial_scene_no": 0,
+    "json_substitution": {},
+    "show_screen_reset": true,
+    "show_click_to_start": false,
+    "autotrack_connection": false,
+    "show_language_screen": false,
+    "show_vr_instructions": false,
+    "enforce_landscape_mode": false,
+    "show_fullscreen_button": true,
+    "contact_support_message": "",
+    "enforce_fullscreen_mode": false,
+    "project_end_description": "",
+    "project_start_description": "",
+    "auto_add_new_scene_to_menu": true,
+    "enforce_supported_browsers": true,
+    "vars_order": [
+      -8,
+      -9,
+      -10,
+      -2
+    ],
+    "lead_gen_fields": {},
+    "show_lead_gen": false,
+    "show_zoom_controls": false,
+    "allow_offlining": false
+  },
+  "vars": {
+    "-2": {
+      "var_id": -2,
+      "var_name": "score",
+      "var_type": "number",
+      "var_track": true,
+      "var_global": false,
+      "var_default": 0,
+      "var_readonly": false
+    },
+    "-8": {
+      "var_id": -8,
+      "var_name": "v_identifier_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    },
+    "-9": {
+      "var_id": -9,
+      "var_name": "platform_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    },
+    "-10": {
+      "var_id": -10,
+      "var_name": "browser_var",
+      "var_type": "string",
+      "var_track": true,
+      "var_global": false,
+      "var_default": "",
+      "var_readonly": true
+    }
+  },
+  "shopping": {
+    "products": {
+      "map": {},
+      "order": []
+    },
+    "shp": {
+      "store_name": null,
+      "plugin": null,
+      "endpoint": null,
+      "currency_prefix": "",
+      "show_cart": true
+    }
+  },
+  "scenes": {
+    "1616913415966": {
+      "sp": {
+        "scene_no": 1616913415966,
+        "scene_name": "Scene_895",
+        "elements_order": [
+          1616913125633,
+          1616913838150,
+          1616914113021,
+          1616914018750,
+          1616914093737,
+          1617084518127,
+          1617102063751,
+          1616914023940
+        ],
+        "scene_gyro_lock": false,
+        "connections_order": [
+          1617102265320,
+          1617101928271,
+          1617102056133,
+          1617101893553
+        ],
+        "scene_reset_rotation": true,
+        "scene_yaw_correction": 0,
+        "scene_pitch_correction": 0
+      },
+      "elements": {
+        "1616913125633": {
+          "ep": {
+            "wh": [
+              1.8,
+              2
+            ],
+            "scale": 1.4000000000000004,
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "id": 256107,
+              "name": "rateCard.png",
+              "file_paths": {
+                "o": "o/rateCard.png",
+                "t": "t/rateCard.png"
+              },
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/4b487a1b-365a-4ff5-85ab-86c71957c857/o/rateCard.png",
+                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/4b487a1b-365a-4ff5-85ab-86c71957c857/t/rateCard.png",
+                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri/4b487a1b-365a-4ff5-85ab-86c71957c857/o/rateCard.png"
+              },
+              "size": "22117"
+            },
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "placer_3d": [
+              4.002258994619845,
+              -1.601998862916096,
+              -6.203681876507673,
+              0,
+              -31.033933350637383,
+              0,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1616913125633,
+            "element_name": "Image_633",
+            "element_type": "image_flat",
+            "no_click_animation": false
+          }
+        },
+        "1616913838150": {
+          "ep": {
+            "wh": [
+              3.6,
+              2
+            ],
+            "scale": 1.4000000000000004,
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "id": 256111,
+              "name": "image-1616913210871.png",
+              "file_paths": {
+                "o": "o/image-1616913210871.png",
+                "t": "t/image-1616913210871.png"
+              },
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/d022d68b-c70d-454a-b953-8d0cbd7f4ef0/o/image-1616913210871.png",
+                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/d022d68b-c70d-454a-b953-8d0cbd7f4ef0/t/image-1616913210871.png",
+                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri/d022d68b-c70d-454a-b953-8d0cbd7f4ef0/o/image-1616913210871.png"
+              },
+              "size": "342396"
+            },
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "placer_3d": [
+              1.9174298908611096,
+              1.133977632559136,
+              -7.196125043892955,
+              0,
+              -12.500666744349486,
+              0,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1616913838150,
+            "element_name": "Image_633 (4)",
+            "element_type": "image_flat",
+            "no_click_animation": false
+          }
+        },
+        "1616914018750": {
+          "ep": {
+            "wh": [
+              5,
+              2
+            ],
+            "scale": 1,
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "id": 256108,
+              "name": "s01_welcome1.png",
+              "file_paths": {
+                "o": "o/s01_welcome1.png",
+                "t": "t/s01_welcome1.png"
+              },
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/e9e0813f-a31d-49fb-a18d-e2664332184e/o/s01_welcome1.png",
+                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/e9e0813f-a31d-49fb-a18d-e2664332184e/t/s01_welcome1.png",
+                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri/e9e0813f-a31d-49fb-a18d-e2664332184e/o/s01_welcome1.png"
+              },
+              "size": "18458"
+            },
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "placer_3d": [
+              -2.2644924333942393,
+              -1.3609546486275954,
+              -7.16082476605493,
+              0,
+              18.583198121997082,
+              0,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1616914018750,
+            "element_name": "Image_633 (1)",
+            "element_type": "image_flat",
+            "no_click_animation": false
+          }
+        },
+        "1616914023940": {
+          "ep": {
+            "source": {
+              "id": null,
+              "uri": "common/defaults/pano_default.jpg"
+            },
+            "element_id": 1616914023940,
+            "pano_radius": 1100,
+            "element_name": "Background",
+            "element_type": "pano_image",
+            "rotation_offset": 0,
+            "opacity": 1,
+            "hidden": false,
+            "locked": false,
+            "pano_type": "image"
+          }
+        },
+        "1616914093737": {
+          "ep": {
+            "wh": [
+              2.8,
+              2
+            ],
+            "scale": 1,
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "id": 256109,
+              "name": "Specification.png",
+              "file_paths": {
+                "o": "o/Specification.png",
+                "t": "t/Specification.png"
+              },
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/e43514cb-9632-40db-870e-7b868a909e0e/o/Specification.png",
+                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/e43514cb-9632-40db-870e-7b868a909e0e/t/Specification.png",
+                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri/e43514cb-9632-40db-870e-7b868a909e0e/o/Specification.png"
+              },
+              "size": "36714"
+            },
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "placer_3d": [
+              1.5427192016505762,
+              -1.347066204077522,
+              -7.228429374995546,
+              0,
+              -8.659218297736247,
+              0,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1616914093737,
+            "element_name": "Image_633 (2)",
+            "element_type": "image_flat",
+            "no_click_animation": false
+          }
+        },
+        "1616914113021": {
+          "ep": {
+            "wh": [
+              3,
+              2
+            ],
+            "scale": 1.4000000000000004,
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "id": 256110,
+              "name": "photo-of-person-holding-black-iphone-1434819.jpg",
+              "file_paths": {
+                "o": "o/photo-of-person-holding-black-iphone-1434819.jpg",
+                "t": "t/photo-of-person-holding-black-iphone-1434819.jpg"
+              },
+              "file_urls": {
+                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/373820f1-a978-4783-b768-34337320c16b/o/photo-of-person-holding-black-iphone-1434819.jpg",
+                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/373820f1-a978-4783-b768-34337320c16b/t/photo-of-person-holding-black-iphone-1434819.jpg",
+                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri/373820f1-a978-4783-b768-34337320c16b/o/photo-of-person-holding-black-iphone-1434819.jpg"
+              },
+              "size": "3304821"
+            },
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "placer_3d": [
+              -2.5492176689363157,
+              1.1546760503334619,
+              -6.904005395604457,
+              0,
+              21.234847726780732,
+              0,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1616914113021,
+            "element_name": "Image_633 (3)",
+            "element_type": "image_flat",
+            "no_click_animation": false
+          }
+        },
+        "1617084518127": {
+          "ep": {
+            "element_id": 1617084518127,
+            "element_name": "Score_127",
+            "element_type": "score"
+          }
+        },
+        "1617102063751": {
+          "ep": {
+            "wh": [
+              1.800000000000007,
+              0.7000000000000001
+            ],
+            "text": "{{score}}",
+            "scale": 1,
+            "hidden": false,
+            "locked": false,
+            "opacity": 1,
+            "animation": {
+              "name": "",
+              "speed": 1
+            },
+            "font_bold": false,
+            "font_size": 0.40000000000000013,
+            "placer_3d": [
+              -0.20597042529604026,
+              2.7343707723672455,
+              -6.3472524289484955,
+              1.7386722866174398,
+              1.6650346129131348,
+              -4.039673389941249e-17,
+              1,
+              1,
+              1
+            ],
+            "element_id": 1617102063751,
+            "font_color": "rgba(63, 191, 127, 1)",
+            "element_name": "Text_751",
+            "element_type": "text",
+            "no_click_animation": false
+          }
+        }
+      },
+      "connections": {
+        "1617101893553": {
+          "cp": {
+            "tracked": false,
+            "disabled": false,
+            "ta_order": [
+              1617102037681
+            ],
+            "we_order": [
+              1617102134984
+            ],
+            "events_and": true,
+            "accent_color": "#8ED1FC",
+            "connection_id": 1617101893553,
+            "connection_name": "Rule_553"
+          },
+          "when_events": {
+            "1617102134984": {
+              "ce_id": 1616914113021,
+              "event": "on_been_clicked",
+              "ce_type": "image_flat",
+              "event_id": 1617102134984,
+              "properties": []
+            }
+          },
+          "then_actions": {
+            "1617102037681": {
+              "ce_id": 1617084518127,
+              "delay": 0,
+              "action": "award_score",
+              "ce_type": "score",
+              "action_id": 1617102037681,
+              "properties": [
+                10
+              ]
+            }
+          }
+        },
+        "1617101928271": {
+          "cp": {
+            "tracked": false,
+            "disabled": false,
+            "ta_order": [
+              1617101770706
+            ],
+            "we_order": [
+              1617102048906
+            ],
+            "events_and": true,
+            "accent_color": "#8ED1FC",
+            "connection_id": 1617101928271,
+            "connection_name": "Rule_271"
+          },
+          "when_events": {
+            "1617102048906": {
+              "ce_id": 1616914018750,
+              "event": "on_been_clicked",
+              "ce_type": "image_flat",
+              "event_id": 1617102048906,
+              "properties": []
+            }
+          },
+          "then_actions": {
+            "1617101770706": {
+              "ce_id": 1617084518127,
+              "delay": 0,
+              "action": "award_score",
+              "ce_type": "score",
+              "action_id": 1617101770706,
+              "properties": [
+                -15
+              ]
+            }
+          }
+        },
+        "1617102056133": {
+          "cp": {
+            "tracked": false,
+            "disabled": false,
+            "ta_order": [
+              1617101719847
+            ],
+            "we_order": [
+              1617102057954
+            ],
+            "events_and": true,
+            "accent_color": "#8ED1FC",
+            "connection_id": 1617102056133,
+            "connection_name": "Rule_133"
+          },
+          "when_events": {
+            "1617102057954": {
+              "ce_id": 1616913838150,
+              "event": "on_been_clicked",
+              "ce_type": "image_flat",
+              "event_id": 1617102057954,
+              "properties": []
+            }
+          },
+          "then_actions": {
+            "1617101719847": {
+              "ce_id": 1617084518127,
+              "delay": 0,
+              "action": "award_score",
+              "ce_type": "score",
+              "action_id": 1617101719847,
+              "properties": [
+                40
+              ]
+            }
+          }
+        },
+        "1617102265320": {
+          "cp": {
+            "tracked": false,
+            "disabled": false,
+            "ta_order": [
+              1617102087165
+            ],
+            "we_order": [
+              1617102064321
+            ],
+            "events_and": true,
+            "accent_color": "#8ED1FC",
+            "connection_id": 1617102265320,
+            "connection_name": "Rule_320"
+          },
+          "when_events": {
+            "1617102064321": {
+              "ce_id": 1616914093737,
+              "event": "on_been_clicked",
+              "ce_type": "image_flat",
+              "event_id": 1617102064321,
+              "properties": []
+            }
+          },
+          "then_actions": {
+            "1617102087165": {
+              "ce_id": -2,
+              "delay": 0,
+              "action": "set_to_number",
+              "ce_type": "number",
+              "action_id": 1617102087165,
+              "properties": [
+                198
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "version": 29
+}

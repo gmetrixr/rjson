@@ -1,0 +1,32 @@
+{
+  "ep": {
+    "group_eid": -1,
+    "color": "#FFC1A3",
+    "animation": {
+      "name": "",
+      "speed": 1
+    },
+    "placer_3d": [
+      6.295714515126155,
+      0.6317472217668797,
+      -4.8771625183913025,
+      0,
+      -52.12478683560578,
+      0,
+      1,
+      1,
+      1
+    ],
+    "wireframe": false,
+    "scale": 1,
+    "hidden": false,
+    "locked": false,
+    "opacity": 1,
+    "element_name": "Polygon_718",
+    "no_click_animation": false,
+    "pivot_point": "center",
+    "sides": 3,
+    "element_type": "polygon",
+    "element_id": 1616001669718
+  }
+}

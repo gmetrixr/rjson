@@ -1,0 +1,1 @@
+{"id":1615297513825,"type":"element","props":{"element_type":"capture_input","hidden":true,"placeholder_text":"type here..","capture_iput_mode":"textbox","min":0,"max":1000,"regex":"","regex_error_msg":"Input text does not match the given requirements."},"name":"Capture Input_825"}

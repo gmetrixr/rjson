@@ -1,0 +1,140 @@
+{
+  "ep": {
+    "element_type": "quiz",
+    "element_id": 1614081803254,
+    "element_name": "Quiz_254",
+    "group_eid": -1,
+    "items_order": [
+      1614082596423,
+      1614082712597,
+      1614082712525
+    ],
+    "items": {
+      "1614082596423": {
+        "options_order": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "options": {
+          "1": {
+            "id": 1,
+            "text": "Server-side Framework",
+            "isChecked": false
+          },
+          "2": {
+            "id": 2,
+            "text": "User-interface framework",
+            "isChecked": false
+          },
+          "3": {
+            "id": 3,
+            "text": "Both",
+            "isChecked": true
+          },
+          "4": {
+            "id": 4,
+            "text": "None",
+            "isChecked": false
+          }
+        },
+        "id": 1614082596423,
+        "text": "What is ReactJS?",
+        "type": "single"
+      },
+      "1614082712597": {
+        "options_order": [
+          21,
+          22,
+          23,
+          24
+        ],
+        "options": {
+          "21": {
+            "id": 21,
+            "text": "this.getState()",
+            "isChecked": false
+          },
+          "22": {
+            "id": 22,
+            "text": "this.prototype.stateValue",
+            "isChecked": false
+          },
+          "23": {
+            "id": 23,
+            "text": "this.state",
+            "isChecked": false
+          },
+          "24": {
+            "id": 24,
+            "text": "this.values",
+            "isChecked": true
+          }
+        },
+        "id": 1614082712597,
+        "text": "How can you access the state of a component from inside of a member function?",
+        "type": "single"
+      },
+      "1614082712525": {
+        "options_order": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "options": {
+          "31": {
+            "id": 31,
+            "text": "useState",
+            "isChecked": true
+          },
+          "32": {
+            "id": 32,
+            "text": "useMagnet",
+            "isChecked": false
+          },
+          "33": {
+            "id": 33,
+            "text": "useMachine",
+            "isChecked": false
+          },
+          "34": {
+            "id": 34,
+            "text": "useEffects",
+            "isChecked": true
+          }
+        },
+        "id": 1614082712525,
+        "text": "Which is part of react hooks?",
+        "type": "multiple"
+      }
+    },
+    "quiz_instructions": {
+      "heading": {
+        "name": "",
+        "placeholder": "Start text",
+        "value": "ReactJS Multiple Choice Questions and Answers"
+      },
+      "correct_score": {
+        "name": "",
+        "placeholder": "Correct score",
+        "value": 10
+      },
+      "wrong_score": {
+        "name": "",
+        "placeholder": "Wrong score",
+        "value": 5
+      },
+      "pass_mark": {
+        "name": "",
+        "placeholder": "Pass mark",
+        "value": 5
+      }
+    },
+    "randomize_questions": false,
+    "background_source": {
+      "uri": ""
+    }
+  }
+}

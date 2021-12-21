@@ -1,0 +1,1789 @@
+{
+	"id": 1,
+	"type": "project",
+	"props": {
+		"show_menu": true,
+		"autotrack_connection": false,
+		"auto_add_new_scene_to_menu": true,
+		"enforce_landscape_mode": false,
+		"zoom_level_fov": 60,
+		"show_vr_instructions": false,
+		"enforce_vr_mode": false,
+		"enforce_fullscreen_mode": false,
+		"whitelabel": false,
+		"show_logout": true,
+		"show_language_screen": false,
+		"project_end_description": "",
+		"show_vr_button": true,
+		"json_substitution": {},
+		"api_templates": [],
+		"show_fullscreen_button": true,
+		"enforce_chrome": false,
+		"show_click_to_start": false,
+		"custom_script": "",
+		"enforce_supported_browsers": false,
+		"project_start_description": "",
+		"description": "",
+		"show_screen_reset": false,
+		"show_offlining": true,
+		"show_lead_gen": true,
+		"show_zoom_controls": false,
+		"allow_offlining": false,
+		"version": 113,
+		"initial_scene_id": 1598360479480
+	},
+	"records": {
+		"scene": {
+			"order": [
+				1598360479480,
+				1599057123577,
+				1599480663351
+			],
+			"map": {
+				"1598360479480": {
+					"id": 1598360479480,
+					"type": "scene",
+					"props": {
+						"scene_yaw_correction": 0,
+						"scene_reset_rotation": true,
+						"scene_gyro_lock": false,
+						"scene_pitch_correction": 0
+					},
+					"name": "Scene_825",
+					"records": {
+						"element": {
+							"order": [
+								1598360357437,
+								1598360418903,
+								1598360887369,
+								1598360602141,
+								1598360464541,
+								1598360441406,
+								1598360411439,
+								1598360224077,
+								1598360897488,
+								1598360237251,
+								1598360224427,
+								1598360518013,
+								1598360845920,
+								1598361033469,
+								1598361009355,
+								1598360384594,
+								1598361121407,
+								1598360467273,
+								1598360525658,
+								1598360478102,
+								1598360862292,
+								1598360480218,
+								1598360939900,
+								1598360435062,
+								1598360416015,
+								1598360744278,
+								1598360332580,
+								1598360620763,
+								1598361083800,
+								1599117250213,
+								1599117279806,
+								1599116938920,
+								1599712904528,
+								1602234360107
+							],
+							"map": {
+								"1598360357437": {
+									"id": 1598360357437,
+									"type": "element",
+									"props": {
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-4.192817226141854,
+											3.117662657465654,
+											-6.023864767943223,
+											0,
+											33.05893505358368,
+											0,
+											1,
+											1,
+											1
+										],
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"source": {
+											"uri": "common/defaults/gmetri_logo.glb",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/gmetri_logo.glb",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/organization/common/defaults/.thumbnail/gmetri_logo.png"
+											},
+											"name": "gmetri_logo"
+										},
+										"element_type": "object_3d",
+										"auto_rotate": false,
+										"auto_animation": false
+									},
+									"name": "3D Model_674"
+								},
+								"1598360418903": {
+									"id": 1598360418903,
+									"type": "element",
+									"props": {
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											3.5289528236631376,
+											-0.1422619759817897,
+											-7.150503744847548,
+											0,
+											-26.035280917057474,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"text": "Welcome to the Metaverse!",
+										"no_click_animation": false,
+										"font_size": 1,
+										"wh": [
+											6.5,
+											4
+										],
+										"font_color": "rgba(63, 191, 127, 1)",
+										"font_bold": false,
+										"element_type": "text"
+									},
+									"name": "Text_181"
+								},
+								"1598360887369": {
+									"id": 1598360887369,
+									"type": "element",
+									"props": {
+										"autoplay": false,
+										"audio_type": "ssml",
+										"loop": false,
+										"muted": false,
+										"audio_environmental": true,
+										"volume": 100,
+										"source": {
+											"uri": "common/defaults/audio.mp3",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/audio.mp3",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/common/thumbnails/audio.png"
+											},
+											"name": "audio"
+										},
+										"element_type": "audio_ssml",
+										"ssml": ""
+									},
+									"name": "Text to Speech_537"
+								},
+								"1598360602141": {
+									"id": 1598360602141,
+									"type": "element",
+									"props": {
+										"autoplay": false,
+										"audio_type": "upload",
+										"loop": false,
+										"muted": false,
+										"audio_environmental": true,
+										"volume": 100,
+										"source": {
+											"uri": "common/defaults/audio.mp3",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/audio.mp3",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/common/thumbnails/audio.png"
+											},
+											"name": "audio"
+										},
+										"element_type": "audio"
+									},
+									"name": "Audio Upload_407"
+								},
+								"1598360464541": {
+									"id": 1598360464541,
+									"type": "element",
+									"props": {
+										"autoplay": false,
+										"loop": false,
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											0.0195530761674873,
+											3.74193537676033,
+											-7.050718130142001,
+											0,
+											0.0826697109125865,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"muted": false,
+										"no_click_animation": false,
+										"wh": [
+											2,
+											2
+										],
+										"chroma_color": "rgba(108, 175, 127, 1)",
+										"volume": 100,
+										"chroma_effect": false,
+										"source": {
+											"uri": "common/defaults/video_default.mp4",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/video_default.mp4",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/organization/common/defaults/.thumbnail/video_default.mp4.png"
+											},
+											"name": "video_default"
+										},
+										"element_type": "video_flat"
+									},
+									"name": "Video_773"
+								},
+								"1598360441406": {
+									"id": 1598360441406,
+									"type": "element",
+									"props": {
+										"autoplay": true,
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											3.453704500331716,
+											-0.8422552878793697,
+											-7.150912815771735,
+											0,
+											-25.74882075317692,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"wh": [
+											2,
+											2
+										],
+										"source": {
+											"uri": "common/defaults/gmetri_logo.gif",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/gmetri_logo.gif",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/organization/common/defaults/.thumbnail/gmetri_logo.gif"
+											},
+											"name": "gmetri_logo"
+										},
+										"element_type": "gif"
+									},
+									"name": "GIF_097"
+								},
+								"1598360411439": {
+									"id": 1598360411439,
+									"type": "element",
+									"props": {
+										"icon_type": "",
+										"icon_id": "1f60a",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											0.2813601944941939,
+											-2.2922121896413046,
+											-7.637858599715759,
+											0,
+											-1.6395092663728614,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"icon_family": "",
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"icon_name": "blush",
+										"wh": [
+											2,
+											2
+										],
+										"element_type": "icon"
+									},
+									"name": "Emoji_757"
+								},
+								"1598360224077": {
+									"id": 1598360224077,
+									"type": "element",
+									"props": {
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-1.9057972568555352,
+											0.5793397118303895,
+											-7.670494090780803,
+											0,
+											13.790706366111683,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"wh": [
+											3,
+											2
+										],
+										"source": {
+											"uri": "organization/.used/gmetri/zinger/photo-of-person-holding-black-iphone-1434819.jpg",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/organization/.used/gmetri/zinger/photo-of-person-holding-black-iphone-1434819.jpg",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/organization/.used/gmetri/zinger/.thumbnail/photo-of-person-holding-black-iphone-1434819.jpg"
+											},
+											"name": "photo-of-person-holding-black-iphone-1434819"
+										},
+										"element_type": "image_flat"
+									},
+									"name": "Image_262"
+								},
+								"1598360897488": {
+									"id": 1598360897488,
+									"type": "element",
+									"props": {
+										"color": "#87BEE1",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-3.676126421519987,
+											-0.6831987574927447,
+											-7.052370975685213,
+											0,
+											27.20781562676363,
+											0,
+											1,
+											1,
+											1
+										],
+										"height": 3,
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"radius": 1,
+										"arc": 360,
+										"pivot_point": "center",
+										"element_type": "cylinder"
+									},
+									"name": "Cylinder_280"
+								},
+								"1598360237251": {
+									"id": 1598360237251,
+									"type": "element",
+									"props": {
+										"color": "#F9F98A",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											3.9655584596049493,
+											4.004466899789584,
+											-5.628562980616078,
+											0,
+											-31.647473818713024,
+											0,
+											1,
+											1,
+											1
+										],
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"arc": 360,
+										"pivot_point": "center",
+										"outer_radius": 1,
+										"inner_radius": 0.5,
+										"element_type": "torus"
+									},
+									"name": "Torus_864"
+								},
+								"1598360224427": {
+									"id": 1598360224427,
+									"type": "element",
+									"props": {
+										"color": "#A895E0",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-1.1926820999759058,
+											1.7326148225371478,
+											-7.706438819223781,
+											0,
+											8.722718053640106,
+											0,
+											1,
+											1,
+											1
+										],
+										"height": 3,
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"radius": 1,
+										"arc": 360,
+										"pivot_point": "center",
+										"element_type": "cone"
+									},
+									"name": "Cone_568"
+								},
+								"1598360518013": {
+									"id": 1598360518013,
+									"type": "element",
+									"props": {
+										"color": "#9AF4FF",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											3.1660072148601723,
+											-1.3944957302013845,
+											-7.176806771384543,
+											0,
+											-22.760116910102575,
+											0,
+											1,
+											1,
+											1
+										],
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"radius": 1,
+										"arc": 360,
+										"pivot_point": "center",
+										"element_type": "sphere"
+									},
+									"name": "Sphere_828"
+								},
+								"1598360845920": {
+									"id": 1598360845920,
+									"type": "element",
+									"props": {
+										"color": "#9FFF8A",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-2.26958540465391,
+											-3.217644941222901,
+											-6.918092361509759,
+											0,
+											16.076960291262793,
+											0,
+											1,
+											1,
+											1
+										],
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"pivot_point": "center",
+										"whd": [
+											1,
+											1,
+											1
+										],
+										"element_type": "cube"
+									},
+									"name": "Cube_328"
+								},
+								"1598361033469": {
+									"id": 1598361033469,
+									"type": "element",
+									"props": {
+										"color": "#FFC1A3",
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-5.213750356141973,
+											-0.24660668595458315,
+											-6.017964731932348,
+											0,
+											39.67850272236633,
+											0,
+											1,
+											1,
+											1
+										],
+										"wireframe": false,
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"pivot_point": "center",
+										"sides": 3,
+										"element_type": "polygon"
+									},
+									"name": "Polygon_495"
+								},
+								"1598361009355": {
+									"id": 1598361009355,
+									"type": "element",
+									"props": {
+										"element_type": "qrcode_matcher",
+										"qr_match_strings": {}
+									},
+									"name": "QR Code Matcher_680"
+								},
+								"1598360384594": {
+									"id": 1598360384594,
+									"type": "element",
+									"props": {
+										"element_type": "qrcode_browser"
+									},
+									"name": "QR Code Browser_488"
+								},
+								"1598361121407": {
+									"id": 1598361121407,
+									"type": "element",
+									"props": {
+										"element_type": "quiz",
+										"hidden": true,
+										"quiz_instructions": {
+											"pass_mark": {
+												"name": "",
+												"placeholder": "Pass mark"
+											},
+											"wrong_score": {
+												"name": "",
+												"placeholder": "Wrong score"
+											},
+											"correct_score": {
+												"name": "",
+												"placeholder": "Correct score"
+											},
+											"heading": {
+												"name": "",
+												"placeholder": "Start text"
+											}
+										},
+										"randomize_questions": false
+									},
+									"name": "Quiz_259"
+								},
+								"1598360467273": {
+									"id": 1598360467273,
+									"type": "element",
+									"props": {
+										"element_type": "wayfinder",
+										"text": "Hello",
+										"color": "rgba(63, 191, 127, 1)",
+										"wayfinder_size": "S"
+									},
+									"name": "Wayfinder_793"
+								},
+								"1598360525658": {
+									"id": 1598360525658,
+									"type": "element",
+									"props": {
+										"autoplay": true,
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											-4.601455362943542,
+											1.4893180124910297,
+											-6.331928641238843,
+											0,
+											33.38261004126961,
+											0,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"timer_duration": "01:00",
+										"timer_mode_countdown": false,
+										"wh": [
+											5,
+											2
+										],
+										"font_color": "#FFF",
+										"element_type": "timer"
+									},
+									"name": "Timer_670"
+								},
+								"1598360478102": {
+									"id": 1598360478102,
+									"type": "element",
+									"props": {
+										"element_type": "score"
+									},
+									"name": "Score_102"
+								},
+								"1598360862292": {
+									"id": 1598360862292,
+									"type": "element",
+									"props": {
+										"element_type": "speech"
+									},
+									"name": "Voice_977"
+								},
+								"1598360480218": {
+									"id": 1598360480218,
+									"type": "element",
+									"props": {
+										"element_type": "ar"
+									},
+									"name": "AR_107"
+								},
+								"1598360939900": {
+									"id": 1598360939900,
+									"type": "element",
+									"props": {
+										"element_type": "embed_html",
+										"embed_mode": "popup",
+										"embed_string": "<p>Paste your HTML code here.</p>"
+									},
+									"name": "Embed HTML_888"
+								},
+								"1598360435062": {
+									"id": 1598360435062,
+									"type": "element",
+									"props": {
+										"element_type": "share",
+										"share_attributes": {
+											"url": "",
+											"text": "",
+											"platforms": [
+												"facebook",
+												"twitter",
+												"linkedin"
+											],
+											"instruction": ""
+										}
+									},
+									"name": "Share_997"
+								},
+								"1598360416015": {
+									"id": 1598360416015,
+									"type": "element",
+									"props": {
+										"element_type": "media_upload",
+										"hidden": true,
+										"heading": "",
+										"description": "",
+										"upload_methods_allowed": "file"
+									},
+									"name": "Upload Media_015"
+								},
+								"1598360744278": {
+									"id": 1598360744278,
+									"type": "element",
+									"props": {
+										"element_type": "capture_input",
+										"hidden": false,
+										"placeholder_text": "type here.."
+									},
+									"name": "Capture Text_227"
+								},
+								"1598360332580": {
+									"id": 1598360332580,
+									"type": "element",
+									"props": {
+										"hidden": true,
+										"element_type": "product_card",
+										"heading": "",
+										"short_description": "",
+										"price": "",
+										"price_color": "rgba(72, 72, 72, 0.8)",
+										"description": "",
+										"image_sources": [],
+										"threed_source": {
+											"uri": ""
+										},
+										"show_add_to_cart": {
+											"cart_btn_link": "#",
+											"cart_btn_text": "Add to cart",
+											"show_cart_btn": false
+										}
+									},
+									"name": "Product Card_299"
+								},
+								"1598360620763": {
+									"id": 1598360620763,
+									"type": "element",
+									"props": {
+										"element_type": "actionbar",
+										"hidden": false,
+										"actionbar_head": "",
+										"actionbar_size": "medium",
+										"actionbar_position": "bottom"
+									},
+									"name": "Actionbar_473"
+								},
+								"1598361083800": {
+									"id": 1598361083800,
+									"type": "element",
+									"props": {
+										"element_type": "popup",
+										"hidden": true
+									},
+									"name": "Pop-Up_416"
+								},
+								"1599117250213": {
+									"id": 1599117250213,
+									"type": "element",
+									"props": {
+										"element_type": "embed_scorm",
+										"embed_scorm_url": "Paste link to your scorm package."
+									},
+									"name": "Embed SCORM_051"
+								},
+								"1599117279806": {
+									"id": 1599117279806,
+									"type": "element",
+									"props": {
+										"element_type": "instruction",
+										"autoplay": false,
+										"background_source": {
+											"uri": ""
+										}
+									},
+									"name": "Instruction_193"
+								},
+								"1599116938920": {
+									"id": 1599116938920,
+									"type": "element",
+									"props": {
+										"element_type": "ar"
+									},
+									"name": "AR_791"
+								},
+								"1599712904528": {
+									"id": 1599712904528,
+									"type": "element",
+									"props": {
+										"hidden": false,
+										"placeholder_text": "type here..",
+										"element_type": "capture_input",
+										"capture_input_mode": "textbox",
+										"min": 0,
+										"max": 1000,
+										"regex": "",
+										"regex_error_msg": "Input text does not match the given requirements."
+									},
+									"name": "Capture Text_631"
+								},
+								"1602234360107": {
+									"id": 1602234360107,
+									"type": "element",
+									"props": {
+										"autoplay": false,
+										"element_type": "instruction",
+										"background_source": {
+											"uri": ""
+										},
+										"instruction_stories": []
+									},
+									"name": "Instructions_107"
+								}
+							}
+						},
+						"rule": {
+							"order": [
+								1601479016695,
+								1600440390818,
+								1599713097496,
+								1599117158283,
+								1598360883265,
+								1598361476250,
+								1598361296971,
+								1598360790208,
+								1598360763103,
+								1626946632899
+							],
+							"map": {
+								"1601479016695": {
+									"id": 1601479016695,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_695",
+									"records": {
+										"when_event": {
+											"order": [
+												1601479464520
+											],
+											"map": {
+												"1601479464520": {
+													"id": 1601479464520,
+													"type": "when_event",
+													"props": {
+														"event": "on_load",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1600440390818": {
+									"id": 1600440390818,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_818",
+									"records": {
+										"when_event": {
+											"order": [
+												1600440000486
+											],
+											"map": {
+												"1600440000486": {
+													"id": 1600440000486,
+													"type": "when_event",
+													"props": {
+														"event": "on_load",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1600439819116
+											],
+											"map": {
+												"1600439819116": {
+													"id": 1600439819116,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "do_nothing",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1599713097496": {
+									"id": 1599713097496,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_496",
+									"records": {
+										"when_event": {
+											"order": [
+												1599713077944
+											],
+											"map": {
+												"1599713077944": {
+													"id": 1599713077944,
+													"type": "when_event",
+													"props": {
+														"event": "on_been_clicked",
+														"properties": [],
+														"co_id": 1598360441406,
+														"co_type": "gif"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1599713644957
+											],
+											"map": {
+												"1599713644957": {
+													"id": 1599713644957,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "gltf_preset_start",
+														"properties": [],
+														"co_id": 1598360357437,
+														"co_type": "object_3d"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1599117158283": {
+									"id": 1599117158283,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_283",
+									"records": {
+										"when_event": {
+											"order": [
+												1599117243543
+											],
+											"map": {
+												"1599117243543": {
+													"id": 1599117243543,
+													"type": "when_event",
+													"props": {
+														"event": "on_set_between",
+														"properties": [],
+														"co_id": 1599057120319,
+														"co_type": "number"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1599206727618
+											],
+											"map": {
+												"1599206727618": {
+													"id": 1599206727618,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "toggle_showhide",
+														"properties": [],
+														"co_id": -8,
+														"co_type": "string"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1598360883265": {
+									"id": 1598360883265,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_265",
+									"records": {
+										"when_event": {
+											"order": [
+												1598360850335
+											],
+											"map": {
+												"1598360850335": {
+													"id": 1598360850335,
+													"type": "when_event",
+													"props": {
+														"event": null,
+														"properties": [],
+														"co_id": 1598360525658,
+														"co_type": "timer"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1598361285646
+											],
+											"map": {
+												"1598361285646": {
+													"id": 1598361285646,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "do_nothing",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1598361476250": {
+									"id": 1598361476250,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_250",
+									"records": {
+										"when_event": {
+											"order": [
+												1598361336119,
+												1598361099183
+											],
+											"map": {
+												"1598361336119": {
+													"id": 1598361336119,
+													"type": "when_event",
+													"props": {
+														"event": "on_phrase_match",
+														"properties": [],
+														"co_id": 1598360862292,
+														"co_type": "speech"
+													}
+												},
+												"1598361099183": {
+													"id": 1598361099183,
+													"type": "when_event",
+													"props": {
+														"event": "on_match",
+														"properties": [],
+														"co_id": 1598361009355,
+														"co_type": "qrcode_matcher"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1598361439985,
+												1598360723026
+											],
+											"map": {
+												"1598361439985": {
+													"id": 1598361439985,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "play_resume",
+														"properties": [],
+														"co_id": 1598360887369,
+														"co_type": "audio_ssml"
+													}
+												},
+												"1598360723026": {
+													"id": 1598360723026,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "toggle_showhide",
+														"properties": [],
+														"co_id": 1598360237251,
+														"co_type": "torus"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1598361296971": {
+									"id": 1598361296971,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_971",
+									"records": {
+										"when_event": {
+											"order": [
+												1598361266430
+											],
+											"map": {
+												"1598361266430": {
+													"id": 1598361266430,
+													"type": "when_event",
+													"props": {
+														"event": "on_been_clicked",
+														"properties": [],
+														"co_id": 1598360418903,
+														"co_type": "text"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1598360760070
+											],
+											"map": {
+												"1598360760070": {
+													"id": 1598360760070,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "show",
+														"properties": [],
+														"co_id": 1598360411439,
+														"co_type": "icon"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1598360790208": {
+									"id": 1598360790208,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": false,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_208",
+									"records": {
+										"when_event": {
+											"order": [
+												1598361402299,
+												1598361246486
+											],
+											"map": {
+												"1598361402299": {
+													"id": 1598361402299,
+													"type": "when_event",
+													"props": {
+														"event": "on_been_clicked",
+														"properties": [],
+														"co_id": 1598360224077,
+														"co_type": "image_flat"
+													}
+												},
+												"1598361246486": {
+													"id": 1598361246486,
+													"type": "when_event",
+													"props": {
+														"event": "on_load",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1598361393367,
+												1598360981431
+											],
+											"map": {
+												"1598361393367": {
+													"id": 1598361393367,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "show",
+														"properties": [],
+														"co_id": 1598360845920,
+														"co_type": "cube"
+													}
+												},
+												"1598360981431": {
+													"id": 1598360981431,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "hide",
+														"properties": [],
+														"co_id": 1598360518013,
+														"co_type": "sphere"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1598360763103": {
+									"id": 1598360763103,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": false,
+										"accent_color": "#949fa8"
+									},
+									"name": "Rule_103",
+									"records": {
+										"when_event": {
+											"order": [
+												1598360893838,
+												1598360555427,
+												1598360849792
+											],
+											"map": {
+												"1598360893838": {
+													"id": 1598360893838,
+													"type": "when_event",
+													"props": {
+														"event": "on_set_between",
+														"properties": [
+															"100",
+															"200"
+														],
+														"co_id": 1598360954813,
+														"co_type": "number"
+													}
+												},
+												"1598360555427": {
+													"id": 1598360555427,
+													"type": "when_event",
+													"props": {
+														"event": "on_set_between",
+														"properties": [
+															"40",
+															"60"
+														],
+														"co_id": 1598360954813,
+														"co_type": "number"
+													}
+												},
+												"1598360849792": {
+													"id": 1598360849792,
+													"type": "when_event",
+													"props": {
+														"event": "on_been_clicked",
+														"properties": [],
+														"co_id": 1598360224077,
+														"co_type": "image_flat"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1598360812430,
+												1598360763441,
+												1598360909682
+											],
+											"map": {
+												"1598360812430": {
+													"id": 1598360812430,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "open_url",
+														"properties": [
+															"https://gmetri.com",
+															"new_page"
+														],
+														"co_id": -100,
+														"co_type": "experience"
+													}
+												},
+												"1598360763441": {
+													"id": 1598360763441,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "do_nothing",
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												},
+												"1598360909682": {
+													"id": 1598360909682,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "toggle_showhide",
+														"properties": [],
+														"co_id": 1598360464541,
+														"co_type": "video_flat"
+													}
+												}
+											}
+										}
+									}
+								},
+								"1626946632899": {
+									"id": 1626946632899,
+									"type": "rule",
+									"props": {
+										"disabled": false,
+										"tracked": false
+									},
+									"name": "Media Upload",
+									"records": {
+										"when_event": {
+											"order": [
+												1626947268727
+											],
+											"map": {
+												"1626947268727": {
+													"id": 1626947268727,
+													"type": "when_event",
+													"props": {
+														"event": "on_successful_upload",
+														"properties": [],
+														"co_type": "media_upload"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1626947048486
+											],
+											"map": {
+												"1626947048486": {
+													"id": 1626947048486,
+													"type": "then_action",
+													"props": {
+														"action": "set_to_input",
+														"delay": 0,
+														"co_id": -4,
+														"co_type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"1599057123577": {
+					"id": 1599057123577,
+					"type": "scene",
+					"props": {
+						"scene_yaw_correction": 0,
+						"scene_reset_rotation": true,
+						"scene_gyro_lock": false,
+						"scene_pitch_correction": 0
+					},
+					"name": "jd",
+					"records": {
+						"element": {
+							"order": [
+								1599541708063
+							],
+							"map": {
+								"1599541708063": {
+									"id": 1599541708063,
+									"type": "element",
+									"props": {
+										"element_type": "embed_scorm",
+										"embed_scorm_url": "Paste link to your scorm package."
+									},
+									"name": "Embed SCORM_302"
+								}
+							}
+						},
+						"rule": {
+							"order": [
+								1599056998728
+							],
+							"map": {
+								"1599056998728": {
+									"id": 1599056998728,
+									"type": "rule",
+									"props": {
+										"tracked": false,
+										"disabled": false,
+										"events_and": true,
+										"accent_color": "#8ED1FC"
+									},
+									"name": "Rule_728",
+									"records": {
+										"when_event": {
+											"order": [
+												1599057011743
+											],
+											"map": {
+												"1599057011743": {
+													"id": 1599057011743,
+													"type": "when_event",
+													"props": {
+														"event": null,
+														"properties": [],
+														"co_id": -99,
+														"co_type": "scene"
+													}
+												}
+											}
+										},
+										"then_action": {
+											"order": [
+												1599056972754
+											],
+											"map": {
+												"1599056972754": {
+													"id": 1599056972754,
+													"type": "then_action",
+													"props": {
+														"delay": 0,
+														"action": "take_screenshot",
+														"properties": [],
+														"co_id": -100,
+														"co_type": "experience"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"1599480663351": {
+					"id": 1599480663351,
+					"type": "scene",
+					"props": {
+						"scene_yaw_correction": 0,
+						"scene_reset_rotation": true,
+						"scene_gyro_lock": false,
+						"scene_pitch_correction": 0
+					},
+					"name": "Scene_404",
+					"records": {
+						"element": {
+							"order": [
+								1599480343102
+							],
+							"map": {
+								"1599480343102": {
+									"id": 1599480343102,
+									"type": "element",
+									"props": {
+										"animation": {
+											"name": "",
+											"speed": 1
+										},
+										"placer_3d": [
+											1.0176395540781003,
+											0.36038862701894303,
+											7.926823435367479,
+											2.5819672131146985,
+											-172.68442622950838,
+											8.456933873259309e-15,
+											1,
+											1,
+											1
+										],
+										"scale": 1,
+										"hidden": false,
+										"locked": false,
+										"opacity": 1,
+										"no_click_animation": false,
+										"wh": [
+											2,
+											2
+										],
+										"source": {
+											"uri": "common/defaults/image_flat.png",
+											"file_urls": {
+												"o": "https://s.vrgmetri.com/gb-fv4-public/common/defaults/image_flat.png",
+												"t": "https://s.vrgmetri.com/gb-fv4-public/organization/common/defaults/.thumbnail/image_flat.png"
+											},
+											"name": "image_flat"
+										},
+										"element_type": "image_flat"
+									},
+									"name": "Image_302"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"variable": {
+			"order": [
+				-8,
+				-9,
+				-2,
+				-4,
+				1598360954813,
+				1599056799556,
+				1599057213197,
+				1599057120319,
+				-10
+			],
+			"map": {
+				"-8": {
+					"id": -8,
+					"type": "variable",
+					"props": {
+						"var_type": "string",
+						"var_track": true,
+						"var_global": false,
+						"var_default": "",
+						"var_readonly": true
+					},
+					"name": "v_identifier_var"
+				},
+				"-9": {
+					"id": -9,
+					"type": "variable",
+					"props": {
+						"var_type": "string",
+						"var_track": true,
+						"var_global": false,
+						"var_default": "",
+						"var_readonly": true
+					},
+					"name": "platform_var"
+				},
+				"-2": {
+					"id": -2,
+					"type": "variable",
+					"props": {
+						"var_type": "number",
+						"var_track": true,
+						"var_global": false,
+						"var_default": 0,
+						"var_readonly": false
+					},
+					"name": "score"
+				},
+				"-4": {
+					"id": -4,
+					"type": "variable",
+					"props": {
+						"var_type": "string",
+						"var_track": true,
+						"var_global": false,
+						"var_default": "",
+						"var_readonly": true
+					},
+					"name": "media_upload_uri"
+				},
+				"1598360954813": {
+					"id": 1598360954813,
+					"type": "variable",
+					"props": {
+						"var_type": "number",
+						"var_track": false,
+						"var_global": false,
+						"var_default": 0,
+						"var_readonly": false
+					},
+					"name": "Score_stage_1"
+				},
+				"1599056799556": {
+					"id": 1599056799556,
+					"type": "variable",
+					"props": {
+						"var_type": "boolean",
+						"var_track": false,
+						"var_global": false,
+						"var_default": false,
+						"var_readonly": false
+					},
+					"name": "boolean_556"
+				},
+				"1599057213197": {
+					"id": 1599057213197,
+					"type": "variable",
+					"props": {
+						"var_type": "string",
+						"var_track": false,
+						"var_global": false,
+						"var_default": "hi there!",
+						"var_readonly": false
+					},
+					"name": "string_197"
+				},
+				"1599057120319": {
+					"id": 1599057120319,
+					"type": "variable",
+					"props": {
+						"var_type": "number",
+						"var_track": false,
+						"var_global": false,
+						"var_default": 0,
+						"var_readonly": false
+					},
+					"name": "number_319"
+				},
+				"-10": {
+					"id": -10,
+					"type": "variable",
+					"props": {
+						"var_type": "string",
+						"var_track": true,
+						"var_global": false,
+						"var_default": "",
+						"var_readonly": true
+					},
+					"name": "browser_var"
+				}
+			}
+		},
+		"menu": {
+			"order": [
+				1598360579480,
+				1599057223577,
+				1599480763351
+			],
+			"map": {
+				"1598360579480": {
+					"id": 1598360579480,
+					"type": "menu",
+					"props": {
+						"menu_scene_id": 1598360479480,
+						"menu_display_name": "",
+						"menu_show": false
+					}
+				},
+				"1599057223577": {
+					"id": 1599057223577,
+					"type": "menu",
+					"props": {
+						"menu_scene_id": 1599057123577,
+						"menu_display_name": "",
+						"menu_show": false
+					}
+				},
+				"1599480763351": {
+					"id": 1599480763351,
+					"type": "menu",
+					"props": {
+						"menu_scene_id": 1599480663351,
+						"menu_display_name": "",
+						"menu_show": false
+					}
+				}
+			}
+		},
+		"shopping": {
+			"order": [
+				1
+			],
+			"map": {
+				"1": {
+					"id": 1,
+					"type": "shopping",
+					"props": {}
+				}
+			}
+		},
+		"lead_gen_field": {
+			"order": [
+				1602233613174,
+				1602233820371,
+				1602234055723
+			],
+			"map": {
+				"1602233613174": {
+					"id": 1602233613174,
+					"type": "lead_gen_field",
+					"props": {
+						"type": "text",
+						"enabled": false,
+						"required": false,
+						"validation": "",
+						"is_viewername": false,
+						"var_id": -1
+					},
+					"name": ""
+				},
+				"1602233820371": {
+					"id": 1602233820371,
+					"type": "lead_gen_field",
+					"props": {
+						"type": "text",
+						"enabled": false,
+						"required": false,
+						"validation": "",
+						"is_viewername": false,
+						"var_id": -1
+					},
+					"name": " (1)"
+				},
+				"1602234055723": {
+					"id": 1602234055723,
+					"type": "lead_gen_field",
+					"props": {
+						"type": "text",
+						"enabled": false,
+						"required": false,
+						"validation": "",
+						"is_viewername": false,
+						"var_id": -1
+					},
+					"name": " (2)"
+				}
+			}
+		}
+	}
+}

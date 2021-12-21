@@ -1,0 +1,99 @@
+{
+  "id": 1639029207162,
+  "name": "Scene (2)",
+  "type": "scene",
+  "props": {
+    "scene_type": "first_person"
+  },
+  "records": {
+    "element": {
+      "map": {
+        "1639028973948": {
+          "id": 1639028973948,
+          "name": "Pano Image",
+          "type": "element",
+          "props": {
+            "hidden": false,
+            "locked": false,
+            "source": {
+              "name": "grid_02_white.jpg",
+              "type": "IMAGE",
+              "file_urls": {
+                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+              }
+            },
+            "stereo": false,
+            "opacity": 1,
+            "pano_radius": 900,
+            "element_type": "pano_image",
+            "pano_yaw_correction": 0,
+            "pano_pitch_correction": 0
+          }
+        },
+        "1639648138090": {
+          "id": 1639648138090,
+          "name": "Group",
+          "type": "element",
+          "props": {
+            "element_type": "group"
+          },
+          "records": {
+            "element": {
+              "map": {
+                "1639647914576": {
+                  "id": 1639647914576,
+                  "name": "Pano Image (1)",
+                  "type": "element",
+                  "props": {
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "name": "grid_02_white.jpg",
+                      "type": "IMAGE",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                        "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                      }
+                    },
+                    "stereo": false,
+                    "opacity": 1,
+                    "pano_radius": 900,
+                    "element_type": "pano_image",
+                    "pano_yaw_correction": 0,
+                    "pano_pitch_correction": 0
+                  }
+                },
+                "1639648027073": {
+                  "id": 1639648027073,
+                  "name": "Pano Image (2)",
+                  "type": "element",
+                  "props": {
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "name": "grid_02_white.jpg",
+                      "type": "IMAGE",
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                        "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                      }
+                    },
+                    "stereo": false,
+                    "opacity": 1,
+                    "pano_radius": 900,
+                    "element_type": "pano_image",
+                    "pano_yaw_correction": 0,
+                    "pano_pitch_correction": 0
+                  }
+                }
+              },
+              "order": [1639647914576, 1639648027073]
+            }
+          }
+        }
+      },
+      "order": [1639648138090, 1639028973948]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "ep": {
+    "element_type": "instruction",
+    "element_id": 1613726418377,
+    "element_name": "Instructions_377",
+    "items_order": [
+      1613726316773,
+      1613726496905,
+      1613726595933
+    ],
+    "group_eid": -1,
+    "autoplay": false,
+    "items": {
+      "1613726316773": {
+        "id": 1613726316773,
+        "text": "Watch",
+        "source": {
+          "uri": "",
+          "id": 179271,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/339fba5d-2d0f-4b91-9311-8a4cb3148ae9/o/1.jpg"
+          }
+        }
+      },
+      "1613726496905": {
+        "id": 1613726496905,
+        "text": "mobile",
+        "source": {
+          "uri": "",
+          "id": 166685,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/b0f73cf8-ec36-4ea6-85c7-61c4438bb13a/o/s3.jpg"
+          }
+        }
+      },
+      "1613726595933": {
+        "id": 1613726595933,
+        "text": "",
+        "source": {
+          "uri": "",
+          "id": 164612,
+          "file_urls": {
+            "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri/01b88327-89df-4331-a749-b951fb839e1d/o/photo-of-person-holding-black-iphone-1434819.jpg"
+          }
+        }
+      }
+    },
+    "background_source": {
+      "uri": ""
+    }
+  }
+}
