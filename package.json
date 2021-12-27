@@ -1,10 +1,10 @@
 {
-  "name": "@gmetrixr/r",
+  "name": "@gmetrixr/rjson",
   "version": "1.0.1",
   "description": "(R)ecursive Json",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "repository": "https://github.com/gmetrixr/r",
+  "repository": "https://github.com/gmetrixr/rjson",
   "author": "Sahil Ahuja <sahil@gmetri.com>",
   "sideEffects": false,
   "files": [
