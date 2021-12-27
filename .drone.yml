@@ -66,7 +66,7 @@ steps:
 #   - "git commit -am \"trigger: $N [no skip]\""
 #   - git push origin ${DRONE_BRANCH}
 #   - git push --tags origin ${DRONE_BRANCH}
-  
+
 trigger:
   branch: [main]
   event: [push, pull_request]
