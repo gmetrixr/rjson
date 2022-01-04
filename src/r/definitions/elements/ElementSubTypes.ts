@@ -54,7 +54,8 @@ export enum ElementType {
   instruction = "instruction",
   shopping_item="shopping_item", //for ecommerce integration,
   popup = "popup",
-  light = "light"
+  light = "light",
+  hotspot = "hotspot",
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -98,6 +99,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   carousel: "Pop-up",
   group: "Group",
   web_state: "Web State",
+  hotspot: "Hotspot",
 };
 
 export enum ElementCategory {
@@ -137,6 +139,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.text,
     ElementType.gif,
     ElementType.icon,
+    ElementType.hotspot
   ],
   audio: [
     ElementType.audio,
