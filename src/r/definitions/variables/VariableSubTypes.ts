@@ -105,3 +105,17 @@ export const predefinedVariableIdToName: Record<number, PredefinedVariableName> 
   [-11]: PredefinedVariableName.vrmode_var,
   [-12]: PredefinedVariableName.firstname_var,
 }
+
+export function convertVarValueToType(value: any, varType: VariableType): number | string | boolean {
+  switch(varType) {
+    // removing type check from here.
+    case VariableType.boolean: {
+      if(typeof value === "string") {
+        return value === "true";
+      }
+      return Boolean(value);
+    }
+    case VariableType.string: return value? value.toString(): "";
+    case VariableType.number: return Number(value);
+  }
+}
