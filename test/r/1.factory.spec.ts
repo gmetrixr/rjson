@@ -4,6 +4,7 @@ import { expect } from "chai";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import project_variable_template from "./jsons/project_variable_template.json";
 import project_reparenting from "./jsons/project_reparenting.json";
+import project_add_element_to_group from "./jsons/project_add_element_to_group.json";
 import { ProjectUtils } from "../../src/r/recordFactories/ProjectFactory";
 import { SceneProperty } from "../../src/r/recordTypes/Scene";
 import { ElementProperty } from "../../src/r/recordTypes/Element";
@@ -26,7 +27,7 @@ describe("r SceneFactory test", () => {
     const scene1 = scenes?.[0];
 
     if(scene1) {
-      const quizRecord = projectF.addElementOfTypeToScene(scene1.id, en.ElementType.quiz) as R.RecordNode<RT.element>;
+      const quizRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.quiz }) as R.RecordNode<RT.element>;
       const quizInstructionsKeys = Object.keys(quizRecord);
       expect(quizInstructionsKeys.includes("heading"));
     }
@@ -715,5 +716,22 @@ describe("Test ElementFactory methods", () => {
     expect(breadcrumbs.length).to.be.eq(2);
     expect(breadcrumbs[0]?.id).to.be.eq(2);
     expect(breadcrumbs[1]?.id).to.be.eq(32);
+  });
+});
+
+describe("Test adding an element to group", () => {
+  it("should add an element to a scene, reparent (move) it to the specified group", () => {
+    const projectF = r.project(project_add_element_to_group);
+    const destinationPos = 0;
+    
+    const addedRecord = projectF.addElementOfTypeToScene({ sceneId: 1625732430168, elementType: en.ElementType.cylinder, position: destinationPos, groupElementId: 1625732943565 }) as R.RecordNode<RT.element>;
+    
+    //* get the group where you've tried moving the element to
+    const scene = projectF.getRecord(RT.scene, 1625732430168) as RecordNode<RT.scene>;
+    const sceneF = r.scene(scene);
+    const group = sceneF.getRecord(RT.element, 1625732943565) as RecordNode<RT.element>;
+    
+    //* added record should be visible here now after reparenting
+    expect(group?.records?.element?.order.includes(addedRecord.id)).to.equal(true);
   });
 });

@@ -109,12 +109,34 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     return record;
   }
 
-  addElementOfTypeToScene (this: ProjectFactory, sceneId: number, elementType: ElementType, position?: number): RecordNode<RT.element> | undefined {
+  addElementOfTypeToScene (this: ProjectFactory, { sceneId, elementType, position, groupElementId }: { sceneId: number, elementType: ElementType, position?: number, groupElementId?: number }): RecordNode<RT.element> | undefined {
     const defaultName = ElementUtils.getElementDefinition(elementType).elementDefaultName;
     const newElement = createRecord<RT.element>(RT.element, undefined, defaultName);
     newElement.props = ElementUtils.getElementTypeDefaults(elementType);
     newElement.props.element_type = elementType;
-    return this.addSceneSubRecord<RT.element>(sceneId, newElement, position);
+
+    const newRecord = this.addSceneSubRecord<RT.element>(sceneId, newElement, position);
+
+    /*
+      if the record needs to be in a group inside this scene (this function would not be called to move the added record to a different scene),
+      get relevant addresses and re-parent the record
+    */
+    if(groupElementId) {
+      const scene = this.getRecord(RT.scene, sceneId) as RecordNode<RT.scene>;
+      const sceneF = new SceneFactory(scene);
+
+      const destParentAddr = sceneF.getDeepRecordAddress(groupElementId, RT.element);
+
+      const recordAddr = sceneF.getDeepRecordAddress(newElement.id, RT.element);
+      const sourceRecordAddr: { parentAddr: string; recordAddr: string; }[] = [{
+        recordAddr: `project:${this._json.id}|${recordAddr}`,
+        parentAddr: `project:${this._json.id}|scene:${sceneId}`
+      }];
+      
+      this.reParentRecordsWithAddress(destParentAddr, sourceRecordAddr);
+    }
+
+    return newRecord;
   }
   
   /**
@@ -900,7 +922,7 @@ export class ProjectUtils {
     projectF.set(rtp.project.version, 100);
     const scene = projectF.addBlankRecord(RT.scene);
     const sceneF = new SceneFactory(scene);
-    projectF.addElementOfTypeToScene(scene.id, ElementType.pano_image);
+    projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.pano_image });
     return project;
   }
 
