@@ -250,4 +250,9 @@ export enum lightType {
   directional = "directional"
 }
 
+export enum variantType {
+  design_one = "design_one",
+  design_two = "design_two"
+}
+
 export const SHOPPING_ITEM_ELEMENT_ID = -102

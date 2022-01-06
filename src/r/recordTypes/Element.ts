@@ -226,5 +226,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.media_upload_file_types]: [FileType.IMAGE, FileType.VIDEO, FileType.AUDIO, FileType.COMPRESSED, FileType.GIF, FileType.OTHER],
   [ElementProperty.always_open]: true,
   [ElementProperty.target_scene_id]: null,
-  [ElementProperty.variant]: 1,
+  [ElementProperty.variant]: "design_one",
 }
