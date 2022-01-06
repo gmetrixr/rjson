@@ -12,8 +12,8 @@ describe("rule event property default logs", () => {
     expect(rEventPropertyDefaults[WhenEventProperty.duration]).to.equal(0);
   });
 
-  it("should log default value for match_strings property", () => {
-      expect(rEventPropertyDefaults[WhenEventProperty.match_strings]).to.equal("");
+  it("should log default value for phrase property", () => {
+      expect(rEventPropertyDefaults[WhenEventProperty.phrase]).to.equal("");
   });
 });
 
