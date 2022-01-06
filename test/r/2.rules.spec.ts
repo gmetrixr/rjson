@@ -1,8 +1,21 @@
-import { r, RecordNode, RT, rtp } from "../../src/r";
+import { r, rn, RecordNode, RT, rtp } from "../../src/r";
 import { expect } from "chai";
 import { rulePrintUtils } from "../../src/r/definitions/rules";
 import projectSafehands from "./jsons/r3fJsons/projectsMigrated/project_safehands.json";
 import projectDealerxr from "./jsons/r3fJsons/projectsMigrated/project_dealerxr.json";
+
+const { rEventProperties, WhenEventProperty, rEventPropertyDefaults } = rn;
+
+
+describe("rule event property default logs", () => {
+  it("should log default value for duration property", () => { 
+    expect(rEventPropertyDefaults[WhenEventProperty.duration]).to.equal(0);
+  });
+
+  it("should log default value for match_strings property", () => {
+      expect(rEventPropertyDefaults[WhenEventProperty.match_strings]).to.equal("");
+  });
+});
 
 describe("r RecordFactory tests", () => {
   it("Should print rules", () => {

@@ -68,15 +68,22 @@ export enum RuleEvent {
 }
 
 export enum WhenEventProperty {
+  index = "index",
   timer_value = "timer_value",
+  phrase = "phrase",
+  id = "id",
+  value = "value",
   number_value = "number_value",
+  number_value_lower = "number_value_lower",
+  number_value_greater = "number_value_greater",
   duration = "duration",
+  match_strings = "match_strings",
   list_value = "list_value",
   score = "score",
   duration_value = "duration_value"
 }
 
-export const rEventProperties: Record<RuleEvent, Array<unknown>> = {
+export const rEventProperties: Record<RuleEvent, Array<WhenEventProperty | unknown>> = {
   on_ready: [],
   on_preload: [],
   on_load: [], // for scene load, to autostart things on scene load
@@ -84,53 +91,60 @@ export const rEventProperties: Record<RuleEvent, Array<unknown>> = {
   on_been_clicked: [],
   on_press: [],
   on_release: [],
-  on_select: ["index"],
+  on_select: [WhenEventProperty.index],
   on_swipeup: [],
   on_swipedown: [],
   on_swipeleft: [],
   on_swiperight: [],
   on_end: [],
-  on_timermatch: ["timer_value"], //additional property number
-  on_phrase_match: ["phrase"], // speech
+  on_timermatch: [WhenEventProperty.timer_value], //additional property number
+  on_phrase_match: [WhenEventProperty.phrase], // speech
   on_phrase_nomatch: [], // speech
-  on_click_item: ["id"], // on_click on any element item
+  on_click_item: [WhenEventProperty.id], // on_click on any element item
   on_var_change: [],
-  on_set_eq: ["value"],
-  on_set_not_eq: ["value"],
+  on_set_eq: [WhenEventProperty.value],
+  on_set_not_eq: [WhenEventProperty.value],
   on_set_true: [],
   on_set_false: [],
-  on_set_gt: ["number_value"], //additional property number
-  on_set_gte: ["number_value"], //additional property number
-  on_set_lt: ["number_value"], //additional property number
-  on_set_lte: ["number_value"], //additional property number
-  on_set_between: ["number_value_lower", "number_value_greater"], //additional property number
+  on_set_gt: [WhenEventProperty.number_value], //additional property number
+  on_set_gte: [WhenEventProperty.number_value], //additional property number
+  on_set_lt: [WhenEventProperty.number_value], //additional property number
+  on_set_lte: [WhenEventProperty.number_value], //additional property number
+  on_set_between: [WhenEventProperty.number_value_lower, WhenEventProperty.number_value_greater], //additional property number
   on_capture_input: [],
-  on_hover: ["duration"],
+  on_hover: [WhenEventProperty.duration],
 
-  on_match: ["match_strings"],
+  on_match: [WhenEventProperty.match_strings],
   on_nomatch: [],
   // for MediaUpload
   on_successful_upload: [],
   // ProductCard
   on_product_card_cta1_click: [],
   //is in list
-  on_is_in_list: ["list_value"],
-  on_is_not_in_list: ["list_value"],
+  on_is_in_list: [WhenEventProperty.list_value],
+  on_is_not_in_list: [WhenEventProperty.list_value],
   // for EmbedScorm
-  on_scorm_set_score: ["score"],
+  on_scorm_set_score: [WhenEventProperty.score],
   on_scorm_initialize: [],
   on_scorm_finish: [],
   //for popup and embedhtml
   on_close: [],
 
   // video duration match
-  on_duration_match: ["duration_value"],
+  on_duration_match: [WhenEventProperty.duration_value],
 };
 
 export const rEventPropertyDefaults: Record<WhenEventProperty, string | number | Array<unknown> > =  {
+  index: 0,
   timer_value: 0,
+  phrase: "",
+  id: 0,
+  value: 0,
   number_value: 0,
+  number_value_lower: 0,
+  number_value_greater: 0,
   duration: 0,
+  match_strings: "",
   list_value: [],
   score: 0,
   duration_value: 0
