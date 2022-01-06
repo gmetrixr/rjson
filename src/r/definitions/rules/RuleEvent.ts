@@ -134,7 +134,7 @@ export const rEventProperties: Record<RuleEvent, Array<WhenEventProperty | unkno
   on_duration_match: [WhenEventProperty.duration_value],
 };
 
-export const rEventPropertyDefaults: Record<WhenEventProperty, string | number | Array<unknown> > =  {
+export const rEventPropertyDefaults: Record<WhenEventProperty, Array<unknown> | string | number | null> =  {
   index: 0,
   timer_value: 0,
   phrase: "",
@@ -144,7 +144,7 @@ export const rEventPropertyDefaults: Record<WhenEventProperty, string | number |
   number_value_lower: 0,
   number_value_greater: 0,
   duration: 0,
-  match_strings: "",
+  match_strings: null,
   list_value: [],
   score: 0,
   duration_value: 0

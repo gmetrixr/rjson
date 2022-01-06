@@ -79,16 +79,28 @@ export enum RuleAction {
 
 export enum ThenActionProperty {
   seek_to = "seek_to",
+  element_id = "element_id",
   time = "time",
   volume = "volume",
+  scene_no = "scene_no",
   uri = "uri",
   target = "target",
   number_value = "number_value",
   string_value = "string_value",
-  score = "score"
+  score = "score",
+  position = "position",
+  angle = "angle",
+  speed = "speed",
+  effect_choice = "effect_choice",
+  gltf_preset_choice = "gltf_preset_choice",
+  loop = "loop",
+  actionbar_element_id = "actionbar_element_id",
+  sku = "sku",
+  url = "url",
+  product_sku = "product_sku",
 }
 
-export const rActionProperties: Record<RuleAction, Array<unknown>> = {
+export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | unknown>> = {
   autostart: [],
   rendered: [],
   viewer_state_updated: [],
@@ -97,81 +109,93 @@ export const rActionProperties: Record<RuleAction, Array<unknown>> = {
   hide: [],
   toggle_showhide: [],
   play_resume: [],
-  play_seek: ["seek_to"],
-  seek_to_timer: ["element_id"],
+  play_seek: [ThenActionProperty.seek_to],
+  seek_to_timer: [ThenActionProperty.element_id],
   seek_to_end: [],
   seek_to_input: [],
   pause: [],
   start: [],
-  timer_seek: ["time"],
+  timer_seek: [ThenActionProperty.time],
   reset: [],
 
   // audio
-  volume: ["volume"], // property to set media volume to a particular value
+  volume: [ThenActionProperty.volume], // property to set media volume to a particular value
   mute: [], // to mute media audio (volume 0)
   unmute: [], // to unmute media audio
 
   // scene
-  change_scene: ["scene_no"],
+  change_scene: [ThenActionProperty.scene_no],
   reset_all_vars: [],
 
-  open_url: ["uri", "target"], //uri_type is either template or direct
-  call_api: ["uri"], //uri_type is either template or direct
-  award_score: ["score"],
+  open_url: [ThenActionProperty.uri, ThenActionProperty.target], //uri_type is either template or direct
+  call_api: [ThenActionProperty.uri], //uri_type is either template or direct
+  award_score: [ThenActionProperty.score],
   // deprecated
-  move_to: ["position", "speed"],
+  move_to: [ThenActionProperty.position, ThenActionProperty.speed],
   // deprecated
-  rotate_by: ["angle", "speed"],
+  rotate_by: [ThenActionProperty.angle, ThenActionProperty.speed],
   gyro_lock: [],
   gyro_unlock: [],
   attach: [],
   detach: [],
-  effect_start: ["effect_choice", "speed"], //effect choice is either rotate or jump
-  effect_stop: ["effect_choice"],
-  gltf_preset_start: ["gltf_preset_choice", "loop"],
-  gltf_preset_stop: ["gltf_preset_choice"],
-  gltf_preset_start_all: ["loop"],
+  effect_start: [ThenActionProperty.effect_choice, ThenActionProperty.speed], //effect choice is either rotate or jump
+  effect_stop: [ThenActionProperty.effect_choice],
+  gltf_preset_start: [ThenActionProperty.gltf_preset_choice, ThenActionProperty.loop],
+  gltf_preset_stop: [ThenActionProperty.gltf_preset_choice],
+  gltf_preset_start_all: [ThenActionProperty.loop],
   gltf_preset_stop_all: [],
-  point_to: ["element_id"],
+  point_to: [ThenActionProperty.element_id],
   listen: [], // speech
   scan: [],
-  toggle_state: ["actionbar_element_id"],
+  toggle_state: [ThenActionProperty.actionbar_element_id],
   take_screenshot: [],
-  show_product_card: ["sku"],
+  show_product_card: [ThenActionProperty.sku],
   var_reset: [],
   set_to_input: [],
   set_true: [],
   set_false: [],
-  set_to_number: ["number_value"],
-  set_to_formula: ["string_value"],
+  set_to_number: [ThenActionProperty.number_value],
+  set_to_formula: [ThenActionProperty.string_value],
   add_input: [],
-  add_number: ["number_value"],
-  set_to_string: ["string_value"],
+  add_number: [ThenActionProperty.number_value],
+  set_to_string: [ThenActionProperty.string_value],
   append_input: [],
 
   toggle_play_pause: [],
   reset_session: [],
   end_experience: [],
-  copy_to_clipboard: ["string_value"],
-  load_project: ["url"],
-  set_scorm_score_min: ["score"],
-  set_scorm_score_max: ["score"],
-  set_scorm_score: ["score"],
+  copy_to_clipboard: [ThenActionProperty.string_value],
+  load_project: [ThenActionProperty.url],
+  set_scorm_score_min: [ThenActionProperty.score],
+  set_scorm_score_max: [ThenActionProperty.score],
+  set_scorm_score: [ThenActionProperty.score],
   set_scorm_passed: [],
   set_scorm_failed: [],
   set_scorm_completed: [],
-  show_product: ["product_sku"]
+  show_product: [ThenActionProperty.product_sku]
 };
 
-export const rActionPropertyDefaults: Record<ThenActionProperty, string | number> =  {
+export const rActionPropertyDefaults: Record<ThenActionProperty, string | number | null> =  {
   seek_to: 0,
+  element_id: 0,
   time: 0,
   volume: 0,
+  scene_no: 0,
   uri: "",
   target: "same_page",
   number_value: 0,
   string_value: "",
-  score: 0
+  score: 0,
+  position: null,
+  angle: null,
+  speed: null,
+  effect_choice: null,
+  gltf_preset_choice: null,
+  loop: null,
+  actionbar_element_id: 0,
+  sku: null,
+  url: "",
+  product_sku: null
 }
 
 export const rActionDisplayName: Record<RuleAction, string> = {
