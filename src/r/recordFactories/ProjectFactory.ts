@@ -125,7 +125,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const scene = this.getRecord(RT.scene, sceneId) as RecordNode<RT.scene>;
       const sceneF = new SceneFactory(scene);
 
-      const destParentAddr = sceneF.getDeepRecordAddress(groupElementId, RT.element);
+      const destParentAddr = `project:${this._json.id}|${sceneF.getDeepRecordAddress(groupElementId, RT.element)}`;
 
       const recordAddr = sceneF.getDeepRecordAddress(newElement.id, RT.element);
       const sourceRecordAddr: { parentAddr: string; recordAddr: string; }[] = [{
@@ -684,6 +684,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     const destParentRecord = this.getRecordAtAddress(destParentAddr);
     const reParentedRecords: RecordNode<RT>[] = [];
     const failedReParentedRecords: RecordNode<RT>[] = [];
+
     if(destParentRecord === null) {
       console.error(`[reParentRecordsWithAddress]: Error in re-parenting. destParentAddr: ${destParentAddr}`);
       return [reParentedRecords, failedReParentedRecords];

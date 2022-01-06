@@ -506,8 +506,7 @@ export class RecordFactory<T extends RT> {
       const [type, id] = record.split(":"); // [scene, 1]
       const recordF = new RecordFactory(currentRecord);
       // Number(undefined) = NaN, so this will work. Complexity of checking isNaN and hashmap lookup are same.
-      const children = recordF.getAllDeepChildrenWithFilter(type as RT, r => r.id === Number(id));
-      const child = children?.[0];
+      const child = recordF.getRecord(type as RT, Number(id));
 
       if(!child) {
         return null;
