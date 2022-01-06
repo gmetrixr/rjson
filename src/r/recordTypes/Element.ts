@@ -101,6 +101,7 @@ export enum ElementProperty {
   media_upload_file_types = "media_upload_file_types",
   always_open = "always_open",
   target_scene_id = "target_scene_id",
+  variant = "variant",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -225,4 +226,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.media_upload_file_types]: [FileType.IMAGE, FileType.VIDEO, FileType.AUDIO, FileType.COMPRESSED, FileType.GIF, FileType.OTHER],
   [ElementProperty.always_open]: true,
   [ElementProperty.target_scene_id]: null,
+  [ElementProperty.variant]: "design_one",
 }
