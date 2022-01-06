@@ -77,6 +77,17 @@ export enum RuleAction {
   set_scorm_completed = "set_scorm_completed",
 }
 
+export enum ThenActionProperty {
+  seek_to = "seek_to",
+  time = "time",
+  volume = "volume",
+  uri = "uri",
+  target = "target",
+  number_value = "number_value",
+  string_value = "string_value",
+  score = "score"
+}
+
 export const rActionProperties: Record<RuleAction, Array<unknown>> = {
   autostart: [],
   rendered: [],
@@ -107,7 +118,9 @@ export const rActionProperties: Record<RuleAction, Array<unknown>> = {
   open_url: ["uri", "target"], //uri_type is either template or direct
   call_api: ["uri"], //uri_type is either template or direct
   award_score: ["score"],
+  // deprecated
   move_to: ["position", "speed"],
+  // deprecated
   rotate_by: ["angle", "speed"],
   gyro_lock: [],
   gyro_unlock: [],
@@ -149,6 +162,17 @@ export const rActionProperties: Record<RuleAction, Array<unknown>> = {
   set_scorm_completed: [],
   show_product: ["product_sku"]
 };
+
+export const rActionPropertyDefaults: Record<ThenActionProperty, string | number> =  {
+  seek_to: 0,
+  time: 0,
+  volume: 0,
+  uri: "",
+  target: "same_page",
+  number_value: 0,
+  string_value: "",
+  score: 0
+}
 
 export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.do_nothing]: "",//Not used in UI

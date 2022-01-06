@@ -67,6 +67,15 @@ export enum RuleEvent {
   on_duration_match = "on_duration_match",
 }
 
+export enum WhenEventProperty {
+  timer_value = "timer_value",
+  number_value = "number_value",
+  duration = "duration",
+  list_value = "list_value",
+  score = "score",
+  duration_value = "duration_value"
+}
+
 export const rEventProperties: Record<RuleEvent, Array<unknown>> = {
   on_ready: [],
   on_preload: [],
@@ -117,6 +126,15 @@ export const rEventProperties: Record<RuleEvent, Array<unknown>> = {
   // video duration match
   on_duration_match: ["duration_value"],
 };
+
+export const rEventPropertyDefaults: Record<WhenEventProperty, string | number | Array<unknown> > =  {
+  timer_value: 0,
+  number_value: 0,
+  duration: 0,
+  list_value: [],
+  score: 0,
+  duration_value: 0
+}
 
 export const rEventDisplayName: Record<RuleEvent, string> = {
   [RuleEvent.on_preload]: "preloads",
