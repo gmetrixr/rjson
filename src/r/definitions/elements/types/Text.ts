@@ -24,7 +24,7 @@ export const Text: IElementDefinition = {
     ElementProperty.billboarding,
   ],
   defaultOverrides: {
-    [ElementProperty.text]: "Default Text",
+    [ElementProperty.text]: "Welcome to the metaverse",
     [ElementProperty.wh]: [6.5, 4],
     [ElementProperty.font_color]: "rgba(63, 191, 127, 1)",
   },
