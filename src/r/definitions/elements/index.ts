@@ -33,6 +33,7 @@ import { VideoFlat } from "./types/VideoFlat";
 import { WayFinder } from "./types/Wayfinder";
 import { Popup } from "./types/Popup";
 import { Light } from "./types/Light";
+import { Hotspot } from "./types/Hotspots";
 
 import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourceElementProperties, sourceItemProperties } from "./ElementSubTypes";
 export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourceElementProperties, sourceItemProperties };
@@ -75,7 +76,8 @@ export const elementList: IElementDefinition[] = [
   WayFinder,
   ImageFlat,
   Popup,
-  Light
+  Light,
+  Hotspot,
 ];
 
 /**
