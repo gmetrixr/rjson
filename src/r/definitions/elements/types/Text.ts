@@ -22,6 +22,15 @@ export const Text: IElementDefinition = {
     ElementProperty.font_family,
     ElementProperty.font_weight,
     ElementProperty.billboarding,
+
+    // background
+    ElementProperty.show_background,
+    ElementProperty.border_radius,
+    ElementProperty.background_color,
+    ElementProperty.background_opacity,
+    ElementProperty.padding,
+    ElementProperty.vertical_alignment,
+    ElementProperty.horizontal_alignment,
   ],
   defaultOverrides: {
     [ElementProperty.text]: "Welcome to the metaverse",
