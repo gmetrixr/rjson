@@ -100,8 +100,17 @@ export enum ElementProperty {
   media_upload_var_id = "media_upload_var_id",
   media_upload_file_types = "media_upload_file_types",
   always_open = "always_open",
+  // hotspot
   target_scene_id = "target_scene_id",
   variant = "variant",
+  // text background
+  show_background = "show_background",
+  border_radius = "border_radius",
+  background_color = "background_color",
+  background_opacity = "background_opacity",
+  padding = "padding",
+  vertical_alignment = "vertical_alignment",
+  horizontal_alignment = "horizontal_alignment",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -224,7 +233,17 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.media_upload_var_id]: 3000,
   // Other comprises of just PDF while defining this property
   [ElementProperty.media_upload_file_types]: [FileType.IMAGE, FileType.VIDEO, FileType.AUDIO, FileType.COMPRESSED, FileType.GIF, FileType.OTHER],
+  // hotspot
   [ElementProperty.always_open]: true,
   [ElementProperty.target_scene_id]: null,
   [ElementProperty.variant]: "design_one",
+  // text background
+  [ElementProperty.show_background]: false,
+  [ElementProperty.border_radius]: 0.05,
+  [ElementProperty.background_color]: "#222222",
+  [ElementProperty.background_opacity]: 1,
+  [ElementProperty.padding]: 0.05,
+  // https://github.com/felixmariotto/three-mesh-ui/wiki/API-documentation#list-of-attributes
+  [ElementProperty.vertical_alignment]: "center", // right|center|left
+  [ElementProperty.horizontal_alignment]: "center", // top|center|bottom
 }
