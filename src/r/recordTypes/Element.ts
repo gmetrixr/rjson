@@ -238,12 +238,12 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.target_scene_id]: null,
   [ElementProperty.variant]: "design_one",
   // text background
-  [ElementProperty.show_background]: false,
-  [ElementProperty.border_radius]: 0.05,
-  [ElementProperty.background_color]: "#222222",
-  [ElementProperty.background_opacity]: 1,
-  [ElementProperty.padding]: 0.05,
+  [ElementProperty.show_background]: false, //
+  [ElementProperty.border_radius]: 0.05, //
+  [ElementProperty.background_color]: "#222222", //
+  [ElementProperty.background_opacity]: 1, //
+  [ElementProperty.padding]: 0.05, //
   // https://github.com/felixmariotto/three-mesh-ui/wiki/API-documentation#list-of-attributes
-  [ElementProperty.vertical_alignment]: "center", // right|center|left
-  [ElementProperty.horizontal_alignment]: "center", // top|center|bottom
+  [ElementProperty.vertical_alignment]: "middle", // "top" | "middle" | "bottom"
+  [ElementProperty.horizontal_alignment]: "center", // "left" | "center" | "right"
 }
