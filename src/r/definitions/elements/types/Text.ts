@@ -26,6 +26,8 @@ export const Text: IElementDefinition = {
     // background
     ElementProperty.show_background,
     ElementProperty.border_radius,
+    ElementProperty.border_width,
+    ElementProperty.border_color,
     ElementProperty.background_color,
     ElementProperty.background_opacity,
     ElementProperty.padding,
