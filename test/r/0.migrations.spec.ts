@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { r, migrateProjectJson, rUtils, en, RT } from "../../src";
+import {r, migrateProjectJson, rUtils, en, RT, RecordNode} from "../../src";
 import { migrateElement } from "../../src/migrations/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
@@ -114,5 +114,11 @@ describe("r Migrations", () => {
       const properties = childAndParentThenAction.c.props.properties as string[];
       expect(properties[0]).to.eq("https://gmetri.com?{{device_var}}&test");
     }
+
+    // also test for text version migration
+    const scene = projectF.getRecord(RT.scene, 1632739370141) as RecordNode<RT.scene>;
+    const textElement = r.scene(scene).getRecord(RT.element, 1632739254816) as RecordNode<RT.element>;
+
+    expect(textElement.props.text_version).to.eq("v1");
   });
 });
