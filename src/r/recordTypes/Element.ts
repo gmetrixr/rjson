@@ -241,8 +241,8 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.target_scene_id]: null,
   [ElementProperty.variant]: "design_one",
   // text background
-  [ElementProperty.border_radius]: 0.05,
-  [ElementProperty.border_width]: 0.05,
+  [ElementProperty.border_radius]: 0,
+  [ElementProperty.border_width]: 0,
   [ElementProperty.border_color]: "#000000",
   [ElementProperty.border_opacity]: 1,
   [ElementProperty.background_color]: "#222222",
