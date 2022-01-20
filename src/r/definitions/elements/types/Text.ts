@@ -24,20 +24,21 @@ export const Text: IElementDefinition = {
     ElementProperty.billboarding,
 
     // background
-    ElementProperty.show_background,
     ElementProperty.border_radius,
     ElementProperty.border_width,
     ElementProperty.border_color,
+    ElementProperty.border_opacity,
     ElementProperty.background_color,
     ElementProperty.background_opacity,
     ElementProperty.padding,
     ElementProperty.vertical_alignment,
     ElementProperty.horizontal_alignment,
+    ElementProperty.text_version,
   ],
   defaultOverrides: {
-    [ElementProperty.text]: "Welcome to the metaverse",
+    [ElementProperty.text]: "welcome to the metaverse",
     [ElementProperty.wh]: [6.5, 4],
-    [ElementProperty.font_color]: "rgba(63, 191, 127, 1)",
+    [ElementProperty.font_color]: "#FFFFFF",
   },
   events: [
     ...BasicElement.events,

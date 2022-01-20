@@ -24,6 +24,7 @@ import m120_121 from "./r-migration-commands/m120_m121_enrich_predefined_vars";
 import m121_122 from "./r-migration-commands/m121_m122_quiz_fields";
 import m122_123 from "./r-migration-commands/m122_m123_scene_properties_rename";
 import m123_124 from "./r-migration-commands/m123_m124_enable_gyro";
+import m124_125 from "./r-migration-commands/m124_m125_add_text_version";
 
 export const rMigrationTree: {[key: number]: IOrder} = {
   [99]: m099_100,
@@ -51,4 +52,5 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [121]: m121_122,
   [122]: m122_123,
   [123]: m123_124,
+  [124]: m124_125,
 };

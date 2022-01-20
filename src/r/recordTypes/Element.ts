@@ -104,15 +104,16 @@ export enum ElementProperty {
   target_scene_id = "target_scene_id",
   variant = "variant",
   // text background
-  show_background = "show_background",
   border_radius = "border_radius",
   border_width = "border_width",
   border_color = "border_color",
+  border_opacity = "border_opacity",
   background_color = "background_color",
   background_opacity = "background_opacity",
   padding = "padding",
   vertical_alignment = "vertical_alignment",
   horizontal_alignment = "horizontal_alignment",
+  text_version = "text_version",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -240,14 +241,15 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.target_scene_id]: null,
   [ElementProperty.variant]: "design_one",
   // text background
-  [ElementProperty.show_background]: false,
   [ElementProperty.border_radius]: 0.05,
   [ElementProperty.border_width]: 0.05,
   [ElementProperty.border_color]: "#000000",
+  [ElementProperty.border_opacity]: 1,
   [ElementProperty.background_color]: "#222222",
   [ElementProperty.background_opacity]: 1,
-  [ElementProperty.padding]: 0.05,
+  [ElementProperty.padding]: 0,
   // https://github.com/felixmariotto/three-mesh-ui/wiki/API-documentation#list-of-attributes
   [ElementProperty.vertical_alignment]: "middle", // "top" | "middle" | "bottom"
   [ElementProperty.horizontal_alignment]: "center", // "left" | "center" | "right"
+  [ElementProperty.text_version]: "v2", // v1 | v2
 }
