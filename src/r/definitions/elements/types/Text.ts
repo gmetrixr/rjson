@@ -37,8 +37,9 @@ export const Text: IElementDefinition = {
   ],
   defaultOverrides: {
     [ElementProperty.text]: "welcome to the metaverse",
-    [ElementProperty.wh]: [6.5, 4],
+    [ElementProperty.wh]: [6.5, 3],
     [ElementProperty.font_color]: "#FFFFFF",
+    [ElementProperty.font_size]: 0.6,
   },
   events: [
     ...BasicElement.events,
