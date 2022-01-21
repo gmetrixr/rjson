@@ -30,6 +30,8 @@ export const ActionBar: IElementDefinition = {
   actions: [
     RuleAction.show,
     RuleAction.hide,
+    RuleAction.show_item,
+    RuleAction.hide_item,
     RuleAction.toggle_showhide,
   ]
 }

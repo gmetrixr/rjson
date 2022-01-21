@@ -75,6 +75,9 @@ export enum RuleAction {
   set_scorm_passed = "set_scorm_passed",
   set_scorm_failed = "set_scorm_failed",
   set_scorm_completed = "set_scorm_completed",
+  show_item = "show_item",
+  hide_item = "hide_item"
+
 }
 
 export enum ThenActionProperty {
@@ -172,7 +175,9 @@ export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | un
   set_scorm_passed: [],
   set_scorm_failed: [],
   set_scorm_completed: [],
-  show_product: [ThenActionProperty.product_sku]
+  show_product: [ThenActionProperty.product_sku],
+  show_item: [],
+  hide_item: []
 };
 
 export const rActionPropertyDefaults: Record<ThenActionProperty, string | number | null> =  {
@@ -263,4 +268,6 @@ export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.set_scorm_failed]: "set scorm status as failed",
   [RuleAction.set_scorm_completed]: "set scorm status as complete",
   [RuleAction.show_product]: "show product",
+  [RuleAction.show_item]: "show button",
+  [RuleAction.hide_item]: "hide button",
 };
