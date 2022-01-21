@@ -101,6 +101,7 @@ export enum ThenActionProperty {
   sku = "sku",
   url = "url",
   product_sku = "product_sku",
+  item_id = "item_id"
 }
 
 export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | unknown>> = {
@@ -200,7 +201,8 @@ export const rActionPropertyDefaults: Record<ThenActionProperty, string | number
   actionbar_element_id: 0,
   sku: null,
   url: "",
-  product_sku: null
+  product_sku: null,
+  item_id: 0
 }
 
 export const rActionDisplayName: Record<RuleAction, string> = {
