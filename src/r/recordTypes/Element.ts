@@ -242,11 +242,11 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.variant]: "design_one",
   // text background
   [ElementProperty.border_radius]: 0.2,
-  [ElementProperty.border_width]: 0.04,
+  [ElementProperty.border_width]: 0.02,
   [ElementProperty.border_color]: "#FFFFFF",
   [ElementProperty.border_opacity]: 1,
   [ElementProperty.background_color]: "#222222",
-  [ElementProperty.background_opacity]: 1,
+  [ElementProperty.background_opacity]: 0.9,
   [ElementProperty.padding]: 0,
   // https://github.com/felixmariotto/three-mesh-ui/wiki/API-documentation#list-of-attributes
   [ElementProperty.vertical_alignment]: "middle", // "top" | "middle" | "bottom"
