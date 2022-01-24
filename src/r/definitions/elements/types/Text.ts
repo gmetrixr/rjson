@@ -22,11 +22,24 @@ export const Text: IElementDefinition = {
     ElementProperty.font_family,
     ElementProperty.font_weight,
     ElementProperty.billboarding,
+
+    // background
+    ElementProperty.border_radius,
+    ElementProperty.border_width,
+    ElementProperty.border_color,
+    ElementProperty.border_opacity,
+    ElementProperty.background_color,
+    ElementProperty.background_opacity,
+    ElementProperty.padding,
+    ElementProperty.vertical_alignment,
+    ElementProperty.horizontal_alignment,
+    ElementProperty.text_version,
   ],
   defaultOverrides: {
-    [ElementProperty.text]: "Default Text",
-    [ElementProperty.wh]: [6.5, 4],
-    [ElementProperty.font_color]: "rgba(63, 191, 127, 1)",
+    [ElementProperty.text]: "welcome to the metaverse",
+    [ElementProperty.wh]: [6.5, 3],
+    [ElementProperty.font_color]: "#FFFFFF",
+    [ElementProperty.font_size]: 0.6,
   },
   events: [
     ...BasicElement.events,

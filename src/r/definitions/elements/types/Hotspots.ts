@@ -14,7 +14,8 @@ export const Hotspot: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.scale,
     ElementProperty.opacity,
-    ElementProperty.target_scene_id
+    ElementProperty.target_scene_id,
+    ElementProperty.variant,
   ],
   defaultOverrides: {},
   events: [],

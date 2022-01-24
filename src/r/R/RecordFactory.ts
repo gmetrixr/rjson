@@ -507,6 +507,7 @@ export class RecordFactory<T extends RT> {
       const recordF = new RecordFactory(currentRecord);
       // Number(undefined) = NaN, so this will work. Complexity of checking isNaN and hashmap lookup are same.
       const child = recordF.getRecord(type as RT, Number(id));
+
       if(!child) {
         return null;
       }
