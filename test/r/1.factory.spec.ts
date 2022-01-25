@@ -1,5 +1,5 @@
 import { createRecord, en, r, R, RecordNode, RT, rtp } from "../../src/r";
-import { migrateProjectJson } from "../../src/migrations/index";
+import { migrateProjectRJson } from "../../src/migrations/index";
 import { expect } from "chai";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import project_variable_template from "./jsons/project_variable_template.json";
@@ -86,7 +86,7 @@ describe("r RecordFactory tests", () => {
 
 describe("Test RecordNode addresses", () => {
   const parentAddr = `${safehands_r101.type}:${safehands_r101.id}`;
-  const safeHandMigrated = migrateProjectJson(safehands_r101);
+  const safeHandMigrated = migrateProjectRJson(safehands_r101);
   const recordF = r.record<RT.project>(safeHandMigrated);
 
   it("should return correct address of the RecordNode", () => {

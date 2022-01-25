@@ -39,13 +39,13 @@ import { VarCategory } from "../../src/r/definitions/variables";
 describe("r Migrations", () => {
   xit("should test r migration", () => {
     const r100 = migrateProjectRJson(safehands_r0, 100);
-    // const r101 = migrateProjectJson(safehands_r0, 101);
-    // const r107 = migrateProjectJson(accenture_r0);
-    // const emptyProject = migrateProjectJson({});
+    // const r101 = migrateProjectRJson(safehands_r0, 101);
+    // const r107 = migrateProjectRJson(accenture_r0);
+    // const emptyProject = migrateProjectRJson({});
     // // fs.writeFileSync("./test/r/jsons/accenture.json",JSON.stringify(r107));
 
-    // // const r102 = migrateProjectJson(safehands_r0, 102);
-    // // const rfinal = migrateProjectJson(safehands_r0);
+    // // const r102 = migrateProjectRJson(safehands_r0, 102);
+    // // const rfinal = migrateProjectRJson(safehands_r0);
     // // fs.writeFileSync("./test/t/jsons/safehands.r100.json",JSON.stringify(r100));
     // // fs.writeFileSync("./test/t/jsons/safehands.r101.json",JSON.stringify(r101));
     // expect(emptyProject?.records?.scene?.map[100111]?.id).to.deep.equal(100111);
