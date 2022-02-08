@@ -1,5 +1,5 @@
 import { RecordFactory } from "../R/RecordFactory";
-import { createRecord, RecordNode } from "../R/RecordNode";
+import { ClipboardR, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
 import { ElementType } from "../definitions/elements";
 import { ElementUtils, ElementFactory } from "./ElementFactory";
@@ -141,6 +141,26 @@ export class SceneFactory extends RecordFactory<RT.scene> {
         }
         elementF.addRecord(child);
       }
+    }
+  }
+
+  /**
+   * ISSUE : We were facing issue when we copy element from root to group, id for that element was duplicated and that was causing an issue. Below id fix for that
+   * this function will add record with new element id to prevent duplicate issue.
+   */
+  pasteFromClipboardObject(this: SceneFactory, obj: ClipboardR, position?: number): void {
+    if(obj.parentType !== this._type) {
+      console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
+      return;
+    }
+    for(const rn of obj.nodes) {
+      // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
+      rn.id = generateId();
+      if(rn.type === RT.element) {
+        // * generate new ids if required for child elements. ex: group element children
+        new ElementFactory(rn).dedupeChildElementIds();
+      }
+      this.addRecord(rn, position? position++: position);
     }
   }
 }
