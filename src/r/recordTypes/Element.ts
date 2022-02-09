@@ -114,6 +114,8 @@ export enum ElementProperty {
   vertical_alignment = "vertical_alignment",
   horizontal_alignment = "horizontal_alignment",
   text_version = "text_version",
+  // Can be used to set starting time for video and audio
+  start_time = "start_time",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -252,4 +254,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.vertical_alignment]: "middle", // "top" | "middle" | "bottom"
   [ElementProperty.horizontal_alignment]: "center", // "left" | "center" | "right"
   [ElementProperty.text_version]: "v2", // v1 | v2
+  [ElementProperty.start_time]: 0
 }

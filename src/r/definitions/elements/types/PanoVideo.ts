@@ -23,7 +23,8 @@ export const PanoVideo: IElementDefinition = {
     ElementProperty.locked,
 
     ElementProperty.stereo,
-    ElementProperty.pano_radius
+    ElementProperty.pano_radius,
+    ElementProperty.start_time,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
