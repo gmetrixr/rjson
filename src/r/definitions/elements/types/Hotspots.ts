@@ -16,8 +16,11 @@ export const Hotspot: IElementDefinition = {
     ElementProperty.opacity,
     ElementProperty.target_scene_id,
     ElementProperty.variant,
+    ElementProperty.color
   ],
-  defaultOverrides: {},
+  defaultOverrides: {
+    [ElementProperty.color]: "#0083EE"
+  },
   events: [],
   actions: []
 }
