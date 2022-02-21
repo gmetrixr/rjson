@@ -22,7 +22,7 @@ export const ActionBar: IElementDefinition = {
     [ElementProperty.color]: "#484848",
     [ElementProperty.opacity]: 0.8
   },
-  itemProperties: [ItemProperty.item_text, ItemProperty.item_source],
+  itemProperties: [ItemProperty.item_text, ItemProperty.item_source, ItemProperty.item_hidden],
   itemDefaultOverrides: {},
   events: [
     RuleEvent.on_click_item

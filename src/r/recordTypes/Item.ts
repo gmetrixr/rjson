@@ -4,6 +4,7 @@
 export enum ItemProperty {
   item_heading = "item_heading",
   item_text = "item_text",
+  item_hidden = "item_hidden",
   item_source = "item_source",
   item_source_type = "item_source_type",
   item_description = "item_description",
@@ -21,8 +22,10 @@ export enum ItemProperty {
 }
 
 export const itemPropertyDefaults: Record<ItemProperty, unknown> = {
+
   [ItemProperty.item_heading]: "",
   [ItemProperty.item_text]: "",
+  [ItemProperty.item_hidden]: false,
   [ItemProperty.item_source]: { uri: "", id: null },
   [ItemProperty.item_source_type]: "source_type",
   [ItemProperty.item_description]: "",
