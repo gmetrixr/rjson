@@ -11,7 +11,7 @@ const rMigrationVersions: number[] = Object.keys(rMigrationTree).map(numStr => p
 /**
  * Applies migrations for "r" type and returns a new project reference
  */
-export const migrateProjectJson = (projectJson: any, uptoVersion?: number): RecordNode<RT.project> => {
+export const migrateProjectRJson = (projectJson: any, uptoVersion?: number): RecordNode<RT.project> => {
   //Check if project hasn't been converted to recordNode yet
   if(projectJson?.props?.version === undefined || projectJson?.props?.version < 100) {
     //The following step converts the json to "r" type and makes the version number 100

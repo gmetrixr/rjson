@@ -130,14 +130,22 @@ export class RecordFactory<T extends RT> {
 
   changeRecordName<N extends RT>(this: RecordFactory<T>, type: N, id: number, newName?: string): RecordNode<N> | undefined {
     const record = this.getRecord(type, id);
-    if (record === undefined) return undefined;
+    if (record === undefined) {
+      return undefined;
+    }
     const defaultName = recordTypeDefinitions[type].defaultName;
-    if (defaultName === undefined) return undefined; //This means that this type doesn't use name
-    if (newName === undefined) newName = defaultName;
+    if (defaultName === undefined) {
+      //This means that this type doesn't use name
+      return undefined;
+    }
+    if (newName === undefined) {
+      newName = defaultName;
+    }
     const existingNames = <Array<string>>this.getRecords(type)
       .filter(r => r.id !== id) //remove the same record itself
       .map(n => n.name) //convert records to names
       .filter(name => name !== undefined); //remove undefined names
+
     if (existingNames.includes(newName)) {
       record.name = getSafeName(newName, existingNames);
     } else {
@@ -184,8 +192,15 @@ export class RecordFactory<T extends RT> {
         console.log(`The type ${this._json.type} doesn't allow addition of ${record.type} records`);
         return undefined;
       }
-      if (this._json.records === undefined) this._json.records = {};
-      this._json.records[record.type] = { order: [record.id], map: { [record.id]: record } };
+      if (this._json.records === undefined) {
+        this._json.records = {};
+      }
+      this._json.records[record.type] = {
+        order: [record.id],
+        map: {
+          [record.id]: record
+        }
+      };
     } else {
       const defaultName = recordTypeDefinitions[record.type].defaultName;
       if (defaultName !== undefined) { //This means that this type uses name

@@ -115,6 +115,8 @@ export enum ElementProperty {
   horizontal_alignment = "horizontal_alignment",
   text_version = "text_version",
   hover_animation = "hover_animation",
+  // Can be used to set starting time for video and audio
+  start_time = "start_time",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -254,4 +256,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.horizontal_alignment]: "center", // "left" | "center" | "right"
   [ElementProperty.text_version]: "v2", // v1 | v2
   [ElementProperty.hover_animation]: true,
+  [ElementProperty.start_time]: 0
 }

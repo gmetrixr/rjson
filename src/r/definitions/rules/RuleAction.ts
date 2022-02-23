@@ -60,7 +60,7 @@ export enum RuleAction {
   add_number = "add_number", //additional property number_value. This additional property resides in triggeredAction.properties[0] as part of this Action
   //string:
   set_to_string = "set_to_string", //additional property string_value
-  set_to_string_replace = "set_to_string_replace", //additional properties string_value, old, new
+  find_replace = "find_replace", //additional properties old, new, destinationVarId
   append_input = "append_input", //takes value transmitted in the triggeredAction.values[0] from the event of the connection
 
   viewer_state_updated = "viewer_state_updated",
@@ -104,6 +104,7 @@ export enum ThenActionProperty {
   item_id = "item_id",
   old = "old",
   new = "new",
+  var_id = "var_id"
 }
 
 export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | unknown>> = {
@@ -165,7 +166,7 @@ export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | un
   add_input: [],
   add_number: [ThenActionProperty.number_value],
   set_to_string: [ThenActionProperty.string_value],
-  set_to_string_replace: [ThenActionProperty.string_value, ThenActionProperty.old, ThenActionProperty.new],
+  find_replace: [ThenActionProperty.old, ThenActionProperty.new, ThenActionProperty.var_id],
   append_input: [],
 
   toggle_play_pause: [],
@@ -208,6 +209,7 @@ export const rActionPropertyDefaults: Record<ThenActionProperty, string | number
   item_id: null,
   old: "",
   new: "",
+  var_id: 0,
 }
 
 export const rActionDisplayName: Record<RuleAction, string> = {
@@ -262,7 +264,7 @@ export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.add_input]: "add captured value",
   [RuleAction.add_number]: "add number",
   [RuleAction.set_to_string]: "set to string",
-  [RuleAction.set_to_string_replace]: "set to string after find/replace on",
+  [RuleAction.find_replace]: "find and replace",
   [RuleAction.append_input]: "append capture data",
   [RuleAction.toggle_play_pause]: "toggle play/pause",
   [RuleAction.reset_session]: "reset session",

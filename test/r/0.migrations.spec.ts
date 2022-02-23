@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import {r, migrateProjectJson, rUtils, en, RT, RecordNode} from "../../src";
+import {r, migrateProjectRJson, rUtils, en, RT, RecordNode} from "../../src";
 import { migrateElement } from "../../src/migrations/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
@@ -38,14 +38,14 @@ import { VarCategory } from "../../src/r/definitions/variables";
 
 describe("r Migrations", () => {
   xit("should test r migration", () => {
-    const r100 = migrateProjectJson(safehands_r0, 100);
-    // const r101 = migrateProjectJson(safehands_r0, 101);
-    // const r107 = migrateProjectJson(accenture_r0);
-    // const emptyProject = migrateProjectJson({});
+    const r100 = migrateProjectRJson(safehands_r0, 100);
+    // const r101 = migrateProjectRJson(safehands_r0, 101);
+    // const r107 = migrateProjectRJson(accenture_r0);
+    // const emptyProject = migrateProjectRJson({});
     // // fs.writeFileSync("./test/r/jsons/accenture.json",JSON.stringify(r107));
 
-    // // const r102 = migrateProjectJson(safehands_r0, 102);
-    // // const rfinal = migrateProjectJson(safehands_r0);
+    // // const r102 = migrateProjectRJson(safehands_r0, 102);
+    // // const rfinal = migrateProjectRJson(safehands_r0);
     // // fs.writeFileSync("./test/t/jsons/safehands.r100.json",JSON.stringify(r100));
     // // fs.writeFileSync("./test/t/jsons/safehands.r101.json",JSON.stringify(r101));
     // expect(emptyProject?.records?.scene?.map[100111]?.id).to.deep.equal(100111);
@@ -85,7 +85,7 @@ describe("r Migrations", () => {
   });
 
   it("should test migrations on a new project", () => {
-    const newProject = migrateProjectJson(rUtils.ProjectUtils.createNewProject());
+    const newProject = migrateProjectRJson(rUtils.ProjectUtils.createNewProject());
     const projectF = r.project(newProject);
     const initialSceneId = projectF.getInitialSceneId();
     // 100111 is the default id injected when migrating from a t -> r project json
@@ -99,7 +99,7 @@ describe("r Migrations", () => {
   });
 
   it("should test new migrations on vars and templates", () => {
-    const newProject = migrateProjectJson(platformVarMigrationJson);
+    const newProject = migrateProjectRJson(platformVarMigrationJson);
     const projectF = r.project(newProject);
     const deviceVar = projectF.getRecord(RT.variable, -9);
     expect(deviceVar?.props.var_category).to.eq(VarCategory.predefined);

@@ -1,4 +1,4 @@
-import { migrateProjectJson, gv } from "./migrations";
+import { migrateProjectRJson, gv } from "./migrations";
 
 import {
   R, r, RF, rUtils,
@@ -30,5 +30,5 @@ export {
 
 export {
   gv,
-  migrateProjectJson
+  migrateProjectRJson
 };

@@ -24,6 +24,7 @@ export const VideoFlat: IElementDefinition = {
     ElementProperty.chroma_color,
     ElementProperty.animation,
     ElementProperty.billboarding,
+    ElementProperty.start_time,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {

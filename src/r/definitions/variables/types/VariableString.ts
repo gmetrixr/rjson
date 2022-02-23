@@ -16,7 +16,7 @@ export const VariableString: IVariableDefinition = {
     RuleAction.var_reset,
     RuleAction.set_to_input,
     RuleAction.set_to_string,
-    RuleAction.set_to_string_replace,
+    RuleAction.find_replace,
     RuleAction.append_input,
   ]
 }

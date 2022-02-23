@@ -34,12 +34,32 @@ export class ElementFactory extends RecordFactory<RT.element> {
     }
     for(const rn of obj.nodes) {
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
-      rn.id = generateId()
+      rn.id = generateId();
+      // * generate new ids if required for child elements. ex: group children
+      new ElementFactory(rn).dedupeChildElementIds();
       super.addRecord(rn, position? position++: position);
     }
   }
 
-  getElementType (this: ElementFactory): ElementType { return this.elementType; }
+  /**
+   * Regenerate new element_id for all children recursively
+   */
+  dedupeChildElementIds(this: ElementFactory): void {
+    if(this.elementType === en.ElementType.group) {
+      // change ids of all children
+      const children = this.getRecords(RT.element);
+      for(const c of children) {
+        this.changeRecordId(RT.element, c.id);
+        if(c.props.element_type === en.ElementType.group) {
+          new ElementFactory(c).dedupeChildElementIds();
+        }
+      }
+    }
+  }
+
+  getElementType(this: ElementFactory): ElementType {
+    return this.elementType;
+  }
   set(this: ElementFactory, property: RTP[RT.element], value: unknown): ElementFactory {
     super.set(property, value);
     if(property === rtp.element.element_type && (typeof value === "string") && isElementType(value)) {
