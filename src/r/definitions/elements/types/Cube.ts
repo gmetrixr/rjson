@@ -12,7 +12,7 @@ export const Cube: IElementDefinition = {
     ElementProperty.hidden,
     ElementProperty.locked,
     ElementProperty.wireframe,
-    ElementProperty.no_click_animation,
+    ElementProperty.hover_animation,
     ElementProperty.pivot_point,
     ElementProperty.placer_3d,
     ElementProperty.whd,

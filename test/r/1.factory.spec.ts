@@ -725,7 +725,7 @@ describe("Test adding an element to group", () => {
     const destinationPos = 0;
     
     const addedRecord = projectF.addElementOfTypeToScene({ sceneId: 1625732430168, elementType: en.ElementType.cylinder, position: destinationPos, groupElementId: 1625732943565 }) as R.RecordNode<RT.element>;
-    
+    console.log(addedRecord);
     //* get the group where you wanted to add the element to
     const scene = projectF.getRecord(RT.scene, 1625732430168) as RecordNode<RT.scene>;
     const sceneF = r.scene(scene);

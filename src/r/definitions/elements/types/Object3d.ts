@@ -14,7 +14,7 @@ export const Object3d: IElementDefinition = {
     ElementProperty.wireframe,
     ElementProperty.auto_rotate,
     ElementProperty.auto_animation,
-    ElementProperty.no_click_animation,
+    ElementProperty.hover_animation,
     ElementProperty.locked,
     ElementProperty.placer_3d,
     ElementProperty.scale,

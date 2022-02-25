@@ -16,9 +16,11 @@ class Migration implements IOrder {
       const sceneF = r.record(scene);
 
       //* all elements that have no_click_animation property in their props
-      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => r.element(e).get(rtp.element.no_click_animation) !== undefined);
+      //@ts-ignore
+      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => r.element(e).get("no_click_animation") !== undefined);
 
       for(const element of elements) {
+        //@ts-ignore
         element.props.hover_animation = !element.props.no_click_animation;
         delete (element.props as any).no_click_animation;
       }

@@ -14,7 +14,7 @@ export const Text: IElementDefinition = {
     ElementProperty.font_bold,
     ElementProperty.hidden,
     ElementProperty.locked,
-    ElementProperty.no_click_animation,
+    ElementProperty.hover_animation,
     ElementProperty.placer_3d,
     ElementProperty.wh,
     ElementProperty.scale,
