@@ -10,7 +10,7 @@ export const Sphere: IElementDefinition = {
     ElementProperty.opacity,
     ElementProperty.color,
     ElementProperty.wireframe,
-    ElementProperty.no_click_animation,
+    ElementProperty.hover_animation,
     ElementProperty.locked,
     ElementProperty.hidden,
     ElementProperty.pivot_point,

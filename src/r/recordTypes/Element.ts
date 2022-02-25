@@ -68,7 +68,6 @@ export enum ElementProperty {
   chroma_effect = "chroma_effect",
   chroma_color = "chroma_color",
   share_attributes = "share_attributes",
-  no_click_animation = "no_click_animation",
   randomize_questions = "randomize_questions",
   embed_string = "embed_string",
   source_ar = "source_ar",
@@ -210,7 +209,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   // camera => select file from device
   // file_camera => select file from device OR take an image from camera
   //[ElementProperty.media_upload_method]: "file", Changed to upload_methods_allowed
-  [ElementProperty.no_click_animation]: false,
   [ElementProperty.randomize_questions]: false,
   [ElementProperty.embed_string]: "<p>Paste your HTML code here.</p>",
   [ElementProperty.source_ar]: { },

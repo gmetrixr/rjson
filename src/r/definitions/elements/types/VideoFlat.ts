@@ -16,7 +16,7 @@ export const VideoFlat: IElementDefinition = {
     ElementProperty.locked,
     ElementProperty.muted,
     ElementProperty.loop,
-    ElementProperty.no_click_animation,
+    ElementProperty.hover_animation,
     ElementProperty.placer_3d,
     ElementProperty.wh,
     ElementProperty.scale,
