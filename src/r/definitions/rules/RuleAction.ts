@@ -77,7 +77,8 @@ export enum RuleAction {
   set_scorm_failed = "set_scorm_failed",
   set_scorm_completed = "set_scorm_completed",
   show_item = "show_item",
-  hide_item = "hide_item"
+  hide_item = "hide_item",
+  replace_screen_reader_text = "replace_screen_reader_text",
 }
 
 export enum ThenActionProperty {
@@ -182,7 +183,8 @@ export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | un
   set_scorm_completed: [],
   show_product: [ThenActionProperty.product_sku],
   show_item: [ThenActionProperty.item_id],
-  hide_item: [ThenActionProperty.item_id]
+  hide_item: [ThenActionProperty.item_id],
+  replace_screen_reader_text: [ThenActionProperty.string_value],
 };
 
 export const rActionPropertyDefaults: Record<ThenActionProperty, string | number | null> =  {
@@ -280,4 +282,5 @@ export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.show_product]: "show product",
   [RuleAction.show_item]: "show button",
   [RuleAction.hide_item]: "hide button",
+  [RuleAction.replace_screen_reader_text]: "replace screen reader text",
 };
