@@ -63,7 +63,9 @@ export enum PredefinedVariableName {
   device_var = "device_var",
   browser_var = "browser_var",
   /** This variable updates at runtime */
-  vrmode_var = "vrmode_var"
+  vrmode_var = "vrmode_var",
+  scorm_progress = "scorm_progress",
+  scorm_suspend_data = "scorm_suspend_data",
 }
 
 /**
@@ -88,11 +90,13 @@ export const predefinedVariableDefaults: Record<PredefinedVariableName, Predefin
   [PredefinedVariableName.lang]: {id: -3, type: VariableType.string, description: "In case Language Tools are used, the language defined in that section gets stored here." },
   [PredefinedVariableName.v_identifier_var]: {id: -8, type: VariableType.string, 
     description: "Stores the unique identifier of the viewer viewing this experience. Can be email/name etc. - depends on the authenticaion mechanism used in the Deployment section." },
-  [PredefinedVariableName.firstname_var]: {id: -12, type: VariableType.string, 
-    description: "Stores the viewer's first name if available from the authentication mechanism" },
   [PredefinedVariableName.device_var]: {id: -9, type: VariableType.string, description: "Viewer device type. 'm' for mobile, 'd' for desktop and 'h' for headset." },
   [PredefinedVariableName.browser_var]: {id: -10, type: VariableType.string, description: "Contains a string identifying the browser the viewer is using." },
   [PredefinedVariableName.vrmode_var]: {id: -11, type: VariableType.boolean, description: "If the user is in VR mode, this is set to true. Can be used to display things differently in VR mode." },
+  [PredefinedVariableName.firstname_var]: {id: -12, type: VariableType.string,
+    description: "Stores the viewer's first name if available from the authentication mechanism" },
+  [PredefinedVariableName.scorm_progress]: {id: -13, type: VariableType.number, description: "This is a special variable that can share the progress with a LMS and will be retrieved upon experience revisit" },
+  [PredefinedVariableName.scorm_suspend_data]: {id: -14, type: VariableType.number, description: "This a special variable that can share arbitrary data with a LMS and will be retrieved upon experience revisit" },
 }
 
 /** Note: JS keys get converted to strings in json */
@@ -104,6 +108,8 @@ export const predefinedVariableIdToName: Record<number, PredefinedVariableName> 
   [-10]: PredefinedVariableName.browser_var,
   [-11]: PredefinedVariableName.vrmode_var,
   [-12]: PredefinedVariableName.firstname_var,
+  [-13]: PredefinedVariableName.scorm_progress,
+  [-14]: PredefinedVariableName.scorm_suspend_data,
 }
 
 export function convertVarValueToType(value: any, varType: VariableType): number | string | boolean {
