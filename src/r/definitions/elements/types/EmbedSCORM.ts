@@ -8,7 +8,7 @@ export const EmbedScorm: IElementDefinition = {
   elementDefaultName: "SCORM",
   properties: [
     ...BasicElement.properties,
-    ElementProperty.embed_scorm_url
+    ElementProperty.source
   ],
   defaultOverrides: {},
   events: [ RuleEvent.on_scorm_finish, RuleEvent.on_scorm_initialize, RuleEvent.on_scorm_set_score, RuleEvent.on_close],
