@@ -38,12 +38,14 @@ export const allSpecialRuleElementIds: number[] = Object.values(SpecialRuleEleme
 
 export enum SceneType {
   first_person = "first_person",
-  orbit = "orbit"
+  orbit = "orbit",
+  six_dof = "six_dof",
 }
 
 export const sceneTypeDisplayNames: Record<SceneType, string> = {
   first_person: "Scene",
-  orbit: "Orbit Scene"
+  orbit: "Orbit Scene",
+  six_dof: "6DOF Scene",
 };
 
 export enum SceneCategory {
@@ -57,7 +59,8 @@ export const sceneCategoryDisplayNames: Record<SceneCategory, string> = {
 export const sceneTypeByCategory: Record<SceneCategory, SceneType[]> = {
 	scene: [
     SceneType.first_person,
-    SceneType.orbit
+    SceneType.orbit,
+    SceneType.six_dof,
   ]
 };
 
