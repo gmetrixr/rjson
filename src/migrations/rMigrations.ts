@@ -27,6 +27,7 @@ import m123_124 from "./r-migration-commands/m123_m124_enable_gyro";
 import m124_125 from "./r-migration-commands/m124_m125_add_text_version";
 import m125_126 from "./r-migration-commands/m125_m126_no_click_animation_rename";
 import m126_127 from "./r-migration-commands/m126_127_add_scorm_predefined_vars";
+import m127_128 from "./r-migration-commands/m127_128_add_scorm_score_var";
 
 export const rMigrationTree: {[key: number]: IOrder} = {
   [99]: m099_100,
@@ -57,4 +58,5 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [124]: m124_125,
   [125]: m125_126,
   [126]: m126_127,
+  [127]: m127_128,
 };
