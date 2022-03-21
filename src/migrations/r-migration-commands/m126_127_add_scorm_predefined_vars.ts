@@ -9,7 +9,6 @@ class Migration implements IOrder {
     // ! Add all predefined vars to this project, below function internally handles in cases of conflicts
     projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_progress);
     projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_suspend_data);
-    projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_score);
 
     projectF.set(rtp.project.version, 127);
   }
