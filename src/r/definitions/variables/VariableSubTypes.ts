@@ -66,6 +66,7 @@ export enum PredefinedVariableName {
   vrmode_var = "vrmode_var",
   scorm_progress = "scorm_progress",
   scorm_suspend_data = "scorm_suspend_data",
+  scorm_score = "scorm_score",
 }
 
 /**
@@ -97,6 +98,7 @@ export const predefinedVariableDefaults: Record<PredefinedVariableName, Predefin
     description: "Stores the viewer's first name if available from the authentication mechanism" },
   [PredefinedVariableName.scorm_progress]: {id: -13, type: VariableType.number, description: "This is a special variable that can share the progress with a LMS and will be retrieved upon experience revisit" },
   [PredefinedVariableName.scorm_suspend_data]: {id: -14, type: VariableType.number, description: "This a special variable that can share arbitrary data with a LMS and will be retrieved upon experience revisit" },
+  [PredefinedVariableName.scorm_score]: {id: -15, type: VariableType.number, description: "This a special variable that can share score with a LMS and will be retrieved upon experience revisit" },
 }
 
 /** Note: JS keys get converted to strings in json */
@@ -110,6 +112,7 @@ export const predefinedVariableIdToName: Record<number, PredefinedVariableName> 
   [-12]: PredefinedVariableName.firstname_var,
   [-13]: PredefinedVariableName.scorm_progress,
   [-14]: PredefinedVariableName.scorm_suspend_data,
+  [-15]: PredefinedVariableName.scorm_score,
 }
 
 export function convertVarValueToType(value: any, varType: VariableType): number | string | boolean {
