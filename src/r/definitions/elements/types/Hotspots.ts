@@ -1,5 +1,7 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { IElementDefinition, ElementType, BasicElement } from "../ElementSubTypes";
+import { RuleEvent } from "../../rules/RuleEvent";
+import { RuleAction } from "../../rules/RuleAction";
 
 export const Hotspot: IElementDefinition = {
   element_type: ElementType.hotspot,
@@ -20,8 +22,15 @@ export const Hotspot: IElementDefinition = {
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#0083EE",
-    [ElementProperty.opacity]: 0.9
+    [ElementProperty.opacity]: 0.9,
+    [ElementProperty.always_open]: false
   },
-  events: [],
-  actions: []
+  events: [
+    RuleEvent.on_click
+  ],
+  actions: [
+    RuleAction.show,
+    RuleAction.hide,
+    RuleAction.toggle_showhide
+  ]
 }
