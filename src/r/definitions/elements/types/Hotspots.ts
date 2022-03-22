@@ -1,6 +1,6 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { IElementDefinition, ElementType, BasicElement } from "../ElementSubTypes";
-import { RuleEvent } from "../../rules";
+import { RuleEvent } from "../../rules/RuleEvent";
 import { RuleAction } from "../../rules/RuleAction";
 
 export const Hotspot: IElementDefinition = {
