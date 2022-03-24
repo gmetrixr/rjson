@@ -32,6 +32,27 @@ describe("r SceneFactory test", () => {
       expect(quizInstructionsKeys.includes("heading"));
     }
   });
+
+  it("should add an embed scorm element with linked variables", () => {
+    const projectF = r.project(variableCheckJson);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if(scene1) {
+      const embedScormRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.embed_scorm }) as R.RecordNode<RT.element>;
+      const scormKeys = Object.keys(embedScormRecord);
+      expect(scormKeys.includes("embed_scorm_score_var_id"));
+      expect(scormKeys.includes("embed_scorm_suspend_data_var_id"));
+      expect(scormKeys.includes("embed_scorm_progress_var_id"));
+
+      const variables = projectF.getRecords(RT.variable);
+
+      const variableIds = variables.map(v => v.id);
+      expect(variableIds.includes(embedScormRecord.props.embed_scorm_score_var_id as number));
+      expect(variableIds.includes(embedScormRecord.props.embed_scorm_suspend_data_var_id as number));
+      expect(variableIds.includes(embedScormRecord.props.embed_scorm_progress_var_id as number));
+    }
+  })
 });
 
 describe("r RecordFactory tests", () => {
