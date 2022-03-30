@@ -27,18 +27,18 @@ export class ElementFactory extends RecordFactory<RT.element> {
    * ISSUE : We were facing issue when we copy element from root to group, id for that element was duplicated and that was causing an issue. Below id fix for that
    * this function will add record with new element id to prevent duplicate issue.
    */
-   pasteFromClipboardObject(this: ElementFactory, obj: ClipboardR, position?: number): void {
-    if(obj.parentType !== this._type) {
-      console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
-      return;
-    }
+   pasteFromClipboardObject(this: ElementFactory, {obj, position}: {obj: ClipboardR, position?: number}): (RecordNode<RT> | undefined)[] {
+    const addedRecords = [];
     for(const rn of obj.nodes) {
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
       rn.id = generateId();
       // * generate new ids if required for child elements. ex: group children
       new ElementFactory(rn).dedupeChildElementIds();
-      super.addRecord(rn, position? position++: position);
+      const addedRecord = super.addRecord(rn, position? position++: position);
+      addedRecords.push(addedRecord);
     }
+
+    return addedRecords;
   }
 
   /**

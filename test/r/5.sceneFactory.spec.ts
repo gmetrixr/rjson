@@ -78,7 +78,7 @@ describe("Test SceneFactory methods", () => {
     const cc = deepClone(sceneF.copyToClipboardObject([2]));
     // changing parentType here to be able to paste it inside a scene
     cc.parentType = RT.scene;
-    sceneF.pasteFromClipboardObject(cc);
+    sceneF.pasteFromClipboardObject({obj: cc});
 
     // check that the group with id 33 never changes
     expect(group2?.id).to.eq(2);

@@ -9,6 +9,7 @@ import {
 import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, createRecord, emptyROM, RecordMap, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
+import { r } from "../../r";
 import { SceneFactory } from "./SceneFactory";
 import { jsUtils } from "@gmetrixr/gdash";
 import { ElementFactory, ElementUtils } from "./ElementFactory";
@@ -114,32 +115,12 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     const newElement = createRecord<RT.element>(RT.element, undefined, defaultName);
     newElement.props = ElementUtils.getElementTypeDefaults(elementType);
     newElement.props.element_type = elementType;
-
-    const newRecord = this.addSceneSubRecord<RT.element>(sceneId, newElement, position);
-
-    /*
-      if the record needs to be in a group inside this scene (this function would not be called to move the added record to a different scene),
-      get relevant addresses and re-parent the record
-    */
-    if(groupElementId) {
-      const scene = this.getRecord(RT.scene, sceneId) as RecordNode<RT.scene>;
-      const sceneF = new SceneFactory(scene);
-
-      const destParentAddr = `project:${this._json.id}|${sceneF.getDeepRecordAddress(groupElementId, RT.element)}`;
-
-      const recordAddr = sceneF.getDeepRecordAddress(newElement.id, RT.element);
-      const sourceRecordAddr: { parentAddr: string; recordAddr: string; }[] = [{
-        recordAddr: `project:${this._json.id}|${recordAddr}`,
-        parentAddr: `project:${this._json.id}|scene:${sceneId}`
-      }];
-      
-      this.reParentRecordsWithAddress(destParentAddr, sourceRecordAddr);
-    }
-
+    const newRecord = this.addSceneDeepRecord<RT.element>({sceneId, record: newElement, position, groupElementId});
     return newRecord;
   }
   
   /**
+   * !! Deprecated. Please use addSceneDeepRecord
    * Ideally elements should get added via SceneFactory. But because we want addition of media_upload element to add a linked variable, 
    * we do this via ProjectFactory (as only ProjectFactory has access to variables).
    */
@@ -192,6 +173,20 @@ export class ProjectFactory extends RecordFactory<RT.project> {
   }
 
   /** 
+   * Updated version of addSceneSubRecord
+   * Takes in groupElementId to add record to nth level as well.
+   */
+  addSceneDeepRecord<N extends RT>(this: ProjectFactory, { sceneId, record, position, groupElementId }: { sceneId: number, record: RecordNode<N>, position?: number, groupElementId?: number }): RecordNode<N> | undefined {
+    const sceneJson = this.getRecord(RT.scene, sceneId);
+    if (sceneJson !== undefined) {
+      const addedRecord = (new SceneFactory(sceneJson)).addDeepRecord({record, position, groupElementId});
+      this.addLinkedVariables([ addedRecord as RecordNode<N> ]);
+      return addedRecord;
+    }
+    return;
+  }
+
+  /** 
    * Ideally elements should be renamed via SceneFactory. But because want media_upload element rename to impact
    * its linked variable, we do this via ProjectFactory (as only ProjectFactory has access to variables).
    */
@@ -228,6 +223,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
   }
 
   /**
+   * !! Deprecated. Please use deleteSceneDeepRecord
    * Ideally elements should get deleted via SceneFactory. But because we want deletion of media_upload element to delete the linked
    * variable, we do this via ProjectFactory (as only ProjectFactory has access to variables).
    */
@@ -263,7 +259,17 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     }
   }
 
+  deleteSceneDeepRecord<N extends RT>(this: ProjectFactory, sceneId: number, type: N, id: number): RecordNode<N> | undefined {
+    const sceneJson = this.getRecord(RT.scene, sceneId);
+    if (sceneJson !== undefined) {
+      const record = (new SceneFactory(sceneJson)).deleteDeepRecord(type, id);
+      this.deleteLinkedVariables([ record as RecordNode<N> ]);
+      return record;
+    }
+  }
+
   /**
+   * !! Deprecated. Please use duplicateSceneDeepRecord
    * Ideally elements should get duplicated via SceneFactory. But because we want duplication of media_upload element to duplicate the linked
    * variable, we do this via ProjectFactory (as only ProjectFactory has access to variables).
    * 
@@ -318,6 +324,26 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       }
       return record;
     }
+  }
+
+  duplicateSceneDeepRecord<N extends RT>(this: ProjectFactory, sceneId: number, type: N, id: number): RecordNode<N> | undefined {
+    const sceneJson = this.getRecord(RT.scene, sceneId);
+    if (sceneJson !== undefined) {
+      const sceneF = r.scene(sceneJson);
+      const duplicatedRecord = sceneF.duplicateDeepRecord(type, id);
+      this.addLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
+      return duplicatedRecord;
+    }
+  }
+
+  duplicateDeepRecord<N extends RT>(this: ProjectFactory, type: N, id: number): RecordNode<N> | undefined {
+    const duplicatedScene = super.duplicateDeepRecord(type, id);
+    if (duplicatedScene !== undefined) {
+      const sceneF = r.scene(duplicatedScene);
+      const elements = sceneF.getAllDeepChildren(RT.element);
+      this.addLinkedVariables(elements as RecordNode<N>[]);
+    }
+    return duplicatedScene;
   }
 
   /**
@@ -417,6 +443,78 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         }
       }
     }
+  }
+
+  addLinkedVariables<N extends RT>(this: ProjectFactory, records: RecordNode<N>[]): void {
+    records.forEach(record => {
+      if (record?.type === RT.element) {
+        switch((record as RecordNode<RT.element>).props.element_type) {
+          case ElementType.media_upload: {
+            const variableRecord = this.addVariableOfType(VariableType.string);
+            variableRecord.props.var_category = VarCategory.autogenerated;
+            variableRecord.props.var_track = true;
+            variableRecord.props.var_default = "";
+            //Keep the name of the variable same as the lead gen field
+            //Going via changeRecordName to take care of duplicate names
+            this.changeRecordName(RT.variable, variableRecord.id, varNameFromOriginName(record.name));
+            //Link lead gen field to the variable id
+            (record as RecordNode<RT.element>).props.media_upload_var_id = variableRecord.id;
+            break;
+          }
+
+          case ElementType.embed_scorm: {
+            const scoreVariableRecord = this.addVariableOfType(VariableType.number);
+            scoreVariableRecord.props.var_category = VarCategory.autogenerated;
+            scoreVariableRecord.props.var_track = true;
+            scoreVariableRecord.props.var_default = 0;
+            this.changeRecordName(RT.variable, scoreVariableRecord.id, varNameFromOriginName(record.name));
+            (record as RecordNode<RT.element>).props.embed_scorm_score_var_id = scoreVariableRecord.id;
+
+            const suspendDataVariableRecord = this.addVariableOfType(VariableType.string);
+            suspendDataVariableRecord.props.var_category = VarCategory.autogenerated;
+            suspendDataVariableRecord.props.var_track = true;
+            suspendDataVariableRecord.props.var_default = 0;
+            this.changeRecordName(RT.variable, suspendDataVariableRecord.id, varNameFromOriginName(record.name));
+            (record as RecordNode<RT.element>).props.embed_scorm_suspend_data_var_id = suspendDataVariableRecord.id;
+
+            const progressVariableRecord = this.addVariableOfType(VariableType.number);
+            progressVariableRecord.props.var_category = VarCategory.autogenerated;
+            progressVariableRecord.props.var_track = true;
+            progressVariableRecord.props.var_default = 0;
+            this.changeRecordName(RT.variable, progressVariableRecord.id, varNameFromOriginName(record.name));
+            (record as RecordNode<RT.element>).props.embed_scorm_progress_var_id = progressVariableRecord.id;
+            break;
+          }
+        }
+      }
+    })
+  }
+
+  deleteLinkedVariables<N extends RT>(this: ProjectFactory, records: RecordNode<N>[]): void {
+    records.forEach(record => {
+      if (record?.type === RT.element) {
+        switch((record as RecordNode<RT.element>).props.element_type) {
+          case ElementType.media_upload: {
+            const linkedVarId = (record as RecordNode<RT.element>).props.media_upload_var_id as number;
+            this.deleteRecord(RT.variable, linkedVarId);
+            break;
+          }
+
+          case ElementType.embed_scorm: {
+            const linkedScoreVarId = (record as RecordNode<RT.element>).props.embed_scorm_score_var_id as number;
+            this.deleteRecord(RT.variable, linkedScoreVarId);
+
+            const linkedSuspedDataVarId = (record as RecordNode<RT.element>).props.embed_scorm_suspend_data_var_id as number;
+            this.deleteRecord(RT.variable, linkedSuspedDataVarId);
+
+            const linkedProgressVarId = (record as RecordNode<RT.element>).props.embed_scorm_progress_var_id as number;
+            this.deleteRecord(RT.variable, linkedProgressVarId);
+
+            break;
+          }
+        }
+      }
+    })
   }
 
   //SCENE SPECIFIC FUNCTIONS
@@ -701,15 +799,12 @@ export class ProjectFactory extends RecordFactory<RT.project> {
    * @param obj
    * @param position
    */
-  pasteFromClipboardObject(this: ProjectFactory, obj: ClipboardR, position?: number): void {
-    if(obj.parentType !== this._type) {
-      console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
-      return;
-    }
+  pasteFromClipboardObject(this: ProjectFactory, { obj, position, groupElementId, sceneId }:  {obj: ClipboardR, position?: number, groupElementId?: number, sceneId?: number}): void {
     const projectVars = this.getRecords(RT.variable);
     const scenesFromClipboard = obj.nodes.filter(s => s.type === RT.scene);
     const variablesFromClipboard = obj.nodes.filter(s => s.type === RT.variable);
     const otherRecordsFromClipboard = obj.nodes.filter(s => s.type !== RT.variable && s.type !== RT.scene);
+    const elementsFromClipboard = obj.nodes.filter(s => s.type === RT.element)
 
     for(const rn of variablesFromClipboard) {
       // This needs to follow the pasting logic above
@@ -755,13 +850,23 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     for(const scene of scenesFromClipboard) {
       // ! Only scenes are inserted in place when position is passed. Have to live with this assumption for now
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
-      this.addRecord(scene, position? position++: position);
+      const addedScene = this.addRecord(scene, position? position++: position);
+      const sceneF = r.scene(addedScene);
+      const elements = sceneF.getRecords(RT.element);
+      this.addLinkedVariables(elements);
     }
 
     // * add all other records
     for(const other of otherRecordsFromClipboard) {
       // keep adding to the end of the list
       this.addRecord(other);
+    }
+
+    if (sceneId !== undefined && elementsFromClipboard.length > 0) {
+      const scene = this.getRecord(RT.scene, sceneId);
+      const sceneF = r.scene(scene as RecordNode<RT.scene>);
+      const addedRecords = sceneF.pasteFromClipboardObject({ obj, position, groupElementId });
+      this.addLinkedVariables(addedRecords as RecordNode<RT>[]);
     }
   }
 

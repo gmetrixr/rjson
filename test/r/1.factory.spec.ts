@@ -16,25 +16,102 @@ import variableCheckJson from "./jsons/variable_check.json";
 import menuConsistencyJson from "./jsons/menu_consistency.json";
 import { ElementType } from "../../src/r/definitions/elements";
 import copyPasteElementSampleJson from "./jsons/copyPasteElementSampleJson.json";
+import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
+import { ClipboardR } from "../../src/r/R";
 
 const reprentingClone = jsUtils.deepClone(project_reparenting);
 const { deepClone } = jsUtils;
 
 describe("r SceneFactory test", () => {
-  it("should add a quiz element", () => {
-    const projectF = r.project(safehands_r101);
+  // it("should add a quiz element", () => {
+  //   const projectF = r.project(safehands_r101);
+  //   const scenes = projectF.getRecords(RT.scene);
+  //   const scene1 = scenes?.[0];
+
+  //   if(scene1) {
+  //     const quizRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.quiz }) as R.RecordNode<RT.element>;
+  //     const quizInstructionsKeys = Object.keys(quizRecord);
+  //     expect(quizInstructionsKeys.includes("heading"));
+  //   }
+  // });
+});
+
+describe("r ProjectFactory tests", () => {
+  /** 
+   * Current JSON => Scene => { PanoImage, Group => { ImageFlat } }
+   */
+  it ("should add media upload element at root", () => {
+    const projectF = r.project(oneSceneWithGroup);
     const scenes = projectF.getRecords(RT.scene);
     const scene1 = scenes?.[0];
 
-    if(scene1) {
-      const quizRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.quiz }) as R.RecordNode<RT.element>;
-      const quizInstructionsKeys = Object.keys(quizRecord);
-      expect(quizInstructionsKeys.includes("heading"));
+    if (scene1) {
+      projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.media_upload }) as R.RecordNode<RT.element>;
+      const sceneF = r.scene(scene1);
+      const elements = sceneF.getRecords(RT.element);
+      expect(elements.length).to.be.eq(3);
     }
   });
 
-  it("should add an embed scorm element with linked variables", () => {
-    const projectF = r.project(variableCheckJson);
+  /** 
+   * Current JSON => Scene => { PanoImage, Group => { ImageFlat }, MediaUpload }
+   */
+  it ("should add image element at root with position 0", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.image_flat, position: 0 }) as R.RecordNode<RT.element>;
+      const sceneF = r.scene(scene1);
+      const elements = sceneF.getRecords(RT.element);
+      expect(elements.length).to.be.eq(4);
+      expect(elements[0].props.element_type === en.ElementType.image_flat);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { ImageFlat }, MediaUpload }
+   */
+  it ("should add media upload element in group", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.media_upload, groupElementId: 1648469473750 }) as R.RecordNode<RT.element>;
+      const sceneF = r.scene(scene1);
+      const group = sceneF.getRecord(RT.element, 1648469473750);
+      const groupF = r.element(group as RecordNode<RT.element>);
+      const groupElements = groupF.getRecords(RT.element);
+      expect(groupElements.length).to.be.eq(2);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { ImageFlat, MediaUpload }, MediaUpload }
+   */
+  it ("should add video element in group at position 0", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.video_flat, position: 0, groupElementId: 1648469473750 }) as R.RecordNode<RT.element>;
+      const sceneF = r.scene(scene1);
+      const group = sceneF.getRecord(RT.element, 1648469473750);
+      const groupF = r.element(group as RecordNode<RT.element>);
+      const groupElements = groupF.getRecords(RT.element);
+      expect(groupElements.length).to.be.eq(3);
+      expect(groupElements[0].props.element_type === en.ElementType.video_flat);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { VideoFlat, ImageFlat, MediaUpload }, MediaUpload }
+   */
+  it ("should add scorm element with variables at root", () => {
+    const projectF = r.project(oneSceneWithGroup);
     const scenes = projectF.getRecords(RT.scene);
     const scene1 = scenes?.[0];
 
@@ -52,7 +129,303 @@ describe("r SceneFactory test", () => {
       expect(variableIds.includes(embedScormRecord.props.embed_scorm_suspend_data_var_id as number));
       expect(variableIds.includes(embedScormRecord.props.embed_scorm_progress_var_id as number));
     }
-  })
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { VideoFlat, ImageFlat, MediaUpload }, MediaUpload, SCORM }
+   */
+  it ("should delete media upload element from root", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      const sceneF = r.scene(scene1);
+      const mediaUploadElement = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.media_upload);
+      const deletedRecord = projectF.deleteSceneDeepRecord(scene1.id, RT.element, mediaUploadElement[0].id);
+      const variables = projectF.getRecords(RT.variable);
+      const variableIds = variables.map(v => v.id);
+      expect(variableIds.includes((deletedRecord as RecordNode<RT.element>).props.media_upload_var_id as number)).to.be.eq(false);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { VideoFlat, ImageFlat, MediaUpload }, SCORM }
+   */
+  it ("should delete media upload element from group", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      const sceneF = r.scene(scene1);
+      const mediaUploadElement = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.media_upload);
+      const deletedRecord = projectF.deleteSceneDeepRecord(scene1.id, RT.element, mediaUploadElement[0].id);
+      const variables = projectF.getRecords(RT.variable);
+      const variableIds = variables.map(v => v.id);
+      expect(variableIds.includes((deletedRecord as RecordNode<RT.element>).props.media_upload_var_id as number)).to.be.eq(false);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene => { ImageFlat, PanoImage, Group => { VideoFlat, ImageFlat }, SCORM }
+   */
+  it ("should duplicate scorm element from root", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      const sceneF = r.scene(scene1);
+      const scormElements = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.embed_scorm);
+      const duplicatedScormElement = projectF.duplicateSceneDeepRecord(scene1.id, RT.element, scormElements[0].id);
+      const variables = projectF.getRecords(RT.variable);
+      const variableIds = variables.map(v => v.id);
+      const elements = sceneF.getRecords(RT.element);
+      const elementIds = elements.map(el => el.id);
+
+      expect(elementIds.includes((duplicatedScormElement as RecordNode<RT.element>).id));
+      expect(variableIds.includes((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_score_var_id as number));
+      expect(variableIds.includes((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_suspend_data_var_id as number));
+      expect(variableIds.includes((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_progress_var_id as number));
+      expect(scormElements[0].props.embed_scorm_score_var_id).to.not.be.eq((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_score_var_id);
+      expect(scormElements[0].props.embed_scorm_suspend_data_var_id).to.not.be.eq((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_suspend_data_var_id);
+      expect(scormElements[0].props.embed_scorm_progress_var_id).to.not.be.eq((duplicatedScormElement as RecordNode<RT.element>).props.embed_scorm_progress_var_id);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene1 => { ImageFlat, PanoImage, Group => { VideoFlat, ImageFlat }, SCORM, SCORM }
+   */
+  it ("should delete unnecessary elements", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+
+    if (scene1) {
+      const sceneF = r.scene(scene1);
+      const imageFlatElements = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.image_flat);
+      imageFlatElements.forEach(el => {
+        projectF.deleteSceneDeepRecord(scene1.id, RT.element, (el as RecordNode<RT.element>).id);
+      });
+
+      const scormElements = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.embed_scorm);
+      projectF.deleteSceneDeepRecord(scene1.id, RT.element, (scormElements[0] as RecordNode<RT.element>).id);
+
+      const elements = sceneF.getRecords(RT.element);
+      const allElements = sceneF.getAllDeepChildren(RT.element);
+      expect(elements.length).to.be.eq(3);
+      expect(allElements.length).to.be.eq(4);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat }, SCORM }
+   */
+  it ("should duplicate scene", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const scene1 = scenes?.[0];
+    const initialVariables = projectF.getRecords(RT.variable);
+
+    if (scene1) {
+      const duplicatedScene = projectF.duplicateDeepRecord(RT.scene, scene1.id);
+      const duplicatedSceneF = r.scene(duplicatedScene as RecordNode<RT.scene>);
+      const duplicatedSceneRootElements = duplicatedSceneF.getRecords(RT.element);
+      const duplicatedSceneAllElements = duplicatedSceneF.getAllDeepChildren(RT.element);
+      const finalVariables = projectF.getRecords(RT.variable);
+
+      const sceneF = r.scene(scene1);
+      const sceneRootElements = sceneF.getRecords(RT.element);
+      const sceneAllElements = sceneF.getAllDeepChildren(RT.element);
+
+      expect(scene1.id).to.not.be.eq((duplicatedScene as RecordNode<RT.scene>).id);
+      expect(sceneRootElements.length).to.be.eq(duplicatedSceneRootElements.length);
+      expect(sceneAllElements.length).to.be.eq(duplicatedSceneAllElements.length);
+      expect(initialVariables.length).to.not.be.eq(finalVariables.length);
+    }
+  });
+
+  /** 
+   * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat }, SCORM }
+   *                 Scene2 => { PanoImage, Group => { VideoFlat }, SCORM }
+   */
+  it ("should paste media upload element from clipboard at root level of scene 1.", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const sceneF = r.scene(scenes[0] as RecordNode<RT.scene>);
+    const elementsBeforePasting = sceneF.getRecords(RT.element);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+
+    const object = {
+      "parentType": "scene",
+      "nodes": [
+          {
+              "id": 1648624574884,
+              "type": "element",
+              "props": {
+                  "element_type": "media_upload",
+                  "heading": "",
+                  "description": "",
+                  "upload_methods_allowed": "",
+                  "media_upload_var_id": 1648623941779,
+                  "media_upload_file_types": [
+                      "IMAGE",
+                      "VIDEO",
+                      "AUDIO",
+                      "COMPRESSED",
+                      "GIF",
+                      "OTHER"
+                  ]
+              },
+              "name": "Media Upload"
+          }
+      ]
+    };
+
+    projectF.pasteFromClipboardObject({ obj: (object as ClipboardR), sceneId: scenes[0].id });
+
+    const elementsAfterPasting = sceneF.getRecords(RT.element);
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+
+    expect(elementsBeforePasting.length + 1).to.be.eq(elementsAfterPasting.length);
+    expect(variablesBeforePasting.length + 1).to.be.eq(variablesAfterPasting.length);
+  });
+
+  /** 
+   * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat }, SCORM, MediaUpload }
+   *                 Scene2 => { PanoImage, Group => { VideoFlat }, SCORM }
+   */
+  it ("should paste media upload element from clipboard in group of scene 1.", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const sceneF = r.scene(scenes[0] as RecordNode<RT.scene>);
+    const group = sceneF.getRecord(RT.element, 1648469473750);
+    const groupF = r.element(group as RecordNode<RT.element>);
+    const elementsBeforePasting = groupF.getRecords(RT.element);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+
+    const object = {
+      "parentType": "scene",
+      "nodes": [
+          {
+              "id": 1648624574884,
+              "type": "element",
+              "props": {
+                  "element_type": "media_upload",
+                  "heading": "",
+                  "description": "",
+                  "upload_methods_allowed": "",
+                  "media_upload_var_id": 1648623941779,
+                  "media_upload_file_types": [
+                      "IMAGE",
+                      "VIDEO",
+                      "AUDIO",
+                      "COMPRESSED",
+                      "GIF",
+                      "OTHER"
+                  ]
+              },
+              "name": "Media Upload"
+          }
+      ]
+    };
+
+    projectF.pasteFromClipboardObject({ obj: (object as ClipboardR), sceneId: scenes[0].id, groupElementId: 1648469473750 });
+
+    const elementsAfterPasting = groupF.getRecords(RT.element);
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+
+    expect(elementsBeforePasting.length + 1).to.be.eq(elementsAfterPasting.length);
+    expect(variablesBeforePasting.length + 1).to.be.eq(variablesAfterPasting.length);
+  });
+
+  /** 
+   * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat, MediaUpload }, SCORM, MediaUpload }
+   *                 Scene2 => { PanoImage, Group => { VideoFlat }, SCORM }
+   */
+  it ("should paste scene containing scorm element from clipboard", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenesBeforePasting = projectF.getRecords(RT.scene);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+
+    const object = {
+      "parentType": "project",
+      "nodes": [
+          {
+              "id": 1648565008405,
+              "type": "scene",
+              "props": {
+                  "scene_type": "first_person"
+              },
+              "name": "Clipboard Test",
+              "records": {
+                  "element": {
+                      "order": [
+                          1648565573292,
+                          1648630221019
+                      ],
+                      "map": {
+                          "1648565573292": {
+                              "id": 1648565573292,
+                              "type": "element",
+                              "props": {
+                                  "element_type": "pano_image",
+                                  "source": {
+                                      "id": 423746,
+                                      "name": "store_003.jpg",
+                                      "file_paths": {
+                                          "o": "o/store_003.jpg",
+                                          "t": "t/store_003.jpg"
+                                      },
+                                      "file_urls": {
+                                          "o": "https://u.vrgmetri.com/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/o/store_003.jpg",
+                                          "t": "https://u.vrgmetri.com/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/t/store_003.jpg",
+                                          "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/o/store_003.jpg"
+                                      },
+                                      "size": "1491963",
+                                      "type": "IMAGE"
+                                  },
+                                  "opacity": 1,
+                                  "pano_pitch_correction": 0,
+                                  "pano_yaw_correction": 0,
+                                  "hidden": false,
+                                  "locked": false,
+                                  "stereo": false,
+                                  "pano_radius": 900
+                              },
+                              "name": "Pano Image"
+                          },
+                          "1648630221019": {
+                              "id": 1648630221019,
+                              "type": "element",
+                              "props": {
+                                  "element_type": "embed_scorm",
+                                  "source": {
+                                      "uri": "",
+                                      "id": null
+                                  },
+                                  "embed_scorm_score_var_id": 1648629485373,
+                                  "embed_scorm_suspend_data_var_id": 1648629872567,
+                                  "embed_scorm_progress_var_id": 1648630343225
+                              },
+                              "name": "SCORM"
+                          }
+                      }
+                  }
+              }
+          }
+      ]
+    };
+
+    projectF.pasteFromClipboardObject({ obj: (object as ClipboardR) });
+
+    const scenesAfterPasting = projectF.getRecords(RT.scene);
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+
+    expect(scenesBeforePasting.length + 1).to.be.eq(scenesAfterPasting.length);
+    expect(variablesBeforePasting.length + 3).to.be.eq(variablesAfterPasting.length);
+  });
 });
 
 describe("r RecordFactory tests", () => {
@@ -457,7 +830,7 @@ describe("Test project factory functions", () => {
       nodes: [var1]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     const insertedVar = projectF.getRecord(RT.variable, 2);
     expect(vars.length).to.eq(1);
@@ -479,7 +852,7 @@ describe("Test project factory functions", () => {
       nodes: [var2]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     expect(vars.length).to.eq(1);
   });
@@ -555,7 +928,7 @@ describe("Test project factory functions", () => {
     };
 
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     // 2 vars should exist
     // 1. id = 2 and 2. id = 100
@@ -659,7 +1032,7 @@ it("should copy element from root and paste into group with different element id
     const sourceElement = deepClone(sceneF.getRecord(RT.element, 1639028973948));
     const groupElementF = r.element(groupElement);
     clipboard.parentType = RT.element;
-    groupElementF.pasteFromClipboardObject(clipboard);
+    groupElementF.pasteFromClipboardObject({obj: clipboard});
 
     const allGroupElementAfterCopy = groupElementF.getRecords(RT.element);
     // element should be added to group element

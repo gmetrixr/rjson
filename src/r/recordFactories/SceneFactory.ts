@@ -1,6 +1,7 @@
 import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
+import { r } from "../../r";
 import { ElementType } from "../definitions/elements";
 import { ElementUtils, ElementFactory } from "./ElementFactory";
 import { jsUtils } from "@gmetrixr/gdash";
@@ -15,6 +16,27 @@ export class SceneFactory extends RecordFactory<RT.scene> {
   /** Overriding add rule: Sub record ids should be made unique after duplications - this helps keeping all ids in the tree unique */
   addRecord <N extends RT>(this: SceneFactory, record: RecordNode<N>, position?: number): RecordNode<N> | undefined {
     const addedRecord = super.addRecord(record, position);
+    if(addedRecord?.type === RT.rule) {
+      this.dedupeWeTaIds(addedRecord);
+    }
+    return addedRecord;
+  }
+
+  /** 
+   * adds record into the group if groupElementId is present
+   * else adds record to the scene
+   */
+  addDeepRecord <N extends RT> (this: SceneFactory, { record, position, groupElementId }: { record: RecordNode<N>, position?: number, groupElementId?: number }): RecordNode<N> | undefined {
+    if (groupElementId) {
+      const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
+      if (group.length > 0) {
+        const groupF = r.element(group[0]);
+        const addedRecord = groupF.addRecord(record, position);
+        return addedRecord;
+      }
+    }
+
+    const addedRecord = this.addRecord(record, position);
     if(addedRecord?.type === RT.rule) {
       this.dedupeWeTaIds(addedRecord);
     }
@@ -148,11 +170,15 @@ export class SceneFactory extends RecordFactory<RT.scene> {
    * ISSUE : We were facing issue when we copy element from root to group, id for that element was duplicated and that was causing an issue. Below id fix for that
    * this function will add record with new element id to prevent duplicate issue.
    */
-  pasteFromClipboardObject(this: SceneFactory, obj: ClipboardR, position?: number): void {
-    if(obj.parentType !== this._type) {
-      console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
-      return;
+  pasteFromClipboardObject(this: SceneFactory, { obj, position, groupElementId }: {obj: ClipboardR, position?: number, groupElementId?: number}): (RecordNode<RT> | undefined)[] {
+    if (groupElementId !== undefined) {
+      const group = this.getRecord(RT.element, groupElementId);
+      const groupF = r.element(group as RecordNode<RT.element>);
+      const elementRecords = groupF.pasteFromClipboardObject({ obj, position });
+      return elementRecords;
     }
+
+    const addedRecords = [];
     for(const rn of obj.nodes) {
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
       rn.id = generateId();
@@ -160,7 +186,9 @@ export class SceneFactory extends RecordFactory<RT.scene> {
         // * generate new ids if required for child elements. ex: group element children
         new ElementFactory(rn).dedupeChildElementIds();
       }
-      this.addRecord(rn, position? position++: position);
+      const addedRecord = this.addRecord(rn, position? position++: position);
+      addedRecords.push(addedRecord);
     }
+    return addedRecords;
   }
 }
