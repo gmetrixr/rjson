@@ -29,18 +29,18 @@ export class SceneFactory extends RecordFactory<RT.scene> {
   addDeepRecord <N extends RT> (this: SceneFactory, { record, position, groupElementId }: { record: RecordNode<N>, position?: number, groupElementId?: number }): RecordNode<N> | undefined {
     if (groupElementId) {
       const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
-      if (group.length > 0) {
+      if (group[0] !== undefined) {
         const groupF = r.element(group[0]);
         const addedRecord = groupF.addRecord(record, position);
         return addedRecord;
       }
+    } else {
+      const addedRecord = this.addRecord(record, position);
+      if(addedRecord?.type === RT.rule) {
+        this.dedupeWeTaIds(addedRecord);
+      }
+      return addedRecord;
     }
-
-    const addedRecord = this.addRecord(record, position);
-    if(addedRecord?.type === RT.rule) {
-      this.dedupeWeTaIds(addedRecord);
-    }
-    return addedRecord;
   }
 
   /** Overriding duplicate rule: Sub record ids should be made unique after duplications - this helps keeping all ids in the tree unique */
@@ -172,10 +172,11 @@ export class SceneFactory extends RecordFactory<RT.scene> {
    */
   pasteFromClipboardObject(this: SceneFactory, { obj, position, groupElementId }: {obj: ClipboardR, position?: number, groupElementId?: number}): (RecordNode<RT> | undefined)[] {
     if (groupElementId !== undefined) {
-      const group = this.getRecord(RT.element, groupElementId);
-      const groupF = r.element(group as RecordNode<RT.element>);
-      const elementRecords = groupF.pasteFromClipboardObject({ obj, position });
-      return elementRecords;
+      const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
+      if (group[0] !== undefined) {
+        const groupF = r.element(group[0] as RecordNode<RT.element>);
+        return groupF.pasteFromClipboardObject({ obj, position });
+      }
     }
 
     const addedRecords = [];
@@ -187,7 +188,9 @@ export class SceneFactory extends RecordFactory<RT.scene> {
         new ElementFactory(rn).dedupeChildElementIds();
       }
       const addedRecord = this.addRecord(rn, position? position++: position);
-      addedRecords.push(addedRecord);
+      if (addedRecord !== undefined) {
+        addedRecords.push(addedRecord);
+      }
     }
     return addedRecords;
   }

@@ -344,6 +344,54 @@ describe("r ProjectFactory tests", () => {
    * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat, MediaUpload }, SCORM, MediaUpload }
    *                 Scene2 => { PanoImage, Group => { VideoFlat }, SCORM }
    */
+   it ("should create group and paste media upload element from clipboard in group in group of scene 1.", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenes = projectF.getRecords(RT.scene);
+    const sceneF = r.scene(scenes[0] as RecordNode<RT.scene>);
+    const groupInGroup = projectF.addElementOfTypeToScene({ sceneId: scenes[0].id, elementType: en.ElementType.quiz, groupElementId: 1648469473750 });
+    const groupInGroupF = r.element(groupInGroup as RecordNode<RT.element>);
+    const elementsBeforePasting = groupInGroupF.getRecords(RT.element);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+
+    const object = {
+      "parentType": "scene",
+      "nodes": [
+          {
+              "id": 1648624574884,
+              "type": "element",
+              "props": {
+                  "element_type": "media_upload",
+                  "heading": "",
+                  "description": "",
+                  "upload_methods_allowed": "",
+                  "media_upload_var_id": 1648623941779,
+                  "media_upload_file_types": [
+                      "IMAGE",
+                      "VIDEO",
+                      "AUDIO",
+                      "COMPRESSED",
+                      "GIF",
+                      "OTHER"
+                  ]
+              },
+              "name": "Media Upload"
+          }
+      ]
+    };
+
+    projectF.pasteFromClipboardObject({ obj: (object as ClipboardR), sceneId: scenes[0].id, groupElementId: (groupInGroup as RecordNode<RT.element>).id });
+
+    const elementsAfterPasting = groupInGroupF.getRecords(RT.element);
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+
+    expect(elementsBeforePasting.length + 1).to.be.eq(elementsAfterPasting.length);
+    expect(variablesBeforePasting.length + 1).to.be.eq(variablesAfterPasting.length);
+  });
+
+  /** 
+   * Current JSON => Scene1 => { PanoImage, Group => { VideoFlat, MediaUpload, Group => { MediaUpload } }, SCORM, MediaUpload }
+   *                 Scene2 => { PanoImage, Group => { VideoFlat }, SCORM }
+   */
   it ("should paste scene containing scorm element from clipboard", () => {
     const projectF = r.project(oneSceneWithGroup);
     const scenesBeforePasting = projectF.getRecords(RT.scene);
@@ -426,6 +474,271 @@ describe("r ProjectFactory tests", () => {
     expect(scenesBeforePasting.length + 1).to.be.eq(scenesAfterPasting.length);
     expect(variablesBeforePasting.length + 3).to.be.eq(variablesAfterPasting.length);
   });
+
+  it ("should add a scene with group inside a group in the scene", () => {
+    const projectF = r.project(oneSceneWithGroup);
+    const scenesBeforePasting = projectF.getRecords(RT.scene);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+
+    const object = {
+      "parentType": "project",
+      "nodes": [
+          {
+              "id": 1649065125656,
+              "name": "Scene (1)",
+              "type": "scene",
+              "props": {},
+              "records": {
+                  "element": {
+                      "map": {
+                          "1639718023490": {
+                              "id": 1639718023490,
+                              "name": "Pano Image",
+                              "type": "element",
+                              "props": {
+                                  "hidden": false,
+                                  "locked": false,
+                                  "source": {
+                                      "name": "grid_02_white.jpg",
+                                      "type": "IMAGE",
+                                      "file_urls": {
+                                          "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                          "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                      }
+                                  },
+                                  "stereo": false,
+                                  "opacity": 1,
+                                  "pano_radius": 900,
+                                  "element_type": "pano_image",
+                                  "pano_yaw_correction": 0,
+                                  "pano_pitch_correction": 0
+                              }
+                          },
+                          "1649064791112": {
+                              "id": 1649064791112,
+                              "type": "element",
+                              "props": {
+                                  "element_type": "media_upload",
+                                  "heading": "",
+                                  "description": "",
+                                  "upload_methods_allowed": "",
+                                  "media_upload_var_id": 1648623941779,
+                                  "media_upload_file_types": [
+                                      "IMAGE",
+                                      "VIDEO",
+                                      "AUDIO",
+                                      "COMPRESSED",
+                                      "GIF",
+                                      "OTHER"
+                                  ]
+                              },
+                              "name": "Media Upload"
+                          },
+                          "1649064537151": {
+                              "id": 1649064537151,
+                              "type": "element",
+                              "props": {
+                                  "element_type": "group"
+                              },
+                              "name": "Group",
+                              "records": {
+                                  "element": {
+                                      "order": [
+                                          1649064735286
+                                      ],
+                                      "map": {
+                                          "1649064735286": {
+                                              "id": 1649064735286,
+                                              "type": "element",
+                                              "props": {
+                                                  "element_type": "group"
+                                              },
+                                              "name": "Group",
+                                              "records": {
+                                                  "element": {
+                                                      "order": [
+                                                          1649065121499,
+                                                          1649064887461,
+                                                          1649064395541
+                                                      ],
+                                                      "map": {
+                                                          "1649065121499": {
+                                                              "id": 1649065121499,
+                                                              "type": "element",
+                                                              "props": {
+                                                                  "element_type": "image_flat",
+                                                                  "source": {
+                                                                      "file_urls": {
+                                                                          "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                                                                          "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                                                                      },
+                                                                      "name": "image_flat_default.jpg",
+                                                                      "type": "IMAGE"
+                                                                  },
+                                                                  "opacity": 1,
+                                                                  "hidden": false,
+                                                                  "locked": false,
+                                                                  "hover_animation": true,
+                                                                  "placer_3d": [
+                                                                      0,
+                                                                      0,
+                                                                      -8,
+                                                                      0,
+                                                                      0,
+                                                                      0,
+                                                                      1,
+                                                                      1,
+                                                                      1
+                                                                  ],
+                                                                  "wh": [
+                                                                      2,
+                                                                      2
+                                                                  ],
+                                                                  "scale": 1,
+                                                                  "animation": {
+                                                                      "name": "",
+                                                                      "speed": 1
+                                                                  },
+                                                                  "billboarding": false
+                                                              },
+                                                              "name": "Image"
+                                                          },
+                                                          "1649064887461": {
+                                                              "id": 1649064887461,
+                                                              "type": "element",
+                                                              "props": {
+                                                                  "element_type": "media_upload",
+                                                                  "heading": "",
+                                                                  "description": "",
+                                                                  "upload_methods_allowed": "",
+                                                                  "media_upload_var_id": 1648623941779,
+                                                                  "media_upload_file_types": [
+                                                                      "IMAGE",
+                                                                      "VIDEO",
+                                                                      "AUDIO",
+                                                                      "COMPRESSED",
+                                                                      "GIF",
+                                                                      "OTHER"
+                                                                  ]
+                                                              },
+                                                              "name": "Media Upload"
+                                                          },
+                                                          "1649064395541": {
+                                                              "id": 1649064395541,
+                                                              "type": "element",
+                                                              "props": {
+                                                                  "element_type": "text",
+                                                                  "text": "Text going to be copied",
+                                                                  "opacity": 1,
+                                                                  "font_color": "#FFFFFF",
+                                                                  "font_size": 0.6,
+                                                                  "font_bold": false,
+                                                                  "hidden": false,
+                                                                  "locked": false,
+                                                                  "hover_animation": true,
+                                                                  "placer_3d": [
+                                                                      0,
+                                                                      0,
+                                                                      -8,
+                                                                      0,
+                                                                      0,
+                                                                      0,
+                                                                      1,
+                                                                      1,
+                                                                      1
+                                                                  ],
+                                                                  "wh": [
+                                                                      6.5,
+                                                                      1
+                                                                  ],
+                                                                  "scale": 1,
+                                                                  "animation": {
+                                                                      "name": "",
+                                                                      "speed": 1
+                                                                  },
+                                                                  "font_family": "Montserrat",
+                                                                  "font_weight": 400,
+                                                                  "billboarding": false,
+                                                                  "border_radius": 0.2,
+                                                                  "border_width": 0.02,
+                                                                  "border_color": "#FFFFFF",
+                                                                  "border_opacity": 1,
+                                                                  "background_color": "#222222",
+                                                                  "background_opacity": 0.9,
+                                                                  "padding": 0,
+                                                                  "vertical_alignment": "middle",
+                                                                  "horizontal_alignment": "center",
+                                                                  "text_version": "v2"
+                                                              },
+                                                              "name": "Text"
+                                                          }
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "order": [
+                          1639718023490,
+                          1649064791112,
+                          1649064537151
+                      ]
+                  },
+                  "rule": {
+                      "order": [
+                          1639717346692
+                      ],
+                      "map": {
+                          "1639717346692": {
+                              "id": 1639717346692,
+                              "type": "rule",
+                              "props": {
+                                  "tracked": false,
+                                  "accent_color": "#8ED1FC"
+                              },
+                              "name": "Rule",
+                              "records": {
+                                  "when_event": {
+                                      "order": [
+                                          1639717238356
+                                      ],
+                                      "map": {
+                                          "1639717238356": {
+                                              "id": 1639717238356,
+                                              "type": "when_event",
+                                              "props": {
+                                                  "co_id": -99,
+                                                  "co_type": "scene",
+                                                  "event": "on_load",
+                                                  "properties": []
+                                              }
+                                          }
+                                      }
+                                  },
+                                  "then_action": {
+                                      "order": [],
+                                      "map": {}
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      ]
+    };
+
+    projectF.pasteFromClipboardObject({ obj: (object as ClipboardR) });
+
+    const scenesAfterPasting = projectF.getRecords(RT.scene);
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+
+    expect(scenesBeforePasting.length + 1).to.be.eq(scenesAfterPasting.length);
+    expect(variablesBeforePasting.length + 2).to.be.eq(variablesAfterPasting.length);
+  })
 });
 
 describe("r RecordFactory tests", () => {

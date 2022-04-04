@@ -35,7 +35,9 @@ export class ElementFactory extends RecordFactory<RT.element> {
       // * generate new ids if required for child elements. ex: group children
       new ElementFactory(rn).dedupeChildElementIds();
       const addedRecord = super.addRecord(rn, position? position++: position);
-      addedRecords.push(addedRecord);
+      if (addedRecord !== undefined) {
+        addedRecords.push(addedRecord);
+      }
     }
 
     return addedRecords;
