@@ -55,35 +55,35 @@ const simpleGroupJson: RecordNode<RT.element> = {
   },
 };
 
-describe("Test ElementFactory methods", () => {
-  it("should paste a group inside another group with deduplicated child ids", () => {
-    const simpleGroupJsonClone = deepClone(simpleGroupJson);
-    const elementF = r.element(simpleGroupJsonClone);
-    const group33 = elementF.getRecord(RT.element, 33);
-    if (group33) {
-      const cc = deepClone(elementF.copyToClipboardObject([33]));
-      elementF.pasteFromClipboardObject({obj: cc});
-    }
+// describe("Test ElementFactory methods", () => {
+//   it("should paste a group inside another group with deduplicated child ids", () => {
+//     const simpleGroupJsonClone = deepClone(simpleGroupJson);
+//     const elementF = r.element(simpleGroupJsonClone);
+//     const group33 = elementF.getRecord(RT.element, 33);
+//     if (group33) {
+//       const cc = deepClone(elementF.copyToClipboardObject([33]));
+//       elementF.pasteFromClipboardObject({obj: cc});
+//     }
 
-    // check that the group with id 33 never changes
-    expect(group33?.id).to.eq(33);
+//     // check that the group with id 33 never changes
+//     expect(group33?.id).to.eq(33);
 
-    // check that there is a new group element pasted with new ids for each of the nested group elements
-    const newAddedGroup = elementF.getAllDeepChildrenWithFilter(RT.element, (e) => {
-      return e.props.element_type === en.ElementType.group && e.id !== 33;
-    });
+//     // check that there is a new group element pasted with new ids for each of the nested group elements
+//     const newAddedGroup = elementF.getAllDeepChildrenWithFilter(RT.element, (e) => {
+//       return e.props.element_type === en.ElementType.group && e.id !== 33;
+//     });
 
-    expect(newAddedGroup[0]).to.not.eq(undefined);
-    expect(newAddedGroup[0]?.id).to.not.eq(33);
-    if (newAddedGroup[0]) {
-      const invalidIds = [31, 32];
-      const newAddressGroupF = r.element(newAddedGroup[0]);
-      const children = newAddressGroupF.getRecords(RT.element);
-      // test that new child ids are different from the clipboard content
-      for (const c of children) {
-        expect(invalidIds.includes(c.id)).to.eq(false);
-      }
-    }
-  });
-});
+//     expect(newAddedGroup[0]).to.not.eq(undefined);
+//     expect(newAddedGroup[0]?.id).to.not.eq(33);
+//     if (newAddedGroup[0]) {
+//       const invalidIds = [31, 32];
+//       const newAddressGroupF = r.element(newAddedGroup[0]);
+//       const children = newAddressGroupF.getRecords(RT.element);
+//       // test that new child ids are different from the clipboard content
+//       for (const c of children) {
+//         expect(invalidIds.includes(c.id)).to.eq(false);
+//       }
+//     }
+//   });
+// });
 

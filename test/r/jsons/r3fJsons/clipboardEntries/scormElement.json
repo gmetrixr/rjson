@@ -1,0 +1,20 @@
+{
+  "parentType": "scene",
+  "nodes": [
+      {
+          "id": 1649154019958,
+          "type": "element",
+          "props": {
+              "element_type": "embed_scorm",
+              "source": {
+                  "uri": "",
+                  "id": null
+              },
+              "embed_scorm_score_var_id": 1649154041588,
+              "embed_scorm_suspend_data_var_id": 1649154405431,
+              "embed_scorm_progress_var_id": 1649154364516
+          },
+          "name": "SCORM"
+      }
+  ]
+}

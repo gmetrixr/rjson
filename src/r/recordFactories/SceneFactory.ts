@@ -171,6 +171,10 @@ export class SceneFactory extends RecordFactory<RT.scene> {
    * this function will add record with new element id to prevent duplicate issue.
    */
   pasteFromClipboardObject(this: SceneFactory, { obj, position, groupElementId }: {obj: ClipboardR, position?: number, groupElementId?: number}): (RecordNode<RT> | undefined)[] {
+    if(obj.parentType !== this._type) {
+      console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
+      return [];
+    }
     if (groupElementId !== undefined) {
       const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
       if (group[0] !== undefined) {

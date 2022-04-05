@@ -116,10 +116,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     newElement.props = ElementUtils.getElementTypeDefaults(elementType);
     newElement.props.element_type = elementType;
     const newRecord = this.addSceneDeepRecord<RT.element>({sceneId, record: newElement, position, groupElementId});
-    if (newRecord !== undefined) {
-      return newRecord;
-    }
-    return;
+    return newRecord;
   }
 
   /** 
@@ -174,6 +171,10 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     }
   }
 
+  /**
+   * Ideally elements should get deleted via SceneFactory. But because we want deletion of media_upload element to delete the linked
+   * variable, we do this via ProjectFactory (as only ProjectFactory has access to variables).
+   */
   deleteSceneDeepRecord<N extends RT>(this: ProjectFactory, sceneId: number, type: N, id: number): RecordNode<N> | undefined {
     const sceneJson = this.getRecord(RT.scene, sceneId);
     if (sceneJson !== undefined) {
@@ -186,6 +187,11 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     return;
   }
 
+  /** 
+   * Update from previous function.
+   * This has been written in Project Factory so that we can add linked variables to elements like SCORM and Media Upload
+   * since only Project Factory has access to variables. 
+   */
   duplicateSceneDeepRecord<N extends RT>(this: ProjectFactory, sceneId: number, type: N, id: number): RecordNode<N> | undefined {
     const sceneJson = this.getRecord(RT.scene, sceneId);
     if (sceneJson !== undefined) {
@@ -199,6 +205,10 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     return;
   }
 
+  /** 
+   * Override from record factory
+   * Since only Project Factory has access to variables, get the deep records in the override and add the linked variables for SCORM and Media Upload.
+   */
   duplicateDeepRecord<N extends RT>(this: ProjectFactory, type: N, id: number): RecordNode<N> | undefined {
     const duplicatedRecord = super.duplicateDeepRecord(type, id);
 
@@ -206,7 +216,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       switch (type) {
         case RT.scene: {
           const sceneF = r.scene(duplicatedRecord);
-          const elements = sceneF.getAllDeepChildren(RT.element);
+          const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
+          const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
           break;
         }
@@ -316,6 +327,11 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     }
   }
 
+  /** 
+   * Function to be used to add linked variables for element types like SCORM and Media Upload.
+   * Just need to update this function for any other element type to be added in future
+   * Takes the elements as an array and adds variables to project factory
+   */
   addLinkedVariables<N extends RT>(this: ProjectFactory, records: RecordNode<N>[]): void {
     for (const record of records) {
       if (record?.type === RT.element) {
@@ -361,6 +377,11 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     }
   }
 
+  /** 
+   * Function to be used to delete linked variables for element types like SCORM and Media Upload.
+   * Just need to update this function for any other element type to be added in future
+   * Takes the elements as an array and deletes variables from project factory
+   */
   deleteLinkedVariables<N extends RT>(this: ProjectFactory, records: RecordNode<N>[]): void {
     for (const record of records) {
       if (record?.type === RT.element) {
@@ -671,10 +692,14 @@ export class ProjectFactory extends RecordFactory<RT.project> {
    * @param position
    */
   pasteFromClipboardObject(this: ProjectFactory, { obj, position, groupElementId, sceneId }:  {obj: ClipboardR, position?: number, groupElementId?: number, sceneId?: number}): void {
+    if (obj.parentType === RT.scene && sceneId === undefined) {
+      console.error(`Can't paste an element at project level. Please provide a sceneId.`);
+      return;
+    }
     const projectVars = this.getRecords(RT.variable);
     const scenesFromClipboard = obj.nodes.filter(s => s.type === RT.scene);
     const variablesFromClipboard = obj.nodes.filter(s => s.type === RT.variable);
-    const otherRecordsFromClipboard = obj.nodes.filter(s => s.type !== RT.variable && s.type !== RT.scene);
+    const otherRecordsFromClipboard = obj.nodes.filter(s => s.type !== RT.variable && s.type !== RT.scene && s.type !== RT.element);
     const elementsFromClipboard = obj.nodes.filter(s => s.type === RT.element)
 
     for(const rn of variablesFromClipboard) {
@@ -723,7 +748,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
       const addedScene = this.addRecord(scene, position? position++: position);
       const sceneF = r.scene(addedScene);
-      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => e.props.element_type === en.ElementType.embed_scorm || e.props.element_type === en.ElementType.media_upload); // add condition for other relevant element types.
+      const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
+      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
       this.addLinkedVariables(elements);
     }
 
@@ -736,8 +762,20 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (sceneId !== undefined && elementsFromClipboard.length > 0) {
       const scene = this.getRecord(RT.scene, sceneId);
       const sceneF = r.scene(scene as RecordNode<RT.scene>);
-      const addedRecords = sceneF.pasteFromClipboardObject({ obj, position, groupElementId });
-      this.addLinkedVariables(addedRecords as RecordNode<RT>[]);
+      const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
+      if (groupElementId !== undefined) {
+        const group = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
+        if (group !== undefined) {
+          const groupF = r.element(group[0]);
+          const addedRecords = groupF.pasteFromClipboardObject({ obj, position });
+          const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+          this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
+        }
+      } else {
+        const addedRecords = sceneF.pasteFromClipboardObject({ obj, position, groupElementId });
+        const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+        this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
+      }
     }
   }
 
