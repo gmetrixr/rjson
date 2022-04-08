@@ -12,6 +12,7 @@ export enum SceneProperty {
   scene_orbit_target_element_id = "scene_orbit_target_element_id",
   scene_allow_zooming = "scene_allow_zooming",
   scene_enable_collision = "scene_enable_collision",
+  scene_environment_source = "scene_environment_source",
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -25,4 +26,5 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
   [SceneProperty.scene_enable_collision]: false,
+  [SceneProperty.scene_environment_source]: {},
 };
