@@ -43,9 +43,9 @@ export enum SceneType {
 }
 
 export const sceneTypeDisplayNames: Record<SceneType, string> = {
-  first_person: "Scene",
+  first_person: "360 Scene",
   orbit: "Orbit Scene",
-  six_dof: "6DOF Scene",
+  six_dof: "3D Scene",
 };
 
 export enum SceneCategory {
