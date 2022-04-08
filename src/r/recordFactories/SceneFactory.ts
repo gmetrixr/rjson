@@ -1,7 +1,6 @@
 import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
-import { r } from "../../r";
 import { ElementType } from "../definitions/elements";
 import { ElementUtils, ElementFactory } from "./ElementFactory";
 import { jsUtils } from "@gmetrixr/gdash";
@@ -30,7 +29,7 @@ export class SceneFactory extends RecordFactory<RT.scene> {
     if (groupElementId) {
       const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
       if (group[0] !== undefined) {
-        const groupF = r.element(group[0]);
+        const groupF = new ElementFactory(group[0]);
         const addedRecord = groupF.addRecord(record, position);
         return addedRecord;
       }
@@ -178,7 +177,7 @@ export class SceneFactory extends RecordFactory<RT.scene> {
     if (groupElementId !== undefined) {
       const group = this.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
       if (group[0] !== undefined) {
-        const groupF = r.element(group[0] as RecordNode<RT.element>);
+        const groupF = new ElementFactory(group[0] as RecordNode<RT.element>);
         return groupF.pasteFromClipboardObject({ obj, position });
       }
     }

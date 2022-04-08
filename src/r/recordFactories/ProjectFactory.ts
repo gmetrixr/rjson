@@ -9,7 +9,6 @@ import {
 import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, createRecord, emptyROM, RecordMap, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
-import { r } from "../../r";
 import { SceneFactory } from "./SceneFactory";
 import { jsUtils } from "@gmetrixr/gdash";
 import { ElementFactory, ElementUtils } from "./ElementFactory";
@@ -195,7 +194,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
   duplicateSceneDeepRecord<N extends RT>(this: ProjectFactory, sceneId: number, type: N, id: number): RecordNode<N> | undefined {
     const sceneJson = this.getRecord(RT.scene, sceneId);
     if (sceneJson !== undefined) {
-      const sceneF = r.scene(sceneJson);
+      const sceneF = (new SceneFactory(sceneJson));
       const duplicatedRecord = sceneF.duplicateDeepRecord(type, id);
       if (duplicatedRecord !== undefined) {
         this.addLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
@@ -215,7 +214,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (duplicatedRecord !== undefined) {
       switch (type) {
         case RT.scene: {
-          const sceneF = r.scene(duplicatedRecord);
+          const sceneF = new SceneFactory(duplicatedRecord);
           const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
           const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
@@ -747,7 +746,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       // ! Only scenes are inserted in place when position is passed. Have to live with this assumption for now
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
       const addedScene = this.addRecord(scene, position? position++: position);
-      const sceneF = r.scene(addedScene);
+      const sceneF = new SceneFactory(addedScene);
       const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
       const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
       this.addLinkedVariables(elements);
@@ -761,12 +760,12 @@ export class ProjectFactory extends RecordFactory<RT.project> {
 
     if (sceneId !== undefined && elementsFromClipboard.length > 0) {
       const scene = this.getRecord(RT.scene, sceneId);
-      const sceneF = r.scene(scene as RecordNode<RT.scene>);
+      const sceneF = new SceneFactory(scene as RecordNode<RT.scene>);
       const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
       if (groupElementId !== undefined) {
         const group = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
         if (group !== undefined) {
-          const groupF = r.element(group[0]);
+          const groupF = new ElementFactory(group[0]);
           const addedRecords = groupF.pasteFromClipboardObject({ obj, position });
           const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
           this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
