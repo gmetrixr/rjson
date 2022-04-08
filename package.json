@@ -1,6 +1,6 @@
 {
   "name": "@gmetrixr/rjson",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "(R)ecursive Json",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
