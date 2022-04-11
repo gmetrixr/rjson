@@ -1,4 +1,5 @@
 import { ICogObjectDefinition } from "../BaseCogObject";
+import { Source } from "../elements";
 
 export interface ISpecialDefinition extends ICogObjectDefinition {
   special_type: SpecialType;
@@ -69,3 +70,11 @@ export enum shoppingPlugins {
   souled_store = "souled_store",
   natures_basket = "natures_basket",
 }
+
+export type SceneEnvironment = {
+  id: number,
+  name: string,
+  source: Source,
+  scale?: number,
+  placer_3d?: number[]
+};
