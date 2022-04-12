@@ -1,18 +1,23 @@
 import { SceneType } from "../definitions/special/SpecialSubTypes";
 
 export enum SceneProperty {
-  scene_yaw_start = "scene_yaw_start",
+  scene_type = "scene_type",
+  // * Below properties are only used for 360 scene
   //scene_pitch_start kept for legacy reasons
+  scene_yaw_start = "scene_yaw_start",
   scene_pitch_start = "scene_pitch_start",
   scene_reset_rotation = "scene_reset_rotation",
   scene_gyro_lock = "scene_gyro_lock",
   scene_pitch_range = "scene_pitch_range",
   scene_yaw_range = "scene_yaw_range",
-  scene_type = "scene_type",
-  scene_orbit_target_element_id = "scene_orbit_target_element_id",
   scene_allow_zooming = "scene_allow_zooming",
+  // * Below properties are used only for orbit scene
+  scene_orbit_target_element_id = "scene_orbit_target_element_id",
+  // * Below properties are used only for 6DOF scene
   scene_enable_collision = "scene_enable_collision",
-  scene_environment = "scene_environment",
+  scene_scale = "scene_scale",
+  scene_placer_3d = "scene_placer_3d",
+  scene_source = "scene_source"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -26,5 +31,7 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
   [SceneProperty.scene_enable_collision]: false,
-  [SceneProperty.scene_environment]: undefined,
+  [SceneProperty.scene_scale]: 1,
+  [SceneProperty.scene_placer_3d]: [0, 0, 0, 0, 0, 0, 1, 1, 1],
+  [SceneProperty.scene_source]: undefined,
 };
