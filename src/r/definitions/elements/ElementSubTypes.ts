@@ -56,6 +56,7 @@ export enum ElementType {
   popup = "popup",
   light = "light",
   hotspot = "hotspot",
+  runtime_environment = "runtime_environment"
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -100,6 +101,8 @@ export const elementDisplayNames: Record<ElementType, string> = {
   group: "Group",
   web_state: "Web State",
   hotspot: "Hotspot",
+  // * this is an internal element only and never exposed to the UI.
+  runtime_environment: "Runtime Environment",
 };
 
 export enum ElementCategory {
