@@ -32,27 +32,6 @@ describe("r SceneFactory test", () => {
       expect(quizInstructionsKeys.includes("heading"));
     }
   });
-
-  it("should add an embed scorm element with linked variables", () => {
-    const projectF = r.project(variableCheckJson);
-    const scenes = projectF.getRecords(RT.scene);
-    const scene1 = scenes?.[0];
-
-    if(scene1) {
-      const embedScormRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.embed_scorm }) as R.RecordNode<RT.element>;
-      const scormKeys = Object.keys(embedScormRecord);
-      expect(scormKeys.includes("embed_scorm_score_var_id"));
-      expect(scormKeys.includes("embed_scorm_suspend_data_var_id"));
-      expect(scormKeys.includes("embed_scorm_progress_var_id"));
-
-      const variables = projectF.getRecords(RT.variable);
-
-      const variableIds = variables.map(v => v.id);
-      expect(variableIds.includes(embedScormRecord.props.embed_scorm_score_var_id as number));
-      expect(variableIds.includes(embedScormRecord.props.embed_scorm_suspend_data_var_id as number));
-      expect(variableIds.includes(embedScormRecord.props.embed_scorm_progress_var_id as number));
-    }
-  })
 });
 
 describe("r RecordFactory tests", () => {
@@ -457,7 +436,7 @@ describe("Test project factory functions", () => {
       nodes: [var1]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     const insertedVar = projectF.getRecord(RT.variable, 2);
     expect(vars.length).to.eq(1);
@@ -479,7 +458,7 @@ describe("Test project factory functions", () => {
       nodes: [var2]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     expect(vars.length).to.eq(1);
   });
@@ -555,7 +534,7 @@ describe("Test project factory functions", () => {
     };
 
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject(clipboard);
+    projectF.pasteFromClipboardObject({obj: clipboard});
     const vars = projectF.getRecords(RT.variable);
     // 2 vars should exist
     // 1. id = 2 and 2. id = 100
@@ -659,7 +638,7 @@ it("should copy element from root and paste into group with different element id
     const sourceElement = deepClone(sceneF.getRecord(RT.element, 1639028973948));
     const groupElementF = r.element(groupElement);
     clipboard.parentType = RT.element;
-    groupElementF.pasteFromClipboardObject(clipboard);
+    groupElementF.pasteFromClipboardObject({obj: clipboard});
 
     const allGroupElementAfterCopy = groupElementF.getRecords(RT.element);
     // element should be added to group element

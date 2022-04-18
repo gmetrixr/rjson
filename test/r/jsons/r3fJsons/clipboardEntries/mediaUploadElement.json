@@ -1,0 +1,25 @@
+{
+  "parentType": "element",
+  "nodes": [
+      {
+          "id": 1648624574884,
+          "type": "element",
+          "props": {
+              "element_type": "media_upload",
+              "heading": "",
+              "description": "",
+              "upload_methods_allowed": "",
+              "media_upload_var_id": 1648623941779,
+              "media_upload_file_types": [
+                  "IMAGE",
+                  "VIDEO",
+                  "AUDIO",
+                  "COMPRESSED",
+                  "GIF",
+                  "OTHER"
+              ]
+          },
+          "name": "Media Upload"
+      }
+  ]
+}

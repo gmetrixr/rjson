@@ -1,0 +1,68 @@
+{
+  "parentType": "project",
+  "nodes": [
+      {
+          "id": 1648565008405,
+          "type": "scene",
+          "props": {
+              "scene_type": "first_person"
+          },
+          "name": "Clipboard Test",
+          "records": {
+              "element": {
+                  "order": [
+                      1648565573292,
+                      1648630221019
+                  ],
+                  "map": {
+                      "1648565573292": {
+                          "id": 1648565573292,
+                          "type": "element",
+                          "props": {
+                              "element_type": "pano_image",
+                              "source": {
+                                  "id": 423746,
+                                  "name": "store_003.jpg",
+                                  "file_paths": {
+                                      "o": "o/store_003.jpg",
+                                      "t": "t/store_003.jpg"
+                                  },
+                                  "file_urls": {
+                                      "o": "https://u.vrgmetri.com/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/o/store_003.jpg",
+                                      "t": "https://u.vrgmetri.com/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/t/store_003.jpg",
+                                      "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gm-gb-test/media/2022-3/jqbypy/3dabbf8e-f5fb-4fec-94c2-ab51b10629e4/o/store_003.jpg"
+                                  },
+                                  "size": "1491963",
+                                  "type": "IMAGE"
+                              },
+                              "opacity": 1,
+                              "pano_pitch_correction": 0,
+                              "pano_yaw_correction": 0,
+                              "hidden": false,
+                              "locked": false,
+                              "stereo": false,
+                              "pano_radius": 900
+                          },
+                          "name": "Pano Image"
+                      },
+                      "1648630221019": {
+                          "id": 1648630221019,
+                          "type": "element",
+                          "props": {
+                              "element_type": "embed_scorm",
+                              "source": {
+                                  "uri": "",
+                                  "id": null
+                              },
+                              "embed_scorm_score_var_id": 1648629485373,
+                              "embed_scorm_suspend_data_var_id": 1648629872567,
+                              "embed_scorm_progress_var_id": 1648630343225
+                          },
+                          "name": "SCORM"
+                      }
+                  }
+              }
+          }
+      }
+  ]
+}

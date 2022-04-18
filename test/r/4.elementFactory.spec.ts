@@ -62,7 +62,7 @@ describe("Test ElementFactory methods", () => {
     const group33 = elementF.getRecord(RT.element, 33);
     if (group33) {
       const cc = deepClone(elementF.copyToClipboardObject([33]));
-      elementF.pasteFromClipboardObject(cc);
+      elementF.pasteFromClipboardObject({obj: cc});
     }
 
     // check that the group with id 33 never changes

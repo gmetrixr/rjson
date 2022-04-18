@@ -445,7 +445,7 @@ export class RecordFactory<T extends RT> {
   /** 
    * Once the clipboard has been converted into ClipboardR, this function can be used to merge into parent RecordNode 
    */
-  pasteFromClipboardObject(this: RecordFactory<T>, obj: ClipboardR, position?: number): void {
+  pasteFromClipboardObject(this: RecordFactory<T>, { obj, position }: {obj: ClipboardR, position?: number}): void {
     if(obj.parentType !== this._type) {
       console.error(`Can't paste this object into a RecordNode of type of ${this._type}`);
       return;
