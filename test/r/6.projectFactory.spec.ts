@@ -347,4 +347,18 @@ describe("r ProjectFactory tests", () => {
     expect(childrenBeforePasting.length + 2).to.be.eq(childrenAfterPasting.length);
     expect(variablesBeforePasting.length + 4).to.be.eq(variablesAfterPasting.length);
   });
+
+  it ("should delete second scene", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const variablesBeforeDeleting = projectF.getRecords(RT.variable);
+    const scenesBeforeDeleting = projectF.getRecords(RT.scene);
+
+    projectF.deleteRecord(RT.scene, scenesBeforeDeleting[1].id);
+
+    const variablesAfterDeleting = projectF.getRecords(RT.variable);
+    const scenesAfterDeleting = projectF.getRecords(RT.scene);
+
+    expect(scenesBeforeDeleting.length - 1).to.be.eq(scenesAfterDeleting.length);
+    expect(variablesBeforeDeleting.length - 4).to.be.eq(variablesAfterDeleting.length);
+  })
 });

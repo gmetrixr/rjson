@@ -180,7 +180,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const record = (new SceneFactory(sceneJson)).deleteDeepRecord(type, id);
       if (record !== undefined) {
         this.deleteLinkedVariables([ record as RecordNode<N> ]);
-        return record; 
+        return record;
       }
     }
     return;
@@ -242,6 +242,9 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         break;
       }
       case RT.scene: {
+        const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
+        const childrenWithLinkedVariables = this.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
+        this.deleteLinkedVariables(childrenWithLinkedVariables);
         for (const record of this.getRecords(RT.menu)) {
           if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
             this.deleteRecord(RT.menu, record.id);
