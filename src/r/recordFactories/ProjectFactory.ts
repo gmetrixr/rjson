@@ -764,21 +764,43 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (sceneId !== undefined && elementsFromClipboard.length > 0) {
       const scene = this.getRecord(RT.scene, sceneId);
       const sceneF = new SceneFactory(scene as RecordNode<RT.scene>);
-      const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
       if (groupElementId !== undefined) {
         const group = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
         if (group !== undefined) {
           const groupF = new ElementFactory(group[0]);
           const addedRecords = groupF.pasteFromClipboardObject({ obj, position });
-          const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+          const recordsToAddLinkedVars = this.getAllRecordsForLinkedVariables(addedRecords as RecordNode<RT>[]);
           this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
         }
       } else {
         const addedRecords = sceneF.pasteFromClipboardObject({ obj, position, groupElementId });
-        const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+        const recordsToAddLinkedVars = this.getAllRecordsForLinkedVariables(addedRecords as RecordNode<RT>[]);
         this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
       }
     }
+  }
+
+  getAllRecordsForLinkedVariables(this: ProjectFactory, records: RecordNode<RT>[]) {
+    const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
+    let recordsToAddLinkedVars: RecordNode<RT.element>[] = [];
+
+    for (const record of records) {
+      switch (record?.props.element_type) {
+        case en.ElementType.group: {
+          const recordGroupF = new ElementFactory(record);
+          const allGroupChildrenWithLinkedVariables = recordGroupF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e?.props.element_type as ElementType));
+          recordsToAddLinkedVars = [ ...recordsToAddLinkedVars, ...allGroupChildrenWithLinkedVariables ];
+        }
+
+        default: {
+          if (filter.includes(record?.props.element_type as ElementType)) {
+            recordsToAddLinkedVars.push(record as RecordNode<RT>);
+          }
+        }
+      }
+    }
+
+    return recordsToAddLinkedVars;
   }
 
   /**

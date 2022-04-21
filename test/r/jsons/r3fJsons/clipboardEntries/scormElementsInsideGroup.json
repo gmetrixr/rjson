@@ -1,0 +1,284 @@
+{
+  "parentType": "scene",
+  "nodes": [
+      {
+          "id": 1650524116623,
+          "type": "element",
+          "props": {
+              "element_type": "group"
+          },
+          "name": "Group",
+          "records": {
+              "element": {
+                  "order": [
+                      1650523523498,
+                      1650524217217
+                  ],
+                  "map": {
+                      "1650523523498": {
+                          "id": 1650523523498,
+                          "type": "element",
+                          "props": {
+                              "element_type": "group"
+                          },
+                          "name": "Group",
+                          "records": {
+                              "element": {
+                                  "order": [
+                                      1650523737215,
+                                      1650524340176,
+                                      1650523569755,
+                                      1650523667096
+                                  ],
+                                  "map": {
+                                      "1650523737215": {
+                                          "id": 1650523737215,
+                                          "type": "element",
+                                          "props": {
+                                              "element_type": "object_3d",
+                                              "source": {
+                                                  "file_urls": {
+                                                      "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                      "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                      "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                                  },
+                                                  "name": "gmetri_logo.glb",
+                                                  "type": "THREED"
+                                              },
+                                              "hidden": false,
+                                              "wireframe": false,
+                                              "auto_rotate": false,
+                                              "auto_animation": false,
+                                              "hover_animation": true,
+                                              "locked": false,
+                                              "placer_3d": [
+                                                  0,
+                                                  0,
+                                                  -8,
+                                                  0,
+                                                  0,
+                                                  0,
+                                                  1,
+                                                  1,
+                                                  1
+                                              ],
+                                              "scale": 1,
+                                              "object3d_animations": []
+                                          },
+                                          "name": "3D Object"
+                                      },
+                                      "1650524340176": {
+                                          "id": 1650524340176,
+                                          "type": "element",
+                                          "props": {
+                                              "element_type": "embed_scorm",
+                                              "source": {
+                                                  "uri": "",
+                                                  "id": null
+                                              },
+                                              "embed_scorm_score_var_id": 1650517507878,
+                                              "embed_scorm_suspend_data_var_id": 1650517578389,
+                                              "embed_scorm_progress_var_id": 1650517970066
+                                          },
+                                          "name": "Duplicated SCORM"
+                                      },
+                                      "1650523569755": {
+                                          "id": 1650523569755,
+                                          "type": "element",
+                                          "props": {
+                                              "element_type": "embed_scorm",
+                                              "source": {
+                                                  "uri": "",
+                                                  "id": null
+                                              },
+                                              "embed_scorm_score_var_id": 1650517742271,
+                                              "embed_scorm_suspend_data_var_id": 1650517849047,
+                                              "embed_scorm_progress_var_id": 1650517685031
+                                          },
+                                          "name": "Pasted SCORM"
+                                      },
+                                      "1650523667096": {
+                                          "id": 1650523667096,
+                                          "type": "element",
+                                          "props": {
+                                              "element_type": "group"
+                                          },
+                                          "name": "Group",
+                                          "records": {
+                                              "element": {
+                                                  "order": [
+                                                      1650523968755,
+                                                      1650523780031
+                                                  ],
+                                                  "map": {
+                                                      "1650523968755": {
+                                                          "id": 1650523968755,
+                                                          "type": "element",
+                                                          "props": {
+                                                              "element_type": "group"
+                                                          },
+                                                          "name": "Group",
+                                                          "records": {
+                                                              "element": {
+                                                                  "order": [
+                                                                      1650524030072,
+                                                                      1650523607698,
+                                                                      1650523941447
+                                                                  ],
+                                                                  "map": {
+                                                                      "1650524030072": {
+                                                                          "id": 1650524030072,
+                                                                          "type": "element",
+                                                                          "props": {
+                                                                              "element_type": "object_3d",
+                                                                              "source": {
+                                                                                  "file_urls": {
+                                                                                      "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                                                      "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                                                      "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                                                                  },
+                                                                                  "name": "gmetri_logo.glb",
+                                                                                  "type": "THREED"
+                                                                              },
+                                                                              "hidden": false,
+                                                                              "wireframe": false,
+                                                                              "auto_rotate": false,
+                                                                              "auto_animation": false,
+                                                                              "hover_animation": true,
+                                                                              "locked": false,
+                                                                              "placer_3d": [
+                                                                                  0,
+                                                                                  0,
+                                                                                  -8,
+                                                                                  0,
+                                                                                  0,
+                                                                                  0,
+                                                                                  1,
+                                                                                  1,
+                                                                                  1
+                                                                              ],
+                                                                              "scale": 1,
+                                                                              "object3d_animations": []
+                                                                          },
+                                                                          "name": "3D Object"
+                                                                      },
+                                                                      "1650523607698": {
+                                                                          "id": 1650523607698,
+                                                                          "type": "element",
+                                                                          "props": {
+                                                                              "element_type": "embed_scorm",
+                                                                              "source": {
+                                                                                  "uri": "",
+                                                                                  "id": null
+                                                                              },
+                                                                              "embed_scorm_score_var_id": 1650517507878,
+                                                                              "embed_scorm_suspend_data_var_id": 1650517578389,
+                                                                              "embed_scorm_progress_var_id": 1650517970066
+                                                                          },
+                                                                          "name": "Duplicated SCORM"
+                                                                      },
+                                                                      "1650523941447": {
+                                                                          "id": 1650523941447,
+                                                                          "type": "element",
+                                                                          "props": {
+                                                                              "element_type": "embed_scorm",
+                                                                              "source": {
+                                                                                  "uri": "",
+                                                                                  "id": null
+                                                                              },
+                                                                              "embed_scorm_score_var_id": 1650517742271,
+                                                                              "embed_scorm_suspend_data_var_id": 1650517849047,
+                                                                              "embed_scorm_progress_var_id": 1650517685031
+                                                                          },
+                                                                          "name": "Pasted SCORM"
+                                                                      }
+                                                                  }
+                                                              }
+                                                          }
+                                                      },
+                                                      "1650523780031": {
+                                                          "id": 1650523780031,
+                                                          "type": "element",
+                                                          "props": {
+                                                              "element_type": "object_3d",
+                                                              "source": {
+                                                                  "file_urls": {
+                                                                      "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                                      "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                                      "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                                                  },
+                                                                  "name": "gmetri_logo.glb",
+                                                                  "type": "THREED"
+                                                              },
+                                                              "hidden": false,
+                                                              "wireframe": false,
+                                                              "auto_rotate": false,
+                                                              "auto_animation": false,
+                                                              "hover_animation": true,
+                                                              "locked": false,
+                                                              "placer_3d": [
+                                                                  0,
+                                                                  0,
+                                                                  -8,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1,
+                                                                  1,
+                                                                  1
+                                                              ],
+                                                              "scale": 1,
+                                                              "object3d_animations": []
+                                                          },
+                                                          "name": "Duplicated 3D model"
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "1650524217217": {
+                          "id": 1650524217217,
+                          "type": "element",
+                          "props": {
+                              "element_type": "object_3d",
+                              "source": {
+                                  "file_urls": {
+                                      "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                      "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                      "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                  },
+                                  "name": "gmetri_logo.glb",
+                                  "type": "THREED"
+                              },
+                              "hidden": false,
+                              "wireframe": false,
+                              "auto_rotate": false,
+                              "auto_animation": false,
+                              "hover_animation": true,
+                              "locked": false,
+                              "placer_3d": [
+                                  0,
+                                  0,
+                                  -8,
+                                  0,
+                                  0,
+                                  0,
+                                  1,
+                                  1,
+                                  1
+                              ],
+                              "scale": 1,
+                              "object3d_animations": []
+                          },
+                          "name": "Duplicated 3D model"
+                      }
+                  }
+              }
+          }
+      }
+  ]
+}
