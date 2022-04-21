@@ -790,12 +790,14 @@ export class ProjectFactory extends RecordFactory<RT.project> {
           const recordGroupF = new ElementFactory(record);
           const allGroupChildrenWithLinkedVariables = recordGroupF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e?.props.element_type as ElementType));
           recordsToAddLinkedVars = [ ...recordsToAddLinkedVars, ...allGroupChildrenWithLinkedVariables ];
+          break;
         }
 
         default: {
           if (filter.includes(record?.props.element_type as ElementType)) {
             recordsToAddLinkedVars.push(record as RecordNode<RT>);
           }
+          break;
         }
       }
     }
