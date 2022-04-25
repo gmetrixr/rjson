@@ -778,7 +778,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
   }
 
   getAllRecordsForLinkedVariables(this: ProjectFactory, records: RecordNode<RT>[]) {
-    let recordsToAddLinkedVars: RecordNode<RT.element>[] = [];
+    const recordsToAddLinkedVars: RecordNode<RT.element>[] = [];
 
     for (const record of records) {
       switch (record?.props.element_type) {
