@@ -215,8 +215,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       switch (type) {
         case RT.scene: {
           const sceneF = new SceneFactory(duplicatedRecord);
-          const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
-          const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
+          const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
           break;
         }
@@ -242,8 +241,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         break;
       }
       case RT.scene: {
-        const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
-        const childrenWithLinkedVariables = this.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
+        const childrenWithLinkedVariables = this.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
         this.deleteLinkedVariables(childrenWithLinkedVariables);
         for (const record of this.getRecords(RT.menu)) {
           if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
@@ -750,8 +748,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       // * if position is passed, then keep incrementing to insert in order, else add at the end of the list
       const addedScene = this.addRecord(scene, position? position++: position);
       const sceneF = new SceneFactory(addedScene);
-      const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
-      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => filter.includes(e.props.element_type as ElementType));
+      const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
       this.addLinkedVariables(elements);
     }
 
@@ -764,21 +761,44 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (sceneId !== undefined && elementsFromClipboard.length > 0) {
       const scene = this.getRecord(RT.scene, sceneId);
       const sceneF = new SceneFactory(scene as RecordNode<RT.scene>);
-      const filter = [en.ElementType.embed_scorm, en.ElementType.media_upload];
       if (groupElementId !== undefined) {
         const group = sceneF.getAllDeepChildrenWithFilter(RT.element, el => el.id === groupElementId);
         if (group !== undefined) {
           const groupF = new ElementFactory(group[0]);
           const addedRecords = groupF.pasteFromClipboardObject({ obj, position });
-          const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+          const recordsToAddLinkedVars = this.getAllRecordsForLinkedVariables(addedRecords as RecordNode<RT>[]);
           this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
         }
       } else {
         const addedRecords = sceneF.pasteFromClipboardObject({ obj, position, groupElementId });
-        const recordsToAddLinkedVars = addedRecords.filter(record => filter.includes(record?.props.element_type as ElementType));
+        const recordsToAddLinkedVars = this.getAllRecordsForLinkedVariables(addedRecords as RecordNode<RT>[]);
         this.addLinkedVariables(recordsToAddLinkedVars as RecordNode<RT>[]);
       }
     }
+  }
+
+  getAllRecordsForLinkedVariables(this: ProjectFactory, records: RecordNode<RT>[]) {
+    const recordsToAddLinkedVars: RecordNode<RT.element>[] = [];
+
+    for (const record of records) {
+      switch (record?.props.element_type) {
+        case en.ElementType.group: {
+          const recordGroupF = new ElementFactory(record);
+          const allGroupChildrenWithLinkedVariables = recordGroupF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e?.props.element_type as ElementType));
+          recordsToAddLinkedVars.push(...allGroupChildrenWithLinkedVariables);
+          break;
+        }
+
+        default: {
+          if (en.elementsWithLinkedVariables.includes(record?.props.element_type as ElementType)) {
+            recordsToAddLinkedVars.push(record as RecordNode<RT>);
+          }
+          break;
+        }
+      }
+    }
+
+    return recordsToAddLinkedVars;
   }
 
   /**

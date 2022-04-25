@@ -131,6 +131,11 @@ export const elementCategoryDisplayNames: Record<ElementCategory, string> = {
   ecommerce: "E-Commerce",
 };
 
+export const elementsWithLinkedVariables = [
+  ElementType.embed_scorm,
+  ElementType.media_upload
+]
+
 export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
   panorama: [
     ElementType.pano_image,

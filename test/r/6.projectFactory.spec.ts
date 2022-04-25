@@ -8,6 +8,7 @@ import mediaUploadJson from "./jsons/r3fJsons/clipboardEntries/mediaUploadElemen
 import sceneContainingGroupInGroup from "./jsons/r3fJsons/clipboardEntries/sceneContainingGroupInGroup.json";
 import sceneWithElementJson from "./jsons/r3fJsons/clipboardEntries/sceneWithElement.json";
 import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContainingScorm.json";
+import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -360,5 +361,16 @@ describe("r ProjectFactory tests", () => {
 
     expect(scenesBeforeDeleting.length - 1).to.be.eq(scenesAfterDeleting.length);
     expect(variablesBeforeDeleting.length - 4).to.be.eq(variablesAfterDeleting.length);
-  })
+  });
+
+  it ("should paste 2 scorm elements inside a group", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const variablesBeforePasting = projectF.getRecords(RT.variable);
+    const scenes = projectF.getRecords(RT.scene);
+
+    projectF.pasteFromClipboardObject({ obj: (scormElementsInsideGroup as ClipboardR), sceneId: scenes[0].id });
+
+    const variablesAfterPasting = projectF.getRecords(RT.variable);
+    expect(variablesBeforePasting.length + 12).to.be.eq(variablesAfterPasting.length);
+  });
 });
