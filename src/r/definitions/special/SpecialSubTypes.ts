@@ -1,4 +1,5 @@
 import { ICogObjectDefinition } from "../BaseCogObject";
+import { Source } from "../elements";
 
 export interface ISpecialDefinition extends ICogObjectDefinition {
   special_type: SpecialType;
@@ -43,9 +44,9 @@ export enum SceneType {
 }
 
 export const sceneTypeDisplayNames: Record<SceneType, string> = {
-  first_person: "Scene",
+  first_person: "360 Scene",
   orbit: "Orbit Scene",
-  six_dof: "6DOF Scene",
+  six_dof: "3D Scene",
 };
 
 export enum SceneCategory {
@@ -69,3 +70,11 @@ export enum shoppingPlugins {
   souled_store = "souled_store",
   natures_basket = "natures_basket",
 }
+
+export type SceneEnvironment = {
+  id: number,
+  name: string,
+  source: Source,
+  scale?: number,
+  placer_3d?: number[]
+};

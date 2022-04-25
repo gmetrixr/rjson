@@ -598,7 +598,7 @@ export class RecordFactory<T extends RT> {
    * else update property value directly in the RecordNode
    *
    */
-  updatePropertyAtAddress(this: RecordFactory<T>, addr: string, value: number | string | boolean): boolean {
+  updatePropertyAtAddress(this: RecordFactory<T>, addr: string, value: unknown): boolean {
     const recordAtAddress = this.getRecordAtAddress(addr);
     // find the matching property value string and then remove the ! from the lead
     const propertyAddr = addr.match(/!.*/)?.[0]?.replace("!", ""); // ex: !scene_yaw_correction
