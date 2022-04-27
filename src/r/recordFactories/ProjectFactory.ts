@@ -179,7 +179,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (sceneJson !== undefined) {
       const record = (new SceneFactory(sceneJson)).deleteDeepRecord(type, id);
       if (record !== undefined) {
-        this.deleteLinkedVariables([ record as RecordNode<N> ]);
+        const recordsWithLinkedVariables = this.getAllRecordsForLinkedVariables([ record as RecordNode<N> ]);
+        this.deleteLinkedVariables(recordsWithLinkedVariables);
         return record;
       }
     }

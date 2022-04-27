@@ -373,4 +373,18 @@ describe("r ProjectFactory tests", () => {
     const variablesAfterPasting = projectF.getRecords(RT.variable);
     expect(variablesBeforePasting.length + 12).to.be.eq(variablesAfterPasting.length);
   });
+
+  it ("should delete group with scorm element", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const variablesBeforeDeleting = projectF.getRecords(RT.variable);
+    const scenes = projectF.getRecords(RT.scene);
+
+    const sceneF = r.scene(scenes[0]);
+    const records = sceneF.getRecords(RT.element);
+
+    projectF.deleteSceneDeepRecord(scenes[0].id, RT.element, records[2].id);
+
+    const variablesAfterDeleting = projectF.getRecords(RT.variable);
+    expect(variablesBeforeDeleting.length - 12).to.be.eq(variablesAfterDeleting.length);
+  })
 });
