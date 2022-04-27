@@ -31,7 +31,7 @@ class Migration implements IOrder {
     //If show_powered_by_gmetri (ie whitelabel earlier) was undefined, let it remain undefined.
 
     projectF.set(rtp.project.version, 129);
-  };
+  }
 }
 
 const migration = new Migration();
