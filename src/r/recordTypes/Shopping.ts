@@ -4,7 +4,8 @@ export enum ShoppingProperty {
   endpoint = "endpoint",
   currency_prefix = "currency_prefix",
   show_cart = "show_cart",
-  store_access_token = "store_access_token"
+  shopify_access_token = "shopify_access_token",
+  shopify_domain = "shopify_domain"
 }
 
 export const shoppingPropertyDefaults: Record<ShoppingProperty, unknown> = {
@@ -13,5 +14,6 @@ export const shoppingPropertyDefaults: Record<ShoppingProperty, unknown> = {
   [ShoppingProperty.endpoint]: "",
   [ShoppingProperty.currency_prefix]: "",
   [ShoppingProperty.show_cart]: true,
-  [ShoppingProperty.store_access_token]: ""
+  [ShoppingProperty.shopify_access_token]: "",
+  [ShoppingProperty.shopify_domain]: ""
 }
