@@ -389,11 +389,4 @@ describe("r ProjectFactory tests", () => {
     const variablesAfterDeleting = projectF.getRecords(RT.variable);
     expect(variablesBeforeDeleting.length - 12).to.be.eq(variablesAfterDeleting.length);
   });
-
-  it ("should create new project", () => {
-    const project = ProjectUtils.createNewProject();
-    console.log('=============> project: ', project);
-    const migratedProject = migrateProjectRJson(project);
-    console.log('=============> migrated project: ', migratedProject);
-  })
 });

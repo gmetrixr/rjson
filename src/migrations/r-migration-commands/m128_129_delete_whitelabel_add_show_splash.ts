@@ -18,12 +18,13 @@ class Migration implements IOrder {
     const projectF = r.record(pJson);
 
     projectF.changePropertyName("whitelabel", "show_powered_by_gmetri");
+    const showPoweredByGMetri = projectF.get(rtp.project.show_powered_by_gmetri);
 
     //Change property values
-    if(projectF.get(rtp.project.show_powered_by_gmetri) === true) {
+    if(showPoweredByGMetri === true) {
       projectF.set(rtp.project.show_powered_by_gmetri, false);
       projectF.set(rtp.project.show_splash_screen, false);
-    } else if(projectF.get(rtp.project.show_powered_by_gmetri) === false) {
+    } else if(showPoweredByGMetri === false) {
       projectF.set(rtp.project.show_powered_by_gmetri, true);
       projectF.set(rtp.project.show_splash_screen, true);
     }
