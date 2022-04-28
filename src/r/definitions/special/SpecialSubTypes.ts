@@ -69,6 +69,8 @@ export const sceneTypeByCategory: Record<SceneCategory, SceneType[]> = {
 export enum shoppingPlugins {
   souled_store = "souled_store",
   natures_basket = "natures_basket",
+  shopify = "shopify",
+  woocommerce = "woocommerce",
 }
 
 export type SceneEnvironment = {
