@@ -1047,7 +1047,6 @@ export class ProjectUtils {
     // ! m099_100_initial_r_migration operates on project json of type `t` and will induce unwanted side-effects when a `r` type project json is passed to it
     projectF.set(rtp.project.version, 100);
     const scene = projectF.addBlankRecord(RT.scene);
-    const sceneF = new SceneFactory(scene);
     projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.pano_image });
     return project;
   }
