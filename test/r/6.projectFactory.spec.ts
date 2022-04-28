@@ -1,5 +1,7 @@
 import { en, r, R, RecordNode, RT } from "../../src/r";
+import { migrateProjectRJson } from "../../src";
 import { expect } from "chai";
+import { ProjectUtils } from "../../src/r/recordFactories/ProjectFactory";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
 import { ClipboardR } from "../../src/r/R";
@@ -386,5 +388,12 @@ describe("r ProjectFactory tests", () => {
 
     const variablesAfterDeleting = projectF.getRecords(RT.variable);
     expect(variablesBeforeDeleting.length - 12).to.be.eq(variablesAfterDeleting.length);
+  });
+
+  it ("should create new project", () => {
+    const project = ProjectUtils.createNewProject();
+    console.log('=============> project: ', project);
+    const migratedProject = migrateProjectRJson(project);
+    console.log('=============> migrated project: ', migratedProject);
   })
 });

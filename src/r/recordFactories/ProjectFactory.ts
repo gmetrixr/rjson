@@ -198,7 +198,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const sceneF = (new SceneFactory(sceneJson));
       const duplicatedRecord = sceneF.duplicateDeepRecord(type, id);
       if (duplicatedRecord !== undefined) {
-        this.addLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
+        const recordsWithLinkedVariables = this.getAllRecordsForLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
+        this.addLinkedVariables(recordsWithLinkedVariables);
         return duplicatedRecord;
       }
     }
