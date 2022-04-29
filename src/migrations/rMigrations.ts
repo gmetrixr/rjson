@@ -28,6 +28,7 @@ import m124_125 from "./r-migration-commands/m124_m125_add_text_version";
 import m125_126 from "./r-migration-commands/m125_m126_no_click_animation_rename";
 import m126_127 from "./r-migration-commands/m126_127_add_scorm_predefined_vars";
 import m127_128 from "./r-migration-commands/m127_128_add_scorm_score_var";
+import m128_129 from "./r-migration-commands/m128_129_delete_whitelabel_add_show_splash";
 
 export const rMigrationTree: {[key: number]: IOrder} = {
   [99]: m099_100,
@@ -59,4 +60,5 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [125]: m125_126,
   [126]: m126_127,
   [127]: m127_128,
+  [128]: m128_129,
 };
