@@ -1,7 +1,5 @@
-import { en, r, R, RecordNode, RT } from "../../src/r";
-import { migrateProjectRJson } from "../../src";
+import { en, r, R, RecordNode, RT, rtp, sn } from "../../src/r";
 import { expect } from "chai";
-import { ProjectUtils } from "../../src/r/recordFactories/ProjectFactory";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
 import { ClipboardR } from "../../src/r/R";
@@ -11,6 +9,7 @@ import sceneContainingGroupInGroup from "./jsons/r3fJsons/clipboardEntries/scene
 import sceneWithElementJson from "./jsons/r3fJsons/clipboardEntries/sceneWithElement.json";
 import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContainingScorm.json";
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
+import { ElementType } from "../../src/r/definitions/elements";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -388,5 +387,17 @@ describe("r ProjectFactory tests", () => {
 
     const variablesAfterDeleting = projectF.getRecords(RT.variable);
     expect(variablesBeforeDeleting.length - 12).to.be.eq(variablesAfterDeleting.length);
+  });
+
+  it ("should add an environment elements and test defaults", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const scene = projectF.addBlankRecord(RT.scene);
+    scene.props.scene_type = sn.SceneType.six_dof;
+    const environment = projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.environment });
+    if(environment) {
+      const elementF = r.element(environment);
+      expect((elementF.getValueOrDefault(rtp.element.source) as en.Source)?.file_urls?.o).to.eq("https://s.vrgmetri.com/gb-web/z5-edge/6DOF/environments/Event/eventModel_v10.glb");
+      expect((elementF.getValueOrDefault(rtp.element.placer_3d) as number[]).length).to.eq(9);
+    }
   });
 });
