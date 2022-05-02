@@ -15,9 +15,6 @@ export enum SceneProperty {
   scene_orbit_target_element_id = "scene_orbit_target_element_id",
   // * Below properties are used only for 6DOF scene
   scene_enable_collision = "scene_enable_collision",
-  scene_scale = "scene_scale",
-  scene_placer_3d = "scene_placer_3d",
-  scene_source = "scene_source"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -31,7 +28,4 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
   [SceneProperty.scene_enable_collision]: false,
-  [SceneProperty.scene_scale]: 1,
-  [SceneProperty.scene_placer_3d]: [0, 0, 0, 0, 0, 0, 1, 1, 1],
-  [SceneProperty.scene_source]: undefined,
 };
