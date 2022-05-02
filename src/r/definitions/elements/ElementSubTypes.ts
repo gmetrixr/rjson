@@ -161,6 +161,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.torus,
     ElementType.cylinder,
     ElementType.light,
+    ElementType.environment,
   ],
   spatial: [
     ElementType.ar,
