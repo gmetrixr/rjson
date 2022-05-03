@@ -24,7 +24,9 @@ export const Environment: IElementDefinition = {
       type: FileType.THREED
     },
     [ElementProperty.scale]: 0.5,
-    [ElementProperty.placer_3d]: [0, -1.6, 0, 0, 0, 0, 1, 1, 1]
+    [ElementProperty.placer_3d]: [0, -1.6, 0, 0, 0, 0, 1, 1, 1],
+    // this is a proxy so that the element can't be modified from the editor
+    [ElementProperty.locked]: true
   },
   events: [],
   actions: []
