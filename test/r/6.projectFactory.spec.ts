@@ -9,6 +9,7 @@ import sceneContainingGroupInGroup from "./jsons/r3fJsons/clipboardEntries/scene
 import sceneWithElementJson from "./jsons/r3fJsons/clipboardEntries/sceneWithElement.json";
 import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContainingScorm.json";
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
+import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
 import { ElementType } from "../../src/r/definitions/elements";
 
 describe("r ProjectFactory tests", () => {
@@ -351,7 +352,7 @@ describe("r ProjectFactory tests", () => {
   });
 
   it ("should delete second scene", () => {
-    const projectF = r.project(simpleSceneWithPano);
+    const projectF = r.project(twoScenesWithScorm);
     const variablesBeforeDeleting = projectF.getRecords(RT.variable);
     const scenesBeforeDeleting = projectF.getRecords(RT.scene);
 
@@ -361,7 +362,7 @@ describe("r ProjectFactory tests", () => {
     const scenesAfterDeleting = projectF.getRecords(RT.scene);
 
     expect(scenesBeforeDeleting.length - 1).to.be.eq(scenesAfterDeleting.length);
-    expect(variablesBeforeDeleting.length - 4).to.be.eq(variablesAfterDeleting.length);
+    expect(variablesBeforeDeleting.length - 3).to.be.eq(variablesAfterDeleting.length);
   });
 
   it ("should paste 2 scorm elements inside a group", () => {
