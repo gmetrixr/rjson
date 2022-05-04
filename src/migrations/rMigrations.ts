@@ -29,6 +29,8 @@ import m125_126 from "./r-migration-commands/m125_m126_no_click_animation_rename
 import m126_127 from "./r-migration-commands/m126_127_add_scorm_predefined_vars";
 import m127_128 from "./r-migration-commands/m127_128_add_scorm_score_var";
 import m128_129 from "./r-migration-commands/m128_129_delete_whitelabel_add_show_splash";
+import create_first_scene from "../migrations/newproject-migration-commands/create_first_scene";
+import create_predefined_vars from "../migrations/newproject-migration-commands/create_predefined_vars";
 
 export const rMigrationTree: {[key: number]: IOrder} = {
   [99]: m099_100,
@@ -61,4 +63,14 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [126]: m126_127,
   [127]: m127_128,
   [128]: m128_129,
+};
+
+export const getHighestRjsonVersion = (): number => {
+  const unorderedKeys = Object.keys(rMigrationTree).map(n => parseInt(n)).sort((a,b) => (b - a));
+  return unorderedKeys[0] + 1;
+}
+
+export const newProjectMigrationTree: {[key: number]: IOrder} = {
+  [1]: create_first_scene,
+  [2]: create_predefined_vars,
 };

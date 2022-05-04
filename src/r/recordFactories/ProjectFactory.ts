@@ -21,6 +21,8 @@ import { ShoppingProperty } from "../recordTypes/Shopping";
 import { MenuProperty } from "../recordTypes/Menu";
 import { ElementType } from "../definitions/elements/ElementSubTypes";
 import { RuleAction } from "../definitions/rules";
+import { getHighestRjsonVersion } from "../../migrations/rMigrations";
+import { migrationsForNewProject } from "../../migrations";
 
 const { deepClone, difference, union, intersection } = jsUtils;
 type variable = RT.variable;
@@ -1044,17 +1046,6 @@ export class ProjectUtils {
     }
 
     return uniq(outputRuleIds);
-  }
-
-  static createNewProject = (): RecordNode<RT.project> => {
-    const project = createRecord(RT.project);
-    const projectF = new ProjectFactory(project);
-    // ! IMPORTANT - Set version = 100, so that m099_100_initial_r_migration migration is not applied.
-    // ! m099_100_initial_r_migration operates on project json of type `t` and will induce unwanted side-effects when a `r` type project json is passed to it
-    projectF.set(rtp.project.version, 100);
-    const scene = projectF.addBlankRecord(RT.scene);
-    projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.pano_image });
-    return project;
   }
 
   /**
