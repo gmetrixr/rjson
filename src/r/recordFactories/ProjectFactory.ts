@@ -243,16 +243,20 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         break;
       }
       case RT.scene: {
-        const childrenWithLinkedVariables = this.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
-        this.deleteLinkedVariables(childrenWithLinkedVariables);
-        for (const record of this.getRecords(RT.menu)) {
-          if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
-            this.deleteRecord(RT.menu, record.id);
+        const scene = this.getRecord(RT.scene, id);
+        if (scene !== undefined) {
+          const sceneF = new SceneFactory(scene);
+          const childrenWithLinkedVariables = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
+          this.deleteLinkedVariables(childrenWithLinkedVariables);
+          for (const record of this.getRecords(RT.menu)) {
+            if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
+              this.deleteRecord(RT.menu, record.id);
+            }
           }
-        }
-        for (const record of this.getRecords(RT.tour_mode)) {
-          if ((new RecordFactory(record)).get(rtp.tour_mode.tour_mode_scene_id) === id) {
-            this.deleteRecord(RT.tour_mode, record.id);
+          for (const record of this.getRecords(RT.tour_mode)) {
+            if ((new RecordFactory(record)).get(rtp.tour_mode.tour_mode_scene_id) === id) {
+              this.deleteRecord(RT.tour_mode, record.id);
+            }
           }
         }
         break;
