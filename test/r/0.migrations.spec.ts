@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import {r, migrateProjectRJson, rUtils, en, RT, RecordNode} from "../../src";
+import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject} from "../../src";
 import { migrateElement } from "../../src/migrations/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
@@ -85,7 +85,7 @@ describe("r Migrations", () => {
   });
 
   it("should test migrations on a new project", () => {
-    const newProject = migrateProjectRJson(rUtils.ProjectUtils.createNewProject());
+    const newProject =  createNewProject();
     const projectF = r.project(newProject);
     const initialSceneId = projectF.getInitialSceneId();
     // 100111 is the default id injected when migrating from a t -> r project json

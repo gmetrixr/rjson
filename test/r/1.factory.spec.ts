@@ -1,5 +1,5 @@
-import { createRecord, en, r, R, RecordNode, RT, rtp } from "../../src/r";
-import { migrateProjectRJson } from "../../src/migrations/index";
+import { createRecord, en, r, R, RecordNode, RT, rtp  } from "../../src/r";
+import { migrateProjectRJson, createNewProject } from "../../src/migrations/index";
 import { expect } from "chai";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import project_variable_template from "./jsons/project_variable_template.json";
@@ -396,7 +396,7 @@ describe("Test project factory functions", () => {
   });
 
   it("should create new project", () => {
-    const project = ProjectUtils.createNewProject();
+    const project = createNewProject();
     const projectF = r.project(project);
     const records = projectF.getRecords(RT.scene);
     const menus = projectF.getRecords(RT.menu);
