@@ -36,8 +36,8 @@ import { Light } from "./types/Light";
 import { Hotspot } from "./types/Hotspots";
 import { Environment } from "./types/Environment";
 
-import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourceElementProperties, sourceItemProperties, elementsWithLinkedVariables, lightType } from "./ElementSubTypes";
-export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourceElementProperties, sourceItemProperties, elementsWithLinkedVariables, lightType };
+import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType } from "./ElementSubTypes";
+export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType };
 
 import { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID } from "./ElementSubTypes";
 export { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID };

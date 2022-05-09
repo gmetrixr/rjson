@@ -239,18 +239,15 @@ export type ShareAttributes = {
   platforms: string[], // ['facebook', 'twitter', 'linkedin']
 };
 
-/** A list of all ElementProperties that end with the word "source". Use to understand which properties contain file source objects */
-export const sourceElementProperties: ElementProperty[] = [
-  ElementProperty.source,
-  ElementProperty.background_source,
-  ElementProperty.image_sources,
-  ElementProperty.threed_source
-]
-
-/** A list of all ItemProperties that end with the word "source". Use to understand which properties contain file source objects */
-export const sourceItemProperties: ItemProperty[] = [
-  ItemProperty.item_source,
-]
+/** A list of properties that contain the type en.Source or en.Source[] */
+export const sourcePropertyNames = {
+  /** A list of all ElementProperties that end with the word "source". Use to understand which properties contain file source objects */
+  elementProperties: [ElementProperty.source, ElementProperty.background_source, ElementProperty.threed_source],
+  /** A list of all ElementProperties that end with the word "sources". Use to understand which properties contain file source object arrays */
+  elementArrayProperties: [ElementProperty.image_sources],
+  /** A list of all ItemProperties that end with the word "source". Use to understand which properties contain file source objects */  
+  itemProperties: [ItemProperty.item_source],
+}
 
 export enum lightType {
   ambient = "ambient",
