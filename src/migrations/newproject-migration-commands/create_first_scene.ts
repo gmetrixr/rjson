@@ -10,7 +10,7 @@ class Migration implements IOrder {
     const projectF = r.project(pJson);
 
     const scene = projectF.addBlankRecord(RT.scene);
-    scene.props.scene_type = sn.SceneType.six_dof;
+    scene.props.scene_type = sn.SceneType.first_person;
     projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: en.ElementType.pano_image });
   }
 }
