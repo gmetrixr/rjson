@@ -80,3 +80,9 @@ export type SceneEnvironment = {
   scale?: number,
   placer_3d?: number[]
 };
+
+export enum SceneCollisionOptions {
+  no_collision = "no_collision",
+  basic_collision = "basic_collision",
+  advanced_collision = "advanced_collision"
+}

@@ -15,7 +15,8 @@ import {
   sceneTypeByCategory,
   sceneCategoryDisplayNames,
   shoppingPlugins,
-  SceneEnvironment
+  SceneEnvironment,
+  SceneCollisionOptions
 } from "./SpecialSubTypes";
 
 export {
@@ -28,7 +29,8 @@ export {
   sceneTypeByCategory,
   sceneCategoryDisplayNames,
   shoppingPlugins,
-  SceneEnvironment
+  SceneEnvironment,
+  SceneCollisionOptions
 };
 
 /** These are types apart from elements and variables that get used as cogs */
