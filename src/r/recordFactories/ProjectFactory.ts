@@ -221,6 +221,10 @@ export class ProjectFactory extends RecordFactory<RT.project> {
           const sceneF = new SceneFactory(duplicatedRecord);
           const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
+
+          const menuRecord = super.addBlankRecord(RT.menu, duplicatedRecord.id + 10001);
+          menuRecord.props.menu_scene_id = duplicatedRecord.id;
+          menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
           break;
         }
       }
