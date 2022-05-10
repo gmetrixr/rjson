@@ -1,4 +1,4 @@
-import { SceneType } from "../definitions/special/SpecialSubTypes";
+import { SceneCollisionOptions, SceneType } from "../definitions/special/SpecialSubTypes";
 
 export enum SceneProperty {
   scene_type = "scene_type",
@@ -14,7 +14,7 @@ export enum SceneProperty {
   // * Below properties are used only for orbit scene
   scene_orbit_target_element_id = "scene_orbit_target_element_id",
   // * Below properties are used only for 6DOF scene
-  scene_enable_collision = "scene_enable_collision",
+  scene_collision_type = "scene_collision_type",
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -27,5 +27,5 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_type]: SceneType.first_person,
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
-  [SceneProperty.scene_enable_collision]: false,
+  [SceneProperty.scene_collision_type]: SceneCollisionOptions.advanced_collision,
 };
