@@ -56,18 +56,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     //Custom Record Types' Code
     switch(record.type) {
       case RT.scene: {
-        //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
-        //would end up in a cyclic call.
-        const menuRecord = super.addBlankRecord(RT.menu, record.id + 10001);
-        menuRecord.props.menu_scene_id = record.id;
-        menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
-    
-        // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
-        if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
-          //Making id deterministic (although not needed) - for testing
-          const tourModeRecord = super.addBlankRecord(RT.tour_mode, record.id + 10002);
-          tourModeRecord.props.tour_mode_scene_id = record.id;
-        }
+        this.addMenuAndTourModeRecord(record.id);
         break;
       }
       case RT.lead_gen_field: {
@@ -221,6 +210,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
           const sceneF = new SceneFactory(duplicatedRecord);
           const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
+          this.addMenuAndTourModeRecord(duplicatedRecord.id);
           break;
         }
       }
@@ -431,6 +421,21 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       }
     } else {
       return this.getRecordOrder(RT.scene)[0];
+    }
+  }
+
+  addMenuAndTourModeRecord(this: ProjectFactory, sceneId: number) {
+    //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
+    //would end up in a cyclic call.
+    const menuRecord = super.addBlankRecord(RT.menu, sceneId + 10001);
+    menuRecord.props.menu_scene_id = sceneId;
+    menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
+
+    // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
+    if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
+      //Making id deterministic (although not needed) - for testing
+      const tourModeRecord = super.addBlankRecord(RT.tour_mode, sceneId + 10002);
+      tourModeRecord.props.tour_mode_scene_id = sceneId;
     }
   }
 

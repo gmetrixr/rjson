@@ -2,7 +2,8 @@
   "id":1648468422874,
   "type":"project",
   "props":{
-     "version":128
+     "version":128,
+     "auto_add_new_scene_to_menu": true
   },
   "records":{
      "menu":{

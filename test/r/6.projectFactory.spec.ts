@@ -214,11 +214,13 @@ describe("r ProjectFactory tests", () => {
       const sceneF = r.scene(scene1);
       const sceneRootElements = sceneF.getRecords(RT.element);
       const sceneAllElements = sceneF.getAllDeepChildren(RT.element);
+      const menuRecords = projectF.getRecords(RT.menu);
 
       expect(scene1.id).to.not.be.eq((duplicatedScene as RecordNode<RT.scene>).id);
       expect(sceneRootElements.length).to.be.eq(duplicatedSceneRootElements.length);
       expect(sceneAllElements.length).to.be.eq(duplicatedSceneAllElements.length);
       expect(initialVariables.length).to.not.be.eq(finalVariables.length);
+      expect(menuRecords[1].props.menu_show).to.be.eq(true);
     }
   });
 
