@@ -10,6 +10,8 @@ import sceneWithElementJson from "./jsons/r3fJsons/clipboardEntries/sceneWithEle
 import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContainingScorm.json";
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
 import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
+import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
+import { migrateProjectRJson } from "../../src/migrations/index";
 import { ElementType } from "../../src/r/definitions/elements";
 
 describe("r ProjectFactory tests", () => {
@@ -403,4 +405,21 @@ describe("r ProjectFactory tests", () => {
       expect((elementF.getValueOrDefault(rtp.element.placer_3d) as number[]).length).to.eq(9);
     }
   });
+
+  it ("should flatten product card CTA button properties", () => {
+    const twoProductCards = migrateProjectRJson(twoScenesWithProductCard);
+    const projectF = r.project(twoProductCards);
+
+    const scenes = projectF.getRecords(RT.scene);
+    projectF.addElementOfTypeToScene({ sceneId: scenes[0].id, elementType: en.ElementType.product_card });
+
+    const productCards = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.product_card);
+
+    for (const card of productCards) {
+      expect(card.props.show_add_to_cart).to.be.eq(undefined);
+      expect(card.props.show_add_to_cart_button).to.not.be.eq(undefined);
+      expect(card.props.add_to_cart_button_link).to.not.be.eq(undefined);
+      expect(card.props.add_to_cart_button_text).to.not.be.eq(undefined);
+    }
+  })
 });
