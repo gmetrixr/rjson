@@ -416,7 +416,6 @@ describe("r ProjectFactory tests", () => {
     const productCards = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.product_card);
 
     for (const card of productCards) {
-      expect(card.props.show_add_to_cart).to.be.eq(undefined);
       expect(card.props.show_add_to_cart_button).to.not.be.eq(undefined);
       expect(card.props.add_to_cart_button_link).to.not.be.eq(undefined);
       expect(card.props.add_to_cart_button_text).to.not.be.eq(undefined);

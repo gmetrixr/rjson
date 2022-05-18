@@ -174,7 +174,7 @@ export class RecordFactory<T extends RT> {
     return this;
   }
 
-  deletePropertyName(this: RecordFactory<T>, propertyName: string): RecordFactory<T> {
+  deleteProperty(this: RecordFactory<T>, propertyName: string): RecordFactory<T> {
     //@ts-ignore
     if (this._json.props[propertyName]) {
       //@ts-ignore

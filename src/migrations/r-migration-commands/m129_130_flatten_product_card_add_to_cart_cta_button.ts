@@ -20,13 +20,13 @@ class Migration implements IOrder {
 
     for (const card of productCards) {
       const elementF = r.element(card);
-      const showAddToCartProperties = elementF.getValueOrDefault(rtp.element.show_add_to_cart) as any;
+      const showAddToCartProperties = elementF.getValueOrDefault("show_add_to_cart" as any) as any;
       
       if (showAddToCartProperties) {
         showAddToCartProperties.show_cart_btn && elementF.set(rtp.element.show_add_to_cart_button, showAddToCartProperties.show_cart_btn);
         showAddToCartProperties.cart_btn_text && elementF.set(rtp.element.add_to_cart_button_text, showAddToCartProperties.cart_btn_text);
         showAddToCartProperties.cart_btn_link && elementF.set(rtp.element.add_to_cart_button_link, showAddToCartProperties.cart_btn_link);
-        elementF.deletePropertyName("show_add_to_cart");
+        elementF.deleteProperty("show_add_to_cart");
       }
     }
 
