@@ -174,6 +174,15 @@ export class RecordFactory<T extends RT> {
     return this;
   }
 
+  deleteProperty(this: RecordFactory<T>, propertyName: string): RecordFactory<T> {
+    //@ts-ignore
+    if (this._json.props[propertyName]) {
+      //@ts-ignore
+      delete this._json.props[propertyName];
+    }
+    return this;
+  }
+
   addBlankRecord<N extends RT>(this: RecordFactory<T>, type: N, position?: number): RecordNode<N> {
     const record = createRecord(type);
     this.addRecord(record, position);
