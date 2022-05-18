@@ -16,5 +16,5 @@ export const Light: IElementDefinition = {
   defaultOverrides: {},
   itemDefaultOverrides: {},
   events: [],
-  actions: [...BasicElement.actions]
+  actions: []
 }

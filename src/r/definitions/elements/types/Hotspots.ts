@@ -8,6 +8,8 @@ export const Hotspot: IElementDefinition = {
   elementDefaultName: "Hotspot",
   properties: [
     ...BasicElement.properties,
+    ElementProperty.hidden,
+    ElementProperty.locked,
     ElementProperty.icon_name,
     ElementProperty.heading,
     ElementProperty.description,
