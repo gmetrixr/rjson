@@ -1,6 +1,7 @@
 import { SpecialAllVariables } from "./types/SpecialAllVariables";
 import { SpecialExperience } from "./types/SpecialExperience";
 import { SpecialScene } from "./types/SpecialScene";
+import { SpecialViewer } from "./types/SpecialViewer";
 import { ISpecialDefinition, SpecialType, isSpecialType } from "./SpecialSubTypes";
 
 export { SpecialType, isSpecialType };
@@ -38,4 +39,5 @@ export const specialTypeToDefn: Record<SpecialType, ISpecialDefinition> = {
   [SpecialType.experience]: SpecialExperience,
   [SpecialType.scene]: SpecialScene,
   [SpecialType.all_variables]: SpecialAllVariables,
+  [SpecialType.viewer]: SpecialViewer,
 };
