@@ -2,7 +2,7 @@ import { ElementProperty } from "../../../recordTypes/Element";
 import { BasicElement, ElementType, IElementDefinition } from "../ElementSubTypes";
 
 export const Zone: IElementDefinition = {
-  element_type: ElementType.environment,
+  element_type: ElementType.zone,
   elementDefaultName: "Zone",
   properties: [
     ...BasicElement.properties,
