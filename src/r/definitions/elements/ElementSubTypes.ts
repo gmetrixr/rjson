@@ -57,6 +57,7 @@ export enum ElementType {
   light = "light",
   hotspot = "hotspot",
   environment = "environment",
+  zone = "zone",
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -102,6 +103,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   web_state: "Web State",
   hotspot: "Hotspot",
   environment: "Environment",
+  zone: "zone",
 };
 
 export enum ElementCategory {
@@ -162,6 +164,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.cylinder,
     ElementType.light,
     ElementType.environment,
+    ElementType.zone,
   ],
   spatial: [
     ElementType.ar,
