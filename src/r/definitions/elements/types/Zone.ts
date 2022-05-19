@@ -7,6 +7,7 @@ export const Zone: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.hidden,
+    ElementProperty.locked,
     ElementProperty.opacity,
     ElementProperty.color,
     ElementProperty.scale,
@@ -16,7 +17,10 @@ export const Zone: IElementDefinition = {
   ],
   defaultOverrides: {
     // So that the element can be placed on top of the floor in an environment
-    [ElementProperty.placer_3d]: [0, -1.6, 0, 0, 0, 0, 1, 1, 1],
+    [ElementProperty.placer_3d]: [0, 0, 0, 0, 0, 0, 1, 1, 1],
+    [ElementProperty.height]: 0.5,
+    [ElementProperty.radius]: 1,
+    [ElementProperty.color]: "#7ED321",
   },
   events: [],
   actions: [
