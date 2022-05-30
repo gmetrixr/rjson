@@ -39,6 +39,7 @@ export enum ProjectProperty {
   show_powered_by_gmetri = "show_powered_by_gmetri",
   show_splash_screen = "show_splash_screen",
   custom_loader_source = "custom_loader_source",
+  project_thumbnail_source = "project_thumbnail_source",
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -91,5 +92,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_volume_control]: true,
   [ProjectProperty.show_powered_by_gmetri]: true,
   [ProjectProperty.show_splash_screen]: true,
-  [ProjectProperty.custom_loader_source]: "",
+  [ProjectProperty.custom_loader_source]: undefined,
+  [ProjectProperty.project_thumbnail_source]: undefined
 };
