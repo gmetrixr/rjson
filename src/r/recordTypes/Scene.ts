@@ -27,5 +27,5 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_type]: SceneType.first_person,
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
-  [SceneProperty.scene_collision_type]: SceneCollisionOptions.advanced_collision,
+  [SceneProperty.scene_collision_type]: SceneCollisionOptions.basic_collision,
 };
