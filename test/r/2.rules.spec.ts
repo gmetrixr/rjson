@@ -1,8 +1,10 @@
-import { r, rn, RT } from "../../src/r";
+import { r, rn, RT, rUtils } from "../../src/r";
 import { expect } from "chai";
 import { rulePrintUtils } from "../../src/r/definitions/rules";
 import projectSafehands from "./jsons/r3fJsons/projectsMigrated/project_safehands.json";
 import projectDealerxr from "./jsons/r3fJsons/projectsMigrated/project_dealerxr.json";
+import unnamedRulesProject from "./jsons/unnamedRulesProject.json";
+import { migrateProjectRJson } from "../../src/migrations/index";
 
 const { rEventProperties, WhenEventProperty, rEventPropertyDefaults, ThenActionProperty, rActionPropertyDefaults } = rn;
 
@@ -49,5 +51,25 @@ describe("r RecordFactory tests", () => {
     const sceneIds = r.project(projectDealerxr).getRecordOrder(RT.scene);
     const sceneIdsToPrint = [sceneIds[0], sceneIds[1], sceneIds[2]];
     rulePrintUtils.generateFriendlyRuleTextsAndPrint(projectDealerxr, sceneIdsToPrint);
+  });
+
+  it ("should add names to all unnamed rules in project", () => {
+    const unnamedRules = migrateProjectRJson(unnamedRulesProject);
+    const projectF = r.project(unnamedRules);
+
+    const rules = projectF.getAllDeepChildren(RT.rule);
+    let rulesWithNames = 0;
+    let rulesWithoutNames = 0;
+    
+    rules.forEach(r => {
+      if (r.name?.trim() === "") {
+        rulesWithoutNames++;
+      } else {
+        rulesWithNames++;
+      }
+    })
+
+    expect(rules.length).to.be.eq(rulesWithNames);
+    expect(rulesWithoutNames).to.be.eq(0);
   });
 });
