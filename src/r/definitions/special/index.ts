@@ -17,7 +17,8 @@ import {
   sceneCategoryDisplayNames,
   shoppingPlugins,
   SceneEnvironment,
-  SceneCollisionOptions
+  SceneCollisionOptions,
+  BloomKernelSize
 } from "./SpecialSubTypes";
 
 export {
@@ -31,7 +32,8 @@ export {
   sceneCategoryDisplayNames,
   shoppingPlugins,
   SceneEnvironment,
-  SceneCollisionOptions
+  SceneCollisionOptions,
+  BloomKernelSize
 };
 
 /** These are types apart from elements and variables that get used as cogs */

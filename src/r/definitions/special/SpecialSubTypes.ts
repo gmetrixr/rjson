@@ -89,3 +89,12 @@ export enum SceneCollisionOptions {
   basic_collision = "basic_collision",
   advanced_collision = "advanced_collision"
 }
+
+export enum BloomKernelSize {
+  very_small = "very_small",
+  small = "small",
+  medium = "medium",
+  large = "large",
+  very_large = "very_large",
+  huge = "huge",
+}
