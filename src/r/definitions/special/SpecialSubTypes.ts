@@ -13,6 +13,7 @@ export enum SpecialType {
   experience = "experience",
   scene = "scene",
   all_variables = "all_variables",
+  viewer = "viewer",
 }
 
 /**
@@ -27,12 +28,14 @@ export const specialElementDisplayNames: Record<SpecialType, string> = {
   [SpecialType.experience]: "experience",
   [SpecialType.scene]: "scene",
   [SpecialType.all_variables]: "all variables",
+  [SpecialType.viewer]: "viewer",
 };
 
 export const SpecialRuleElementIds = {
   SCENE_ELEMENT_ID: -99,
   EXPERIENCE_ELEMENT_ID: -100,
   ALL_VARIABLES_ELEMENT_ID: -101,
+  VIEWER_ELEMENT_ID: -102,
 };
 
 export const allSpecialRuleElementIds: number[] = Object.values(SpecialRuleElementIds);
@@ -69,6 +72,8 @@ export const sceneTypeByCategory: Record<SceneCategory, SceneType[]> = {
 export enum shoppingPlugins {
   souled_store = "souled_store",
   natures_basket = "natures_basket",
+  shopify = "shopify",
+  woocommerce = "woocommerce",
 }
 
 export type SceneEnvironment = {
@@ -78,3 +83,18 @@ export type SceneEnvironment = {
   scale?: number,
   placer_3d?: number[]
 };
+
+export enum SceneCollisionOptions {
+  no_collision = "no_collision",
+  basic_collision = "basic_collision",
+  advanced_collision = "advanced_collision"
+}
+
+export enum BloomKernelSize {
+  very_small = "very_small",
+  small = "small",
+  medium = "medium",
+  large = "large",
+  very_large = "very_large",
+  huge = "huge",
+}

@@ -65,6 +65,12 @@ export enum RuleEvent {
 
   // video duration match
   on_duration_match = "on_duration_match",
+
+  // viewer element
+  // When Viewer enters zone <zone1>
+  // When Viewer leaves zone <zone1>
+  on_enter = "on_enter",
+  on_leave = "on_leave",
 }
 
 export enum WhenEventProperty {
@@ -132,6 +138,10 @@ export const rEventProperties: Record<RuleEvent, Array<WhenEventProperty | unkno
 
   // video duration match
   on_duration_match: [WhenEventProperty.duration_value],
+
+  // viewer
+  on_enter: [],
+  on_leave: []
 };
 
 export const rEventPropertyDefaults: Record<WhenEventProperty, Array<unknown> | string | number | null> =  {
@@ -198,4 +208,8 @@ export const rEventDisplayName: Record<RuleEvent, string> = {
   //for popup and embedhtml
   [RuleEvent.on_close]: "is closed",
   [RuleEvent.on_duration_match]: "matches duration",
+
+  // viewer
+  [RuleEvent.on_enter]: "enters",
+  [RuleEvent.on_leave]: "leaves"
 };

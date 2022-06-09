@@ -56,7 +56,8 @@ export enum ElementType {
   popup = "popup",
   light = "light",
   hotspot = "hotspot",
-  runtime_environment = "runtime_environment"
+  environment = "environment",
+  zone = "zone",
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -101,8 +102,8 @@ export const elementDisplayNames: Record<ElementType, string> = {
   group: "Group",
   web_state: "Web State",
   hotspot: "Hotspot",
-  // * this is an internal element only and never exposed to the UI.
-  runtime_environment: "Runtime Environment",
+  environment: "Environment",
+  zone: "zone",
 };
 
 export enum ElementCategory {
@@ -162,6 +163,8 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.torus,
     ElementType.cylinder,
     ElementType.light,
+    ElementType.environment,
+    ElementType.zone,
   ],
   spatial: [
     ElementType.ar,
@@ -239,18 +242,15 @@ export type ShareAttributes = {
   platforms: string[], // ['facebook', 'twitter', 'linkedin']
 };
 
-/** A list of all ElementProperties that end with the word "source". Use to understand which properties contain file source objects */
-export const sourceElementProperties: ElementProperty[] = [
-  ElementProperty.source,
-  ElementProperty.background_source,
-  ElementProperty.image_sources,
-  ElementProperty.threed_source
-]
-
-/** A list of all ItemProperties that end with the word "source". Use to understand which properties contain file source objects */
-export const sourceItemProperties: ItemProperty[] = [
-  ItemProperty.item_source,
-]
+/** A list of properties that contain the type en.Source or en.Source[] */
+export const sourcePropertyNames = {
+  /** A list of all ElementProperties that end with the word "source". Use to understand which properties contain file source objects */
+  elementProperties: [ElementProperty.source, ElementProperty.background_source, ElementProperty.threed_source],
+  /** A list of all ElementProperties that end with the word "sources". Use to understand which properties contain file source object arrays */
+  elementArrayProperties: [ElementProperty.image_sources],
+  /** A list of all ItemProperties that end with the word "source". Use to understand which properties contain file source objects */  
+  itemProperties: [ItemProperty.item_source],
+}
 
 export enum lightType {
   ambient = "ambient",

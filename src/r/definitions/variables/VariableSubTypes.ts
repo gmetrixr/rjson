@@ -55,18 +55,17 @@ export enum DeviceVar {
  * Predefined variables get added in certain conditions by the UI
  */
 export enum PredefinedVariableName {
-  score = "score",
-  lang = "lang",
-  v_identifier_var = "v_identifier_var",
-  firstname_var = "firstname_var",
+  v_identifier_var = "v_identifier_var", //Added when project is created
+  firstname_var = "firstname_var", //Added when project is created
   //https://z.gmetri.io/#narrow/stream/15-product.2Ffeatures/topic/autovariables/near/165820
-  device_var = "device_var",
-  browser_var = "browser_var",
-  /** This variable updates at runtime */
-  vrmode_var = "vrmode_var",
-  scorm_progress = "scorm_progress",
-  scorm_suspend_data = "scorm_suspend_data",
-  scorm_score = "scorm_score",
+  device_var = "device_var", //Added when project is created
+  browser_var = "browser_var", //Added when project is created
+  vrmode_var = "vrmode_var", //Updates at runtime
+  score = "score", //Added when score element gets added
+  lang = "lang", //Added when score element gets added
+  scorm_progress = "scorm_progress",  //Updates at runtime
+  scorm_suspend_data = "scorm_suspend_data",  //Updates at runtime
+  scorm_score = "scorm_score",  //Updates at runtime
 }
 
 /**

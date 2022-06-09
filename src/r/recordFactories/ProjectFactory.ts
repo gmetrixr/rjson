@@ -21,6 +21,8 @@ import { ShoppingProperty } from "../recordTypes/Shopping";
 import { MenuProperty } from "../recordTypes/Menu";
 import { ElementType } from "../definitions/elements/ElementSubTypes";
 import { RuleAction } from "../definitions/rules";
+import { getHighestRjsonVersion } from "../../migrations/rMigrations";
+import { migrationsForNewProject } from "../../migrations";
 
 const { deepClone, difference, union, intersection } = jsUtils;
 type variable = RT.variable;
@@ -54,18 +56,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     //Custom Record Types' Code
     switch(record.type) {
       case RT.scene: {
-        //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
-        //would end up in a cyclic call.
-        const menuRecord = super.addBlankRecord(RT.menu, record.id + 10001);
-        menuRecord.props.menu_scene_id = record.id;
-        menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
-    
-        // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
-        if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
-          //Making id deterministic (although not needed) - for testing
-          const tourModeRecord = super.addBlankRecord(RT.tour_mode, record.id + 10002);
-          tourModeRecord.props.tour_mode_scene_id = record.id;
-        }
+        this.addMenuAndTourModeRecord(record.id);
         break;
       }
       case RT.lead_gen_field: {
@@ -179,7 +170,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (sceneJson !== undefined) {
       const record = (new SceneFactory(sceneJson)).deleteDeepRecord(type, id);
       if (record !== undefined) {
-        this.deleteLinkedVariables([ record as RecordNode<N> ]);
+        const recordsWithLinkedVariables = this.getAllRecordsForLinkedVariables([ record as RecordNode<N> ]);
+        this.deleteLinkedVariables(recordsWithLinkedVariables);
         return record;
       }
     }
@@ -197,7 +189,8 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const sceneF = (new SceneFactory(sceneJson));
       const duplicatedRecord = sceneF.duplicateDeepRecord(type, id);
       if (duplicatedRecord !== undefined) {
-        this.addLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
+        const recordsWithLinkedVariables = this.getAllRecordsForLinkedVariables([ duplicatedRecord as RecordNode<N> ]);
+        this.addLinkedVariables(recordsWithLinkedVariables);
         return duplicatedRecord;
       }
     }
@@ -217,6 +210,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
           const sceneF = new SceneFactory(duplicatedRecord);
           const elements = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
           this.addLinkedVariables(elements as RecordNode<N>[]);
+          this.addMenuAndTourModeRecord(duplicatedRecord.id);
           break;
         }
       }
@@ -241,16 +235,20 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         break;
       }
       case RT.scene: {
-        const childrenWithLinkedVariables = this.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
-        this.deleteLinkedVariables(childrenWithLinkedVariables);
-        for (const record of this.getRecords(RT.menu)) {
-          if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
-            this.deleteRecord(RT.menu, record.id);
+        const scene = this.getRecord(RT.scene, id);
+        if (scene !== undefined) {
+          const sceneF = new SceneFactory(scene);
+          const childrenWithLinkedVariables = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
+          this.deleteLinkedVariables(childrenWithLinkedVariables);
+          for (const record of this.getRecords(RT.menu)) {
+            if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
+              this.deleteRecord(RT.menu, record.id);
+            }
           }
-        }
-        for (const record of this.getRecords(RT.tour_mode)) {
-          if ((new RecordFactory(record)).get(rtp.tour_mode.tour_mode_scene_id) === id) {
-            this.deleteRecord(RT.tour_mode, record.id);
+          for (const record of this.getRecords(RT.tour_mode)) {
+            if ((new RecordFactory(record)).get(rtp.tour_mode.tour_mode_scene_id) === id) {
+              this.deleteRecord(RT.tour_mode, record.id);
+            }
           }
         }
         break;
@@ -426,6 +424,21 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     }
   }
 
+  addMenuAndTourModeRecord(this: ProjectFactory, sceneId: number) {
+    //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
+    //would end up in a cyclic call.
+    const menuRecord = super.addBlankRecord(RT.menu, sceneId + 10001);
+    menuRecord.props.menu_scene_id = sceneId;
+    menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
+
+    // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
+    if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
+      //Making id deterministic (although not needed) - for testing
+      const tourModeRecord = super.addBlankRecord(RT.tour_mode, sceneId + 10002);
+      tourModeRecord.props.tour_mode_scene_id = sceneId;
+    }
+  }
+
   //PROJECT SPECIFIC FUNCTIONS
   /**
    * Note: A thumbnail is different form logo.
@@ -472,6 +485,17 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     if (projectLogo !== undefined) {
       fileIds.push(projectLogo.id);
     }
+
+    const customLoader = <en.Source>this.get(rtp.project.custom_loader_source);
+    if (customLoader !== undefined) {
+      fileIds.push(customLoader.id);
+    }
+
+    const projectThumbnail = <en.Source>this.get(rtp.project.project_thumbnail_source);
+    if (projectThumbnail !== undefined) {
+      fileIds.push(projectThumbnail.id);
+    }
+
     return [...new Set(fileIds)]; //Unique ids only
   }
 
@@ -487,6 +511,22 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const newValue = sourceMap[projectLogo.id];
       if (newValue !== undefined) {
         this.set(rtp.project.project_logo_source, newValue);
+      }
+    }
+
+    const customLoader = <en.Source>this.get(rtp.project.custom_loader_source);
+    if (customLoader !== undefined) {
+      const newValue = sourceMap[customLoader.id];
+      if (newValue !== undefined) {
+        this.set(rtp.project.custom_loader_source, newValue);
+      }
+    }
+
+    const projectThumbnail = <en.Source>this.get(rtp.project.project_thumbnail_source);
+    if (projectThumbnail !== undefined) {
+      const newValue = sourceMap[projectThumbnail.id];
+      if (newValue !== undefined) {
+        this.set(rtp.project.project_thumbnail_source, newValue);
       }
     }
   }
@@ -1038,18 +1078,6 @@ export class ProjectUtils {
     }
 
     return uniq(outputRuleIds);
-  }
-
-  static createNewProject = (): RecordNode<RT.project> => {
-    const project = createRecord(RT.project);
-    const projectF = new ProjectFactory(project);
-    // ! IMPORTANT - Set version = 100, so that m099_100_initial_r_migration migration is not applied.
-    // ! m099_100_initial_r_migration operates on project json of type `t` and will induce unwanted side-effects when a `r` type project json is passed to it
-    projectF.set(rtp.project.version, 100);
-    const scene = projectF.addBlankRecord(RT.scene);
-    const sceneF = new SceneFactory(scene);
-    projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.pano_image });
-    return project;
   }
 
   /**

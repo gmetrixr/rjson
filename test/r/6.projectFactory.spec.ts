@@ -1,4 +1,4 @@
-import { en, r, R, RecordNode, RT } from "../../src/r";
+import { en, r, R, RecordNode, RT, rtp, sn } from "../../src/r";
 import { expect } from "chai";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
@@ -9,6 +9,10 @@ import sceneContainingGroupInGroup from "./jsons/r3fJsons/clipboardEntries/scene
 import sceneWithElementJson from "./jsons/r3fJsons/clipboardEntries/sceneWithElement.json";
 import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContainingScorm.json";
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
+import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
+import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
+import { migrateProjectRJson } from "../../src/migrations/index";
+import { ElementType } from "../../src/r/definitions/elements";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -212,11 +216,13 @@ describe("r ProjectFactory tests", () => {
       const sceneF = r.scene(scene1);
       const sceneRootElements = sceneF.getRecords(RT.element);
       const sceneAllElements = sceneF.getAllDeepChildren(RT.element);
+      const menuRecords = projectF.getRecords(RT.menu);
 
       expect(scene1.id).to.not.be.eq((duplicatedScene as RecordNode<RT.scene>).id);
       expect(sceneRootElements.length).to.be.eq(duplicatedSceneRootElements.length);
       expect(sceneAllElements.length).to.be.eq(duplicatedSceneAllElements.length);
       expect(initialVariables.length).to.not.be.eq(finalVariables.length);
+      expect(menuRecords[1].props.menu_show).to.be.eq(true);
     }
   });
 
@@ -350,7 +356,7 @@ describe("r ProjectFactory tests", () => {
   });
 
   it ("should delete second scene", () => {
-    const projectF = r.project(simpleSceneWithPano);
+    const projectF = r.project(twoScenesWithScorm);
     const variablesBeforeDeleting = projectF.getRecords(RT.variable);
     const scenesBeforeDeleting = projectF.getRecords(RT.scene);
 
@@ -360,7 +366,7 @@ describe("r ProjectFactory tests", () => {
     const scenesAfterDeleting = projectF.getRecords(RT.scene);
 
     expect(scenesBeforeDeleting.length - 1).to.be.eq(scenesAfterDeleting.length);
-    expect(variablesBeforeDeleting.length - 4).to.be.eq(variablesAfterDeleting.length);
+    expect(variablesBeforeDeleting.length - 3).to.be.eq(variablesAfterDeleting.length);
   });
 
   it ("should paste 2 scorm elements inside a group", () => {
@@ -373,4 +379,46 @@ describe("r ProjectFactory tests", () => {
     const variablesAfterPasting = projectF.getRecords(RT.variable);
     expect(variablesBeforePasting.length + 12).to.be.eq(variablesAfterPasting.length);
   });
+
+  it ("should delete group with scorm element", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const variablesBeforeDeleting = projectF.getRecords(RT.variable);
+    const scenes = projectF.getRecords(RT.scene);
+
+    const sceneF = r.scene(scenes[0]);
+    const records = sceneF.getRecords(RT.element);
+
+    projectF.deleteSceneDeepRecord(scenes[0].id, RT.element, records[2].id);
+
+    const variablesAfterDeleting = projectF.getRecords(RT.variable);
+    expect(variablesBeforeDeleting.length - 12).to.be.eq(variablesAfterDeleting.length);
+  });
+
+  it ("should add an environment elements and test defaults", () => {
+    const projectF = r.project(simpleSceneWithPano);
+    const scene = projectF.addBlankRecord(RT.scene);
+    scene.props.scene_type = sn.SceneType.six_dof;
+    const environment = projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.environment });
+    if(environment) {
+      const elementF = r.element(environment);
+      expect((elementF.getValueOrDefault(rtp.element.source) as en.Source)?.file_urls?.o).to.eq("https://s.vrgmetri.com/gb-web/z5-edge/6DOF/environments/Event/eventModel_v10.glb");
+      expect((elementF.getValueOrDefault(rtp.element.placer_3d) as number[]).length).to.eq(9);
+    }
+  });
+
+  it ("should flatten product card CTA button properties", () => {
+    const twoProductCards = migrateProjectRJson(twoScenesWithProductCard);
+    const projectF = r.project(twoProductCards);
+
+    const scenes = projectF.getRecords(RT.scene);
+    projectF.addElementOfTypeToScene({ sceneId: scenes[0].id, elementType: en.ElementType.product_card });
+
+    const productCards = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.product_card);
+
+    for (const card of productCards) {
+      expect(card.props.show_add_to_cart_button).to.not.be.eq(undefined);
+      expect(card.props.add_to_cart_button_link).to.not.be.eq(undefined);
+      expect(card.props.add_to_cart_button_text).to.not.be.eq(undefined);
+    }
+  })
 });

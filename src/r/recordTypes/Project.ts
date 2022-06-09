@@ -32,11 +32,14 @@ export enum ProjectProperty {
   show_zoom_controls = "show_zoom_controls", //show_zoom_controls_in_viewer earlier
   tour_mode_inactivity_seconds = "tour_mode_inactivity_seconds",
   version = "version",
-  whitelabel = "whitelabel",
   zoom_level_fov = "zoom_level_fov",
   viewer_control_panel_position = "viewer_control_panel_position",
   optimize_for_seo = "optimize_for_seo",
   show_volume_control = "show_volume_control",
+  show_powered_by_gmetri = "show_powered_by_gmetri",
+  show_splash_screen = "show_splash_screen",
+  custom_loader_source = "custom_loader_source",
+  project_thumbnail_source = "project_thumbnail_source",
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -82,10 +85,13 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_zoom_controls]: true,
   [ProjectProperty.tour_mode_inactivity_seconds]: 10,
   [ProjectProperty.version]: 0,
-  [ProjectProperty.whitelabel]: false,
   [ProjectProperty.zoom_level_fov]: 75,
   // current possibilities: top_left | top_right, we may add bottom_left | bottom_right later
   [ProjectProperty.viewer_control_panel_position]: "top_right",
   [ProjectProperty.optimize_for_seo]: false,
   [ProjectProperty.show_volume_control]: true,
+  [ProjectProperty.show_powered_by_gmetri]: true,
+  [ProjectProperty.show_splash_screen]: true,
+  [ProjectProperty.custom_loader_source]: undefined,
+  [ProjectProperty.project_thumbnail_source]: undefined
 };

@@ -11,6 +11,7 @@
   // "spec": "test/r/3.discussion.spec.{ts,tsx}",
 //   "spec": "test/r/4.elementFactory.spec.{ts,tsx}",
 //   "spec": "test/r/5.sceneFactory.spec.{ts,tsx}",
+//   "spec": "test/r/6.projectFactory.spec.{ts,tsx}",
   "spec": "test/r/**/*.{ts,tsx}",
   // package: "./package.json",
   // reporter: "spec",

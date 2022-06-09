@@ -1,4 +1,4 @@
-import { SceneType } from "../definitions/special/SpecialSubTypes";
+import { BloomKernelSize, SceneCollisionOptions, SceneType } from "../definitions/special/SpecialSubTypes";
 
 export enum SceneProperty {
   scene_type = "scene_type",
@@ -14,10 +14,11 @@ export enum SceneProperty {
   // * Below properties are used only for orbit scene
   scene_orbit_target_element_id = "scene_orbit_target_element_id",
   // * Below properties are used only for 6DOF scene
-  scene_enable_collision = "scene_enable_collision",
-  scene_scale = "scene_scale",
-  scene_placer_3d = "scene_placer_3d",
-  scene_source = "scene_source"
+  scene_collision_type = "scene_collision_type",
+  scene_enable_selective_bloom = "scene_enable_selective_bloom",
+  scene_selective_bloom_intensity = "scene_selective_bloom_intensity",
+  scene_selective_bloom_size = "scene_selective_bloom_size",
+  scene_env_map = "scene_env_map"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -30,8 +31,9 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_type]: SceneType.first_person,
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
-  [SceneProperty.scene_enable_collision]: false,
-  [SceneProperty.scene_scale]: 1,
-  [SceneProperty.scene_placer_3d]: [0, 0, 0, 0, 0, 0, 1, 1, 1],
-  [SceneProperty.scene_source]: undefined,
+  [SceneProperty.scene_collision_type]: SceneCollisionOptions.basic_collision,
+  [SceneProperty.scene_enable_selective_bloom]: false,
+  [SceneProperty.scene_selective_bloom_intensity]: 1,
+  [SceneProperty.scene_selective_bloom_size]: BloomKernelSize.huge,
+  [SceneProperty.scene_env_map]: undefined,
 };

@@ -101,23 +101,28 @@ export class ElementFactory extends RecordFactory<RT.element> {
    * file ids are stored in properties of type "source"
    * Properties of type "source" are generally in properties ending with "source" (Eg: "background_source")
    * sources
-   * TODO: @Amey write test cases for getFileIdsFromElement and injectSourceIntoElement
    */
   getFileIdsFromElement (this: ElementFactory): number[] {
     const fileIds: number[] = [];
     const elementProps = this.getJsonPropsAndDefaultProps();
-    for(const sourceProp of en.sourceElementProperties) { //Iterating over sourceElementProperties instead of elementProps to reduce number of iterations
-      //Get file ids form element properties
+    //Get file ids form element properties
+    for(const sourceProp of en.sourcePropertyNames.elementProperties) { //Iterating over sourceElementProperties instead of elementProps to reduce number of iterations
       if(elementProps.includes(sourceProp)) {
-        fileIds.push(...ElementUtils.getFileIdsFromAnyElementPropertyValue(sourceProp, this.get(sourceProp)));
+        fileIds.push(...ElementUtils.getFileIdsFromValue(this.get(sourceProp)));
+      }
+    }
+    //Get file ids form element array properties
+    for(const sourceProp of en.sourcePropertyNames.elementArrayProperties) {
+      if(elementProps.includes(sourceProp)) {
+        fileIds.push(...ElementUtils.getFileIdsFromElementArrayPropertyValue(this.get(sourceProp)));
       }
     }
     //Get file ids from item properties
-    for(const sourceProp of en.sourceItemProperties) {
+    for(const sourceProp of en.sourcePropertyNames.itemProperties) {
       for(const item of this.getRecords(RT.item)) {
         const itemProps = Object.keys(item.props);
         if(itemProps.includes(sourceProp)) { //Not checking for image_source, as it isn't used in items
-          fileIds.push(...ElementUtils.getFileIdsFromAnyItemPropertyValue(item.props[sourceProp]));
+          fileIds.push(...ElementUtils.getFileIdsFromValue(item.props[sourceProp]));
         }
       }
     }
@@ -131,23 +136,32 @@ export class ElementFactory extends RecordFactory<RT.element> {
    */
   injectSourceIntoElement (this: ElementFactory, sourceMap: {[id: number]: en.Source}): void {
     const elementProps = this.getJsonPropsAndDefaultProps();
-    for(const sourceProp of en.sourceElementProperties) { //Iterating over sourceElementProperties instead of elementProps to reduce number of iterations
-      //Get file ids form element properties
+    //Get file ids form element properties
+    for(const sourceProp of en.sourcePropertyNames.elementProperties) { //Iterating over sourceElementProperties instead of elementProps to reduce number of iterations
       if(elementProps.includes(sourceProp)) {
         const currentValue = this.get(sourceProp);
-        const newValue = ElementUtils.injectFileIdsIntoAnyElementPropertyValue(sourceProp, currentValue, sourceMap);
+        const newValue = ElementUtils.getNewSourceValue(currentValue, sourceMap);
         if(newValue !== undefined) {
           this.set(sourceProp, deepClone(newValue));
         }
       }
     }
+    for(const sourceProp of en.sourcePropertyNames.elementArrayProperties) {
+      if(elementProps.includes(sourceProp)) {
+        const currentValue = this.get(sourceProp);
+        const newValue = ElementUtils.getNewSourceValueArray(currentValue, sourceMap);
+        if(newValue !== undefined && newValue.length !== 0) {
+          this.set(sourceProp, deepClone(newValue));
+        }
+      }
+    }
     //Get file ids from item properties
-    for(const sourceProp of en.sourceItemProperties) {
+    for(const sourceProp of en.sourcePropertyNames.itemProperties) {
       for(const item of this.getRecords(RT.item)) {
         const itemProps = Object.keys(item.props);
         if(itemProps.includes(sourceProp)) { //Not checking for image_source, as it isn't used in items
           const currentValue = item.props[sourceProp];
-          const newValue = ElementUtils.injectFileIdsIntoAnyItemPropertyValue(currentValue, sourceMap);
+          const newValue = ElementUtils.getNewSourceValue(currentValue, sourceMap);
           if(newValue !== undefined) {
             item.props[sourceProp] = deepClone(newValue);
           }
@@ -197,26 +211,17 @@ export class ElementUtils {
   }
 
   /**
-   * Given a property name and value, takes file id out of it and returns it
+   * Given a property of type Array<Source>, takes file id out of it in an array and returns it
    */
-  static getFileIdsFromAnyElementPropertyValue = (propertyName: RTP[RT.element], value: unknown): number[] => {
-    if(propertyName === rtp.element.image_sources) { //image_sources is an array of sources instead of being a single source
+    static getFileIdsFromElementArrayPropertyValue = (value: unknown): number[] => {
       const imageSources = <en.Source[]> value;
       return imageSources.map(source => source?.id).filter(s => s); // filter out undefined and null values
-    } else {
-      const source = <en.Source> value;
-      if(source?.id !== undefined) { //Because we don't want to return default source paths which don't have ids
-        return [source.id];
-      } else {
-        return [];
-      }
-    }
-  }
+    } 
 
  /**
-  * Given a property name and value, takes file id out of it and returns it
+  * Given a property value (of type source), takes file id out of it and returns it as an array
   */
-  static getFileIdsFromAnyItemPropertyValue = (value: unknown): number[] => {
+  static getFileIdsFromValue = (value: unknown): number[] => {
     const source = <en.Source> value;
     if(source?.id !== undefined) { //Because we don't want to return default source paths which don't have ids
       return [source?.id];
@@ -226,25 +231,16 @@ export class ElementUtils {
   }
 
   /**
-   * Given a property name, value and sourceMap, returns a new value with the replaced sources
+   * Given a property value and sourceMap, returns a new value with the replaced sources
    * Can return undefined or a Source or a Source[], depending on the propertyName
    * The multiple returns type don't matter, because the logic of the calling function doesn't care about return type
    */
-  static injectFileIdsIntoAnyElementPropertyValue = (propertyName: RTP[RT.element], value: unknown, sourceMap: {[id: number]: en.Source}): unknown => {
-    if(propertyName === rtp.element.image_sources) { //image_sources is an array of sources instead of being a single source
+  static getNewSourceValueArray = (value: unknown, sourceMap: {[id: number]: en.Source}): en.Source[] => {
       const originalSources = <en.Source[]> value;
       return originalSources.map(source => sourceMap[source?.id]);
-    } else {
-      const source = <en.Source> value;
-      if(source?.id !== undefined && sourceMap[source?.id] !== undefined) { //Because we don't want to return default source paths which don't have ids
-        return sourceMap[source?.id];
-      } else {
-        return undefined;
-      }
-    }
   }
 
-  static injectFileIdsIntoAnyItemPropertyValue = (value: unknown, sourceMap: {[id: number]: en.Source}): unknown => {
+  static getNewSourceValue = (value: unknown, sourceMap: {[id: number]: en.Source}): en.Source | undefined => {
     const source = <en.Source> value;
     if(source?.id !== undefined && sourceMap[source?.id] !== undefined) { //Because we don't want to return default source paths which don't have ids
       return sourceMap[source?.id];

@@ -4,6 +4,7 @@ export enum ShoppingProperty {
   endpoint = "endpoint",
   currency_prefix = "currency_prefix",
   show_cart = "show_cart",
+  // * Shopify specific properties
   shopify_access_token = "shopify_access_token",
   shopify_domain = "shopify_domain"
 }

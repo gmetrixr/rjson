@@ -34,9 +34,11 @@ import { WayFinder } from "./types/Wayfinder";
 import { Popup } from "./types/Popup";
 import { Light } from "./types/Light";
 import { Hotspot } from "./types/Hotspots";
+import { Environment } from "./types/Environment";
+import { Zone } from "./types/Zone";
 
-import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourceElementProperties, sourceItemProperties, elementsWithLinkedVariables } from "./ElementSubTypes";
-export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourceElementProperties, sourceItemProperties, elementsWithLinkedVariables };
+import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType } from "./ElementSubTypes";
+export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType };
 
 import { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID } from "./ElementSubTypes";
 export { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID };
@@ -78,6 +80,8 @@ export const elementList: IElementDefinition[] = [
   Popup,
   Light,
   Hotspot,
+  Environment,
+  Zone
 ];
 
 /**
