@@ -13,6 +13,7 @@ import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
 import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
 import { migrateProjectRJson } from "../../src/migrations/index";
 import { ElementType } from "../../src/r/definitions/elements";
+import unnamedRules from "./jsons/unnamedRulesProject.json";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -420,5 +421,16 @@ describe("r ProjectFactory tests", () => {
       expect(card.props.add_to_cart_button_link).to.not.be.eq(undefined);
       expect(card.props.add_to_cart_button_text).to.not.be.eq(undefined);
     }
-  })
+  });
+
+  it ("should update billboarding from boolean to string", () => {
+    const unnamedRulesProject = migrateProjectRJson(unnamedRules);
+    const projectF = r.project(unnamedRulesProject);
+
+    const billboardingElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.billboarding !== undefined);
+
+    for (const el of billboardingElements) {
+      expect(typeof el.props.billboarding).to.not.be.eq("boolean");
+    }
+  });
 });
