@@ -4,6 +4,9 @@ import { BillboardingTypes } from "../../index";
 
 /** 
  * Update billboarding from boolean to string.
+ * Default billboarding => xy
+ * If current billboarding is true => setting the value as xyz for the older projects to remain in sync
+ * If current billboarding is false => setting value as none so as not to show any billboarding.
  */
 
 class Migration implements IOrder {
