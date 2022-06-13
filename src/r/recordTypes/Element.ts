@@ -1,4 +1,4 @@
-import { FileType } from "../../Definitions";
+import { FileType, BillboardingTypes } from "../../Definitions";
 
 
 export enum ElementProperty {
@@ -235,7 +235,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.light_type]: "ambient",
   [ElementProperty.intensity]: 1,
   [ElementProperty.fall_off]: 10,
-  [ElementProperty.billboarding]: false,
+  [ElementProperty.billboarding]: BillboardingTypes.xy,
   [ElementProperty.target_element_id]: null,
   [ElementProperty.media_upload_var_id]: 3000,
   // Other comprises of just PDF while defining this property

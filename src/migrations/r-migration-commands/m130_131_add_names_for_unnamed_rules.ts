@@ -23,7 +23,7 @@ class Migration implements IOrder {
       }
     }
 
-    projectF.set(rtp.project.version, 130);
+    projectF.set(rtp.project.version, 131);
   }
 }
 

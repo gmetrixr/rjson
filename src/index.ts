@@ -6,6 +6,8 @@ import {
   en, sn, vn, rn, CogObjectType, getFactory
 } from "./r";
 
+import { FileType, BillboardingTypes } from "./Definitions";
+
 export {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
@@ -33,3 +35,5 @@ export {
   migrateProjectRJson,
   createNewProject
 };
+
+export { FileType, BillboardingTypes };
