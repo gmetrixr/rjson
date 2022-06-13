@@ -10,8 +10,7 @@ export enum FileType {
 }
 
 export enum BillboardingTypes {
-  Y = "Y",
-  XY = "XY",
-  XYZ = "XYZ",
-  NONE = "NONE"
+  y = "y",
+  xy = "xy",
+  xyz = "xyz"
 }

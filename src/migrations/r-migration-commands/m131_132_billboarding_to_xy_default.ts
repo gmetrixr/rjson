@@ -17,11 +17,11 @@ class Migration implements IOrder {
       const elementF = r.element(el);
       const currentBillboarding = elementF.getValueOrDefault(rtp.element.billboarding);
       if (currentBillboarding === true) {
-        elementF.set(rtp.element.billboarding, BillboardingTypes.XY);
+        elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
       }
 
       if (currentBillboarding === false) {
-        elementF.set(rtp.element.billboarding, BillboardingTypes.NONE);
+        elementF.set(rtp.element.billboarding, null);
       }
     }
     
