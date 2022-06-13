@@ -430,7 +430,6 @@ describe("r ProjectFactory tests", () => {
     const billboardingElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.billboarding !== undefined);
 
     for (const el of billboardingElements) {
-      console.log('=============> ', el.props.billboarding);
       expect(typeof el.props.billboarding).to.not.be.eq("boolean");
     }
   });
