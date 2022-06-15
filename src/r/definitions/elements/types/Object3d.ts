@@ -1,4 +1,4 @@
-import { FileType } from "../../../../Definitions";
+import { BillboardingTypes, FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
 import { RuleEvent } from "../../rules";
@@ -29,7 +29,8 @@ export const Object3d: IElementDefinition = {
        },
       name: "gmetri_logo.glb",
       type: FileType.THREED
-    }
+    },
+    [ElementProperty.billboarding]: null
   },
   events: [
     ...BasicElement.events,
