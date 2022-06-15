@@ -18,7 +18,8 @@ export enum SceneProperty {
   scene_enable_selective_bloom = "scene_enable_selective_bloom",
   scene_selective_bloom_intensity = "scene_selective_bloom_intensity",
   scene_selective_bloom_size = "scene_selective_bloom_size",
-  scene_env_map = "scene_env_map"
+  scene_env_map = "scene_env_map",
+  scene_spawn_zone_id = "scene_spawn_zone_id"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -36,4 +37,5 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_selective_bloom_intensity]: 1,
   [SceneProperty.scene_selective_bloom_size]: BloomKernelSize.huge,
   [SceneProperty.scene_env_map]: undefined,
+  [SceneProperty.scene_spawn_zone_id]: undefined,
 };
