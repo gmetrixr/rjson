@@ -1,4 +1,4 @@
-import { RecordNode, r, rtp, RT, en } from "../../r";
+import { en, r, RecordNode, RT, rtp, rUtils } from "../../r";
 import { IOrder } from "../IOrder";
 import { BillboardingTypes } from "../../index";
 
@@ -19,12 +19,17 @@ class Migration implements IOrder {
     for (const el of billboardingElements) {
       const elementF = r.element(el);
       const currentBillboarding = elementF.getValueOrDefault(rtp.element.billboarding);
-      if (currentBillboarding === true) {
-        elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
-      }
 
-      if (currentBillboarding === false) {
-        elementF.set(rtp.element.billboarding, null);
+      const elementDefinition = rUtils.ElementUtils.getElementDefinition(el.props.element_type as en.ElementType);
+      // * only add this migration to elements that support billboarding
+      if(elementDefinition.properties.includes(rtp.element.billboarding)) {
+        if (currentBillboarding === true) {
+          elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
+        }
+
+        if (currentBillboarding === false) {
+          elementF.set(rtp.element.billboarding, null);
+        }
       }
     }
     
