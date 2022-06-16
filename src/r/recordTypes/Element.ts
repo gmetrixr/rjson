@@ -149,7 +149,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.font_color]: "#FFF",
   [ElementProperty.pano_radius]: 900,
   [ElementProperty.audio_type]: "upload",
-  [ElementProperty.color]: "rgba(72, 72, 72, 0.8)",
+  [ElementProperty.color]: "#484848CC",
   [ElementProperty.pivot_point]: "center", // center|bottom|corner
   [ElementProperty.sides]: 3, // triangle
   [ElementProperty.radius]: 1,
@@ -193,12 +193,12 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   //@ts-ignore
   [ElementProperty.image_sources]: [],
   [ElementProperty.threed_source]: { uri: "" },
-  [ElementProperty.price_color]: "rgba(72, 72, 72, 0.8)",
+  [ElementProperty.price_color]: "#484848CC",
   [ElementProperty.show_add_to_cart_button]: false,
   [ElementProperty.add_to_cart_button_text]: "Add to cart",
   [ElementProperty.add_to_cart_button_link]: "#",
   [ElementProperty.chroma_effect]: false,
-  [ElementProperty.chroma_color]: "rgba(108, 175, 127, 1)",
+  [ElementProperty.chroma_color]: "#6CAF7F",
   [ElementProperty.share_attributes]: {
     instruction: "",
     url: "",
