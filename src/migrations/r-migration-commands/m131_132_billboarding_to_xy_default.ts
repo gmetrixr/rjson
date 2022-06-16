@@ -24,6 +24,8 @@ class Migration implements IOrder {
 
       if(isBillBoardingSupported && currentValue) {
         elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
+      } else {
+        elementF.set(rtp.element.billboarding, null);
       }
     }
     
