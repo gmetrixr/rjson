@@ -22,14 +22,8 @@ class Migration implements IOrder {
       // * If billboarding is supported by this element only then process it else set the default to null.
       // * Why null? Because getValueOrDefault will start to give out the new value as default for existing elements too
 
-      if(isBillBoardingSupported) {
-        if(currentValue) {
-          elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
-        } else {
-          elementF.set(rtp.element.billboarding, null);
-        }
-      } else {
-        elementF.set(rtp.element.billboarding, null);
+      if(isBillBoardingSupported && currentValue) {
+        elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
       }
     }
     
