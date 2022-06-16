@@ -12,7 +12,7 @@ export const WayFinder: IElementDefinition = {
     ElementProperty.wayfinder_size
     ],
   defaultOverrides: { 
-    [ElementProperty.color]: "rgba(63, 191, 127, 1)"
+    [ElementProperty.color]: "#3FBF7F"
   },
   events: [ ],
   actions: [ RuleAction.point_to, RuleAction.reset ]
