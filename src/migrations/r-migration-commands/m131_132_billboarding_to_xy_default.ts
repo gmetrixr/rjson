@@ -14,22 +14,22 @@ class Migration implements IOrder {
     const pJson = projectJson as RecordNode<RT.project>;
     const projectF = r.project(pJson);
 
-    const billboardingElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.billboarding !== undefined);
-    
-    for (const el of billboardingElements) {
-      const elementF = r.element(el);
-      const currentBillboarding = elementF.getValueOrDefault(rtp.element.billboarding);
+    for(const element of projectF.getAllDeepChildren(RT.element)) {
+      const isBillBoardingSupported = rUtils.ElementUtils.getElementDefinition(element.props.element_type as en.ElementType).properties.includes(rtp.element.billboarding);
+      const elementF = r.element(element);
+      const currentValue = elementF.get(rtp.element.billboarding);
 
-      const elementDefinition = rUtils.ElementUtils.getElementDefinition(el.props.element_type as en.ElementType);
-      // * only add this migration to elements that support billboarding
-      if(elementDefinition.properties.includes(rtp.element.billboarding)) {
-        if (currentBillboarding === true) {
+      // * If billboarding is supported by this element only then process it else set the default to null.
+      // * Why null? Because getValueOrDefault will start to give out the new value as default for existing elements too
+
+      if(isBillBoardingSupported) {
+        if(currentValue) {
           elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
-        }
-
-        if (currentBillboarding === false) {
+        } else {
           elementF.set(rtp.element.billboarding, null);
         }
+      } else {
+        elementF.set(rtp.element.billboarding, null);
       }
     }
     
