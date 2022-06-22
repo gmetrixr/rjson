@@ -1,0 +1,325 @@
+{
+    "id": 1654753869371,
+    "type": "project",
+    "props": {
+        "version": 130
+    },
+    "records": {
+        "menu": {
+            "map": {
+                "1654754171689": {
+                    "id": 1654754171689,
+                    "type": "menu",
+                    "props": {
+                        "menu_show": false,
+                        "menu_scene_id": 1654753854758
+                    }
+                }
+            },
+            "order": [
+                1654754171689
+            ]
+        },
+        "scene": {
+            "map": {
+                "1654753854758": {
+                    "id": 1654753854758,
+                    "name": "Scene",
+                    "type": "scene",
+                    "props": {
+                        "scene_type": "first_person"
+                    },
+                    "records": {
+                        "element": {
+                            "map": {
+                                "1654753705314": {
+                                    "id": 1654753705314,
+                                    "name": "Pano Image",
+                                    "type": "element",
+                                    "props": {
+                                        "hidden": false,
+                                        "locked": false,
+                                        "source": {
+                                            "name": "grid_02_white.jpg",
+                                            "type": "IMAGE",
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                                "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                            }
+                                        },
+                                        "stereo": false,
+                                        "opacity": 1,
+                                        "pano_radius": 900,
+                                        "element_type": "pano_image",
+                                        "pano_yaw_correction": 0,
+                                        "pano_pitch_correction": 0
+                                    }
+                                },
+                                "1654753586524": {
+                                    "id": 1654753586524,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "object_3d",
+                                        "source": {
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                            },
+                                            "name": "gmetri_logo.glb",
+                                            "type": "THREED"
+                                        },
+                                        "hidden": false,
+                                        "wireframe": false,
+                                        "auto_rotate": false,
+                                        "auto_animation": false,
+                                        "hover_animation": true,
+                                        "locked": false,
+                                        "placer_3d": [
+                                            -1.244297103694723,
+                                            -0.9236906921741481,
+                                            -7.848472477044671,
+                                            0,
+                                            9.017966606834069,
+                                            0,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "scale": 1,
+                                        "object3d_animations": []
+                                    },
+                                    "name": "3D Object"
+                                },
+                                "1654753534620": {
+                                    "id": 1654753534620,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "cylinder",
+                                        "opacity": 1,
+                                        "color": "#87BEE1",
+                                        "hidden": false,
+                                        "locked": false,
+                                        "wireframe": false,
+                                        "hover_animation": true,
+                                        "pivot_point": "center",
+                                        "placer_3d": [
+                                            2.3335137161075785,
+                                            -0.5437144448856049,
+                                            -7.63276413490948,
+                                            -2.6020408163265287,
+                                            -16.805573882006914,
+                                            0,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "radius": 1,
+                                        "arc": 360,
+                                        "height": 3,
+                                        "scale": 1,
+                                        "animation": {
+                                            "name": "",
+                                            "speed": 1
+                                        }
+                                    },
+                                    "name": "Cylinder"
+                                }
+                            },
+                            "order": [
+                                1654753705314,
+                                1654753586524,
+                                1654753534620
+                            ]
+                        },
+                        "rule": {
+                            "order": [
+                                1654754110739,
+                                1654754178869
+                            ],
+                            "map": {
+                                "1654754178869": {
+                                    "id": 1654754178869,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654754281748
+                                            ],
+                                            "map": {
+                                                "1654754281748": {
+                                                    "id": 1654754281748,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": -99,
+                                                        "co_type": "scene",
+                                                        "event": "on_load",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654754080085
+                                            ],
+                                            "map": {
+                                                "1654754080085": {
+                                                    "id": 1654754080085,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": -100,
+                                                        "co_type": "experience",
+                                                        "action": "change_scene",
+                                                        "properties": [
+                                                            1654753854758
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "1654754110739": {
+                                    "id": 1654754110739,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule (1)",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654754031175
+                                            ],
+                                            "map": {
+                                                "1654754031175": {
+                                                    "id": 1654754031175,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": -12,
+                                                        "co_type": "string",
+                                                        "event": "on_var_change",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654753690222
+                                            ],
+                                            "map": {
+                                                "1654753690222": {
+                                                    "id": 1654753690222,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": -100,
+                                                        "co_type": "experience",
+                                                        "action": "change_scene",
+                                                        "properties": [
+                                                            1654753854758
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "order": [
+                1654753854758
+            ]
+        },
+        "variable": {
+            "map": {
+                "-8": {
+                    "id": -8,
+                    "name": "v_identifier_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-9": {
+                    "id": -9,
+                    "name": "device_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-10": {
+                    "id": -10,
+                    "name": "browser_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-11": {
+                    "id": -11,
+                    "name": "vrmode_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "boolean",
+                        "var_track": true,
+                        "var_default": false,
+                        "var_category": "predefined"
+                    }
+                },
+                "-12": {
+                    "id": -12,
+                    "name": "firstname_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                }
+            },
+            "order": [
+                -10,
+                -9,
+                -8,
+                -12,
+                -11
+            ]
+        },
+        "tour_mode": {
+            "map": {
+                "1654753683660": {
+                    "id": 1654753683660,
+                    "type": "tour_mode",
+                    "props": {
+                        "tour_mode_scene_id": 1654753854758
+                    }
+                }
+            },
+            "order": [
+                1654753683660
+            ]
+        }
+    }
+}

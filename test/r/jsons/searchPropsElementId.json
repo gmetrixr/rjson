@@ -1,0 +1,533 @@
+{
+    "id": 1654753869371,
+    "type": "project",
+    "props": {
+        "version": 130
+    },
+    "records": {
+        "menu": {
+            "map": {
+                "1654754171689": {
+                    "id": 1654754171689,
+                    "type": "menu",
+                    "props": {
+                        "menu_show": false,
+                        "menu_scene_id": 1654753854758
+                    }
+                },
+                "1655209619857": {
+                    "id": 1655209619857,
+                    "type": "menu",
+                    "props": {
+                        "menu_scene_id": 1655209948481,
+                        "menu_show": false
+                    }
+                }
+            },
+            "order": [
+                1654754171689,
+                1655209619857
+            ]
+        },
+        "scene": {
+            "map": {
+                "1654753854758": {
+                    "id": 1654753854758,
+                    "name": "Scene",
+                    "type": "scene",
+                    "props": {
+                        "scene_type": "first_person"
+                    },
+                    "records": {
+                        "element": {
+                            "map": {
+                                "1654753705314": {
+                                    "id": 1654753705314,
+                                    "name": "Pano Image",
+                                    "type": "element",
+                                    "props": {
+                                        "hidden": false,
+                                        "locked": false,
+                                        "source": {
+                                            "name": "grid_02_white.jpg",
+                                            "type": "IMAGE",
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                                "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                            }
+                                        },
+                                        "stereo": false,
+                                        "opacity": 1,
+                                        "pano_radius": 900,
+                                        "element_type": "pano_image",
+                                        "pano_yaw_correction": 0,
+                                        "pano_pitch_correction": 0
+                                    }
+                                },
+                                "1654753586524": {
+                                    "id": 1654753586524,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "object_3d",
+                                        "source": {
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                "glb": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo.glb",
+                                                "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/glb/gmetri_logo_glb_thumbnail.png"
+                                            },
+                                            "name": "gmetri_logo.glb",
+                                            "type": "THREED"
+                                        },
+                                        "hidden": false,
+                                        "wireframe": false,
+                                        "auto_rotate": false,
+                                        "auto_animation": false,
+                                        "hover_animation": true,
+                                        "locked": false,
+                                        "placer_3d": [
+                                            -1.244297103694723,
+                                            -0.9236906921741481,
+                                            -7.848472477044671,
+                                            0,
+                                            9.017966606834069,
+                                            0,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "scale": 1,
+                                        "object3d_animations": []
+                                    },
+                                    "name": "3D Object"
+                                },
+                                "1654753534620": {
+                                    "id": 1654753534620,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "cylinder",
+                                        "opacity": 1,
+                                        "color": "#87BEE1",
+                                        "hidden": false,
+                                        "locked": false,
+                                        "wireframe": false,
+                                        "hover_animation": true,
+                                        "pivot_point": "center",
+                                        "placer_3d": [
+                                            2.5853647589180473,
+                                            -0.877587080616541,
+                                            -7.519689486892375,
+                                            -2.6020408163265287,
+                                            -18.7594692355235,
+                                            0,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "radius": 1,
+                                        "arc": 360,
+                                        "height": 3,
+                                        "scale": 1,
+                                        "animation": {
+                                            "name": "",
+                                            "speed": 1
+                                        }
+                                    },
+                                    "name": "Cylinder"
+                                },
+                                "1655274878429": {
+                                    "id": 1655274878429,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "actionbar",
+                                        "hidden": true,
+                                        "actionbar_position": "bottom",
+                                        "actionbar_head": "",
+                                        "color": "#484848",
+                                        "opacity": 0.8,
+                                        "collapsible": false
+                                    },
+                                    "name": "ActionBar"
+                                },
+                                "1655275431616": {
+                                    "id": 1655275431616,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "capture_input",
+                                        "hidden": true,
+                                        "capture_input_mode": "textbox",
+                                        "capture_input_dropdown_options": "",
+                                        "min": 0,
+                                        "max": 1000,
+                                        "regex": "",
+                                        "regex_error_msg": "",
+                                        "placeholder_text": ""
+                                    },
+                                    "name": "Capture Input"
+                                },
+                                "1655275144982": {
+                                    "id": 1655275144982,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "quiz",
+                                        "quiz_starting_instructions": "",
+                                        "quiz_passing_score": 0,
+                                        "quiz_correct_score": 0,
+                                        "quiz_wrong_score": 0,
+                                        "randomize_questions": false,
+                                        "background_source": {}
+                                    },
+                                    "name": "Quiz"
+                                },
+                                "1655278749836": {
+                                    "id": 1655278749836,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "timer",
+                                        "timer_mode_countdown": false,
+                                        "timer_duration": "01:00",
+                                        "opacity": 1,
+                                        "font_color": "#FFF",
+                                        "autoplay": true,
+                                        "hidden": false,
+                                        "locked": false,
+                                        "placer_3d": [
+                                            1.044146714216699,
+                                            -2.395037486465196,
+                                            -7.561319532833999,
+                                            -17.42034943473776,
+                                            -7.862281603288713,
+                                            6.250211872872644e-16,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "scale": 1,
+                                        "wh": [
+                                            6.5,
+                                            4
+                                        ],
+                                        "animation": {
+                                            "name": "",
+                                            "speed": 1
+                                        },
+                                        "billboarding": false
+                                    },
+                                    "name": "Timer"
+                                }
+                            },
+                            "order": [
+                                1654753705314,
+                                1655274878429,
+                                1655275431616,
+                                1655275144982,
+                                1655278749836,
+                                1654753586524,
+                                1654753534620
+                            ]
+                        },
+                        "rule": {
+                            "order": [
+                                1654754110739,
+                                1654754178869
+                            ],
+                            "map": {
+                                "1654754178869": {
+                                    "id": 1654754178869,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654754281748
+                                            ],
+                                            "map": {
+                                                "1654754281748": {
+                                                    "id": 1654754281748,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": 1655274878429,
+                                                        "co_type": "actionbar",
+                                                        "event": "on_click_item",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654754080085
+                                            ],
+                                            "map": {
+                                                "1654754080085": {
+                                                    "id": 1654754080085,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": 1655274878429,
+                                                        "co_type": "actionbar",
+                                                        "action": "show",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "1654754110739": {
+                                    "id": 1654754110739,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule (1)",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654754031175
+                                            ],
+                                            "map": {
+                                                "1654754031175": {
+                                                    "id": 1654754031175,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": -12,
+                                                        "co_type": "string",
+                                                        "event": "on_var_change",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654753690222
+                                            ],
+                                            "map": {
+                                                "1654753690222": {
+                                                    "id": 1654753690222,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": -99,
+                                                        "co_type": "scene",
+                                                        "action": "point_to",
+                                                        "properties": [
+                                                            1654753534620
+                                                        ],
+                                                        "delay": 10
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "1655209948481": {
+                    "id": 1655209948481,
+                    "type": "scene",
+                    "props": {
+                        "scene_type": "orbit"
+                    },
+                    "name": "Scene (1)",
+                    "records": {
+                        "element": {
+                            "order": [
+                                1655209467781,
+                                1655210043246
+                            ],
+                            "map": {
+                                "1655209467781": {
+                                    "id": 1655209467781,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "pano_image",
+                                        "source": {
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                                "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                            },
+                                            "name": "grid_02_white.jpg",
+                                            "type": "IMAGE"
+                                        },
+                                        "opacity": 1,
+                                        "pano_pitch_correction": 0,
+                                        "pano_yaw_correction": 0,
+                                        "hidden": false,
+                                        "locked": false,
+                                        "stereo": false,
+                                        "pano_radius": 900
+                                    },
+                                    "name": "Pano Image"
+                                },
+                                "1655210043246": {
+                                    "id": 1655210043246,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "group"
+                                    },
+                                    "name": "Lights",
+                                    "records": {
+                                        "element": {
+                                            "order": [
+                                                1655209521917,
+                                                1655209584336
+                                            ],
+                                            "map": {
+                                                "1655209521917": {
+                                                    "id": 1655209521917,
+                                                    "type": "element",
+                                                    "props": {
+                                                        "element_type": "light",
+                                                        "light_type": "ambient",
+                                                        "color": "#FFFFFF",
+                                                        "intensity": 1,
+                                                        "fall_off": 10,
+                                                        "placer_3d": [
+                                                            0,
+                                                            0,
+                                                            -8,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "target_element_id": null
+                                                    },
+                                                    "name": "Ambient Light"
+                                                },
+                                                "1655209584336": {
+                                                    "id": 1655209584336,
+                                                    "type": "element",
+                                                    "props": {
+                                                        "element_type": "light",
+                                                        "light_type": "directional",
+                                                        "color": "#C8D0D2",
+                                                        "intensity": 0.6,
+                                                        "fall_off": 10,
+                                                        "placer_3d": [
+                                                            0,
+                                                            12,
+                                                            4,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "target_element_id": null
+                                                    },
+                                                    "name": "Directional Light"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "order": [
+                1654753854758,
+                1655209948481
+            ]
+        },
+        "variable": {
+            "map": {
+                "-8": {
+                    "id": -8,
+                    "name": "v_identifier_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-9": {
+                    "id": -9,
+                    "name": "device_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-10": {
+                    "id": -10,
+                    "name": "browser_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-11": {
+                    "id": -11,
+                    "name": "vrmode_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "boolean",
+                        "var_track": true,
+                        "var_default": false,
+                        "var_category": "predefined"
+                    }
+                },
+                "-12": {
+                    "id": -12,
+                    "name": "firstname_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                }
+            },
+            "order": [
+                -10,
+                -9,
+                -8,
+                -12,
+                -11
+            ]
+        },
+        "tour_mode": {
+            "map": {
+                "1654753683660": {
+                    "id": 1654753683660,
+                    "type": "tour_mode",
+                    "props": {
+                        "tour_mode_scene_id": 1654753854758
+                    }
+                },
+                "1655209395206": {
+                    "id": 1655209395206,
+                    "type": "tour_mode",
+                    "props": {
+                        "tour_mode_scene_id": 1655209948481
+                    }
+                }
+            },
+            "order": [
+                1654753683660,
+                1655209395206
+            ]
+        }
+    }
+}

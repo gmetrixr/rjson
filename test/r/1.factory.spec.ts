@@ -1,4 +1,4 @@
-import { createRecord, en, r, R, RecordNode, RT, rtp  } from "../../src/r";
+import { createRecord, en, r, R, RecordNode, RT, rtp } from "../../src/r";
 import { migrateProjectRJson, createNewProject } from "../../src/migrations/index";
 import { expect } from "chai";
 import safehands_r101 from "./jsons/safehands.r101.json";
@@ -10,7 +10,11 @@ import { SceneProperty } from "../../src/r/recordTypes/Scene";
 import { ElementProperty } from "../../src/r/recordTypes/Element";
 import { performance } from "perf_hooks";
 import project1 from "./jsons/search1.json";
+import projectGrp from "./jsons/search2.json";
 import project_big from "./jsons/search_big.json";
+import projectVar from "./jsons/searchVar.json";
+import projectProps from "./jsons/searchPropsElementId.json";
+import projectActionbar from "./jsons/searchActionbar.json";
 import { jsUtils } from "@gmetrixr/gdash";
 import variableCheckJson from "./jsons/variable_check.json";
 import menuConsistencyJson from "./jsons/menu_consistency.json";
@@ -26,7 +30,7 @@ describe("r SceneFactory test", () => {
     const scenes = projectF.getRecords(RT.scene);
     const scene1 = scenes?.[0];
 
-    if(scene1) {
+    if (scene1) {
       const quizRecord = projectF.addElementOfTypeToScene({ sceneId: scene1.id, elementType: en.ElementType.quiz }) as R.RecordNode<RT.element>;
       const quizInstructionsKeys = Object.keys(quizRecord);
       expect(quizInstructionsKeys.includes("heading"));
@@ -63,7 +67,7 @@ describe("r RecordFactory tests", () => {
   });
 
   it("should get scenes record map for id", () => {
-    const sceneMapForId = r.record(safehands_r101).getRecord(RT.variable,-2);
+    const sceneMapForId = r.record(safehands_r101).getRecord(RT.variable, -2);
     expect(sceneMapForId === safehands_r101.records.variable.map["-2"]).to.equal(true);
   });
 
@@ -79,7 +83,7 @@ describe("r RecordFactory tests", () => {
 
   it("should add record", () => {
     const projectF = r.record(safehands_r101);
-    projectF.addRecord({"id":1,"type":"shopping","props":{"store_name":"souled_store","plugin":"souled_store","endpoint":"http://localhost","currency_prefix":"$","show_cart":true},"records":{"product":{"order":[1615980276584],"map":{"1615980276584":{"id":1615980276584,"type":"product","props":{"element_id":1615888204720,"product_sku":"1234567","scene_id":1615888151427}}}}}} as RecordNode<RT.shopping>);
+    projectF.addRecord({ "id": 1, "type": "shopping", "props": { "store_name": "souled_store", "plugin": "souled_store", "endpoint": "http://localhost", "currency_prefix": "$", "show_cart": true }, "records": { "product": { "order": [1615980276584], "map": { "1615980276584": { "id": 1615980276584, "type": "product", "props": { "element_id": 1615888204720, "product_sku": "1234567", "scene_id": 1615888151427 } } } } } } as RecordNode<RT.shopping>);
     expect(projectF.json()?.records !== undefined).to.equal(true);
   });
 });
@@ -92,13 +96,13 @@ describe("Test RecordNode addresses", () => {
   it("should return correct address of the RecordNode", () => {
     const sceneHome = recordF.getRecord(RT.scene, 1584704711152);
 
-    if(sceneHome) {
+    if (sceneHome) {
       const sceneF = r.record(sceneHome);
       const sceneHomeAddr = sceneF.getAddress(parentAddr);
       expect(sceneHomeAddr).to.equal("project:1|scene:1584704711152");
 
       const videoElement = sceneF.getRecord(RT.element, 1584704979049);
-      if(videoElement) {
+      if (videoElement) {
         const recordF = r.record(videoElement);
         expect(recordF.getAddress(sceneHomeAddr)).to.equal("project:1|scene:1584704711152|element:1584704979049");
       }
@@ -108,13 +112,13 @@ describe("Test RecordNode addresses", () => {
   it("should return correct property addresses for a recordnode", () => {
     const sceneHome = recordF.getRecord(RT.scene, 1584704711152);
 
-    if(sceneHome) {
+    if (sceneHome) {
       const sceneF = r.record(sceneHome);
       const sceneHomeAddr = sceneF.getPropertyAddress(parentAddr, SceneProperty.scene_allow_zooming);
       expect(sceneHomeAddr).to.equal("project:1|scene:1584704711152!scene_allow_zooming");
 
       const videoElement = sceneF.getRecord(RT.element, 1584704979049);
-      if(videoElement) {
+      if (videoElement) {
         const sceneHomeAddr = sceneF.getAddress(parentAddr);
         const recordF = r.record(videoElement);
         expect(recordF.getPropertyAddress(sceneHomeAddr, ElementProperty.opacity)).to.equal("project:1|scene:1584704711152|element:1584704979049!opacity");
@@ -226,7 +230,7 @@ describe("test for clipboard operations", () => {
     expect(booleanVariableCopied).not.to.equal(null);
 
     const st2 = performance.now();
-    for(let i = 0;i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       projectF.copyToClipboardObject([1625580045278]);
     }
     const et2 = performance.now();
@@ -300,7 +304,10 @@ describe("Tests re-parenting factory functions", () => {
 
 describe("Simple search function", () => {
   const projectUtils1 = new ProjectUtils();
+  const projectUtilsGroup = new ProjectUtils();
+  const projectUtilsVar = new ProjectUtils();
   const projectUtilsBig = new ProjectUtils();
+  const projectUtilsProps = new ProjectUtils();
 
   it("Checks if the search dictionaries are properly built", () => {
     projectUtils1.buildRulesDictionary(project1, 1598360479480);
@@ -313,7 +320,7 @@ describe("Simple search function", () => {
 
   it("Tries to search in rules by accent color only", () => {
     const searchResults = projectUtils1.simpleSearchInRules({ searchString: "", accentColor: "#8ED1FC" });
-    expect(searchResults).to.have.deep.members( [
+    expect(searchResults).to.have.deep.members([
       1601479016695,
       1600440390818,
       1599713097496,
@@ -323,13 +330,62 @@ describe("Simple search function", () => {
       1598361296971,
       1598360790208,
       1626946632899,
-    ] );
+    ]);
   });
 
   it("Tries to search in rules by rule name and accent color in different case", () => {
     const searchResults = projectUtils1.simpleSearchInRules({ searchString: "103", accentColor: "#949fA8" });
-    expect(searchResults).to.have.deep.members( [1598360763103] );
+    expect(searchResults).to.have.deep.members([1598360763103]);
   });
+
+  it("Tries to check whether we can search for elements within group", () => {
+    projectUtilsGroup.buildRulesDictionary(projectGrp, 1652633293080);
+    const searchResults = projectUtilsGroup.simpleSearchInRules({ searchString: "groupCube" });
+    console.log(projectUtilsGroup.elementNamesDict);
+    console.log(projectUtilsGroup.ruleNamesDict);
+    console.log(projectUtilsGroup.eventsDict);
+    expect(searchResults).to.have.deep.members([1654497834116])
+  });
+
+  it("Tries to check whether we can search for event names", () => {
+    projectUtilsGroup.buildRulesDictionary(projectGrp, 1652633293080);
+    const searchResults = projectUtilsGroup.simpleSearchInRules({ searchString: "preload" });
+    console.log(projectUtilsGroup.eventsDict);
+    expect(searchResults).to.have.deep.members([1654497834116])
+  })
+
+  it("Tries to check whether we can search for action names", () => {
+    projectUtilsGroup.buildRulesDictionary(projectGrp, 1652633293080);
+    const searchResults = projectUtilsGroup.simpleSearchInRules({ searchString: "show" });
+    console.log(projectUtilsGroup.actionDict);
+    expect(searchResults).to.have.deep.members([1654497834116, 1654497573958])
+  })
+
+
+  it("Tries to check whether we search for variable names in events", () => {
+    projectUtilsVar.buildRulesDictionary(projectVar, 1654753854758);
+    const searchResults = projectUtilsVar.simpleSearchInRules({ searchString: "firstname" });
+    console.log(projectUtilsVar.variableNamesDict);
+    expect(searchResults).to.have.deep.members([1654754110739])
+  });
+
+  it("Tries to check whether we can search for element_id props", () => {
+    projectUtilsProps.buildRulesDictionary(projectProps, 1654753854758);
+    const searchResults = projectUtilsProps.simpleSearchInRules({ searchString: "cylinder" });
+    expect(searchResults).to.have.deep.members([1654754110739])
+  });
+
+  it("Tries to check whether we can search for scene_id props", () => {
+    projectUtilsVar.buildRulesDictionary(projectVar, 1654753854758);
+    const searchResults = projectUtilsVar.simpleSearchInRules({ searchString: "scene" })
+    expect(searchResults).to.have.deep.members([1654754110739, 1654754178869])
+  });
+
+  it("Tries to check whether we can search for action_bar elements", () => {
+    projectUtilsProps.buildRulesDictionary(projectActionbar, 1654753854758);
+    const searchResults = projectUtilsProps.simpleSearchInRules({ searchString: "button" })
+    expect(searchResults).to.have.deep.members([1654754178869]);
+  })
 
   it("Builds dictionary from a large scene and checks performance", () => {
     console.time("Time taken:");
@@ -436,7 +492,7 @@ describe("Test project factory functions", () => {
       nodes: [var1]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject({obj: clipboard});
+    projectF.pasteFromClipboardObject({ obj: clipboard });
     const vars = projectF.getRecords(RT.variable);
     const insertedVar = projectF.getRecord(RT.variable, 2);
     expect(vars.length).to.eq(1);
@@ -458,7 +514,7 @@ describe("Test project factory functions", () => {
       nodes: [var2]
     };
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject({obj: clipboard});
+    projectF.pasteFromClipboardObject({ obj: clipboard });
     const vars = projectF.getRecords(RT.variable);
     expect(vars.length).to.eq(1);
   });
@@ -534,7 +590,7 @@ describe("Test project factory functions", () => {
     };
 
     const projectF = r.project(simpleProject);
-    projectF.pasteFromClipboardObject({obj: clipboard});
+    projectF.pasteFromClipboardObject({ obj: clipboard });
     const vars = projectF.getRecords(RT.variable);
     // 2 vars should exist
     // 1. id = 2 and 2. id = 100
@@ -555,7 +611,7 @@ describe("Test project factory functions", () => {
     //Expected outcome: 1) menu entry. With menu entry for scene id 1635504394652
     const projectF = r.project(menuConsistencyJson);
     projectF.syncMenuWithScenes();
-    
+
     const menus = projectF.getRecords(RT.menu)
     expect(menus.length).to.be.eq(1);
     //Only 1 entry
@@ -567,7 +623,7 @@ describe("Test project factory functions", () => {
 const simpleGroupJson: RecordNode<RT.element> = {
   name: "Group 1",
   id: 2,
-  props: {element_type: "group"},
+  props: { element_type: "group" },
   type: "element",
   records: {
     element: {
@@ -577,19 +633,19 @@ const simpleGroupJson: RecordNode<RT.element> = {
           id: 31,
           name: "Group Element 1",
           type: "element",
-          props: {element_type: "image_flat"},
+          props: { element_type: "image_flat" },
         },
         32: {
           id: 32,
           name: "Group Element 2",
           type: "element",
-          props: {element_type: "video_flat"},
+          props: { element_type: "video_flat" },
         },
         33: {
           id: 33,
           name: "Group 2",
           type: "element",
-          props: {element_type: "group"},
+          props: { element_type: "group" },
           records: {
             element: {
               order: [31, 32],
@@ -598,13 +654,13 @@ const simpleGroupJson: RecordNode<RT.element> = {
                   id: 31,
                   name: "Group Element 1",
                   type: "element",
-                  props: {element_type: "image_flat"},
+                  props: { element_type: "image_flat" },
                 },
                 32: {
                   id: 32,
                   name: "Group Element 2",
                   type: "element",
-                  props: {element_type: "video_flat"},
+                  props: { element_type: "video_flat" },
                 }
               }
             }
@@ -638,7 +694,7 @@ it("should copy element from root and paste into group with different element id
     const sourceElement = deepClone(sceneF.getRecord(RT.element, 1639028973948));
     const groupElementF = r.element(groupElement);
     clipboard.parentType = RT.element;
-    groupElementF.pasteFromClipboardObject({obj: clipboard});
+    groupElementF.pasteFromClipboardObject({ obj: clipboard });
 
     const allGroupElementAfterCopy = groupElementF.getRecords(RT.element);
     // element should be added to group element
@@ -701,7 +757,7 @@ describe("Record Factory Change Record Name Tests", () => {
     //Original text: "The Media Upload path is {{Media Upload Var}}"
     expect(r.project(variableCheckJson).getDeepChildAndParent(RT.element, 1635931357115)?.c?.props.text).to.equal("The Media Upload path is {{PhotoOrAudio_var}}");
   });
-});   
+});
 
 describe("Test ElementFactory methods", () => {
   it("should add a new child to the group ", () => {
@@ -723,13 +779,13 @@ describe("Test adding an element to group", () => {
   it("should add an element to a scene, reparent (move) it to the specified group", () => {
     const projectF = r.project(project_add_element_to_group);
     const destinationPos = 0;
-    
+
     const addedRecord = projectF.addElementOfTypeToScene({ sceneId: 1625732430168, elementType: en.ElementType.cylinder, position: destinationPos, groupElementId: 1625732943565 }) as R.RecordNode<RT.element>;
     //* get the group where you wanted to add the element to
     const scene = projectF.getRecord(RT.scene, 1625732430168) as RecordNode<RT.scene>;
     const sceneF = r.scene(scene);
     const group = sceneF.getRecord(RT.element, 1625732943565) as RecordNode<RT.element>;
-    
+
     //* added record should be visible here now after reparenting
     expect(group?.records?.element?.order.includes(addedRecord.id)).to.equal(true);
   });
