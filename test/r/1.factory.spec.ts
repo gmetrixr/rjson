@@ -313,7 +313,7 @@ describe("Simple search function", () => {
     projectUtils1.buildRulesDictionary(project1, 1598360479480);
 
     expect(Object.keys(projectUtils1.elementNamesDict)).to.have.lengthOf(13);
-    expect(Object.keys(projectUtils1.variableNamesDict)).to.have.lengthOf(2);
+    expect(Object.keys(projectUtils1.variableNamesDict)).to.have.lengthOf(4);
     expect(Object.keys(projectUtils1.ruleNamesDict)).to.have.lengthOf(10);
     expect(Object.keys(projectUtils1.accentColorsDict)).to.have.lengthOf(2);
   });
@@ -392,7 +392,7 @@ describe("Simple search function", () => {
     projectUtilsBig.buildRulesDictionary(project_big, 1593610480073);
     console.timeEnd("Time taken:");
 
-    expect(Object.keys(projectUtilsBig.elementNamesDict)).to.have.lengthOf(28);
+    expect(Object.keys(projectUtilsBig.elementNamesDict)).to.have.lengthOf(60);
     expect(Object.keys(projectUtilsBig.variableNamesDict)).to.have.lengthOf(1);
     expect(Object.keys(projectUtilsBig.ruleNamesDict)).to.have.lengthOf(41);
     expect(Object.keys(projectUtilsBig.accentColorsDict)).to.have.lengthOf(2);

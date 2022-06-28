@@ -1003,13 +1003,11 @@ export class ProjectUtils {
         const whenEvents = ruleF.getRecords(RT.when_event);
 
         for (const we of whenEvents) {
-          // const whenEventF = new RecordFactory(we);
           const coId = we.props.co_id as number;
-          // const element = elements.find(ele => ele.id === coId);
-          const element = sceneF.getAllDeepChildrenWithFilter(RT.element, (ele => ele.id === coId));
+          const element = elements.find(ele => ele.id === coId);
           const variable = projectF.getRecord(RT.variable, coId);
-          if (element[0]) {
-            const eleName = element[0].name?.trim().toLowerCase();
+          if (element) {
+            const eleName = element.name?.trim().toLowerCase();
             if (eleName) {
               this.elementNamesDict[eleName] ?
                 this.elementNamesDict[eleName].push(ruleId) :
@@ -1052,139 +1050,25 @@ export class ProjectUtils {
             this.actionDict[ta.props.action as string] = [ruleId]
 
           switch (ta.props.action) {
-            case RuleAction.open_url:
-              console.log(ta.props.properties);
+            case (RuleAction.open_url || RuleAction.call_api || RuleAction.load_project || RuleAction.set_to_formula || RuleAction.set_to_string || RuleAction.copy_to_clipboard || RuleAction.replace_screen_reader_text || RuleAction.set_to_number || RuleAction.add_number):
               if (Array.isArray(ta.props.properties)) {
                 console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            // case RuleAction.add_number:
-            //   this.propsNameDict[ta.props.properties as string] ?
-            //     this.propsNameDict[ta.props.properties].push(ruleId) :
-            //     this.actionDict[ta.props.action as string] = [ruleId]
-
-            case RuleAction.call_api:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            case RuleAction.load_project:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            case RuleAction.set_to_formula:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            case RuleAction.set_to_string:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            case RuleAction.copy_to_clipboard:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                for (const prop in ta.props.properties) {
-                  this.propsNameDict[ta.props.properties[0] as string] ?
-                    this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                    this.propsNameDict[ta.props.action as string] = [ruleId]
-                }
-              }
-              break;
-
-            case RuleAction.replace_screen_reader_text:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-
                 this.propsNameDict[ta.props.properties[0] as string] ?
                   this.propsNameDict[ta.props.properties[0]].push(ruleId) :
                   this.propsNameDict[ta.props.action as string] = [ruleId]
-
               }
               break;
 
-            case RuleAction.set_to_number:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-
-                this.propsNameDict[ta.props.properties[0] as string] ?
-                  this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                  this.propsNameDict[ta.props.action as string] = [ruleId]
-
-              }
-              break;
-
-            case RuleAction.add_number:
-              console.log(ta.props.properties);
-              if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-
-                this.propsNameDict[ta.props.properties[0] as string] ?
-                  this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                  this.propsNameDict[ta.props.action as string] = [ruleId]
-
-              }
-              break;
-
-            case RuleAction.point_to:
+            case (RuleAction.point_to || RuleAction.seek_to_timer || RuleAction.teleport):
               if (Array.isArray(ta.props.properties)) {
                 const elem_id = ta.props.properties[0] as number;
                 const eleme = elements.find(ele => ele.id === elem_id);
 
-                this.propsNameDict[eleme?.name as string] ?
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string] = [ruleId]
-              }
-
-              break;
-
-            case RuleAction.seek_to_timer:
-              if (Array.isArray(ta.props.properties)) {
-                const elem_id = ta.props.properties[0] as number;
-                const eleme = elements.find(ele => ele.id === elem_id);
-
-                this.propsNameDict[eleme?.name as string] ?
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string] = [ruleId]
+                if (eleme?.name != undefined || eleme?.name != null) {
+                  this.propsNameDict[eleme?.name as string] ?
+                    this.propsNameDict[eleme?.name?.trim().toLowerCase() as string].push(ruleId) :
+                    this.propsNameDict[eleme?.name?.trim().toLowerCase() as string] = [ruleId]
+                }
               }
 
               break;
@@ -1200,7 +1084,7 @@ export class ProjectUtils {
               }
               break;
 
-            case RuleAction.hide_item:
+            case (RuleAction.hide_item || RuleAction.show_item):
               if (Array.isArray(ta.props.properties)) {
                 const item_id = ta.props.properties[0] as number;
                 const items = sceneF.getAllDeepChildrenWithFilter(RT.item, (ele => ele.id === item_id))
@@ -1210,35 +1094,10 @@ export class ProjectUtils {
                   this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string].push(ruleId) :
                   this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string] = [ruleId]
               }
-              break;
-
-            case RuleAction.show_item:
-              if (Array.isArray(ta.props.properties)) {
-                const item_id = ta.props.properties[0] as number;
-                const items = sceneF.getAllDeepChildrenWithFilter(RT.item, (ele => ele.id === item_id))
-
-
-                this.propsNameDict[items[0]?.name as string] ?
-                  this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string] = [ruleId]
-              }
-              break;
-
-            case RuleAction.teleport:
-              if (Array.isArray(ta.props.properties)) {
-                const elem_id = ta.props.properties[0] as number;
-                const eleme = elements.find(ele => ele.id === elem_id);
-
-                this.propsNameDict[eleme?.name as string] ?
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[eleme?.name?.trim().toLowerCase() as string] = [ruleId]
-              }
-
               break;
 
             default:
               break;
-
 
           }
 
