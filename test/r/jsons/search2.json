@@ -1,0 +1,408 @@
+{
+    "id": 1652633059054,
+    "type": "project",
+    "props": {
+        "version": 130
+    },
+    "records": {
+        "menu": {
+            "map": {
+                "1652632732619": {
+                    "id": 1652632732619,
+                    "type": "menu",
+                    "props": {
+                        "menu_show": false,
+                        "menu_scene_id": 1652633293080
+                    }
+                }
+            },
+            "order": [
+                1652632732619
+            ]
+        },
+        "scene": {
+            "map": {
+                "1652633293080": {
+                    "id": 1652633293080,
+                    "name": "Scene",
+                    "type": "scene",
+                    "props": {
+                        "scene_type": "first_person"
+                    },
+                    "records": {
+                        "element": {
+                            "map": {
+                                "1652632996670": {
+                                    "id": 1652632996670,
+                                    "name": "Pano Image",
+                                    "type": "element",
+                                    "props": {
+                                        "hidden": false,
+                                        "locked": false,
+                                        "source": {
+                                            "name": "grid_02_white.jpg",
+                                            "type": "IMAGE",
+                                            "file_urls": {
+                                                "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                                "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                            }
+                                        },
+                                        "stereo": false,
+                                        "opacity": 1,
+                                        "pano_radius": 900,
+                                        "element_type": "pano_image",
+                                        "pano_yaw_correction": 0,
+                                        "pano_pitch_correction": 0
+                                    }
+                                },
+                                "1654574127649": {
+                                    "id": 1654574127649,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "cube",
+                                        "opacity": 1,
+                                        "color": "#9FFF8A",
+                                        "hidden": false,
+                                        "locked": false,
+                                        "wireframe": false,
+                                        "hover_animation": true,
+                                        "pivot_point": "center",
+                                        "placer_3d": [
+                                            4.107029569625781,
+                                            -1.4717535501262524,
+                                            -6.705687854494156,
+                                            -0.9948979591836732,
+                                            -30.764100910868997,
+                                            0,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "whd": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "scale": 1,
+                                        "animation": {
+                                            "name": "",
+                                            "speed": 1
+                                        }
+                                    },
+                                    "name": "Cube"
+                                },
+                                "1654574315850": {
+                                    "id": 1654574315850,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "sphere",
+                                        "opacity": 1,
+                                        "color": "#9AF4FF",
+                                        "wireframe": false,
+                                        "hover_animation": true,
+                                        "locked": false,
+                                        "hidden": false,
+                                        "pivot_point": "center",
+                                        "placer_3d": [
+                                            1.4383336883780407,
+                                            -3.280856328256734,
+                                            -7.153123650141589,
+                                            4.28571428571426,
+                                            -8.697318581019015,
+                                            -4.9835517111291395e-17,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "radius": 1,
+                                        "arc": 360,
+                                        "scale": 1,
+                                        "animation": {
+                                            "name": "",
+                                            "speed": 1
+                                        }
+                                    },
+                                    "name": "Sphere (1)"
+                                },
+                                "1654573870663": {
+                                    "id": 1654573870663,
+                                    "type": "element",
+                                    "props": {
+                                        "element_type": "group"
+                                    },
+                                    "name": "Group",
+                                    "records": {
+                                        "element": {
+                                            "order": [
+                                                1654573738603,
+                                                1654574568697
+                                            ],
+                                            "map": {
+                                                "1654573738603": {
+                                                    "id": 1654573738603,
+                                                    "type": "element",
+                                                    "props": {
+                                                        "element_type": "cube",
+                                                        "opacity": 1,
+                                                        "color": "#9FFF8A",
+                                                        "hidden": false,
+                                                        "locked": false,
+                                                        "wireframe": false,
+                                                        "hover_animation": true,
+                                                        "pivot_point": "center",
+                                                        "placer_3d": [
+                                                            0.6506457284522603,
+                                                            -0.8560990978158811,
+                                                            -7.927405279835625,
+                                                            -0.9948979591836732,
+                                                            -4.780735795424426,
+                                                            0,
+                                                            1,
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "whd": [
+                                                            1,
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "scale": 1,
+                                                        "animation": {
+                                                            "name": "",
+                                                            "speed": 1
+                                                        }
+                                                    },
+                                                    "name": "groupCube"
+                                                },
+                                                "1654574568697": {
+                                                    "id": 1654574568697,
+                                                    "type": "element",
+                                                    "props": {
+                                                        "element_type": "sphere",
+                                                        "opacity": 1,
+                                                        "color": "#9AF4FF",
+                                                        "wireframe": false,
+                                                        "hover_animation": true,
+                                                        "locked": false,
+                                                        "hidden": false,
+                                                        "pivot_point": "center",
+                                                        "placer_3d": [
+                                                            -1.737577553883527,
+                                                            -1.6724605727582202,
+                                                            -7.627824059114722,
+                                                            4.28571428571426,
+                                                            11.737300268543505,
+                                                            -4.9835517111291395e-17,
+                                                            1,
+                                                            1,
+                                                            1
+                                                        ],
+                                                        "radius": 1,
+                                                        "arc": 360,
+                                                        "scale": 1,
+                                                        "animation": {
+                                                            "name": "",
+                                                            "speed": 1
+                                                        }
+                                                    },
+                                                    "name": "GroupSphere"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "order": [
+                                1652632996670,
+                                1654574127649,
+                                1654573870663,
+                                1654574315850
+                            ]
+                        },
+                        "rule": {
+                            "order": [
+                                1654497834116,
+                                1654497573958
+                            ],
+                            "map": {
+                                "1654497573958": {
+                                    "id": 1654497573958,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654497189112
+                                            ],
+                                            "map": {
+                                                "1654497189112": {
+                                                    "id": 1654497189112,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": -99,
+                                                        "co_type": "scene",
+                                                        "event": "on_load",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654497263377
+                                            ],
+                                            "map": {
+                                                "1654497263377": {
+                                                    "id": 1654497263377,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": 1654574127649,
+                                                        "co_type": "cube",
+                                                        "action": "show",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "1654497834116": {
+                                    "id": 1654497834116,
+                                    "type": "rule",
+                                    "props": {
+                                        "tracked": false,
+                                        "accent_color": "#8ED1FC"
+                                    },
+                                    "name": "Rule (1)",
+                                    "records": {
+                                        "when_event": {
+                                            "order": [
+                                                1654497839856
+                                            ],
+                                            "map": {
+                                                "1654497839856": {
+                                                    "id": 1654497839856,
+                                                    "type": "when_event",
+                                                    "props": {
+                                                        "co_id": -99,
+                                                        "co_type": "scene",
+                                                        "event": "on_preload",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then_action": {
+                                            "order": [
+                                                1654497991035
+                                            ],
+                                            "map": {
+                                                "1654497991035": {
+                                                    "id": 1654497991035,
+                                                    "type": "then_action",
+                                                    "props": {
+                                                        "co_id": 1654573738603,
+                                                        "co_type": "cube",
+                                                        "action": "show",
+                                                        "properties": []
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "order": [
+                1652633293080
+            ]
+        },
+        "variable": {
+            "map": {
+                "-8": {
+                    "id": -8,
+                    "name": "v_identifier_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-9": {
+                    "id": -9,
+                    "name": "device_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-10": {
+                    "id": -10,
+                    "name": "browser_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                },
+                "-11": {
+                    "id": -11,
+                    "name": "vrmode_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "boolean",
+                        "var_track": true,
+                        "var_default": false,
+                        "var_category": "predefined"
+                    }
+                },
+                "-12": {
+                    "id": -12,
+                    "name": "firstname_var",
+                    "type": "variable",
+                    "props": {
+                        "var_type": "string",
+                        "var_track": true,
+                        "var_default": "Hi there!",
+                        "var_category": "predefined"
+                    }
+                }
+            },
+            "order": [
+                -10,
+                -9,
+                -8,
+                -12,
+                -11
+            ]
+        },
+        "tour_mode": {
+            "map": {
+                "1652633274118": {
+                    "id": 1652633274118,
+                    "type": "tour_mode",
+                    "props": {
+                        "tour_mode_scene_id": 1652633293080
+                    }
+                }
+            },
+            "order": [
+                1652633274118
+            ]
+        }
+    }
+}
