@@ -1015,9 +1015,10 @@ export class ProjectUtils {
             }
           }
 
-          this.eventsDict[we.props.event as string] ?
-            this.eventsDict[we.props.event as string].push(ruleId) :
-            this.eventsDict[we.props.event as string] = [ruleId]
+          const event = we.props.event as string;
+          this.eventsDict[event] ?
+            this.eventsDict[event].push(ruleId) :
+            this.eventsDict[event] = [ruleId];
 
           if (variable) {
             const varName = variable.name?.trim().toLowerCase();
@@ -1045,60 +1046,81 @@ export class ProjectUtils {
             }
           }
 
-          this.actionDict[ta.props.action as string] ?
-            this.actionDict[ta.props.action as string].push(ruleId) :
-            this.actionDict[ta.props.action as string] = [ruleId]
+          const action = ta.props.action as string;
+          this.actionDict[action] ?
+            this.actionDict[action].push(ruleId) :
+            this.actionDict[action] = [ruleId];
 
           switch (ta.props.action) {
-            case (RuleAction.open_url || RuleAction.call_api || RuleAction.load_project || RuleAction.set_to_formula || RuleAction.set_to_string || RuleAction.copy_to_clipboard || RuleAction.replace_screen_reader_text || RuleAction.set_to_number || RuleAction.add_number):
+            case RuleAction.open_url:
+            case RuleAction.call_api:
+            case RuleAction.load_project:
+            case RuleAction.set_to_formula:
+            case RuleAction.set_to_string:
+            case RuleAction.copy_to_clipboard:
+            case RuleAction.replace_screen_reader_text:
+            case RuleAction.set_to_number:
+            case RuleAction.add_number: {
               if (Array.isArray(ta.props.properties)) {
-                console.log(ta.props.properties[0]);
-                this.propsNameDict[ta.props.properties[0] as string] ?
-                  this.propsNameDict[ta.props.properties[0]].push(ruleId) :
-                  this.propsNameDict[ta.props.action as string] = [ruleId]
+                for(const p of ((ta.props.properties ?? []) as string[])) {
+                  this.propsNameDict[p] ?
+                    this.propsNameDict[p].push(ruleId) :
+                    this.propsNameDict[p] = [ruleId];
+                }
               }
               break;
+            }
 
-            case (RuleAction.point_to || RuleAction.seek_to_timer || RuleAction.teleport):
+            case RuleAction.point_to:
+            case RuleAction.seek_to_timer:
+            case RuleAction.teleport: {
               if (Array.isArray(ta.props.properties)) {
                 const elem_id = ta.props.properties[0] as number;
-                const eleme = elements.find(ele => ele.id === elem_id);
+                const element = elements.find(ele => ele.id === elem_id);
+                const elementName = element?.name?.trim().toLowerCase();
 
-                if (eleme?.name != undefined || eleme?.name != null) {
-                  this.propsNameDict[eleme?.name as string] ?
-                    this.propsNameDict[eleme?.name?.trim().toLowerCase() as string].push(ruleId) :
-                    this.propsNameDict[eleme?.name?.trim().toLowerCase() as string] = [ruleId]
+                if (elementName) {
+                  this.propsNameDict[elementName] ?
+                    this.propsNameDict[elementName].push(ruleId) :
+                    this.propsNameDict[elementName] = [ruleId];
                 }
               }
 
               break;
+            }
 
-            case RuleAction.change_scene:
+            case RuleAction.change_scene: {
               if (Array.isArray(ta.props.properties)) {
-                const scen_id = ta.props.properties[0] as number;
-                const scen = projectF.getRecord(RT.scene, scen_id);
-
-                this.propsNameDict[scen?.name as string] ?
-                  this.propsNameDict[scen?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[scen?.name?.trim().toLowerCase() as string] = [ruleId]
+                const sceneId = ta.props.properties[0] as number;
+                const scene = projectF.getRecord(RT.scene, sceneId);
+                const sceneName = scene?.name?.trim().toLowerCase();
+                if(sceneName) {
+                  this.propsNameDict[sceneName] ?
+                    this.propsNameDict[sceneName].push(ruleId) :
+                    this.propsNameDict[sceneName] = [ruleId];
+                }
               }
               break;
-
-            case (RuleAction.hide_item || RuleAction.show_item):
+            }
+            case RuleAction.hide_item:
+            case RuleAction.show_item: {
               if (Array.isArray(ta.props.properties)) {
-                const item_id = ta.props.properties[0] as number;
-                const items = sceneF.getAllDeepChildrenWithFilter(RT.item, (ele => ele.id === item_id))
+                const itemId = ta.props.properties[0] as number;
+                const items = sceneF.getAllDeepChildrenWithFilter(RT.item, (ele => ele.id === itemId));
 
-
-                this.propsNameDict[items[0]?.name as string] ?
-                  this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string].push(ruleId) :
-                  this.propsNameDict[items[0]?.name?.trim().toLowerCase() as string] = [ruleId]
+                for(const i of items) {
+                  const itemName = i.name?.trim().toLowerCase();
+                  if(itemName) {
+                    this.propsNameDict[itemName] ?
+                      this.propsNameDict[itemName].push(ruleId) :
+                      this.propsNameDict[itemName] = [ruleId];
+                  }
+                }
               }
               break;
-
+            }
             default:
               break;
-
           }
 
           if (variable) {
@@ -1112,7 +1134,7 @@ export class ProjectUtils {
         }
       }
     }
-  }
+  };
 
   simpleSearchInRules({ searchString, accentColor }: {
     searchString: string;
@@ -1139,16 +1161,16 @@ export class ProjectUtils {
     const matchingVariableNames: string[] = Object.keys(this.variableNamesDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
     const idsForVariableNames: number[] = flatten(matchingVariableNames.map((key: string) => this.variableNamesDict[key]));
 
-    const matchingevents: string[] = Object.keys(this.eventsDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
-    const idsForevents: number[] = flatten(matchingevents.map((key: string) => this.eventsDict[key]));
+    const matchingEvents: string[] = Object.keys(this.eventsDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
+    const idsForEvents: number[] = flatten(matchingEvents.map((key: string) => this.eventsDict[key]));
 
-    const matchingaction: string[] = Object.keys(this.actionDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
-    const idsForaction: number[] = flatten(matchingaction.map((key: string) => this.actionDict[key]));
+    const matchingAction: string[] = Object.keys(this.actionDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
+    const idsForAction: number[] = flatten(matchingAction.map((key: string) => this.actionDict[key]));
 
     const matchingProps: string[] = Object.keys(this.propsNameDict).filter((key: string) => key.includes(searchString.trim().toLowerCase()));
     const idsForProps: number[] = flatten(matchingProps.map((key: string) => this.propsNameDict[key]));
 
-    const concatenatedRuleIds: number[] = idsForElementNames.concat(idsForRuleNames).concat(idsForVariableNames).concat(idsForevents).concat(idsForaction).concat(idsForProps);
+    const concatenatedRuleIds: number[] = idsForElementNames.concat(idsForRuleNames).concat(idsForVariableNames).concat(idsForEvents).concat(idsForAction).concat(idsForProps);
     let outputRuleIds: number[] = concatenatedRuleIds;
     if (searchString && accentColor) {
       const intersection = jsUtils.intersection(new Set(idsForAccentColor), new Set(concatenatedRuleIds));
