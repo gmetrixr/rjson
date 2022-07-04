@@ -29,6 +29,7 @@ export enum ProjectProperty {
   show_vr_button = "show_vr_button",
   show_fullscreen_button = "show_fullscreen_button",
   show_vr_instructions = "show_vr_instructions",
+  show_6dof_instructions = "show_6dof_instructions",
   show_zoom_controls = "show_zoom_controls", //show_zoom_controls_in_viewer earlier
   tour_mode_inactivity_seconds = "tour_mode_inactivity_seconds",
   version = "version",
@@ -82,6 +83,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_vr_button]: true,
   [ProjectProperty.show_fullscreen_button]: true,
   [ProjectProperty.show_vr_instructions]: false,
+  [ProjectProperty.show_6dof_instructions]: false,
   [ProjectProperty.show_zoom_controls]: true,
   [ProjectProperty.tour_mode_inactivity_seconds]: 10,
   [ProjectProperty.version]: 0,
