@@ -83,7 +83,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_vr_button]: true,
   [ProjectProperty.show_fullscreen_button]: true,
   [ProjectProperty.show_vr_instructions]: false,
-  [ProjectProperty.show_6dof_instructions]: false,
+  [ProjectProperty.show_6dof_instructions]: true,
   [ProjectProperty.show_zoom_controls]: true,
   [ProjectProperty.tour_mode_inactivity_seconds]: 10,
   [ProjectProperty.version]: 0,
