@@ -77,6 +77,7 @@ export enum ElementProperty {
   background_source = "background_source",
   capture_input_mode = "capture_input_mode",
   embed_mode = "embed_mode",
+  view_mode = "view_mode",
   // id = "id", //Used in element sub items
   // name = "name", //Used in element sub items
   image_sources = "image_sources", //To be used after a new migration
@@ -219,6 +220,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.background_source]: { },
   [ElementProperty.capture_input_mode]: "textbox",
   [ElementProperty.embed_mode]: "popup",
+  [ElementProperty.view_mode]: "popup",
   [ElementProperty.image_sources]: [],
   [ElementProperty.threed_source]: {},
   [ElementProperty.upload_methods_allowed]: "",

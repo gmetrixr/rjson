@@ -9,6 +9,7 @@ export const EmbedScorm: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.source,
+    ElementProperty.view_mode,
     ElementProperty.embed_scorm_score_var_id,
     ElementProperty.embed_scorm_suspend_data_var_id,
     ElementProperty.embed_scorm_progress_var_id,
