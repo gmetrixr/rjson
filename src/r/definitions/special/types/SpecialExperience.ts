@@ -8,6 +8,7 @@ export const SpecialExperience: ISpecialDefinition = {
   actions: [
     RuleAction.change_scene,
     RuleAction.open_url,
+    RuleAction.open_deployment,
     RuleAction.copy_to_clipboard,
     RuleAction.end_experience,
     RuleAction.take_screenshot,
