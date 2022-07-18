@@ -18,7 +18,8 @@ export const Object3d: IElementDefinition = {
     ElementProperty.locked,
     ElementProperty.placer_3d,
     ElementProperty.scale,
-    ElementProperty.object3d_animations
+    ElementProperty.object3d_animations,
+    ElementProperty.apply_env_map
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
