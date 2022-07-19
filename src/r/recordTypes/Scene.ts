@@ -41,5 +41,6 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_selective_bloom_size]: BloomKernelSize.huge,
   [SceneProperty.scene_env_map]: undefined,
   [SceneProperty.scene_spawn_zone_id]: undefined,
-  [SceneProperty.scene_bounds]: [-10, 10, 0, 10, -10, 10],
+  // * These are synced to the event space template
+  [SceneProperty.scene_bounds]: [-15, 4.5, 0, 5, -4.5, 15],
 };
