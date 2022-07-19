@@ -36,6 +36,7 @@ import { Light } from "./types/Light";
 import { Hotspot } from "./types/Hotspots";
 import { Environment } from "./types/Environment";
 import { Zone } from "./types/Zone";
+import { ColliderBox } from "./types/ColliderBox";
 
 import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType } from "./ElementSubTypes";
 export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType };
@@ -81,7 +82,8 @@ export const elementList: IElementDefinition[] = [
   Light,
   Hotspot,
   Environment,
-  Zone
+  Zone,
+  ColliderBox
 ];
 
 /**
