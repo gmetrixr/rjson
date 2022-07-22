@@ -81,7 +81,8 @@ export type SceneEnvironment = {
   name: string,
   source: Source,
   scale?: number,
-  placer_3d?: number[]
+  placer_3d?: number[],
+  scene_bounds?: number[]
 };
 
 export enum SceneCollisionOptions {
