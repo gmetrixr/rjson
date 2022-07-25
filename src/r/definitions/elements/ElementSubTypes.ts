@@ -103,7 +103,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   web_state: "Web State",
   hotspot: "Hotspot",
   environment: "Environment",
-  zone: "zone",
+  zone: "Zone",
 };
 
 export enum ElementCategory {
