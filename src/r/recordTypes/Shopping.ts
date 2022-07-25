@@ -6,7 +6,12 @@ export enum ShoppingProperty {
   show_cart = "show_cart",
   // * Shopify specific properties
   shopify_access_token = "shopify_access_token",
-  shopify_domain = "shopify_domain"
+  shopify_domain = "shopify_domain", 
+
+  // * Woocommerce specific properties
+  woocommerce_api_endpoint = "woocommerce_api_endpoint",
+  woocommerce_customer_key = "woocommerce_customer_key",
+  woocommerce_customer_secret = "woocommerce_customer_secret"
 }
 
 export const shoppingPropertyDefaults: Record<ShoppingProperty, unknown> = {
@@ -16,5 +21,8 @@ export const shoppingPropertyDefaults: Record<ShoppingProperty, unknown> = {
   [ShoppingProperty.currency_prefix]: "",
   [ShoppingProperty.show_cart]: true,
   [ShoppingProperty.shopify_access_token]: "",
-  [ShoppingProperty.shopify_domain]: ""
+  [ShoppingProperty.shopify_domain]: "",
+  [ShoppingProperty.woocommerce_api_endpoint]: "",
+  [ShoppingProperty.woocommerce_customer_key]: "",
+  [ShoppingProperty.woocommerce_customer_secret]: "",
 }
