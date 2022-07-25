@@ -18,7 +18,11 @@ export enum SceneProperty {
   scene_enable_selective_bloom = "scene_enable_selective_bloom",
   scene_selective_bloom_intensity = "scene_selective_bloom_intensity",
   scene_selective_bloom_size = "scene_selective_bloom_size",
-  scene_env_map = "scene_env_map"
+  scene_env_map = "scene_env_map",
+  scene_spawn_zone_id = "scene_spawn_zone_id",
+  // * A single array to store X, Y, Z bounds
+  // [xMin, xMax, yMin, yMax, zMin, zMax]
+  scene_bounds = "scene_bounds"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -36,4 +40,7 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_selective_bloom_intensity]: 1,
   [SceneProperty.scene_selective_bloom_size]: BloomKernelSize.huge,
   [SceneProperty.scene_env_map]: undefined,
+  [SceneProperty.scene_spawn_zone_id]: undefined,
+  // * These are synced to the event space template
+  [SceneProperty.scene_bounds]: [-15, 4.5, 0, 5, -4.5, 15],
 };

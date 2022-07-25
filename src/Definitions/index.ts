@@ -8,3 +8,9 @@ export enum FileType {
   COMPRESSED = "COMPRESSED",
   OTHER = "OTHER",
 }
+
+export enum BillboardingTypes {
+  y = "y",
+  xy = "xy",
+  xyz = "xyz"
+}

@@ -1,4 +1,4 @@
-import { FileType } from "../../../../Definitions";
+import { BillboardingTypes, FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
 import { RuleEvent } from "../../rules";
@@ -18,7 +18,8 @@ export const Object3d: IElementDefinition = {
     ElementProperty.locked,
     ElementProperty.placer_3d,
     ElementProperty.scale,
-    ElementProperty.object3d_animations
+    ElementProperty.object3d_animations,
+    ElementProperty.apply_env_map
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
@@ -29,7 +30,8 @@ export const Object3d: IElementDefinition = {
        },
       name: "gmetri_logo.glb",
       type: FileType.THREED
-    }
+    },
+    [ElementProperty.billboarding]: null
   },
   events: [
     ...BasicElement.events,

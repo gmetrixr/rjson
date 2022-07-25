@@ -1,4 +1,4 @@
-import { FileType } from "../../Definitions";
+import { FileType, BillboardingTypes } from "../../Definitions";
 
 
 export enum ElementProperty {
@@ -77,6 +77,7 @@ export enum ElementProperty {
   background_source = "background_source",
   capture_input_mode = "capture_input_mode",
   embed_mode = "embed_mode",
+  view_mode = "view_mode",
   // id = "id", //Used in element sub items
   // name = "name", //Used in element sub items
   image_sources = "image_sources", //To be used after a new migration
@@ -121,6 +122,7 @@ export enum ElementProperty {
   embed_scorm_score_var_id = "embed_scorm_score_var_id",
   embed_scorm_suspend_data_var_id = "embed_scorm_suspend_data_var_id",
   embed_scorm_progress_var_id = "embed_scorm_progress_var_id",
+  apply_env_map = "apply_env_map",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -149,7 +151,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.font_color]: "#FFF",
   [ElementProperty.pano_radius]: 900,
   [ElementProperty.audio_type]: "upload",
-  [ElementProperty.color]: "rgba(72, 72, 72, 0.8)",
+  [ElementProperty.color]: "#484848CC",
   [ElementProperty.pivot_point]: "center", // center|bottom|corner
   [ElementProperty.sides]: 3, // triangle
   [ElementProperty.radius]: 1,
@@ -193,12 +195,12 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   //@ts-ignore
   [ElementProperty.image_sources]: [],
   [ElementProperty.threed_source]: { uri: "" },
-  [ElementProperty.price_color]: "rgba(72, 72, 72, 0.8)",
+  [ElementProperty.price_color]: "#484848CC",
   [ElementProperty.show_add_to_cart_button]: false,
   [ElementProperty.add_to_cart_button_text]: "Add to cart",
   [ElementProperty.add_to_cart_button_link]: "#",
   [ElementProperty.chroma_effect]: false,
-  [ElementProperty.chroma_color]: "rgba(108, 175, 127, 1)",
+  [ElementProperty.chroma_color]: "#6CAF7F",
   [ElementProperty.share_attributes]: {
     instruction: "",
     url: "",
@@ -219,6 +221,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.background_source]: { },
   [ElementProperty.capture_input_mode]: "textbox",
   [ElementProperty.embed_mode]: "popup",
+  [ElementProperty.view_mode]: "popup",
   [ElementProperty.image_sources]: [],
   [ElementProperty.threed_source]: {},
   [ElementProperty.upload_methods_allowed]: "",
@@ -235,7 +238,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.light_type]: "ambient",
   [ElementProperty.intensity]: 1,
   [ElementProperty.fall_off]: 10,
-  [ElementProperty.billboarding]: false,
+  [ElementProperty.billboarding]: null,
   [ElementProperty.target_element_id]: null,
   [ElementProperty.media_upload_var_id]: 3000,
   // Other comprises of just PDF while defining this property
@@ -260,5 +263,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.start_time]: 0,
   [ElementProperty.embed_scorm_score_var_id]: 0,
   [ElementProperty.embed_scorm_suspend_data_var_id]: "",
-  [ElementProperty.embed_scorm_progress_var_id]: 0
+  [ElementProperty.embed_scorm_progress_var_id]: 0,
+  [ElementProperty.apply_env_map]: true
 }

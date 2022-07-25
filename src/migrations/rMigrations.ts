@@ -31,6 +31,8 @@ import m127_128 from "./r-migration-commands/m127_128_add_scorm_score_var";
 import m128_129 from "./r-migration-commands/m128_129_delete_whitelabel_add_show_splash";
 import m129_130 from "./r-migration-commands/m129_130_flatten_product_card_add_to_cart_cta_button";
 import m130_131 from "./r-migration-commands/m130_131_add_names_for_unnamed_rules";
+import m131_132 from "./r-migration-commands/m131_132_billboarding_to_xy_default";
+import m132_133 from "./r-migration-commands/m132_133_fixing_predefined_vars";
 import create_first_scene from "../migrations/newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "../migrations/newproject-migration-commands/create_predefined_vars";
 
@@ -67,6 +69,8 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [128]: m128_129,
   [129]: m129_130,
   [130]: m130_131,
+  [131]: m131_132,
+  [132]: m132_133,
 };
 
 export const getHighestRjsonVersion = (): number => {

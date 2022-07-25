@@ -1,9 +1,6 @@
-import { RecordNode, r, RT, vn } from "../../r";
+import { RecordNode, r, rtp, RT, vn } from "../../r";
 import { IOrder } from "../IOrder";
 
-/**
- * Adds predefined variables to the project json
- */
 class Migration implements IOrder {
   execute(projectJson: unknown) {
     const pJson = projectJson as RecordNode<RT.project>;
@@ -18,6 +15,8 @@ class Migration implements IOrder {
     projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_progress);
     projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_suspend_data);
     projectF.addPredefinedVariable(vn.PredefinedVariableName.scorm_score);
+
+    projectF.set(rtp.project.version, 133);
   }
 }
 

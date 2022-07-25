@@ -21,6 +21,7 @@ export enum RuleAction {
   reset_all_vars = "reset_all_vars", 
   change_scene = "change_scene", //additional property sno
   open_url = "open_url", //additional property url and target (new_page, same_page)
+  open_deployment = "open_deployment", // to open another gmetri deployment
   call_api = "call_api", //to make API calls when clicked,
   award_score = "award_score", //for score
   move_to = "move_to", //for any object, additional position element and move speed
@@ -140,6 +141,7 @@ export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | un
   reset_all_vars: [],
 
   open_url: [ThenActionProperty.uri, ThenActionProperty.target], //uri_type is either template or direct
+  open_deployment: [ThenActionProperty.string_value],
   call_api: [ThenActionProperty.uri], //uri_type is either template or direct
   award_score: [ThenActionProperty.score],
   // deprecated
@@ -242,6 +244,7 @@ export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.change_scene]: "change to scene",
   [RuleAction.reset_all_vars]: "reset all variables",
   [RuleAction.open_url]: "open URL",
+  [RuleAction.open_deployment]: "open deployment",
   [RuleAction.call_api]: "make API call",
   [RuleAction.award_score]: "award",
   [RuleAction.move_to]: "move to the position of",
