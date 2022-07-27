@@ -6,6 +6,8 @@ export const Light: IElementDefinition = {
   elementDefaultName: "Light",
   properties: [
     ...BasicElement.properties,
+    ElementProperty.hidden,
+    ElementProperty.locked,
     ElementProperty.light_type,
     ElementProperty.color,
     ElementProperty.intensity,
