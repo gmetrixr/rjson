@@ -1,8 +1,7 @@
-import { BillboardingTypes, FileType } from "../../../../Definitions";
+import { FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
-import { RuleAction } from "../../rules";
-import { RuleEvent } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { RuleAction, RuleEvent } from "../../rules";
+import { BasicElement, ElementType, IElementDefinition } from "../ElementSubTypes";
 
 export const Object3d: IElementDefinition = {
   element_type: ElementType.object_3d,
@@ -19,7 +18,9 @@ export const Object3d: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.scale,
     ElementProperty.object3d_animations,
-    ElementProperty.apply_env_map
+    ElementProperty.apply_env_map,
+    ElementProperty.pivot_point,
+    ElementProperty.preload
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
