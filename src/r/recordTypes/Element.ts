@@ -123,6 +123,7 @@ export enum ElementProperty {
   embed_scorm_suspend_data_var_id = "embed_scorm_suspend_data_var_id",
   embed_scorm_progress_var_id = "embed_scorm_progress_var_id",
   apply_env_map = "apply_env_map",
+  preload = "preload",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -264,5 +265,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.embed_scorm_score_var_id]: 0,
   [ElementProperty.embed_scorm_suspend_data_var_id]: "",
   [ElementProperty.embed_scorm_progress_var_id]: 0,
-  [ElementProperty.apply_env_map]: true
+  [ElementProperty.apply_env_map]: true,
+  [ElementProperty.preload]: false,
 }
