@@ -33,6 +33,7 @@ import m129_130 from "./r-migration-commands/m129_130_flatten_product_card_add_t
 import m130_131 from "./r-migration-commands/m130_131_add_names_for_unnamed_rules";
 import m131_132 from "./r-migration-commands/m131_132_billboarding_to_xy_default";
 import m132_133 from "./r-migration-commands/m132_133_fixing_predefined_vars";
+import m133_134 from "./r-migration-commands/m133_134_3d_scenes_move_to_new_collision_prop";
 import create_first_scene from "../migrations/newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "../migrations/newproject-migration-commands/create_predefined_vars";
 
@@ -71,6 +72,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [130]: m130_131,
   [131]: m131_132,
   [132]: m132_133,
+  [133]: m133_134,
 };
 
 export const getHighestRjsonVersion = (): number => {
