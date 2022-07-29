@@ -7,14 +7,13 @@ class Migration implements IOrder {
     const projectF = r.project(pJson);
 
     /**
-     * Find all 3D scenes, and set scene_enable_collisions to false if scene_collision_type is no_collision.
-     * By default, collisions are enabled on all 3D scenes. These collisions are advanced collisions based since we have relatively very few meshes to compute the collisions from
+     * For all 3D scenes that have not gone through this migration, set enable_collisions = false
      */
 
     const scenes = projectF.getRecords(RT.scene);
     for(const s of scenes) {
       const sceneF = r.scene(s);
-      if(sceneF.get(rtp.scene.scene_collision_type) === sn.SceneCollisionOptions.no_collision) {
+      if(sceneF.getValueOrDefault(rtp.scene.scene_type) === sn.SceneType.six_dof) {
         sceneF.set(rtp.scene.scene_enable_collisions, false);
       }
     }
