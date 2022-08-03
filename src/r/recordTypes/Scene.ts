@@ -14,6 +14,7 @@ export enum SceneProperty {
   // * Below properties are used only for orbit scene
   scene_orbit_target_element_id = "scene_orbit_target_element_id",
   // * Below properties are used only for 6DOF scene
+  // @deprecated - scene_collision_type
   scene_collision_type = "scene_collision_type",
   scene_enable_selective_bloom = "scene_enable_selective_bloom",
   scene_selective_bloom_intensity = "scene_selective_bloom_intensity",
@@ -22,7 +23,8 @@ export enum SceneProperty {
   scene_spawn_zone_id = "scene_spawn_zone_id",
   // * A single array to store X, Y, Z bounds
   // [xMin, xMax, yMin, yMax, zMin, zMax]
-  scene_bounds = "scene_bounds"
+  scene_bounds = "scene_bounds",
+  scene_enable_collisions = "scene_enable_collisions"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -35,6 +37,7 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_type]: SceneType.first_person,
   [SceneProperty.scene_orbit_target_element_id]: undefined,
   [SceneProperty.scene_allow_zooming]: true,
+  // @deprecated - scene_collision_type
   [SceneProperty.scene_collision_type]: SceneCollisionOptions.basic_collision,
   [SceneProperty.scene_enable_selective_bloom]: false,
   [SceneProperty.scene_selective_bloom_intensity]: 1,
@@ -43,4 +46,5 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_spawn_zone_id]: undefined,
   // * These are synced to the event space template
   [SceneProperty.scene_bounds]: [-15, 4.5, 0, 5, -4.5, 15],
+  [SceneProperty.scene_enable_collisions]: true,
 };
