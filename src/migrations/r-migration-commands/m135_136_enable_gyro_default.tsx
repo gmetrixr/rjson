@@ -3,7 +3,7 @@ import { IOrder } from "../IOrder";
 
 
 /**
- * Assigns false value to enable_gyro where enable_gyro is undefined.
+ * Assigns true value to enable_gyro where enable_gyro is undefined.
  * Because upto this point, enable_gyro had default of true which is now changed to false.
  */
 
@@ -13,7 +13,7 @@ class Migration implements IOrder {
     const projectF = r.project(pJson);
 
     if(projectF.get(rtp.project.enable_gyro) === undefined) {
-      projectF.set(rtp.project.enable_gyro, false);
+      projectF.set(rtp.project.enable_gyro, true);
     }
     
     projectF.set(rtp.project.version, 136);
