@@ -14,6 +14,7 @@ export enum SpecialType {
   scene = "scene",
   all_variables = "all_variables",
   viewer = "viewer",
+  current_time = "current_time",
 }
 
 /**
@@ -29,6 +30,7 @@ export const specialElementDisplayNames: Record<SpecialType, string> = {
   [SpecialType.scene]: "scene",
   [SpecialType.all_variables]: "all variables",
   [SpecialType.viewer]: "viewer",
+  [SpecialType.current_time]: "current time",
 };
 
 export const SpecialRuleElementIds = {
@@ -36,6 +38,7 @@ export const SpecialRuleElementIds = {
   EXPERIENCE_ELEMENT_ID: -100,
   ALL_VARIABLES_ELEMENT_ID: -101,
   VIEWER_ELEMENT_ID: -102,
+  CURRENT_TIME_ELEMENT_ID: -103,
 };
 
 export const allSpecialRuleElementIds: number[] = Object.values(SpecialRuleElementIds);

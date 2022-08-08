@@ -20,6 +20,7 @@ import {
   SceneCollisionOptions,
   BloomKernelSize
 } from "./SpecialSubTypes";
+import { SpecialCurrentTimee } from "./types/SpecialCurrentTime";
 
 export {
   SpecialRuleElementIds,
@@ -42,4 +43,5 @@ export const specialTypeToDefn: Record<SpecialType, ISpecialDefinition> = {
   [SpecialType.scene]: SpecialScene,
   [SpecialType.all_variables]: SpecialAllVariables,
   [SpecialType.viewer]: SpecialViewer,
+  [SpecialType.current_time]: SpecialCurrentTimee,
 };
