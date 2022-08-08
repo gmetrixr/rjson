@@ -20,6 +20,7 @@ import variableCheckJson from "./jsons/variable_check.json";
 import menuConsistencyJson from "./jsons/menu_consistency.json";
 import { ElementType } from "../../src/r/definitions/elements";
 import copyPasteElementSampleJson from "./jsons/copyPasteElementSampleJson.json";
+import identicalScenesJson from "./jsons/identicalScenes.json";
 
 const reprentingClone = jsUtils.deepClone(project_reparenting);
 const { deepClone } = jsUtils;
@@ -98,13 +99,13 @@ describe("Test RecordNode addresses", () => {
 
     if (sceneHome) {
       const sceneF = r.record(sceneHome);
-      const sceneHomeAddr = sceneF.getAddress(parentAddr);
+      const sceneHomeAddr = sceneF.getSelfRecordAddress(parentAddr);
       expect(sceneHomeAddr).to.equal("project:1|scene:1584704711152");
 
       const videoElement = sceneF.getRecord(RT.element, 1584704979049);
       if (videoElement) {
         const recordF = r.record(videoElement);
-        expect(recordF.getAddress(sceneHomeAddr)).to.equal("project:1|scene:1584704711152|element:1584704979049");
+        expect(recordF.getSelfRecordAddress(sceneHomeAddr)).to.equal("project:1|scene:1584704711152|element:1584704979049");
       }
     }
   });
@@ -119,7 +120,7 @@ describe("Test RecordNode addresses", () => {
 
       const videoElement = sceneF.getRecord(RT.element, 1584704979049);
       if (videoElement) {
-        const sceneHomeAddr = sceneF.getAddress(parentAddr);
+        const sceneHomeAddr = sceneF.getSelfRecordAddress(parentAddr);
         const recordF = r.record(videoElement);
         expect(recordF.getPropertyAddress(sceneHomeAddr, ElementProperty.opacity)).to.equal("project:1|scene:1584704711152|element:1584704979049!opacity");
       }
@@ -725,9 +726,14 @@ describe("Test SceneFactory methods", () => {
   });
   it("should return address from breadcrumbs", () => {
     const sceneF = r.scene(simpleSceneJson);
-    const address = sceneF.getDeepRecordAddress(31, RT.element);
+    const address = sceneF.getDeepRecordAddress({ id: 31, type: RT.element});
     expect(address).to.be.eq("scene:1|element:2|element:31");
   });
+  it("should return address from correct scene", () => {
+    const projectF = r.project(identicalScenesJson);
+    const address = projectF.getDeepChildRecordAddress({ id: 1659959164940, type: RT.element, sceneId: 1659959948577, parentAddr: projectF.getSelfRecordAddress() });
+    expect(address).to.be.eq("project:1659944805083|scene:1659959948577|element:1659959164940");
+  })
   it("should return record + parent address ", () => {
     const sceneF = r.scene(simpleSceneJson);
     const address = sceneF.getDeepChildAndParentAddress(31, RT.element);
