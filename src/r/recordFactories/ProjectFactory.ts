@@ -915,7 +915,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
    * If just the scene Id is provided => the address will be starting from the scene instead of the project.
    * If neither scene Id or parent address is provided => the full address will be returned but might be from a different scene
    */
-  getDeepChildRecordAddress(this: ProjectFactory, { id, type, sceneId, parentAddr }: { id: number, type: RT, sceneId?: number, parentAddr?: string }): string {
+  getDeepChildRecordAddress(this: ProjectFactory, { id, type, sceneId, parentAddr }: { id: number, type: RT, sceneId?: number, parentAddr?: string }): string | undefined {
     if (sceneId) {
       const scene = this.getRecord(RT.scene, sceneId);
       if (scene) {
@@ -923,7 +923,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         const elementAddr = sceneF.getDeepRecordAddress({ id, type, parentAddr });
         return elementAddr;
       } else {
-        return "";
+        return undefined;
       }
     } else {
       const elementAddr = this.getDeepRecordAddress({ id, type, parentAddr });
