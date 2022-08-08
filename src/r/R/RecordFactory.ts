@@ -474,7 +474,7 @@ export class RecordFactory<T extends RT> {
    * RFC: https://docs.google.com/document/d/1DVM_i_Go5iX5-EShV5FikfI29k8YEC9cAjzeAY49blc/edit#
    * get the address of the RecordNode. In case parentAddr is not passed (root levels) then self address is returned
    */
-  getAddress(this: RecordFactory<T>, parentAddr?: string): string {
+   getSelfRecordAddress(this: RecordFactory<T>, parentAddr?: string): string {
     const selfAddress = `${this._type}:${this.getId()}`;
     return parentAddr? `${parentAddr}|${selfAddress}`: selfAddress;
   }
@@ -485,7 +485,7 @@ export class RecordFactory<T extends RT> {
    * 2. project:1|scene:1|element:2!wh>1
    */
   getPropertyAddress(this: RecordFactory<T>, parentAddr: string, property: RTP[T], index?: number): string {
-    const recordAddress = this.getAddress(parentAddr);
+    const recordAddress = this.getSelfRecordAddress(parentAddr);
     const recordPropertyAddress = `${recordAddress}!${property}`;
     return index? `${recordPropertyAddress}>${index}`: recordPropertyAddress;
   }
@@ -746,7 +746,7 @@ export class RecordFactory<T extends RT> {
   /**
    * Get address for a deep record
    */
-  getDeepRecordAddress(this: RecordFactory<T>, id: number, type: RT): string {
+  getDeepRecordAddress(this: RecordFactory<T>, { id, type, parentAddr }: { id: number, type: RT, parentAddr?: string }): string {
     const breadcrumbs = this.getBreadcrumbs(id, type);
     let address = "";
     for (let i = 0; i < breadcrumbs.length; i++) {
@@ -757,7 +757,7 @@ export class RecordFactory<T extends RT> {
         address += "|";
       }
     }
-    return address;
+    return parentAddr ? `${parentAddr}|${address}` : address;
   }
 
   /**
@@ -768,8 +768,8 @@ export class RecordFactory<T extends RT> {
     if(deepChildAndParent === undefined) {
       return undefined;
     }
-    const recordAddress = this.getDeepRecordAddress(id, type);
-    const parentAddress = this.getDeepRecordAddress(deepChildAndParent.p.id, deepChildAndParent.p.type as RT);
+    const recordAddress = this.getDeepRecordAddress({ id, type });
+    const parentAddress = this.getDeepRecordAddress({ id: deepChildAndParent.p.id, type: deepChildAndParent.p.type as RT });
 
     return [recordAddress, parentAddress];
   }

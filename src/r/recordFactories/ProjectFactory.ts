@@ -907,6 +907,30 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     return [reParentedRecords, failedReParentedRecords];
   }
 
+  /** 
+   * Get Address for a deep record in a particular scene, also has the capability to attach parent address
+   * If you want the full address for an element (might be a duplicate => there might be two elements with same ID but in different scenes)
+   * send scene id (scene in which the element is present) and parent address (project address) => can be found via projectF.getSelfRecordAddress()
+   * 
+   * If just the scene Id is provided => the address will be starting from the scene instead of the project.
+   * If neither scene Id or parent address is provided => the full address will be returned but might be from a different scene
+   */
+  getDeepChildRecordAddress(this: ProjectFactory, { id, type, sceneId, parentAddr }: { id: number, type: RT, sceneId?: number, parentAddr?: string }): string | undefined {
+    if (sceneId) {
+      const scene = this.getRecord(RT.scene, sceneId);
+      if (scene) {
+        const sceneF = new SceneFactory(scene);
+        const elementAddr = sceneF.getDeepRecordAddress({ id, type, parentAddr });
+        return elementAddr;
+      } else {
+        return undefined;
+      }
+    } else {
+      const elementAddr = this.getDeepRecordAddress({ id, type, parentAddr });
+      return elementAddr;
+    }
+  }
+
   /**
    * This method is called from the UI to resolve inconsistencies in the menu records.
    * It is called only if the number of menu entries != number of scene entries
