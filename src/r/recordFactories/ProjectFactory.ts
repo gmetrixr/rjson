@@ -452,6 +452,10 @@ export class ProjectFactory extends RecordFactory<RT.project> {
    */
   getProjectThumbnail(this: ProjectFactory): string | undefined {
     let thumbnail;
+    const projectThumbnailSource = <en.Source>this.get(rtp.project.project_thumbnail_source) as en.Source;
+    if(projectThumbnailSource !== undefined && projectThumbnailSource.file_urls?.o) {
+      return projectThumbnailSource.file_urls.o;
+    }
     const initialSceneId = this.getInitialSceneId();
     if (initialSceneId === undefined) return undefined;
     const scene = this.getRecord(RT.scene, initialSceneId);

@@ -14,6 +14,7 @@ import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
 import { migrateProjectRJson } from "../../src/migrations/index";
 import { ElementType } from "../../src/r/definitions/elements";
 import unnamedRules from "./jsons/unnamedRulesProject.json";
+import thumbnailJson from "./jsons/thumbnail.json";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -432,5 +433,12 @@ describe("r ProjectFactory tests", () => {
     for (const el of billboardingElements) {
       expect(typeof el.props.billboarding).to.not.be.eq("boolean");
     }
+  });
+
+  it ("should not calculate project thumbnail if project_thumbnail prop has value", () => {
+    const projectF = r.project(thumbnailJson);
+    const thumbnail = projectF.getProjectThumbnail();
+    const projectThumbnailSource = projectF.get(rtp.project.project_thumbnail_source) as en.Source;
+    expect(thumbnail).to.be.eq(projectThumbnailSource.file_urls?.o)
   });
 });
