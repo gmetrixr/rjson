@@ -266,7 +266,7 @@ export const recordTypeDefinitions: Record<RT, RTDefinition> = {
   },
   [RT.avatar]: {
     treeRef: rtHeirarchyTree.project.avatar,
-    typesInRootPath: [],
+    typesInRootPath: [RT.project],
     defaultValues: avatarPropertyDefaults,
     defaultName: "Avatar"
   },
