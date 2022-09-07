@@ -448,8 +448,6 @@ describe("r ProjectFactory tests", () => {
     if(avatar) {
       const avatarF = r.record(avatar);
       avatarF.set(rtp.avatar.source, {id: -1, file_urls: {o: "https://test.com/test.glb"}});
-
-      console.log(JSON.stringify(project));
       expect((avatarF.get(rtp.avatar.source) as en.Source).id).to.eq(-1);
     }
   });
