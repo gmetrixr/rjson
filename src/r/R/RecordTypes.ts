@@ -17,6 +17,7 @@ import { ChatProperty, chatPropertyDefaults } from "../recordTypes/Chat";
 import { DiscussionProperty, discussionPropertyDefaults } from "../recordTypes/Discussion";
 import { TopicProperty, topicPropertyDefaults } from "../recordTypes/Topic";
 import { CommentProperty, commentPropertyDefaults } from "../recordTypes/Comment";
+import { AvatarProperty, avatarPropertyDefaults } from "../recordTypes/Avatar";
 
 //https://stackoverflow.com/a/54178819/1233476
 // type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
@@ -45,6 +46,7 @@ export enum RT {
   "discussion" = "discussion",
   "topic" = "topic",
   "comment" = "comment",
+  "avatar" = "avatar",
 }
 
 /**
@@ -63,6 +65,7 @@ export const rtHeirarchyTree = {
     "lead_gen_field": {},
     "chat": {},
     "variable": {},
+    "avatar": {},
     "scene": {
       "rule": {
         "when_event": {},
@@ -112,6 +115,7 @@ export interface RTP {
   [RT.discussion]: DiscussionProperty,
   [RT.topic]: TopicProperty,
   [RT.comment]: CommentProperty,
+  [RT.avatar]: AvatarProperty,
 }
 
 /**
@@ -138,6 +142,7 @@ export const rtp = {
   [RT.discussion]: DiscussionProperty,
   [RT.topic]: TopicProperty,
   [RT.comment]: CommentProperty,
+  [RT.avatar]: AvatarProperty,
 }
 
 /**
@@ -263,6 +268,12 @@ export const recordTypeDefinitions: Record<RT, RTDefinition> = {
     typesInRootPath: [RT.discussion, RT.topic],
     defaultValues: commentPropertyDefaults,
     defaultName: "Comment"
+  },
+  [RT.avatar]: {
+    treeRef: rtHeirarchyTree.project.avatar,
+    typesInRootPath: [],
+    defaultValues: avatarPropertyDefaults,
+    defaultName: "Avatar"
   },
 }
 
