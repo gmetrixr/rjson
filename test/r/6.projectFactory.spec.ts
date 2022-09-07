@@ -11,7 +11,7 @@ import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContain
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
 import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
 import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
-import { migrateProjectRJson } from "../../src/migrations/index";
+import { createNewProject, migrateProjectRJson } from "../../src/migrations/index";
 import { ElementType } from "../../src/r/definitions/elements";
 import unnamedRules from "./jsons/unnamedRulesProject.json";
 import thumbnailJson from "./jsons/thumbnail.json";
@@ -255,7 +255,7 @@ describe("r ProjectFactory tests", () => {
   it ("should error out for trying to add element to project", () => {
     const projectF = r.project(oneSceneWithGroup);
     projectF.pasteFromClipboardObject({ obj: (mediaUploadJson as ClipboardR) });
-    console.log('[Error test]: Expected error because sending a media upload element without any SceneId and an element cannot be added at project level.');
+    console.log("[Error test]: Expected error because sending a media upload element without any SceneId and an element cannot be added at project level.");
   });
 
   /** 
@@ -440,5 +440,15 @@ describe("r ProjectFactory tests", () => {
     const thumbnail = projectF.getProjectThumbnail();
     const projectThumbnailSource = projectF.get(rtp.project.project_thumbnail_source) as en.Source;
     expect(thumbnail).to.be.eq(projectThumbnailSource.file_urls?.o)
+  });
+
+  it("should add a new record of type avatar to the project", () => {
+    const project = createNewProject();
+    const avatar = r.project(project).addBlankRecord(RT.avatar);
+    if(avatar) {
+      const avatarF = r.record(avatar);
+      avatarF.set(rtp.avatar.source, {id: -1, file_urls: {o: "https://test.com/test.glb"}});
+      expect((avatarF.get(rtp.avatar.source) as en.Source).id).to.eq(-1);
+    }
   });
 });
