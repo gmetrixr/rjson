@@ -1,0 +1,31 @@
+export enum DeploymentProperty {
+  geolock_enabled = "geolock_enabled",
+  geolock_coordinates = "geolock_coordinates",
+  geolock_range = "geolock_range",
+  geolock_address = "geolock_address",
+  track_location = "track_location",
+  enable_multiplayer_mode = "enable_multiplayer_mode",
+  enable_audio = "enable_audio",
+  enable_chat = "enable_chat",
+  enable_screenshare = "enable_screenshare",
+  enable_comments = "enable_comments",
+  room_instance_count = "room_instance_count",
+  room_instance_member_limit = "room_instance_member_limit",
+  room_instance_overspill_message = "room_instance_overspill_message",
+}
+
+export const deploymentPropertyDefaults:  Record<DeploymentProperty, unknown> = {
+  [DeploymentProperty.geolock_enabled]: false,
+  [DeploymentProperty.geolock_coordinates]: [0, 0],
+  [DeploymentProperty.geolock_range]: 0,
+  [DeploymentProperty.geolock_address]: "",
+  [DeploymentProperty.track_location]: false,
+  [DeploymentProperty.enable_multiplayer_mode]: false,
+  [DeploymentProperty.enable_audio]: false,
+  [DeploymentProperty.enable_chat]: false,
+  [DeploymentProperty.enable_screenshare]: false,
+  [DeploymentProperty.enable_comments]: false,
+  [DeploymentProperty.room_instance_count]: 50,
+  [DeploymentProperty.room_instance_member_limit]: 30,
+  [DeploymentProperty.room_instance_overspill_message]: "",
+};

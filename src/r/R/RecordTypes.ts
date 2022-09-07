@@ -1,3 +1,5 @@
+import { DeploymentProperty, deploymentPropertyDefaults } from "../recordTypes/Deployment";
+import { WebhookProperty, webhookPropertyDefaults } from "../recordTypes/Webhook";
 import { ProjectProperty, projectPropertyDefaults } from "../recordTypes/Project";
 import { LeadGenFieldProperty, leadGenFieldPropertyDefaults } from "../recordTypes/LeadGenField";
 import { MenuProperty, menuPropertyDefaults } from "../recordTypes/Menu";
@@ -27,6 +29,8 @@ export const SINGLE_RECORD_ID = 1;
 
 /** An enum of all RecordTypes */
 export enum RT {
+  "deployment" = "deployment",
+  "webhook" = "webhook",
   "project" = "project",
   "menu" = "menu",
   "tour_mode" = "tour_mode",
@@ -58,6 +62,9 @@ export function isRecordType(type: string): type is RT {
 }
 
 export const rtHeirarchyTree = {
+  "deployment": {
+    "webhook": {},
+  },
   "project": {
     "menu": {},
     "tour_mode": {},
@@ -96,6 +103,8 @@ export const rtHeirarchyTree = {
  * Used to get to the enums (as a property) for typecasting
  */
 export interface RTP {
+  [RT.deployment]: DeploymentProperty,
+  [RT.webhook]: WebhookProperty,
   [RT.project]: ProjectProperty,
   [RT.menu]: MenuProperty,
   [RT.tour_mode]: TourModeProperty,
@@ -123,6 +132,8 @@ export interface RTP {
  * Used to get to the enums (as an object) to select specific properties
  */
 export const rtp = {
+  [RT.deployment]: DeploymentProperty,
+  [RT.webhook]: WebhookProperty,
   [RT.project]: ProjectProperty,
   [RT.menu]: MenuProperty,
   [RT.tour_mode]: TourModeProperty,
@@ -163,6 +174,18 @@ export interface RTDefinition {
  * A map of all RecordType's Definitions
  */
 export const recordTypeDefinitions: Record<RT, RTDefinition> = {
+  [RT.deployment]: { 
+    treeRef: rtHeirarchyTree.deployment,
+    typesInRootPath: [],
+    defaultValues: deploymentPropertyDefaults,
+    //doesn't use name, so not defining defaultName
+  },
+  [RT.webhook]: { 
+    treeRef: rtHeirarchyTree.deployment.webhook,
+    typesInRootPath: [RT.deployment],
+    defaultValues: webhookPropertyDefaults,
+    //doesn't use name, so not defining defaultName
+  },
   [RT.project]: { 
     treeRef: rtHeirarchyTree.project,
     typesInRootPath: [],

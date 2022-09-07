@@ -40,7 +40,11 @@ export enum ProjectProperty {
   show_powered_by_gmetri = "show_powered_by_gmetri",
   show_splash_screen = "show_splash_screen",
   custom_loader_source = "custom_loader_source",
+  //TODO: Should be renamed to project_metadata_thumbnail via a migration
   project_thumbnail_source = "project_thumbnail_source",
+  project_metadata_title = "project_metadata_title",
+  project_metadata_description = "project_metadata_description",
+  project_metadata_tags = "project_metadata_tags",
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -95,5 +99,8 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_powered_by_gmetri]: true,
   [ProjectProperty.show_splash_screen]: true,
   [ProjectProperty.custom_loader_source]: undefined,
-  [ProjectProperty.project_thumbnail_source]: undefined
+  [ProjectProperty.project_thumbnail_source]: undefined,
+  [ProjectProperty.project_metadata_title]: "",
+  [ProjectProperty.project_metadata_description]: "",
+  [ProjectProperty.project_metadata_tags]: [],
 };
