@@ -21,9 +21,6 @@ import { ShoppingProperty } from "../recordTypes/Shopping";
 import { MenuProperty } from "../recordTypes/Menu";
 import { ElementType } from "../definitions/elements/ElementSubTypes";
 import { RuleAction } from "../definitions/rules";
-import { getHighestRjsonVersion } from "../../migrations/rMigrations";
-import { migrationsForNewProject } from "../../migrations";
-import { isArrayTypeNode } from "typescript";
 
 const { deepClone, difference, union, intersection } = jsUtils;
 type variable = RT.variable;

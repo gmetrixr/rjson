@@ -1,4 +1,8 @@
-import { migrateProjectRJson, gv, createNewProject } from "./migrations";
+import { 
+  migrateProjectRJson, createNewProject,
+  migrateDeployment, createNewDeployment,
+  gv
+} from "./migrations";
 
 import {
   R, r, RF, rUtils,
@@ -31,9 +35,11 @@ export {
 // export {rpn};
 
 export {
-  gv,
   migrateProjectRJson,
-  createNewProject
+  createNewProject,
+  migrateDeployment,
+  createNewDeployment,
+  gv,
 };
 
 export { FileType, BillboardingTypes };

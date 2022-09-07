@@ -15,11 +15,10 @@ import { ProductProperty, productPropertyDefaults } from "../recordTypes/Product
 import { ItemProperty, itemPropertyDefaults } from "../recordTypes/Item";
 import { TourModeProperty, tourModePropertyDefaults } from "../recordTypes/TourMode";
 import { LanguageProperty, languagePropertyDefaults } from "../recordTypes/Language";
-import { ChatProperty, chatPropertyDefaults } from "../recordTypes/Chat";
+import { AvatarProperty, avatarPropertyDefaults } from "../recordTypes/Avatar";
 import { DiscussionProperty, discussionPropertyDefaults } from "../recordTypes/Discussion";
 import { TopicProperty, topicPropertyDefaults } from "../recordTypes/Topic";
 import { CommentProperty, commentPropertyDefaults } from "../recordTypes/Comment";
-import { AvatarProperty, avatarPropertyDefaults } from "../recordTypes/Avatar";
 
 //https://stackoverflow.com/a/54178819/1233476
 // type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
@@ -46,11 +45,10 @@ export enum RT {
   "option" = "option",
   "shopping" = "shopping",
   "product" = "product",
-  "chat" = "chat",
+  "avatar" = "avatar",
   "discussion" = "discussion",
   "topic" = "topic",
   "comment" = "comment",
-  "avatar" = "avatar",
 }
 
 /**
@@ -70,7 +68,6 @@ export const rtHeirarchyTree = {
     "tour_mode": {},
     "language": {},
     "lead_gen_field": {},
-    "chat": {},
     "variable": {},
     "avatar": {},
     "scene": {
@@ -109,7 +106,6 @@ export interface RTP {
   [RT.menu]: MenuProperty,
   [RT.tour_mode]: TourModeProperty,
   [RT.lead_gen_field]: LeadGenFieldProperty,
-  [RT.chat]: ChatProperty,
   [RT.language]: LanguageProperty,
   [RT.variable]: VariableProperty,
   [RT.scene]: SceneProperty,
@@ -121,10 +117,10 @@ export interface RTP {
   [RT.option]: OptionProperty,
   [RT.shopping]: ShoppingProperty,
   [RT.product]: ProductProperty,
+  [RT.avatar]: AvatarProperty,
   [RT.discussion]: DiscussionProperty,
   [RT.topic]: TopicProperty,
   [RT.comment]: CommentProperty,
-  [RT.avatar]: AvatarProperty,
 }
 
 /**
@@ -138,7 +134,6 @@ export const rtp = {
   [RT.menu]: MenuProperty,
   [RT.tour_mode]: TourModeProperty,
   [RT.lead_gen_field]: LeadGenFieldProperty,
-  [RT.chat]: ChatProperty,
   [RT.language]: LanguageProperty,
   [RT.variable]: VariableProperty,
   [RT.scene]: SceneProperty,
@@ -150,10 +145,10 @@ export const rtp = {
   [RT.option]: OptionProperty,
   [RT.shopping]: ShoppingProperty,
   [RT.product]: ProductProperty,
+  [RT.avatar]: AvatarProperty,
   [RT.discussion]: DiscussionProperty,
   [RT.topic]: TopicProperty,
   [RT.comment]: CommentProperty,
-  [RT.avatar]: AvatarProperty,
 }
 
 /**
@@ -207,11 +202,6 @@ export const recordTypeDefinitions: Record<RT, RTDefinition> = {
     typesInRootPath: [RT.project],
     defaultValues: leadGenFieldPropertyDefaults,
     defaultName: "Field",
-  },
-  [RT.chat]: { 
-    treeRef: rtHeirarchyTree.project.chat,
-    typesInRootPath: [RT.project],
-    defaultValues: chatPropertyDefaults,
   },
   [RT.language]: { 
     treeRef: rtHeirarchyTree.project.language,
@@ -274,7 +264,12 @@ export const recordTypeDefinitions: Record<RT, RTDefinition> = {
     typesInRootPath: [RT.project, RT.shopping],
     defaultValues: productPropertyDefaults,
   },
-
+  [RT.avatar]: {
+    treeRef: rtHeirarchyTree.project.avatar,
+    typesInRootPath: [],
+    defaultValues: avatarPropertyDefaults,
+    defaultName: "Avatar"
+  },
   [RT.discussion]: {
     treeRef: rtHeirarchyTree.discussion,
     typesInRootPath: [],
@@ -291,12 +286,6 @@ export const recordTypeDefinitions: Record<RT, RTDefinition> = {
     typesInRootPath: [RT.discussion, RT.topic],
     defaultValues: commentPropertyDefaults,
     defaultName: "Comment"
-  },
-  [RT.avatar]: {
-    treeRef: rtHeirarchyTree.project.avatar,
-    typesInRootPath: [],
-    defaultValues: avatarPropertyDefaults,
-    defaultName: "Avatar"
   },
 }
 

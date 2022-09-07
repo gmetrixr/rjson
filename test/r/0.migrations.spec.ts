@@ -1,12 +1,12 @@
 import { expect } from "chai";
 import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject} from "../../src";
-import { migrateElement } from "../../src/migrations/r-migration-commands/m099_100_initial_r_migration";
+import { migrateElement } from "../../src/migrations/project/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
 import safehands_r100 from "./jsons/safehands.r100.json";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import platformVarMigrationJson from "./jsons/platform_var_migration.json";
-import { rMigrationTree } from "./../../src/migrations/rMigrations";
+import { rMigrationTree } from "./../../src/migrations/project/rMigrations";
 
 import actionbar_json         from "./jsons/r3fJsons/elements/actionbar.json";
 import ar_json                from "./jsons/r3fJsons/elements/ar.json";
