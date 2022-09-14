@@ -14,7 +14,7 @@ class Migration implements IOrder {
     for(const s of scenes) {
       const sceneF = r.scene(s);
       if(!sceneF.get(rtp.scene.scene_viewer_height)) {
-        sceneF.set(rtp.scene.scene_viewer_height, 0.85);
+        sceneF.set(rtp.scene.scene_viewer_height, 1.2);
       }
     }
     
