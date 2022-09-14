@@ -50,6 +50,7 @@ describe("r Migrations", () => {
     // // fs.writeFileSync("./test/t/jsons/safehands.r101.json",JSON.stringify(r101));
     // expect(emptyProject?.records?.scene?.map[100111]?.id).to.deep.equal(100111);
     expect(r100).to.deep.equal(safehands_r100);
+    expect(r100).to.deep.equal(safehands_r100);
     // expect(r101).to.deep.equal(safehands_r101);
     // expect(r107).to.deep.equal(accenture_r);
   });
