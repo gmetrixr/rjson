@@ -66,6 +66,8 @@ export enum PredefinedVariableName {
   scorm_progress = "scorm_progress",  //Updates at runtime
   scorm_suspend_data = "scorm_suspend_data",  //Updates at runtime
   scorm_score = "scorm_score",  //Updates at runtime
+  lastname_var = "lastname_var", //Added when project is created
+  fullname_var = "fullname_var" //Added when project is created
 }
 
 /**
@@ -98,6 +100,10 @@ export const predefinedVariableDefaults: Record<PredefinedVariableName, Predefin
   [PredefinedVariableName.scorm_progress]: {id: -13, type: VariableType.number, description: "This is a special variable that can share the progress with a LMS and will be retrieved upon experience revisit" },
   [PredefinedVariableName.scorm_suspend_data]: {id: -14, type: VariableType.number, description: "This a special variable that can share arbitrary data with a LMS and will be retrieved upon experience revisit" },
   [PredefinedVariableName.scorm_score]: {id: -15, type: VariableType.number, description: "This a special variable that can share score with a LMS and will be retrieved upon experience revisit" },
+  [PredefinedVariableName.lastname_var]: {id: -16, type: VariableType.string,
+    description: "Stores the viewer's last name if available from the authentication mechanism" },
+  [PredefinedVariableName.fullname_var]: {id: -17, type: VariableType.string,
+    description: "Stores the viewer's full name if available from the authentication mechanism" },
 }
 
 /** Note: JS keys get converted to strings in json */
@@ -112,6 +118,8 @@ export const predefinedVariableIdToName: Record<number, PredefinedVariableName> 
   [-13]: PredefinedVariableName.scorm_progress,
   [-14]: PredefinedVariableName.scorm_suspend_data,
   [-15]: PredefinedVariableName.scorm_score,
+  [-16]: PredefinedVariableName.lastname_var,
+  [-17]: PredefinedVariableName.fullname_var
 }
 
 export function convertVarValueToType(value: any, varType: VariableType): number | string | boolean {
