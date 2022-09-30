@@ -38,7 +38,8 @@ export enum ProjectProperty {
   show_volume_control = "show_volume_control",
   show_powered_by_gmetri = "show_powered_by_gmetri",
   show_splash_screen = "show_splash_screen",
-  custom_loader_source = "custom_loader_source",
+  custom_project_logo_source = "custom_project_logo_source",
+  use_custom_branding = "use_custom_branding",
   //TODO: Should be renamed to project_metadata_thumbnail via a migration
   project_thumbnail_source = "project_thumbnail_source",
   project_metadata_title = "project_metadata_title",
@@ -96,9 +97,10 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_volume_control]: true,
   [ProjectProperty.show_powered_by_gmetri]: true,
   [ProjectProperty.show_splash_screen]: true,
-  [ProjectProperty.custom_loader_source]: undefined,
+  [ProjectProperty.custom_project_logo_source]: undefined,
   [ProjectProperty.project_thumbnail_source]: undefined,
   [ProjectProperty.project_metadata_title]: "",
   [ProjectProperty.project_metadata_description]: "",
   [ProjectProperty.project_metadata_tags]: [],
+  [ProjectProperty.use_custom_branding]: false
 };
