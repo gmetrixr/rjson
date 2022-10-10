@@ -31,3 +31,5 @@ export const createNewDeployment = (): RecordNode<RT.deployment> => {
 
   return deploymentJson;
 }
+
+export { getHighestDeploymentVersion };

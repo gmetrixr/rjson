@@ -83,7 +83,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [137]: m137_138,
 };
 
-export const getHighestRjsonVersion = (): number => {
+export const getHighestProjectVersion = (): number => {
   const unorderedKeys = Object.keys(rMigrationTree).map(n => parseInt(n)).sort((a,b) => (b - a));
   return unorderedKeys[0] + 1;
 }

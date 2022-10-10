@@ -1,4 +1,4 @@
-import { getHighestRjsonVersion, newProjectMigrationTree, rMigrationTree } from "./rMigrations";
+import { getHighestProjectVersion, newProjectMigrationTree, rMigrationTree } from "./rMigrations";
 import initialRMigration from "./r-migration-commands/m099_100_initial_r_migration";
 import { RT } from "../../r/R/RecordTypes";
 import { RecordNode } from "../../r/R/RecordNode";
@@ -47,8 +47,10 @@ export const createNewProject = (): RecordNode<RT.project> => {
   const project = R.createRecord(RT.project);
   const projectF = r.project(project);
 
-  projectF.set(rtp.project.version, getHighestRjsonVersion());
+  projectF.set(rtp.project.version, getHighestProjectVersion());
   migrationsForNewProject(project);
 
   return project;
 }
+
+export { getHighestProjectVersion };
