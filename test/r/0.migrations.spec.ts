@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject} from "../../src";
+import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject, migrateDeployment, createNewDeployment} from "../../src";
 import { migrateElement } from "../../src/migrations/project/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
@@ -122,4 +122,15 @@ describe("r Migrations", () => {
 
     expect(textElement.props.text_version).to.eq("v1");
   });
+
+  it ("should test migration on deployment settings json", () => {
+    const deploymentSettings = {
+      room_instance_count: 5,
+      enable_multiplayer_mode: false,
+      room_instance_member_limit: 20
+    }
+    
+    const newDeploymentJson = migrateDeployment(deploymentSettings);
+    expect(newDeploymentJson.props.deployment_version).to.not.be.eq(undefined);
+  })
 });
