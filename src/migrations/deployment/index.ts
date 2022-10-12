@@ -1,4 +1,5 @@
 import { r, RecordNode, RT, R, rtp } from "../../r";
+import initialRMigration from "./deployment-migration-commands/d000_001_initial_deployment_migrations";
 import { getHighestDeploymentVersion, deploymentMigrationTree } from "./deploymentMigrations";
 
 const deploymentMigrationVersions: number[] = Object.keys(deploymentMigrationTree).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
@@ -15,6 +16,12 @@ export const createNewDeployment = (): RecordNode<RT.deployment> => {
  * Applies migrations for "r" type and returns a new project reference
  */
  export const migrateDeployment = (deploymentJson: any, uptoVersion?: number): RecordNode<RT.deployment> => {
+  //Check if deployment hasn't been converted to recordNode yet
+  if(deploymentJson?.props?.version === undefined || deploymentJson?.props?.version < 100) {
+    //The following step converts the json to "r" type and makes the version number 100
+    deploymentJson = initialRMigration.execute(deploymentJson);
+  }
+
   const rDeploymentJson = deploymentJson as RecordNode<RT.project>;
   let jsonVersion = rDeploymentJson?.props?.version as number ?? 0;
   if(uptoVersion === undefined) {
