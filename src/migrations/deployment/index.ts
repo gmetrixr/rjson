@@ -17,7 +17,7 @@ export const createNewDeployment = (): RecordNode<RT.deployment> => {
  */
  export const migrateDeployment = (deploymentJson: any, uptoVersion?: number): RecordNode<RT.deployment> => {
   //Check if deployment hasn't been converted to recordNode yet
-  if(deploymentJson?.props?.version === undefined || deploymentJson?.props?.version < 1) {
+  if(deploymentJson?.props?.deployment_version === undefined || deploymentJson?.props?.deployment_version < 1) {
     //The following step converts the json to "r" type and makes the version number 1
     deploymentJson = initialRMigration.execute(deploymentJson);
   }
@@ -30,9 +30,9 @@ export const createNewDeployment = (): RecordNode<RT.deployment> => {
 
   for(const key of deploymentMigrationVersions) {
     if(jsonVersion === key && key < uptoVersion) {
-      //console.log(`Running r migration ${key}`);
+      // console.log(`Running r migration ${key}`);
       deploymentMigrationTree[key].execute(deploymentJson);
-      jsonVersion = deploymentJson.props.version as number;
+      jsonVersion = deploymentJson.props.deployment_version as number;
     }
   }
 
