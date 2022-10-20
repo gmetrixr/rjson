@@ -22,8 +22,8 @@ export const createNewDeployment = (): RecordNode<RT.deployment> => {
     deploymentJson = initialRMigration.execute(deploymentJson);
   }
 
-  const rDeploymentJson = deploymentJson as RecordNode<RT.project>;
-  let jsonVersion = rDeploymentJson?.props?.version as number ?? 0;
+  const rDeploymentJson = deploymentJson as RecordNode<RT.deployment>;
+  let jsonVersion = rDeploymentJson?.props?.deployment_version as number ?? 0;
   if(uptoVersion === undefined) {
     uptoVersion = deploymentMigrationVersions[deploymentMigrationVersions.length - 1] + 1;
   }
