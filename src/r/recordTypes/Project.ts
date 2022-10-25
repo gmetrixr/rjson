@@ -65,7 +65,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.contact_support_message]: `To contact support, mail [suport@gmetri.com](mailto:support@gmetri.com)`,
   [ProjectProperty.custom_script]: "",
   [ProjectProperty.description]: "",
-  [ProjectProperty.enable_gyro]: false,
+  [ProjectProperty.enable_gyro]: true,
   [ProjectProperty.enable_tour_mode]: false,
   [ProjectProperty.enforce_vr_mode]: false,
   [ProjectProperty.enforce_fullscreen_mode]: false,
