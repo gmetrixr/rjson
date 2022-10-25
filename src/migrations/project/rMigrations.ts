@@ -38,6 +38,7 @@ import m134_135 from "./r-migration-commands/m134_135_convert_environment_to_3d_
 import m135_136 from "./r-migration-commands/m135_136_enable_gyro_default";
 import m136_137 from "./r-migration-commands/m136_137_scene_viewer_height";
 import m137_138 from "./r-migration-commands/m137_138_add_firstname_and_lastname_predefined_variables";
+import m138_139 from "./r-migration-commands/m138_139_enable_gyro_default_true";
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
 
@@ -81,6 +82,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [135]: m135_136,
   [136]: m136_137,
   [137]: m137_138,
+  [138]: m138_139,
 };
 
 export const getHighestProjectVersion = (): number => {
