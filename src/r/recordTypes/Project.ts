@@ -45,6 +45,7 @@ export enum ProjectProperty {
   project_metadata_title = "project_metadata_title",
   project_metadata_description = "project_metadata_description",
   project_metadata_tags = "project_metadata_tags",
+  initial_graphics_setting = "initial_graphics_setting",
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -102,5 +103,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_title]: "",
   [ProjectProperty.project_metadata_description]: "",
   [ProjectProperty.project_metadata_tags]: [],
-  [ProjectProperty.use_custom_branding]: false
+  [ProjectProperty.use_custom_branding]: false,
+  [ProjectProperty.initial_graphics_setting]: "adaptive",
 };

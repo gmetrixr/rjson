@@ -20,12 +20,12 @@ import m116_117 from "./r-migration-commands/m116_117_var_category";
 import m117_118 from "./r-migration-commands/m117_118_remove_background_elements";
 import m118_119 from "./r-migration-commands/m118_119_add_scenes_to_menu";
 import m119_120 from "./r-migration-commands/m119_120_add_predefined_vars";
-import m120_121 from "./r-migration-commands/m120_m121_enrich_predefined_vars";
-import m121_122 from "./r-migration-commands/m121_m122_quiz_fields";
-import m122_123 from "./r-migration-commands/m122_m123_scene_properties_rename";
-import m123_124 from "./r-migration-commands/m123_m124_enable_gyro";
-import m124_125 from "./r-migration-commands/m124_m125_add_text_version";
-import m125_126 from "./r-migration-commands/m125_m126_no_click_animation_rename";
+import m120_121 from "./r-migration-commands/m120_121_enrich_predefined_vars";
+import m121_122 from "./r-migration-commands/m121_122_quiz_fields";
+import m122_123 from "./r-migration-commands/m122_123_scene_properties_rename";
+import m123_124 from "./r-migration-commands/m123_124_enable_gyro";
+import m124_125 from "./r-migration-commands/m124_125_add_text_version";
+import m125_126 from "./r-migration-commands/m125_126_no_click_animation_rename";
 import m126_127 from "./r-migration-commands/m126_127_add_scorm_predefined_vars";
 import m127_128 from "./r-migration-commands/m127_128_add_scorm_score_var";
 import m128_129 from "./r-migration-commands/m128_129_delete_whitelabel_add_show_splash";
@@ -38,7 +38,10 @@ import m134_135 from "./r-migration-commands/m134_135_convert_environment_to_3d_
 import m135_136 from "./r-migration-commands/m135_136_enable_gyro_default";
 import m136_137 from "./r-migration-commands/m136_137_scene_viewer_height";
 import m137_138 from "./r-migration-commands/m137_138_add_firstname_and_lastname_predefined_variables";
-import m138_139 from "./r-migration-commands/m138_139_enable_gyro_default_true";
+import m138_139 from "./r-migration-commands/m138_139_update_custom_loader_source_to_custom_project_logo_source";
+import m139_140 from "./r-migration-commands/m139_140_set_use_custom_branding";
+import m140_141 from "./r-migration-commands/m140_141_enable_gyro";
+import m141_142 from "./r-migration-commands/m141_142_initial_graphics_setting";
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
 
@@ -83,6 +86,9 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [136]: m136_137,
   [137]: m137_138,
   [138]: m138_139,
+  [139]: m139_140,
+  [140]: m140_141,
+  [141]: m141_142,
 };
 
 export const getHighestProjectVersion = (): number => {

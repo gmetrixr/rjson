@@ -6,11 +6,11 @@ class Migration implements IOrder {
     const pJson = projectJson as RecordNode<RT.project>;
     const projectF = r.project(pJson);
 
-    if(projectF.get(rtp.project.enable_gyro) === undefined) {
-      projectF.set(rtp.project.enable_gyro, false);
+    if(projectF.get(rtp.project.initial_graphics_setting) === undefined) {
+      projectF.set(rtp.project.initial_graphics_setting, "high");
     }
     
-    projectF.set(rtp.project.version, 139);
+    projectF.set(rtp.project.version, 141);
   }
 }
 
