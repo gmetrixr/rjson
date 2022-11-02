@@ -59,6 +59,17 @@ const defaultLogo: Source = {
   }
 }
 
+export enum ViewerControlPanelPosition {
+  top_right = "top_right",
+  top_left = "top_left",
+}
+
+export enum InitialGraphicsSetting {
+  adaptive = "adaptive",
+  low = "low",
+  high = "high",
+}
+
 export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.autotrack_connection]: false,
   [ProjectProperty.auto_add_new_scene_to_menu]: false,
@@ -93,7 +104,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.version]: 0,
   [ProjectProperty.zoom_level_fov]: 75,
   // current possibilities: top_left | top_right, we may add bottom_left | bottom_right later
-  [ProjectProperty.viewer_control_panel_position]: "top_right",
+  [ProjectProperty.viewer_control_panel_position]: ViewerControlPanelPosition.top_right,
   [ProjectProperty.optimize_for_seo]: false,
   [ProjectProperty.show_volume_control]: true,
   [ProjectProperty.show_powered_by_gmetri]: true,
@@ -104,5 +115,5 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_description]: "",
   [ProjectProperty.project_metadata_tags]: [],
   [ProjectProperty.use_custom_branding]: false,
-  [ProjectProperty.initial_graphics_setting]: "adaptive",
+  [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.adaptive,
 };
