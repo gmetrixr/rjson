@@ -45,6 +45,7 @@ export enum ProjectProperty {
   project_metadata_title = "project_metadata_title",
   project_metadata_description = "project_metadata_description",
   project_metadata_tags = "project_metadata_tags",
+  initial_graphics_setting = "initial_graphics_setting",
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -56,6 +57,17 @@ const defaultLogo: Source = {
     o: "https://s.vrgmetri.com/gb-web/common/logo/2021/gmetri_sq_logo_WonB150.png",
     //o: "https://s.vrgmetri.com/gb-web/common/logo/gmetri_logo_thickLine.png"
   }
+}
+
+export enum ViewerControlPanelPosition {
+  top_right = "top_right",
+  top_left = "top_left",
+}
+
+export enum InitialGraphicsSetting {
+  adaptive = "adaptive",
+  low = "low",
+  high = "high",
 }
 
 export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
@@ -92,7 +104,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.version]: 0,
   [ProjectProperty.zoom_level_fov]: 75,
   // current possibilities: top_left | top_right, we may add bottom_left | bottom_right later
-  [ProjectProperty.viewer_control_panel_position]: "top_right",
+  [ProjectProperty.viewer_control_panel_position]: ViewerControlPanelPosition.top_right,
   [ProjectProperty.optimize_for_seo]: false,
   [ProjectProperty.show_volume_control]: true,
   [ProjectProperty.show_powered_by_gmetri]: true,
@@ -102,5 +114,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_title]: "",
   [ProjectProperty.project_metadata_description]: "",
   [ProjectProperty.project_metadata_tags]: [],
-  [ProjectProperty.use_custom_branding]: false
+  [ProjectProperty.use_custom_branding]: false,
+  [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.adaptive,
 };
