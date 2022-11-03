@@ -1,6 +1,6 @@
 import { DeploymentProperty, deploymentPropertyDefaults } from "../recordTypes/Deployment";
 import { WebhookProperty, webhookPropertyDefaults } from "../recordTypes/Webhook";
-import { ProjectProperty, projectPropertyDefaults } from "../recordTypes/Project";
+import { ProjectProperty, projectPropertyDefaults, ViewerControlPanelPosition, InitialGraphicsSetting } from "../recordTypes/Project";
 import { LeadGenFieldProperty, leadGenFieldPropertyDefaults } from "../recordTypes/LeadGenField";
 import { MenuProperty, menuPropertyDefaults } from "../recordTypes/Menu";
 import { VariableProperty, variablePropertyDefaults } from "../recordTypes/Variable";
@@ -19,6 +19,7 @@ import { AvatarProperty, avatarPropertyDefaults } from "../recordTypes/Avatar";
 import { DiscussionProperty, discussionPropertyDefaults } from "../recordTypes/Discussion";
 import { TopicProperty, topicPropertyDefaults } from "../recordTypes/Topic";
 import { CommentProperty, commentPropertyDefaults } from "../recordTypes/Comment";
+export { ViewerControlPanelPosition, InitialGraphicsSetting };
 
 //https://stackoverflow.com/a/54178819/1233476
 // type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
