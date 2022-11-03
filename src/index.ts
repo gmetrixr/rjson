@@ -7,7 +7,8 @@ import {
 import {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM,
-  en, sn, vn, rn, CogObjectType, getFactory
+  en, sn, vn, rn, CogObjectType, getFactory,
+  ViewerControlPanelPosition, InitialGraphicsSetting
 } from "./r";
 
 import { FileType, BillboardingTypes } from "./Definitions";
@@ -16,6 +17,7 @@ export {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
   en, sn, vn, rn, CogObjectType,
+  ViewerControlPanelPosition, InitialGraphicsSetting
 };
 
 /**

@@ -1,5 +1,5 @@
 import * as R from "./R";
-import { RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM } from "./R";
+import { RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, ViewerControlPanelPosition, InitialGraphicsSetting } from "./R";
 import { RecordUtils } from "./R/RecordFactory";
 import { ElementUtils } from "./recordFactories/ElementFactory";
 import { ProjectUtils } from "./recordFactories/ProjectFactory";
@@ -40,5 +40,6 @@ export {
   R, r, RF, rUtils,
   //Exporting most used classes/types directly
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
-  en, sn, vn, rn, CogObjectType
+  en, sn, vn, rn, CogObjectType,
+  ViewerControlPanelPosition, InitialGraphicsSetting
 }
