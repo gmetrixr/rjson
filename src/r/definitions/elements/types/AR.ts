@@ -1,7 +1,7 @@
 import { FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const AR: IElementDefinition = {
   element_type: ElementType.ar,

@@ -1,5 +1,5 @@
 import { R, RecordNode, r, rtp, RT } from "../../../r";
-import { VarCategory } from "../../../r/definitions/variables/VariableSubTypes";
+import { VarCategory } from "../../../r/definitions/variables/VariableTypes";
 import { IOrder } from "../../IOrder";
 
 /**

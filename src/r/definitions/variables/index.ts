@@ -1,11 +1,11 @@
 import { VariableBoolean } from "./types/VariableBoolean";
 import { VariableNumber } from "./types/VariableNumber";
 import { VariableString } from "./types/VariableString";
-import { IVariableDefinition, VariableType, isVariableType, DeviceVar, VarCategory, convertVarValueToType } from "./VariableSubTypes";
+import { IVariableDefinition, VariableType, isVariableType, DeviceVar, VarCategory, convertVarValueToType } from "./VariableTypes";
 export { VariableType, isVariableType, DeviceVar, VarCategory, convertVarValueToType };
 
 import { ArrayOfValues, PredefinedVariableName, VarValue, predefinedVariableDefaults, predefinedVariableIdToName,
-  VarDefROM, ViewerStateStructure } from "./VariableSubTypes";
+  VarDefROM, ViewerStateStructure } from "./VariableTypes";
 export { ArrayOfValues, PredefinedVariableName, VarValue, predefinedVariableDefaults, predefinedVariableIdToName,
   VarDefROM, ViewerStateStructure };
 

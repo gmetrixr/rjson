@@ -1,6 +1,6 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleEvent } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const Cube: IElementDefinition = {
   element_type: ElementType.cube,

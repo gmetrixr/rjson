@@ -1,6 +1,6 @@
 import { createRecord, r, RecordMap, RecordNode, RT } from "../../r";
 import { VariableType, VarValue } from "../../r/definitions/variables";
-import { VarCategory } from "../../r/definitions/variables/VariableSubTypes";
+import { VarCategory } from "../../r/definitions/variables/VariableTypes";
 
 /** @deprecated */
 export interface OldGlobalVariableStructure {

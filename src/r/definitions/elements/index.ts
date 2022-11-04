@@ -37,12 +37,19 @@ import { Hotspot } from "./types/Hotspots";
 import { Environment } from "./types/Environment";
 import { Zone } from "./types/Zone";
 import { ColliderBox } from "./types/ColliderBox";
+import { IElementDefinition } from "./ElementDefinition";
 
-import { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, IElementDefinition, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType } from "./ElementSubTypes";
-export { ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, isElementType, sourcePropertyNames, elementsWithLinkedVariables, lightType };
+import { 
+  ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, 
+  isElementType, sourcePropertyNames, elementsWithLinkedVariables, BasicElement 
+} from "./ElementDefinition";
+export { 
+  ElementType, elementDisplayNames, ElementCategory, elementCategoryDisplayNames, elementTypeByCategory, 
+  isElementType, sourcePropertyNames, elementsWithLinkedVariables, BasicElement 
+};
 
-import { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID } from "./ElementSubTypes";
-export { BasicElement, Source, SHOPPING_ITEM_ELEMENT_ID };
+import { lightType, Source, SHOPPING_ITEM_ELEMENT_ID } from "./ElementTypes";
+export { lightType, Source, SHOPPING_ITEM_ELEMENT_ID };
 
 export const elementList: IElementDefinition[] = [
   ActionBar,

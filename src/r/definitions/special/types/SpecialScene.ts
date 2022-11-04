@@ -1,6 +1,6 @@
 import { RuleEvent } from "../../rules/RuleEvent";
 import { RuleAction } from "../../rules/RuleAction";
-import { ISpecialDefinition, SpecialType } from "../SpecialSubTypes";
+import { ISpecialDefinition, SpecialType } from "../SpecialTypes";
 
 export const SpecialScene: ISpecialDefinition = {
   special_type: SpecialType.scene,

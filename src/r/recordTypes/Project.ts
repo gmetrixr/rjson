@@ -1,4 +1,5 @@
-import { Source } from "../definitions/elements/ElementSubTypes";
+import { Source } from "../definitions/elements/ElementTypes";
+import { InitialGraphicsSetting, ViewerControlPanelPosition } from "../definitions/project/ProjectTypes";
 
 export enum ProjectProperty {
   autotrack_connection = "autotrack_connection",
@@ -57,17 +58,6 @@ const defaultLogo: Source = {
     o: "https://s.vrgmetri.com/gb-web/common/logo/2021/gmetri_sq_logo_WonB150.png",
     //o: "https://s.vrgmetri.com/gb-web/common/logo/gmetri_logo_thickLine.png"
   }
-}
-
-export enum ViewerControlPanelPosition {
-  top_right = "top_right",
-  top_left = "top_left",
-}
-
-export enum InitialGraphicsSetting {
-  adaptive = "adaptive",
-  low = "low",
-  high = "high",
 }
 
 export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {

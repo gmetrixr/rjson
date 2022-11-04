@@ -5,7 +5,7 @@ import {
   PredefinedVariableName,
   VarCategory,
   VariableType,
-} from "../definitions/variables/VariableSubTypes";
+} from "../definitions/variables/VariableTypes";
 import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, createRecord, emptyROM, RecordMap, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
@@ -19,7 +19,7 @@ import { ItemProperty } from "../recordTypes/Item";
 import { OptionProperty } from "../recordTypes/Options";
 import { ShoppingProperty } from "../recordTypes/Shopping";
 import { MenuProperty } from "../recordTypes/Menu";
-import { ElementType } from "../definitions/elements/ElementSubTypes";
+import { ElementType } from "../definitions/elements/ElementDefinition";
 import { RuleAction } from "../definitions/rules";
 
 const { deepClone, difference, union, intersection } = jsUtils;

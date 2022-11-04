@@ -1,6 +1,6 @@
 import { RuleAction } from "../../rules/RuleAction";
 import { RuleEvent } from "../../rules/RuleEvent";
-import { IVariableDefinition, VariableType } from "../VariableSubTypes";
+import { IVariableDefinition, VariableType } from "../VariableTypes";
 
 export const VariableNumber: IVariableDefinition = {
   variable_type: VariableType.number,

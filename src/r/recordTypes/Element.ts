@@ -1,5 +1,4 @@
-import { FileType, BillboardingTypes } from "../../Definitions";
-
+import { FileType } from "../../Definitions";
 
 export enum ElementProperty {
   element_type = "element_type",

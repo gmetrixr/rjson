@@ -1,5 +1,5 @@
 import { R, RecordNode, r, rtp, RT } from "../../../r";
-import { predefinedVariableIdToName, VarCategory } from "../../../r/definitions/variables/VariableSubTypes";
+import { predefinedVariableIdToName, VarCategory } from "../../../r/definitions/variables/VariableTypes";
 import { IOrder } from "../../IOrder";
 import { ProjectUtils } from "../../../r/recordFactories/ProjectFactory";
 import { ElementType } from "../../../r/definitions/elements";

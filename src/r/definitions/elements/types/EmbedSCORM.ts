@@ -1,7 +1,7 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
 import { RuleEvent } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const EmbedScorm: IElementDefinition = {
   element_type: ElementType.embed_scorm,

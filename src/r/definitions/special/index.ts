@@ -2,7 +2,7 @@ import { SpecialAllVariables } from "./types/SpecialAllVariables";
 import { SpecialExperience } from "./types/SpecialExperience";
 import { SpecialScene } from "./types/SpecialScene";
 import { SpecialViewer } from "./types/SpecialViewer";
-import { ISpecialDefinition, SpecialType, isSpecialType } from "./SpecialSubTypes";
+import { ISpecialDefinition, SpecialType, isSpecialType } from "./SpecialTypes";
 
 export { SpecialType, isSpecialType };
 
@@ -19,7 +19,7 @@ import {
   SceneEnvironment,
   SceneCollisionOptions,
   BloomKernelSize
-} from "./SpecialSubTypes";
+} from "./SpecialTypes";
 import { SpecialCurrentTimee } from "./types/SpecialCurrentTime";
 
 export {

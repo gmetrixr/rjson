@@ -1,5 +1,5 @@
 import { ElementProperty } from "../../../recordTypes/Element";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 import { FileType } from "../../../../Definitions";
 
 export const Environment: IElementDefinition = {

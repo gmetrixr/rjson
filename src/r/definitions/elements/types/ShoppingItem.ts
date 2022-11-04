@@ -1,5 +1,5 @@
 import { RuleAction } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const ShoppingItem: IElementDefinition = {
   element_type: ElementType.shopping_item,

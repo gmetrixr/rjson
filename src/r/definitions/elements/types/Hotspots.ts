@@ -1,5 +1,5 @@
 import { ElementProperty } from "../../../recordTypes/Element";
-import { IElementDefinition, ElementType, BasicElement } from "../ElementSubTypes";
+import { IElementDefinition, ElementType, BasicElement } from "../ElementDefinition";
 import { RuleEvent } from "../../rules/RuleEvent";
 import { RuleAction } from "../../rules/RuleAction";
 

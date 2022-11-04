@@ -1,7 +1,7 @@
 import { FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction, RuleEvent } from "../../rules";
-import { BasicElement, ElementType, IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType, IElementDefinition } from "../ElementDefinition";
 
 export const VideoFlat: IElementDefinition = {
   element_type: ElementType.video_flat,

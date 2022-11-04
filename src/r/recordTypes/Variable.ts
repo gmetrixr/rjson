@@ -1,4 +1,4 @@
-import { VarCategory, VariableType } from "../definitions/variables/VariableSubTypes";
+import { VarCategory, VariableType } from "../definitions/variables/VariableTypes";
 
 // export type VariableProperties = Exclude<VariableProperty, "var_id" | "var_name">;
 export enum VariableProperty {

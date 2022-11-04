@@ -1,6 +1,6 @@
 import { RuleEvent } from "../../rules";
 import { RuleAction } from "../../rules";
-import { ISpecialDefinition, SpecialType } from "../SpecialSubTypes";
+import { ISpecialDefinition, SpecialType } from "../SpecialTypes";
 
 export const SpecialViewer: ISpecialDefinition = {
   special_type: SpecialType.viewer,

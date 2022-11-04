@@ -1,4 +1,4 @@
-import { BloomKernelSize, SceneCollisionOptions, SceneType } from "../definitions/special/SpecialSubTypes";
+import { BloomKernelSize, SceneCollisionOptions, SceneType } from "../definitions/special/SpecialTypes";
 
 export enum SceneProperty {
   scene_type = "scene_type",

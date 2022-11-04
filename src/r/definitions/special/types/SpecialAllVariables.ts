@@ -1,5 +1,5 @@
 import { RuleAction } from "../../rules/RuleAction";
-import { ISpecialDefinition, SpecialType } from "../SpecialSubTypes";
+import { ISpecialDefinition, SpecialType } from "../SpecialTypes";
 
 export const SpecialAllVariables: ISpecialDefinition = {
   special_type: SpecialType.all_variables,

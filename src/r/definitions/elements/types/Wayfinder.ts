@@ -1,6 +1,6 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const WayFinder: IElementDefinition = {
   element_type: ElementType.wayfinder,

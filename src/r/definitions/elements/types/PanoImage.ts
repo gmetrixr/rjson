@@ -1,6 +1,6 @@
 import { FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const PanoImage: IElementDefinition = {
   element_type: ElementType.pano_image,

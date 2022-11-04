@@ -3,7 +3,6 @@ import { ItemProperty } from "../../recordTypes/Item";
 import { RuleAction } from "../rules";
 import { RuleEvent } from "../rules";
 import { ICogObjectDefinition } from "../BaseCogObject";
-import { pathUtils } from "@gmetrixr/gdash";
 
 export interface IElementDefinition extends ICogObjectDefinition {
   element_type: ElementType;
@@ -225,25 +224,6 @@ export const BasicElement: IElementDefinition = {
   ]
 }
 
-/**
- * Minimum fields required in FileWithUrl to make it usable for the right bar and the viewer
- */
-export interface Source {
-  id: number,
-  name?: string,
-  file_paths?: Record<string, string>,
-  file_urls?: Record<string, string>,
-  size?: number,
-  type?: pathUtils.FileType,
-  metadata?: unknown,
-}
-
-export type ShareAttributes = {
-  url: string,
-  text: string,
-  platforms: string[], // ['facebook', 'twitter', 'linkedin']
-};
-
 /** A list of properties that contain the type en.Source or en.Source[] */
 export const sourcePropertyNames = {
   /** A list of all ElementProperties that end with the word "source". Use to understand which properties contain file source objects */
@@ -254,15 +234,3 @@ export const sourcePropertyNames = {
   itemProperties: [ItemProperty.item_source],
 }
 
-export enum lightType {
-  ambient = "ambient",
-  point = "point",
-  directional = "directional"
-}
-
-export enum variantType {
-  design_one = "design_one",
-  design_two = "design_two"
-}
-
-export const SHOPPING_ITEM_ELEMENT_ID = -102

@@ -1,5 +1,5 @@
 import { eTypeToDefn } from "../definitions/elements";
-import { BasicElement, ElementType, IElementDefinition, isElementType } from "../definitions/elements/ElementSubTypes";
+import { BasicElement, ElementType, IElementDefinition, isElementType } from "../definitions/elements/ElementDefinition";
 import { RecordFactory } from "../R/RecordFactory";
 import { createRecord, RecordNode, ClipboardR } from "../R/RecordNode";
 import { RT, recordTypeDefinitions, RTP, rtp } from "../R/RecordTypes";

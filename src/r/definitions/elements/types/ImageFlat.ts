@@ -1,7 +1,7 @@
 import { FileType } from "../../../../Definitions";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleEvent } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const ImageFlat: IElementDefinition = {
   element_type: ElementType.image_flat,

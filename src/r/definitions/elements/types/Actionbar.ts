@@ -2,7 +2,7 @@ import { ElementProperty } from "../../../recordTypes/Element";
 import { ItemProperty } from "../../../recordTypes/Item";
 import { RuleAction } from "../../rules/RuleAction";
 import { RuleEvent } from "../../rules/RuleEvent";
-import { BasicElement, ElementType, IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType, IElementDefinition } from "../ElementDefinition";
 
 export const ActionBar: IElementDefinition = {
   element_type: ElementType.actionbar,

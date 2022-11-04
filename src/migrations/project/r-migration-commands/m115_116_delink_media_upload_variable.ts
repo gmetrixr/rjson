@@ -1,7 +1,7 @@
 import { RecordNode, r, rtp, RT } from "../../../r";
 import { ElementType } from "../../../r/definitions/elements";
 import { RuleEvent } from "../../../r/definitions/rules";
-import { VarCategory } from "../../../r/definitions/variables/VariableSubTypes";
+import { VarCategory } from "../../../r/definitions/variables/VariableTypes";
 import { IOrder } from "../../IOrder";
 
 /**

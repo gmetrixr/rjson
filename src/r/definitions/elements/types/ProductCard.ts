@@ -2,7 +2,7 @@ import { ElementProperty } from "../../../recordTypes/Element";
 import { ItemProperty } from "../../../recordTypes/Item";
 import { RuleAction } from "../../rules";
 import { RuleEvent } from "../../rules";
-import { BasicElement, ElementType,  IElementDefinition } from "../ElementSubTypes";
+import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const ProductCard: IElementDefinition = {
   element_type: ElementType.product_card,
