@@ -1,4 +1,4 @@
-import { FileType } from "../../../../Definitions";
+import { FileType } from "../../files";
 import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction } from "../../rules";
 import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";

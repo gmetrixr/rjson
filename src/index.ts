@@ -7,15 +7,15 @@ import {
 import {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM,
-  en, sn, vn, rn, pn, CogObjectType, getFactory
+  en, sn, vn, rn, pn, fn, CogObjectType, getFactory
 } from "./r";
 
-import { FileType, BillboardingTypes } from "./Definitions";
+import { FileType, Source } from "./r/definitions/files";
 
 export {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
-  en, sn, vn, rn, pn, CogObjectType,
+  en, sn, vn, rn, pn, fn, CogObjectType,
 };
 
 /**
@@ -44,4 +44,4 @@ export {
   gv,
 };
 
-export { FileType, BillboardingTypes };
+export { FileType, Source };

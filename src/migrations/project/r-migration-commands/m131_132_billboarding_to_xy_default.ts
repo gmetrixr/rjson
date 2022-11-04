@@ -1,6 +1,5 @@
 import { en, r, RecordNode, RT, rtp, rUtils } from "../../../r";
 import { IOrder } from "../../IOrder";
-import { BillboardingTypes } from "../../../index";
 
 /** 
  * Update billboarding from boolean to string.
@@ -23,7 +22,7 @@ class Migration implements IOrder {
       // * Why null? Because getValueOrDefault will start to give out the new value as default for existing elements too
 
       if(isBillBoardingSupported && currentValue) {
-        elementF.set(rtp.element.billboarding, BillboardingTypes.xyz);
+        elementF.set(rtp.element.billboarding, en.BillboardingTypes.xyz);
       } else {
         elementF.set(rtp.element.billboarding, null);
       }

@@ -3,7 +3,7 @@ import { BasicElement, ElementType, IElementDefinition, isElementType } from "..
 import { RecordFactory } from "../R/RecordFactory";
 import { createRecord, RecordNode, ClipboardR } from "../R/RecordNode";
 import { RT, recordTypeDefinitions, RTP, rtp } from "../R/RecordTypes";
-import { en } from "../definitions";
+import { en, fn } from "../definitions";
 import { jsUtils } from "@gmetrixr/gdash";
 
 const { generateId } = jsUtils;
@@ -134,7 +134,7 @@ export class ElementFactory extends RecordFactory<RT.element> {
   /** 
    * Inject the given sources into the element
    */
-  injectSourceIntoElement (this: ElementFactory, sourceMap: {[id: number]: en.Source}): void {
+  injectSourceIntoElement (this: ElementFactory, sourceMap: {[id: number]: fn.Source}): void {
     const elementProps = this.getJsonPropsAndDefaultProps();
     //Get file ids form element properties
     for(const sourceProp of en.sourcePropertyNames.elementProperties) { //Iterating over sourceElementProperties instead of elementProps to reduce number of iterations
@@ -214,7 +214,7 @@ export class ElementUtils {
    * Given a property of type Array<Source>, takes file id out of it in an array and returns it
    */
     static getFileIdsFromElementArrayPropertyValue = (value: unknown): number[] => {
-      const imageSources = <en.Source[]> value;
+      const imageSources = <fn.Source[]> value;
       return imageSources.map(source => source?.id).filter(s => s); // filter out undefined and null values
     } 
 
@@ -222,7 +222,7 @@ export class ElementUtils {
   * Given a property value (of type source), takes file id out of it and returns it as an array
   */
   static getFileIdsFromValue = (value: unknown): number[] => {
-    const source = <en.Source> value;
+    const source = <fn.Source> value;
     if(source?.id !== undefined) { //Because we don't want to return default source paths which don't have ids
       return [source?.id];
     } else {
@@ -235,13 +235,13 @@ export class ElementUtils {
    * Can return undefined or a Source or a Source[], depending on the propertyName
    * The multiple returns type don't matter, because the logic of the calling function doesn't care about return type
    */
-  static getNewSourceValueArray = (value: unknown, sourceMap: {[id: number]: en.Source}): en.Source[] => {
-      const originalSources = <en.Source[]> value;
+  static getNewSourceValueArray = (value: unknown, sourceMap: {[id: number]: fn.Source}): fn.Source[] => {
+      const originalSources = <fn.Source[]> value;
       return originalSources.map(source => sourceMap[source?.id]);
   }
 
-  static getNewSourceValue = (value: unknown, sourceMap: {[id: number]: en.Source}): en.Source | undefined => {
-    const source = <en.Source> value;
+  static getNewSourceValue = (value: unknown, sourceMap: {[id: number]: fn.Source}): fn.Source | undefined => {
+    const source = <fn.Source> value;
     if(source?.id !== undefined && sourceMap[source?.id] !== undefined) { //Because we don't want to return default source paths which don't have ids
       return sourceMap[source?.id];
     } else {

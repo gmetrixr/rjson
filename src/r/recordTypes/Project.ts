@@ -1,5 +1,5 @@
-import { Source } from "../definitions/elements/ElementTypes";
-import { InitialGraphicsSetting, ViewerControlPanelPosition } from "../definitions/project/ProjectTypes";
+import { Source } from "../definitions/files";
+import { InitialGraphicsSetting, ViewerControlPanelPosition } from "../definitions/project";
 
 export enum ProjectProperty {
   autotrack_connection = "autotrack_connection",

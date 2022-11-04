@@ -4,7 +4,7 @@ import { RecordUtils } from "./R/RecordFactory";
 import { ElementUtils } from "./recordFactories/ElementFactory";
 import { ProjectUtils } from "./recordFactories/ProjectFactory";
 import * as RF from "./recordFactories";
-import { en, sn, vn, rn, pn, CogObjectType } from "./definitions";
+import { en, sn, vn, rn, pn, fn, CogObjectType } from "./definitions";
 
 /**
  * Use r.record(json) for all RecordNode type objects, except the below ones
@@ -40,5 +40,5 @@ export {
   R, r, RF, rUtils,
   //Exporting most used classes/types directly
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
-  en, sn, vn, rn, pn, CogObjectType
+  en, sn, vn, rn, pn, fn, CogObjectType
 }

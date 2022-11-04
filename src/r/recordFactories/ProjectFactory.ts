@@ -12,7 +12,7 @@ import { RT, rtp } from "../R/RecordTypes";
 import { SceneFactory } from "./SceneFactory";
 import { jsUtils } from "@gmetrixr/gdash";
 import { ElementFactory, ElementUtils } from "./ElementFactory";
-import { en } from "../definitions";
+import { en, fn } from "../definitions";
 import { ProjectProperty } from "../recordTypes/Project";
 import { ElementProperty } from "../recordTypes/Element";
 import { ItemProperty } from "../recordTypes/Item";
@@ -449,7 +449,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
    */
   getProjectThumbnail(this: ProjectFactory): string | undefined {
     let thumbnail;
-    const projectThumbnailSource = <en.Source>this.get(rtp.project.project_thumbnail_source) as en.Source;
+    const projectThumbnailSource = <fn.Source>this.get(rtp.project.project_thumbnail_source) as fn.Source;
     if(projectThumbnailSource !== undefined && projectThumbnailSource.file_urls?.o) {
       return projectThumbnailSource.file_urls.o;
     }
@@ -463,7 +463,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       for (const e of sceneF.getAllDeepChildren(RT.element)) {
         elementF = new ElementFactory(e);
         if (elementF.getElementType() === en.ElementType.pano_image) {
-          const source = <en.Source>elementF.get(rtp.element.source);
+          const source = <fn.Source>elementF.get(rtp.element.source);
           const newThumbnail = (<any>source?.file_urls)?.t ?? (<any>source?.file_urls)?.o;
           if (newThumbnail !== undefined) {
             thumbnail = newThumbnail;
@@ -483,17 +483,17 @@ export class ProjectFactory extends RecordFactory<RT.project> {
         fileIds.push(...new ElementFactory(element).getFileIdsFromElement());
       }
     }
-    const projectLogo = <en.Source>this.get(rtp.project.project_logo_source);
+    const projectLogo = <fn.Source>this.get(rtp.project.project_logo_source);
     if (projectLogo !== undefined) {
       fileIds.push(projectLogo.id);
     }
 
-    const customProjectLogo = <en.Source>this.get(rtp.project.custom_project_logo_source);
+    const customProjectLogo = <fn.Source>this.get(rtp.project.custom_project_logo_source);
     if (customProjectLogo !== undefined) {
       fileIds.push(customProjectLogo.id);
     }
 
-    const projectThumbnail = <en.Source>this.get(rtp.project.project_thumbnail_source);
+    const projectThumbnail = <fn.Source>this.get(rtp.project.project_thumbnail_source);
     if (projectThumbnail !== undefined) {
       fileIds.push(projectThumbnail.id);
     }
@@ -501,14 +501,14 @@ export class ProjectFactory extends RecordFactory<RT.project> {
     return [...new Set(fileIds)]; //Unique ids only
   }
 
-  injectSourceIntoProject(this: ProjectFactory, sourceMap: { [id: number]: en.Source }): void {
+  injectSourceIntoProject(this: ProjectFactory, sourceMap: { [id: number]: fn.Source }): void {
     for (const scene of this.getRecords(RT.scene)) {
       const sceneF = new SceneFactory(scene);
       for (const element of sceneF.getAllDeepChildren(RT.element)) {
         new ElementFactory(element).injectSourceIntoElement(sourceMap);
       }
     }
-    const projectLogo = <en.Source>this.get(rtp.project.project_logo_source);
+    const projectLogo = <fn.Source>this.get(rtp.project.project_logo_source);
     if (projectLogo !== undefined) {
       const newValue = sourceMap[projectLogo.id];
       if (newValue !== undefined) {
@@ -516,7 +516,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       }
     }
 
-    const customProjectLogo = <en.Source>this.get(rtp.project.custom_project_logo_source);
+    const customProjectLogo = <fn.Source>this.get(rtp.project.custom_project_logo_source);
     if (customProjectLogo !== undefined) {
       const newValue = sourceMap[customProjectLogo.id];
       if (newValue !== undefined) {
@@ -524,7 +524,7 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       }
     }
 
-    const projectThumbnail = <en.Source>this.get(rtp.project.project_thumbnail_source);
+    const projectThumbnail = <fn.Source>this.get(rtp.project.project_thumbnail_source);
     if (projectThumbnail !== undefined) {
       const newValue = sourceMap[projectThumbnail.id];
       if (newValue !== undefined) {

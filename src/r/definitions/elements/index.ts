@@ -48,8 +48,8 @@ export {
   isElementType, sourcePropertyNames, elementsWithLinkedVariables, BasicElement 
 };
 
-import { lightType, Source, SHOPPING_ITEM_ELEMENT_ID } from "./ElementTypes";
-export { lightType, Source, SHOPPING_ITEM_ELEMENT_ID };
+import { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID } from "./ElementTypes";
+export { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID };
 
 export const elementList: IElementDefinition[] = [
   ActionBar,

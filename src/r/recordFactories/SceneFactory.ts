@@ -2,7 +2,7 @@ import { RecordFactory } from "../R/RecordFactory";
 import { ClipboardR, RecordNode } from "../R/RecordNode";
 import { RT, rtp } from "../R/RecordTypes";
 import { ElementType } from "../definitions/elements";
-import { ElementUtils, ElementFactory } from "./ElementFactory";
+import { ElementFactory } from "./ElementFactory";
 import { jsUtils } from "@gmetrixr/gdash";
 
 const { deepClone, generateId } = jsUtils;

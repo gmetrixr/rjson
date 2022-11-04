@@ -1,5 +1,5 @@
 import { ICogObjectDefinition } from "../BaseCogObject";
-import { Source } from "../elements";
+import { Source } from "../files";
 
 export interface ISpecialDefinition extends ICogObjectDefinition {
   special_type: SpecialType;
