@@ -1,4 +1,4 @@
-import { en, r, R, RecordNode, RT, rtp, sn } from "../../src/r";
+import { en, fn, r, R, RecordNode, RT, rtp, sn } from "../../src/r";
 import { expect } from "chai";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
@@ -403,7 +403,7 @@ describe("r ProjectFactory tests", () => {
     const environment = projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: ElementType.environment });
     if(environment) {
       const elementF = r.element(environment);
-      expect((elementF.getValueOrDefault(rtp.element.source) as en.Source)?.file_urls?.o).to.eq("https://s.vrgmetri.com/gb-web/z5-edge/6DOF/environments/Event/eventModel_v10.glb");
+      expect((elementF.getValueOrDefault(rtp.element.source) as fn.Source)?.file_urls?.o).to.eq("https://s.vrgmetri.com/gb-web/z5-edge/6DOF/environments/Event/eventModel_v10.glb");
       expect((elementF.getValueOrDefault(rtp.element.placer_3d) as number[]).length).to.eq(9);
     }
   });
@@ -438,7 +438,7 @@ describe("r ProjectFactory tests", () => {
   it ("should not calculate project thumbnail if project_thumbnail prop has value", () => {
     const projectF = r.project(thumbnailJson);
     const thumbnail = projectF.getProjectThumbnail();
-    const projectThumbnailSource = projectF.get(rtp.project.project_thumbnail_source) as en.Source;
+    const projectThumbnailSource = projectF.get(rtp.project.project_thumbnail_source) as fn.Source;
     expect(thumbnail).to.be.eq(projectThumbnailSource.file_urls?.o)
   });
 
@@ -448,7 +448,7 @@ describe("r ProjectFactory tests", () => {
     if(avatar) {
       const avatarF = r.record(avatar);
       avatarF.set(rtp.avatar.source, {id: -1, file_urls: {o: "https://test.com/test.glb"}});
-      expect((avatarF.get(rtp.avatar.source) as en.Source).id).to.eq(-1);
+      expect((avatarF.get(rtp.avatar.source) as fn.Source).id).to.eq(-1);
     }
   });
 });
