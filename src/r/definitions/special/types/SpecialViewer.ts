@@ -10,5 +10,7 @@ export const SpecialViewer: ISpecialDefinition = {
   ],
   actions: [
     RuleAction.teleport,
+    RuleAction.change_scene,
+    RuleAction.point_to,
   ],
 }

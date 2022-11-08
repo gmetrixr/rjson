@@ -9,6 +9,6 @@ export const SpecialScene: ISpecialDefinition = {
     RuleEvent.on_load,
   ],
   actions: [
-    RuleAction.point_to,
+    
   ],
 }
