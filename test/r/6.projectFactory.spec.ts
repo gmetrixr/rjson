@@ -457,11 +457,11 @@ describe("r ProjectFactory tests", () => {
 describe("Test complex property updates", () => {
   it("should update scene bounds", () => {
     const projectF = r.project(br);
-    const parentAddr = "project:1";
+    const parentAddr = projectF.getSelfRecordAddress();
     const sceneAddr = `${parentAddr}|scene:1648702666399`;
     const scene = projectF.getRecordAtAddress(sceneAddr) as RecordNode<RT.scene>;
     const sceneF = r.scene(scene);
-    const propertyAddr = sceneF.getPropertyAddress(parentAddr, rtp.scene.scene_bounds, 3);
+    const propertyAddr = sceneF.getPropertyAddress(sceneAddr, rtp.scene.scene_bounds, 3);
     projectF.updatePropertyAtAddress(propertyAddr, 100);
     expect(scene.props.scene_bounds).to.eql([ -15, 4.5, 0, 100, -4.5, 15 ]);
   });
