@@ -15,6 +15,7 @@ import { createNewProject, migrateProjectRJson } from "../../src/migrations/inde
 import { ElementType } from "../../src/r/definitions/elements";
 import unnamedRules from "./jsons/unnamedRulesProject.json";
 import thumbnailJson from "./jsons/thumbnail.json";
+import br from "./jsons/br.json";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -450,5 +451,18 @@ describe("r ProjectFactory tests", () => {
       avatarF.set(rtp.avatar.source, {id: -1, file_urls: {o: "https://test.com/test.glb"}});
       expect((avatarF.get(rtp.avatar.source) as fn.Source).id).to.eq(-1);
     }
+  });
+});
+
+describe("Test complex property updates", () => {
+  it("should update scene bounds", () => {
+    const projectF = r.project(br);
+    const parentAddr = "project:1";
+    const sceneAddr = `${parentAddr}|scene:1648702666399`;
+    const scene = projectF.getRecordAtAddress(sceneAddr) as RecordNode<RT.scene>;
+    const sceneF = r.scene(scene);
+    const propertyAddr = sceneF.getPropertyAddress(parentAddr, rtp.scene.scene_bounds, 3);
+    projectF.updatePropertyAtAddress(propertyAddr, 100);
+    expect(scene.props.scene_bounds).to.eql([ -15, 4.5, 0, 100, -4.5, 15 ]);
   });
 });

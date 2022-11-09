@@ -617,8 +617,10 @@ export class RecordFactory<T extends RT> {
     }
     const recordF = new RecordFactory(recordAtAddress);
     const [property, index] = propertyAddr.split(">");
-    // check that the property actually exists in the RecordNode before updating
-    if(!recordF.getProps().includes(property)) {
+
+    // get the definition of this record type and check if the property is supported or not
+    const supportedProperties = rtp[recordAtAddress.type as RT];
+    if(!Object.values(supportedProperties).includes(property)) {
       return false;
     }
 
