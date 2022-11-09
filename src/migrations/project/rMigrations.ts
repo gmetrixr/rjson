@@ -42,6 +42,7 @@ import m138_139 from "./r-migration-commands/m138_139_update_custom_loader_sourc
 import m139_140 from "./r-migration-commands/m139_140_set_use_custom_branding";
 import m140_141 from "./r-migration-commands/m140_141_enable_gyro";
 import m141_142 from "./r-migration-commands/m141_142_initial_graphics_setting";
+import m142_143 from "./r-migration-commands/m142_143_move_point_to_and_change_scene";
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
 
@@ -89,6 +90,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [139]: m139_140,
   [140]: m140_141,
   [141]: m141_142,
+  [142]: m142_143,
 };
 
 export const getHighestProjectVersion = (): number => {
