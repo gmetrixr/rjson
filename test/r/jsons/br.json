@@ -1,0 +1,1489 @@
+{
+  "id": 1648535522904,
+  "type": "project",
+  "props": {
+    "version": 141,
+    "show_menu": false,
+    "enable_gyro": true,
+    "show_lead_gen": false,
+    "initial_scene_id": 1667882066801,
+    "project_metadata_title": "Event Space",
+    "initial_graphics_setting": "high",
+    "enforce_supported_browsers": false
+  },
+  "records": {
+    "menu": {
+      "map": {
+        "1648702698745": {
+          "id": 1648702698745,
+          "type": "menu",
+          "props": {
+            "menu_show": false,
+            "menu_scene_id": 1648702666399
+          }
+        }
+      },
+      "order": [
+        1648702698745
+      ]
+    },
+    "scene": {
+      "map": {
+        "1648702666399": {
+          "id": 1648702666399,
+          "name": "Scene_022",
+          "type": "scene",
+          "props": {
+            "scene_type": "six_dof",
+            "scene_env_map": null,
+            "scene_spawn_zone_id": null,
+            "scene_viewer_height": 1.2,
+            "scene_enable_collisions": true
+          },
+          "records": {
+            "rule": {
+              "map": {
+                "1648626199519": {
+                  "id": 1648626199519,
+                  "name": "Rule (2)",
+                  "type": "rule",
+                  "props": {
+                    "tracked": false,
+                    "accent_color": "#8ED1FC"
+                  },
+                  "records": {
+                    "when_event": {
+                      "map": {
+                        "1648626206421": {
+                          "id": 1648626206421,
+                          "type": "when_event",
+                          "props": {
+                            "co_id": 1648626090430,
+                            "event": "on_click",
+                            "co_type": "image_flat",
+                            "properties": []
+                          }
+                        }
+                      },
+                      "order": [
+                        1648626206421
+                      ]
+                    },
+                    "then_action": {
+                      "map": {
+                        "1648626264389": {
+                          "id": 1648626264389,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": 1648624976535,
+                            "action": "pause",
+                            "co_type": "video_flat",
+                            "properties": []
+                          }
+                        }
+                      },
+                      "order": [
+                        1648626264389
+                      ]
+                    }
+                  }
+                },
+                "1648626319058": {
+                  "id": 1648626319058,
+                  "name": "Rule (1)",
+                  "type": "rule",
+                  "props": {
+                    "tracked": false,
+                    "accent_color": "#8ED1FC"
+                  },
+                  "records": {
+                    "when_event": {
+                      "map": {
+                        "1648625971783": {
+                          "id": 1648625971783,
+                          "type": "when_event",
+                          "props": {
+                            "co_id": 1648626182082,
+                            "event": "on_click",
+                            "co_type": "image_flat",
+                            "properties": []
+                          }
+                        }
+                      },
+                      "order": [
+                        1648625971783
+                      ]
+                    },
+                    "then_action": {
+                      "map": {
+                        "1648626263596": {
+                          "id": 1648626263596,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": 1648624976535,
+                            "action": "play_resume",
+                            "co_type": "video_flat",
+                            "properties": []
+                          }
+                        }
+                      },
+                      "order": [
+                        1648626263596
+                      ]
+                    }
+                  }
+                },
+                "1648626514747": {
+                  "id": 1648626514747,
+                  "name": "Rule",
+                  "type": "rule",
+                  "props": {
+                    "tracked": false,
+                    "accent_color": "#8ED1FC"
+                  },
+                  "records": {
+                    "when_event": {
+                      "map": {
+                        "1648626344648": {
+                          "id": 1648626344648,
+                          "type": "when_event",
+                          "props": {
+                            "co_id": 1648625817752,
+                            "event": "on_click",
+                            "co_type": "image_flat",
+                            "properties": []
+                          }
+                        }
+                      },
+                      "order": [
+                        1648626344648
+                      ]
+                    },
+                    "then_action": {
+                      "map": {
+                        "1648626313068": {
+                          "id": 1648626313068,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": 1648624976535,
+                            "delay": 0.2,
+                            "action": "pause",
+                            "co_type": "video_flat",
+                            "properties": []
+                          }
+                        },
+                        "1648626846667": {
+                          "id": 1648626846667,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": 1648624976535,
+                            "action": "play_seek",
+                            "co_type": "video_flat",
+                            "properties": [
+                              0
+                            ]
+                          }
+                        }
+                      },
+                      "order": [
+                        1648626846667,
+                        1648626313068
+                      ]
+                    }
+                  }
+                }
+              },
+              "order": [
+                1648626514747,
+                1648626199519,
+                1648626319058
+              ]
+            },
+            "element": {
+              "map": {
+                "1648623284772": {
+                  "id": 1648623284772,
+                  "name": "3D Object",
+                  "type": "element",
+                  "props": {
+                    "scale": 0.5,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552275,
+                      "name": "eventModel_v11.glb",
+                      "file_paths": {
+                        "o": "o/eventModel_v11.glb"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/a30c9b37-a02b-436c-8107-f8d4c2c9c073/o/eventModel_v11.glb"
+                      },
+                      "size": "7554228",
+                      "type": "THREED"
+                    },
+                    "placer_3d": [
+                      0,
+                      -1.5,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wireframe": false,
+                    "auto_rotate": false,
+                    "billboarding": null,
+                    "element_type": "object_3d",
+                    "auto_animation": false,
+                    "hover_animation": true,
+                    "object3d_animations": []
+                  }
+                },
+                "1648623530380": {
+                  "id": 1648623530380,
+                  "name": "Pano Image",
+                  "type": "element",
+                  "props": {
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": 552279,
+                      "name": "city_01.jpg",
+                      "file_paths": {
+                        "o": "o/city_01.jpg",
+                        "t": "t/city_01.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/b4fc9718-842d-4dca-83fa-3b2f6c9431af/o/city_01.jpg",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/b4fc9718-842d-4dca-83fa-3b2f6c9431af/t/city_01.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/b4fc9718-842d-4dca-83fa-3b2f6c9431af/o/city_01.jpg"
+                      },
+                      "size": "974254",
+                      "type": "IMAGE"
+                    },
+                    "stereo": false,
+                    "opacity": 1,
+                    "pano_radius": 900,
+                    "billboarding": null,
+                    "element_type": "pano_image",
+                    "pano_yaw_correction": 90,
+                    "pano_pitch_correction": 0
+                  }
+                },
+                "1648623710469": {
+                  "id": 1648623710469,
+                  "name": "Light",
+                  "type": "element",
+                  "props": {
+                    "color": "rgba(72, 72, 72, 0.8)",
+                    "fall_off": 20,
+                    "intensity": 4,
+                    "placer_3d": [
+                      -0.5928763600090228,
+                      -0.14082621020154787,
+                      -7.976757837634454,
+                      -6.982037631873512,
+                      -4.845942027105887,
+                      1.001349032762496e-16,
+                      1,
+                      1,
+                      1
+                    ],
+                    "light_type": "ambient",
+                    "billboarding": null,
+                    "element_type": "light",
+                    "target_element_id": null
+                  }
+                },
+                "1648624066102": {
+                  "id": 1648624066102,
+                  "name": "banner_01",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2.6,
+                      2
+                    ],
+                    "scale": 1.3,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552270,
+                      "name": "h_banner_01.png",
+                      "file_paths": {
+                        "o": "o/h_banner_01.png",
+                        "t": "t/h_banner_01.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/fbbb81d7-6272-46f3-b29b-f73c6ca36e84/o/h_banner_01.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/fbbb81d7-6272-46f3-b29b-f73c6ca36e84/t/h_banner_01.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/fbbb81d7-6272-46f3-b29b-f73c6ca36e84/o/h_banner_01.png"
+                      },
+                      "size": "129504",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      4.995994824697145,
+                      2.0199325257086813,
+                      8.21640011807438,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648624806164": {
+                  "id": 1648624806164,
+                  "name": "banner_04",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2.6,
+                      2
+                    ],
+                    "scale": 1.3,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552264,
+                      "name": "h_banner_03.png",
+                      "file_paths": {
+                        "o": "o/h_banner_03.png",
+                        "t": "t/h_banner_03.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/c04e407c-f4c1-4de3-ab1f-0e1f93aaa289/o/h_banner_03.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/c04e407c-f4c1-4de3-ab1f-0e1f93aaa289/t/h_banner_03.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/c04e407c-f4c1-4de3-ab1f-0e1f93aaa289/o/h_banner_03.png"
+                      },
+                      "size": "174015",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      -4.991401512053542,
+                      2.0199325257086813,
+                      12.337408502726927,
+                      0,
+                      90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648624976535": {
+                  "id": 1648624976535,
+                  "name": "Video",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      3.6,
+                      2
+                    ],
+                    "loop": false,
+                    "muted": false,
+                    "scale": 1.5,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552256,
+                      "name": "gmetri.mp4",
+                      "file_paths": {
+                        "o": "o/gmetri.mp4",
+                        "t": "t/gmetri_frame_1667335868738.jpg",
+                        "video_poster": "video_poster/gmetri.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/f9b89115-5d23-428d-b6d3-a60d3a2a0fd9/o/gmetri.mp4",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/f9b89115-5d23-428d-b6d3-a60d3a2a0fd9/t/gmetri_frame_1667335868738.jpg",
+                        "video_poster": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/f9b89115-5d23-428d-b6d3-a60d3a2a0fd9/video_poster/gmetri.jpg"
+                      },
+                      "size": "29388529",
+                      "type": "VIDEO"
+                    },
+                    "volume": 10,
+                    "opacity": 1,
+                    "autoplay": false,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      0,
+                      2.2322569868463993,
+                      15.353609214005331,
+                      0,
+                      180,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "start_time": 0,
+                    "billboarding": null,
+                    "chroma_color": "rgba(108, 175, 127, 1)",
+                    "element_type": "video_flat",
+                    "chroma_effect": false,
+                    "hover_animation": true
+                  }
+                },
+                "1648625170168": {
+                  "id": 1648625170168,
+                  "name": "banner_02",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2.6,
+                      2
+                    ],
+                    "scale": 1.3,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552271,
+                      "name": "h_banner_02.png",
+                      "file_paths": {
+                        "o": "o/h_banner_02.png",
+                        "t": "t/h_banner_02.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/35b9cf90-910e-453c-880e-1d6da4d70408/o/h_banner_02.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/35b9cf90-910e-453c-880e-1d6da4d70408/t/h_banner_02.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/35b9cf90-910e-453c-880e-1d6da4d70408/o/h_banner_02.png"
+                      },
+                      "size": "125476",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      4.99479637155437,
+                      2.0199325257086813,
+                      12.337408502726927,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648625336945": {
+                  "id": 1648625336945,
+                  "name": "banner_03",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      3.6,
+                      2
+                    ],
+                    "scale": 1.3,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552274,
+                      "name": "v5_3 (1).png",
+                      "file_paths": {
+                        "o": "o/v5_3 (1).png",
+                        "t": "t/v5_3 (1).jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/a3ace6d2-cb17-4141-b465-ebfd8f470a03/o/v5_3%20(1).png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/a3ace6d2-cb17-4141-b465-ebfd8f470a03/t/v5_3%20(1).jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/a3ace6d2-cb17-4141-b465-ebfd8f470a03/o/v5_3%20(1).png"
+                      },
+                      "size": "187885",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      -4.991401512053542,
+                      2.0199325257086813,
+                      8.21640011807438,
+                      0,
+                      90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648625817752": {
+                  "id": 1648625817752,
+                  "name": "btn_stop",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 0.2,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552281,
+                      "name": "stop_v1.png",
+                      "file_paths": {
+                        "o": "o/stop_v1.png",
+                        "t": "t/stop_v1.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/2066909e-bc55-4c24-ac41-11e063819b7c/o/stop_v1.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/2066909e-bc55-4c24-ac41-11e063819b7c/t/stop_v1.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/2066909e-bc55-4c24-ac41-11e063819b7c/o/stop_v1.png"
+                      },
+                      "size": "10019",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      -0.7,
+                      0.387,
+                      15.354,
+                      0,
+                      180,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648626090430": {
+                  "id": 1648626090430,
+                  "name": "btn_pause",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 0.2,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552282,
+                      "name": "pause_v1.png",
+                      "file_paths": {
+                        "o": "o/pause_v1.png",
+                        "t": "t/pause_v1.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/1dc401ef-e0d4-4390-b896-87565597b4d7/o/pause_v1.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/1dc401ef-e0d4-4390-b896-87565597b4d7/t/pause_v1.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/1dc401ef-e0d4-4390-b896-87565597b4d7/o/pause_v1.png"
+                      },
+                      "size": "10291",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      0.7,
+                      0.387,
+                      15.353609214005331,
+                      0,
+                      180,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648626182082": {
+                  "id": 1648626182082,
+                  "name": "btn_play",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 0.2,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552261,
+                      "name": "play_v1.png",
+                      "file_paths": {
+                        "o": "o/play_v1.png",
+                        "t": "t/play_v1.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/660a9fc2-dd5c-4768-a554-6ea10e0f5a3b/o/play_v1.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/660a9fc2-dd5c-4768-a554-6ea10e0f5a3b/t/play_v1.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/660a9fc2-dd5c-4768-a554-6ea10e0f5a3b/o/play_v1.png"
+                      },
+                      "size": "11757",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      0,
+                      0.387,
+                      15.353609214005331,
+                      0,
+                      180,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648627103394": {
+                  "id": 1648627103394,
+                  "name": "V_Banner_02",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      1.4,
+                      2
+                    ],
+                    "scale": 1.4,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552268,
+                      "name": "V_Banner_02.png",
+                      "file_paths": {
+                        "o": "o/V_Banner_02.png",
+                        "t": "t/V_Banner_02.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/021c2394-9dce-43e2-a371-09de36b38ce5/o/V_Banner_02.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/021c2394-9dce-43e2-a371-09de36b38ce5/t/V_Banner_02.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/021c2394-9dce-43e2-a371-09de36b38ce5/o/V_Banner_02.png"
+                      },
+                      "size": "95722",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      5.005078440770314,
+                      1.8,
+                      0.3867310702899087,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648627347411": {
+                  "id": 1648627347411,
+                  "name": "V_Banner_03",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      1.4,
+                      2
+                    ],
+                    "scale": 1.4,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552266,
+                      "name": "V_Banner_03.png",
+                      "file_paths": {
+                        "o": "o/V_Banner_03.png",
+                        "t": "t/V_Banner_03.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/936c4368-b58b-4b37-90c1-80a0af0dc240/o/V_Banner_03.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/936c4368-b58b-4b37-90c1-80a0af0dc240/t/V_Banner_03.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/936c4368-b58b-4b37-90c1-80a0af0dc240/o/V_Banner_03.png"
+                      },
+                      "size": "95144",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      5.005078440770314,
+                      1.8,
+                      3.0922301973814457,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648627434243": {
+                  "id": 1648627434243,
+                  "name": "V_Banner_01",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      1.4,
+                      2
+                    ],
+                    "scale": 1.4,
+                    "hidden": false,
+                    "locked": true,
+                    "source": {
+                      "id": 552254,
+                      "name": "V_Banner_01.png",
+                      "file_paths": {
+                        "o": "o/V_Banner_01.png",
+                        "t": "t/V_Banner_01.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/ba094996-843d-4ae7-baef-3c8c63c22486/o/V_Banner_01.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/ba094996-843d-4ae7-baef-3c8c63c22486/t/V_Banner_01.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/ba094996-843d-4ae7-baef-3c8c63c22486/o/V_Banner_01.png"
+                      },
+                      "size": "93006",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      5.005078440770314,
+                      1.8,
+                      -2.2730158849306137,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": null,
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1648637338666": {
+                  "id": 1648637338666,
+                  "name": "Text",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      9,
+                      0.5
+                    ],
+                    "text": "Popular use cases on GMetri today",
+                    "scale": 0.5,
+                    "hidden": false,
+                    "locked": false,
+                    "opacity": 1,
+                    "padding": 0,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "font_bold": false,
+                    "font_size": 0.6,
+                    "placer_3d": [
+                      4.813798952705329,
+                      3.563263191616701,
+                      0.3867310702899087,
+                      0,
+                      -90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "font_color": "#000000",
+                    "font_family": "Montserrat",
+                    "font_weight": 600,
+                    "billboarding": null,
+                    "border_color": "#FFFFFF",
+                    "border_width": 0.02,
+                    "element_type": "text",
+                    "text_version": "v2",
+                    "border_radius": 0.2,
+                    "border_opacity": 0,
+                    "hover_animation": true,
+                    "background_color": "#222222",
+                    "background_opacity": 0,
+                    "vertical_alignment": "middle",
+                    "horizontal_alignment": "center"
+                  }
+                },
+                "1648637906069": {
+                  "id": 1648637906069,
+                  "name": "Text_AreaLocked_01",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      6.5,
+                      3
+                    ],
+                    "text": "  Area Locked\nComing Soon",
+                    "scale": 0.5,
+                    "hidden": true,
+                    "locked": false,
+                    "opacity": 1,
+                    "padding": 0,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "font_bold": false,
+                    "font_size": 0.6,
+                    "placer_3d": [
+                      -14.871684034310253,
+                      1.850533258564378,
+                      10.231935728324745,
+                      0,
+                      90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "font_color": "#141414",
+                    "font_family": "Montserrat",
+                    "font_weight": 500,
+                    "billboarding": null,
+                    "border_color": "#FFFFFF",
+                    "border_width": 0.02,
+                    "element_type": "text",
+                    "text_version": "v2",
+                    "border_radius": 0.2,
+                    "border_opacity": 0,
+                    "hover_animation": true,
+                    "background_color": "#704f4f",
+                    "background_opacity": 0,
+                    "vertical_alignment": "middle",
+                    "horizontal_alignment": "center"
+                  }
+                },
+                "1648637977948": {
+                  "id": 1648637977948,
+                  "name": "Text_AreaLocked_02",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      6.5,
+                      3
+                    ],
+                    "text": "  Area Locked\nComing Soon",
+                    "scale": 0.5,
+                    "hidden": true,
+                    "locked": false,
+                    "opacity": 1,
+                    "padding": 0,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "font_bold": false,
+                    "font_size": 0.6,
+                    "placer_3d": [
+                      -14.871684034310253,
+                      1.850533258564378,
+                      0.2598295230892339,
+                      0,
+                      90,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "font_color": "#141414",
+                    "font_family": "Montserrat",
+                    "font_weight": 500,
+                    "billboarding": null,
+                    "border_color": "#FFFFFF",
+                    "border_width": 0.02,
+                    "element_type": "text",
+                    "text_version": "v2",
+                    "border_radius": 0.2,
+                    "border_opacity": 0,
+                    "hover_animation": true,
+                    "background_color": "#704f4f",
+                    "background_opacity": 0,
+                    "vertical_alignment": "middle",
+                    "horizontal_alignment": "center"
+                  }
+                },
+                "1648638335909": {
+                  "id": 1648638335909,
+                  "name": "Text (1)",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      12,
+                      5
+                    ],
+                    "text": "GMetri is a no-code browser-based metaverse toolkit - providing the complete web 3.0 infrastructure to create, publish and track your own metaverse.",
+                    "scale": 0.35,
+                    "hidden": false,
+                    "locked": false,
+                    "opacity": 1,
+                    "padding": 0,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "font_bold": false,
+                    "font_size": 0.5,
+                    "placer_3d": [
+                      -0.21217645504543192,
+                      0.8100800740572487,
+                      -4.689438576395904,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "font_color": "#000000",
+                    "font_family": "Montserrat",
+                    "font_weight": 500,
+                    "billboarding": null,
+                    "border_color": "#FFFFFF",
+                    "border_width": 0.02,
+                    "element_type": "text",
+                    "text_version": "v2",
+                    "border_radius": 0.2,
+                    "border_opacity": 0,
+                    "hover_animation": true,
+                    "background_color": "#222222",
+                    "background_opacity": 0,
+                    "vertical_alignment": "middle",
+                    "horizontal_alignment": "center"
+                  }
+                },
+                "1648638992450": {
+                  "id": 1648638992450,
+                  "name": "GMetri Logo",
+                  "type": "element",
+                  "props": {
+                    "billboarding": null,
+                    "element_type": "group"
+                  },
+                  "records": {
+                    "element": {
+                      "map": {
+                        "1648637606605": {
+                          "id": 1648637606605,
+                          "name": "GMetriLogo_01",
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": 552273,
+                              "name": "Frame 22.png",
+                              "file_paths": {
+                                "o": "o/Frame 22.png",
+                                "t": "t/Frame 22.jpg"
+                              },
+                              "file_urls": {
+                                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png",
+                                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/t/Frame%2022.jpg",
+                                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png"
+                              },
+                              "size": "18638",
+                              "type": "IMAGE"
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              -5.298847540939227,
+                              2.1,
+                              10.379124330123153,
+                              0,
+                              -90,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "billboarding": null,
+                            "element_type": "image_flat",
+                            "hover_animation": true
+                          }
+                        },
+                        "1648637940360": {
+                          "id": 1648637940360,
+                          "name": "GMetriLogo_04",
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": 552273,
+                              "name": "Frame 22.png",
+                              "file_paths": {
+                                "o": "o/Frame 22.png",
+                                "t": "t/Frame 22.jpg"
+                              },
+                              "file_urls": {
+                                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png",
+                                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/t/Frame%2022.jpg",
+                                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png"
+                              },
+                              "size": "18638",
+                              "type": "IMAGE"
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              -10.319160965347656,
+                              2.1,
+                              -4.654182422471175,
+                              0,
+                              0,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "billboarding": null,
+                            "element_type": "image_flat",
+                            "hover_animation": true
+                          }
+                        },
+                        "1648638530013": {
+                          "id": 1648638530013,
+                          "name": "GMetriLogo_03",
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": 552273,
+                              "name": "Frame 22.png",
+                              "file_paths": {
+                                "o": "o/Frame 22.png",
+                                "t": "t/Frame 22.jpg"
+                              },
+                              "file_urls": {
+                                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png",
+                                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/t/Frame%2022.jpg",
+                                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png"
+                              },
+                              "size": "18638",
+                              "type": "IMAGE"
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              -0.09164435770602175,
+                              2.1,
+                              -4.642899160337809,
+                              0,
+                              0,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "billboarding": null,
+                            "element_type": "image_flat",
+                            "hover_animation": true
+                          }
+                        },
+                        "1648638633886": {
+                          "id": 1648638633886,
+                          "name": "GMetriLogo_02",
+                          "type": "element",
+                          "props": {
+                            "wh": [
+                              2,
+                              2
+                            ],
+                            "scale": 1,
+                            "hidden": false,
+                            "locked": false,
+                            "source": {
+                              "id": 552273,
+                              "name": "Frame 22.png",
+                              "file_paths": {
+                                "o": "o/Frame 22.png",
+                                "t": "t/Frame 22.jpg"
+                              },
+                              "file_urls": {
+                                "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png",
+                                "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/t/Frame%2022.jpg",
+                                "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/11490c93-d24a-457d-ac14-f55d1ce26651/o/Frame%2022.png"
+                              },
+                              "size": "18638",
+                              "type": "IMAGE"
+                            },
+                            "opacity": 1,
+                            "animation": {
+                              "name": "",
+                              "speed": 1
+                            },
+                            "placer_3d": [
+                              -10.319160965347656,
+                              2.1,
+                              15.345825198537431,
+                              0,
+                              180,
+                              0,
+                              1,
+                              1,
+                              1
+                            ],
+                            "billboarding": null,
+                            "element_type": "image_flat",
+                            "hover_animation": true
+                          }
+                        }
+                      },
+                      "order": [
+                        1648637606605,
+                        1648638633886,
+                        1648638530013,
+                        1648637940360
+                      ]
+                    }
+                  }
+                },
+                "1648645886922": {
+                  "id": 1648645886922,
+                  "name": "Image",
+                  "type": "element",
+                  "props": {
+                    "wh": [
+                      0.55,
+                      2
+                    ],
+                    "scale": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "source": {
+                      "id": 552269,
+                      "name": "businesswoman.png",
+                      "file_paths": {
+                        "o": "o/businesswoman.png",
+                        "t": "t/businesswoman.jpg"
+                      },
+                      "file_urls": {
+                        "o": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/fcd503e7-682a-45a1-ba0c-78f091e31eac/o/businesswoman.png",
+                        "t": "https://u.vrgmetri.com/gb-sms-prod-1/media/2021-1/gmetri_demo/fcd503e7-682a-45a1-ba0c-78f091e31eac/t/businesswoman.jpg",
+                        "r": "https://u.vrgmetri.com/image/{{TRANSFORM_PARAMS}}/gb-sms-prod-1/media/2021-1/gmetri_demo/fcd503e7-682a-45a1-ba0c-78f091e31eac/o/businesswoman.png"
+                      },
+                      "size": "124229",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "placer_3d": [
+                      -3.1429451116558575,
+                      1.0354122694397854,
+                      14.576628954555634,
+                      0,
+                      0,
+                      3.340970051386289,
+                      1,
+                      1,
+                      1
+                    ],
+                    "billboarding": "xyz",
+                    "element_type": "image_flat",
+                    "hover_animation": true
+                  }
+                },
+                "1659546727207": {
+                  "id": 1659546727207,
+                  "name": "ColliderBox",
+                  "type": "element",
+                  "props": {
+                    "whd": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "scale": 1,
+                    "hidden": false,
+                    "locked": true,
+                    "placer_3d": [
+                      -5.123541045490207,
+                      0.08646747128291721,
+                      10.172532282111872,
+                      0,
+                      0,
+                      0,
+                      0.5,
+                      5,
+                      11
+                    ],
+                    "element_type": "collider_box"
+                  }
+                }
+              },
+              "order": [
+                1648623530380,
+                1659546727207,
+                1648624976535,
+                1648626182082,
+                1648626090430,
+                1648625817752,
+                1648623284772,
+                1648637338666,
+                1648624066102,
+                1648625170168,
+                1648625336945,
+                1648624806164,
+                1648627434243,
+                1648627103394,
+                1648627347411,
+                1648638992450,
+                1648637906069,
+                1648637977948,
+                1648638335909,
+                1648623710469,
+                1648645886922
+              ]
+            }
+          }
+        }
+      },
+      "order": [
+        1648702666399
+      ]
+    },
+    "variable": {
+      "map": {
+        "-8": {
+          "id": -8,
+          "name": "v_identifier_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-9": {
+          "id": -9,
+          "name": "device_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-10": {
+          "id": -10,
+          "name": "browser_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-11": {
+          "id": -11,
+          "name": "vrmode_var",
+          "type": "variable",
+          "props": {
+            "var_type": "boolean",
+            "var_track": true,
+            "var_default": false,
+            "var_category": "predefined"
+          }
+        },
+        "-12": {
+          "id": -12,
+          "name": "firstname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-13": {
+          "id": -13,
+          "name": "scorm_progress",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-14": {
+          "id": -14,
+          "name": "scorm_suspend_data",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-15": {
+          "id": -15,
+          "name": "scorm_score",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-16": {
+          "id": -16,
+          "name": "lastname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-17": {
+          "id": -17,
+          "name": "fullname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        }
+      },
+      "order": [
+        -10,
+        -9,
+        -8,
+        -12,
+        -11,
+        -13,
+        -14,
+        -15,
+        -16,
+        -17
+      ]
+    },
+    "tour_mode": {
+      "map": {
+      },
+      "order": [
+      ]
+    },
+    "lead_gen_field": {
+      "map": {},
+      "order": []
+    }
+  }
+}
