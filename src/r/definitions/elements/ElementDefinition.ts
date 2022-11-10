@@ -21,6 +21,7 @@ export enum ElementType {
   audio_ssml = "audio_ssml",
   text = "text",
   object_3d = "object_3d",
+  collider_mesh = "collider_mesh",
   score = "score",
   timer = "timer",
   menu = "menu",
@@ -72,6 +73,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   audio: "Audio",
   audio_ssml: "Text-to-Speech",
   object_3d: "3D Model",
+  collider_mesh: "collider_mesh",
   polygon: "Polygon",
   cube: "Cube",
   sphere: "Sphere",
@@ -157,6 +159,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
   ],
   three_d: [
     ElementType.object_3d,
+    ElementType.collider_mesh,
     ElementType.polygon,
     ElementType.cube,
     ElementType.sphere,
