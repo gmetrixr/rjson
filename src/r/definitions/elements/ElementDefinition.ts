@@ -73,7 +73,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   audio: "Audio",
   audio_ssml: "Text-to-Speech",
   object_3d: "3D Model",
-  collider_mesh: "collider_mesh",
+  collider_mesh: "Collider Mesh",
   polygon: "Polygon",
   cube: "Cube",
   sphere: "Sphere",
