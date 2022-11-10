@@ -159,7 +159,6 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
   ],
   three_d: [
     ElementType.object_3d,
-    ElementType.collider_mesh,
     ElementType.polygon,
     ElementType.cube,
     ElementType.sphere,
@@ -169,6 +168,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.light,
     ElementType.zone,
     ElementType.collider_box,
+    ElementType.collider_mesh,
   ],
   spatial: [
     ElementType.ar,
