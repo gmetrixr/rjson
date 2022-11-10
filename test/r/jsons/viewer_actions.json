@@ -1,0 +1,444 @@
+{
+  "id": 1667820566150,
+  "type": "project",
+  "props": {
+    "version": 141,
+    "initial_graphics_setting": "high"
+  },
+  "records": {
+    "menu": {
+      "map": {
+        "1667820625340": {
+          "id": 1667820625340,
+          "type": "menu",
+          "props": {
+            "menu_show": false,
+            "menu_scene_id": 1667820629665
+          }
+        },
+        "1667881943390": {
+          "id": 1667881943390,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1667881905565,
+            "menu_show": false
+          }
+        },
+        "1668076992487": {
+          "id": 1668076992487,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1668077793512,
+            "menu_show": false
+          }
+        },
+        "1668077540580": {
+          "id": 1668077540580,
+          "type": "menu",
+          "props": {
+            "menu_scene_id": 1668076960004,
+            "menu_show": false
+          }
+        }
+      },
+      "order": [
+        1667820625340,
+        1667881943390,
+        1668076992487,
+        1668077540580
+      ]
+    },
+    "scene": {
+      "map": {
+        "1668077793512": {
+          "id": 1668077793512,
+          "type": "scene",
+          "props": {
+            "scene_type": "first_person"
+          },
+          "name": "Scene_1",
+          "records": {
+            "element": {
+              "order": [
+                1668077445362
+              ],
+              "map": {
+                "1668077445362": {
+                  "id": 1668077445362,
+                  "type": "element",
+                  "props": {
+                    "element_type": "icon",
+                    "icon_type": "",
+                    "icon_family": "",
+                    "icon_name": "blush",
+                    "icon_id": "1f60a",
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "hover_animation": true,
+                    "placer_3d": [
+                      0,
+                      0,
+                      -8,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "billboarding": null
+                  },
+                  "name": "Icon"
+                }
+              }
+            },
+            "rule": {
+              "order": [
+                1668076967425
+              ],
+              "map": {
+                "1668076967425": {
+                  "id": 1668076967425,
+                  "type": "rule",
+                  "props": {
+                    "tracked": false,
+                    "accent_color": "#8ED1FC"
+                  },
+                  "name": "Rule",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1668077404834
+                      ],
+                      "map": {
+                        "1668077404834": {
+                          "id": 1668077404834,
+                          "type": "when_event",
+                          "props": {
+                            "co_id": 1668077445362,
+                            "co_type": "icon",
+                            "event": "on_click",
+                            "properties": []
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1668077456065
+                      ],
+                      "map": {
+                        "1668077456065": {
+                          "id": 1668077456065,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": -102,
+                            "co_type": "viewer",
+                            "action": "change_scene",
+                            "properties": [
+                              1668076960004
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "1668076960004": {
+          "id": 1668076960004,
+          "type": "scene",
+          "props": {
+            "scene_type": "first_person"
+          },
+          "name": "Scene_2",
+          "records": {
+            "element": {
+              "order": [
+                1668077797916
+              ],
+              "map": {
+                "1668077797916": {
+                  "id": 1668077797916,
+                  "type": "element",
+                  "props": {
+                    "element_type": "image_flat",
+                    "source": {
+                      "file_urls": {
+                        "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
+                        "t": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
+                      },
+                      "name": "image_flat_default.jpg",
+                      "type": "IMAGE"
+                    },
+                    "opacity": 1,
+                    "hidden": false,
+                    "locked": false,
+                    "hover_animation": true,
+                    "placer_3d": [
+                      0,
+                      0,
+                      -8,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    "wh": [
+                      2,
+                      2
+                    ],
+                    "scale": 1,
+                    "animation": {
+                      "name": "",
+                      "speed": 1
+                    },
+                    "billboarding": null
+                  },
+                  "name": "Image"
+                }
+              }
+            },
+            "rule": {
+              "order": [
+                1668077783546
+              ],
+              "map": {
+                "1668077783546": {
+                  "id": 1668077783546,
+                  "type": "rule",
+                  "props": {
+                    "tracked": false,
+                    "accent_color": "#8ED1FC"
+                  },
+                  "name": "Rule",
+                  "records": {
+                    "when_event": {
+                      "order": [
+                        1668077811051
+                      ],
+                      "map": {
+                        "1668077811051": {
+                          "id": 1668077811051,
+                          "type": "when_event",
+                          "props": {
+                            "co_id": 1668077797916,
+                            "co_type": "image_flat",
+                            "event": "on_click",
+                            "properties": []
+                          }
+                        }
+                      }
+                    },
+                    "then_action": {
+                      "order": [
+                        1668077104511
+                      ],
+                      "map": {
+                        "1668077104511": {
+                          "id": 1668077104511,
+                          "type": "then_action",
+                          "props": {
+                            "co_id": -102,
+                            "co_type": "viewer",
+                            "action": "point_to",
+                            "properties": [
+                              1668077797916
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "order": [
+        1668077793512,
+        1668076960004
+      ]
+    },
+    "variable": {
+      "map": {
+        "-8": {
+          "id": -8,
+          "name": "v_identifier_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-9": {
+          "id": -9,
+          "name": "device_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-10": {
+          "id": -10,
+          "name": "browser_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-11": {
+          "id": -11,
+          "name": "vrmode_var",
+          "type": "variable",
+          "props": {
+            "var_type": "boolean",
+            "var_track": true,
+            "var_default": false,
+            "var_category": "predefined"
+          }
+        },
+        "-12": {
+          "id": -12,
+          "name": "firstname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-13": {
+          "id": -13,
+          "name": "scorm_progress",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-14": {
+          "id": -14,
+          "name": "scorm_suspend_data",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-15": {
+          "id": -15,
+          "name": "scorm_score",
+          "type": "variable",
+          "props": {
+            "var_type": "number",
+            "var_track": true,
+            "var_default": 0,
+            "var_category": "predefined"
+          }
+        },
+        "-16": {
+          "id": -16,
+          "name": "lastname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        },
+        "-17": {
+          "id": -17,
+          "name": "fullname_var",
+          "type": "variable",
+          "props": {
+            "var_type": "string",
+            "var_track": true,
+            "var_default": "Hi there!",
+            "var_category": "predefined"
+          }
+        }
+      },
+      "order": [
+        -10,
+        -9,
+        -8,
+        -12,
+        -11,
+        -13,
+        -14,
+        -15,
+        -16,
+        -17
+      ]
+    },
+    "tour_mode": {
+      "map": {
+        "1667820519524": {
+          "id": 1667820519524,
+          "type": "tour_mode",
+          "props": {
+            "tour_mode_scene_id": 1667820629665
+          }
+        },
+        "1667881361713": {
+          "id": 1667881361713,
+          "type": "tour_mode",
+          "props": {
+            "tour_mode_scene_id": 1667881905565
+          }
+        },
+        "1668077118538": {
+          "id": 1668077118538,
+          "type": "tour_mode",
+          "props": {
+            "tour_mode_scene_id": 1668077793512
+          }
+        },
+        "1668077048922": {
+          "id": 1668077048922,
+          "type": "tour_mode",
+          "props": {
+            "tour_mode_scene_id": 1668076960004
+          }
+        }
+      },
+      "order": [
+        1667820519524,
+        1667881361713,
+        1668077118538,
+        1668077048922
+      ]
+    }
+  }
+}
