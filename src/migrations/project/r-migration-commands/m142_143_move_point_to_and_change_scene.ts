@@ -22,7 +22,7 @@ class Migration implements IOrder {
       );
     
     filteredActions.forEach(a => a.props.co_id = SpecialRuleElementIds.VIEWER_ELEMENT_ID);
-    projectF.set(rtp.project.version, 142);
+    projectF.set(rtp.project.version, 143);
   }
 }
 

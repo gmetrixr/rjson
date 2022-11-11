@@ -10,7 +10,7 @@ class Migration implements IOrder {
       projectF.set(rtp.project.initial_graphics_setting, "high");
     }
     
-    projectF.set(rtp.project.version, 141);
+    projectF.set(rtp.project.version, 142);
   }
 }
 
