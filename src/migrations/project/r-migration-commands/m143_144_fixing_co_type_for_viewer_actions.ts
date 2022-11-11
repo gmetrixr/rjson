@@ -19,7 +19,7 @@ class Migration implements IOrder {
     );
     
     filteredActions.forEach(a => a.props.co_type = sn.SpecialType.viewer);
-    projectF.set(rtp.project.version, 144);
+    projectF.set(rtp.project.version, 143);
   }
 }
 
