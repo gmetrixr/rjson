@@ -18,8 +18,8 @@ import { IOrder } from "../../IOrder";
     ];
 
     propertiesArray.forEach(p => {
-      if(depSettingsJson.props[p] === undefined) {
-        depSettingsJson.props[p] = false;
+      if(deploymentF.get(rtp.deployment[p]) === undefined) {
+        deploymentF.set(rtp.deployment[p], false);
       }
     });
 
