@@ -1,6 +1,6 @@
 import { IOrder } from "../IOrder";
 import d000_001 from "./deployment-migration-commands/d000_001_initial_deployment_migrations";
-import d001_002 from "./deployment-migration-commands/d0001_0002_multiplayer_collab_properties_false_when_undefined";
+import d001_002 from "./deployment-migration-commands/d001_002_multiplayer_collab_properties_false_when_undefined";
 
 export const deploymentMigrationTree: {[key: number]: IOrder} = {
   [0]: d000_001,
