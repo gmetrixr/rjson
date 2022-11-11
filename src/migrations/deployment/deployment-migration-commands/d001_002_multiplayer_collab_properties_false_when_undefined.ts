@@ -3,7 +3,7 @@ import { IOrder } from "../../IOrder";
 
 
 /**
- * Convert audio, screenshare, chat properties to false when they're undefined for older projects
+ * Set audio, screenshare, chat properties to false when they're undefined for older projects
  */
 
  class Migration implements IOrder {
