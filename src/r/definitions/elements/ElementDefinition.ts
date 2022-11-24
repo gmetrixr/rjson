@@ -59,6 +59,7 @@ export enum ElementType {
   environment = "environment",
   zone = "zone",
   collider_box = "collider_box",
+  workspace_logo = "workspace_logo",
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -107,6 +108,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   environment: "Environment",
   zone: "Zone",
   collider_box: "Collider Box",
+  workspace_logo: "Workspace Logo"
 };
 
 export enum ElementCategory {
