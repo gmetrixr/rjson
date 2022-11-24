@@ -106,7 +106,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   hotspot: "Hotspot",
   environment: "Environment",
   zone: "Zone",
-  collider_box: "Collider Box",
+  collider_box: "Collider Volume",
 };
 
 export enum ElementCategory {
