@@ -20,7 +20,8 @@ export const Object3d: IElementDefinition = {
     ElementProperty.object3d_animations,
     ElementProperty.apply_env_map,
     ElementProperty.pivot_point,
-    ElementProperty.preload
+    ElementProperty.preload,
+    ElementProperty.env_map_intensity,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
