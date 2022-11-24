@@ -18,6 +18,7 @@ export const WorkspaceLogo: IElementDefinition = {
     ElementProperty.animation,
     ElementProperty.billboarding,
   ],
+  defaultOverrides: {},
   events: [
     ...BasicElement.events,
     RuleEvent.on_press,
