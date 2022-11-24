@@ -13,6 +13,12 @@ export const ColliderBox: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.whd,
     ElementProperty.scale,
+    ElementProperty.radius,
+    ElementProperty.arc,
+    ElementProperty.height,
+    ElementProperty.outer_radius,
+    ElementProperty.inner_radius,
+    ElementProperty.sides
   ],
   defaultOverrides: {},
   events: [],
