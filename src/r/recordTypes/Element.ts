@@ -271,6 +271,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.apply_env_map]: true,
   [ElementProperty.env_map_intensity]: 1,
   [ElementProperty.preload]: false,
-  [ElementProperty.volume_type]: "box",
+  [ElementProperty.volume_type]: "cube",
   [ElementProperty.mouse_jump]: true
 }
