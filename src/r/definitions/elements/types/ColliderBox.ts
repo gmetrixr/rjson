@@ -2,7 +2,7 @@ import { ElementProperty } from "../../../recordTypes/Element";
 import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefinition";
 
 export const ColliderBox: IElementDefinition = {
-  element_type: ElementType.collider_box,
+  element_type: ElementType.collider_volume,
   elementDefaultName: "ColliderVolume",
   properties: [
     ...BasicElement.properties,

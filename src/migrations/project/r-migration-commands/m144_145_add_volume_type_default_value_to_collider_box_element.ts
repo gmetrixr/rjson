@@ -10,10 +10,11 @@ class Migration implements IOrder {
     const pJson = projectJson as RecordNode<RT.project>;
     const projectF = r.record(pJson);
 
-    const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.collider_box);
+    const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === "collider_box");
 
     for (const el of allColliderBoxElements) {
       const elementF = r.element(el);
+      elementF.set(rtp.element.element_type, en.ElementType.collider_volume);
       elementF.set(rtp.element.volume_type, en.VolumeTypes.cube);
     }
 

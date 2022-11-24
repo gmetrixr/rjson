@@ -139,9 +139,10 @@ describe("r Migrations", () => {
     const project = migrateProjectRJson(colliderBoxJson);
     const projectF = r.project(project);
 
-    const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.collider_box);
+    const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.collider_volume);
 
     for (const el of allColliderBoxElements) {
+      console.log('=============> ', el);
       const elementF = r.element(el);
       expect(elementF.get(rtp.element.volume_type)).to.be.eq(en.VolumeTypes.cube);
     }
