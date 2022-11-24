@@ -18,16 +18,6 @@ export const WorkspaceLogo: IElementDefinition = {
     ElementProperty.animation,
     ElementProperty.billboarding,
   ],
-  defaultOverrides: {
-    [ElementProperty.source]: {
-      file_urls: {
-        o: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png",
-        t: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/image/image_flat_default.png"
-      },
-      name: "image_flat_default.jpg",
-      type: FileType.IMAGE
-    }
-  },
   events: [
     ...BasicElement.events,
     RuleEvent.on_press,
