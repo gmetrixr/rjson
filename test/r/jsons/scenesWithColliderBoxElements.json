@@ -1,0 +1,325 @@
+{
+  "id": 1669275378140,
+  "type": "project",
+  "props": {
+      "version": 144
+  },
+  "records": {
+      "menu": {
+          "map": {
+              "1669275606580": {
+                  "id": 1669275606580,
+                  "type": "menu",
+                  "props": {
+                      "menu_show": false,
+                      "menu_scene_id": 1669275504790
+                  }
+              },
+              "1669277604180": {
+                  "id": 1669277604180,
+                  "type": "menu",
+                  "props": {
+                      "menu_scene_id": 1669277967126,
+                      "menu_show": false
+                  }
+              }
+          },
+          "order": [
+              1669275606580,
+              1669277604180
+          ]
+      },
+      "scene": {
+          "map": {
+              "1669275504790": {
+                  "id": 1669275504790,
+                  "name": "Scene",
+                  "type": "scene",
+                  "props": {
+                      "scene_type": "first_person"
+                  },
+                  "records": {
+                      "element": {
+                          "map": {
+                              "1669275642403": {
+                                  "id": 1669275642403,
+                                  "name": "Pano Image",
+                                  "type": "element",
+                                  "props": {
+                                      "hidden": false,
+                                      "locked": false,
+                                      "source": {
+                                          "name": "grid_02_white.jpg",
+                                          "type": "IMAGE",
+                                          "file_urls": {
+                                              "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                              "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                          }
+                                      },
+                                      "stereo": false,
+                                      "opacity": 1,
+                                      "pano_radius": 900,
+                                      "element_type": "pano_image",
+                                      "pano_yaw_correction": 0,
+                                      "pano_pitch_correction": 0
+                                  }
+                              },
+                              "1669277482709": {
+                                  "id": 1669277482709,
+                                  "type": "element",
+                                  "props": {
+                                      "element_type": "collider_box",
+                                      "hidden": false,
+                                      "locked": false,
+                                      "placer_3d": [
+                                          0,
+                                          0,
+                                          -8,
+                                          0,
+                                          0,
+                                          0,
+                                          1,
+                                          1,
+                                          1
+                                      ],
+                                      "whd": [
+                                          1,
+                                          1,
+                                          1
+                                      ],
+                                      "scale": 1
+                                  },
+                                  "name": "ColliderBox"
+                              }
+                          },
+                          "order": [
+                              1669275642403,
+                              1669277482709
+                          ]
+                      }
+                  }
+              },
+              "1669277967126": {
+                  "id": 1669277967126,
+                  "name": "Scene (1)",
+                  "type": "scene",
+                  "props": {
+                      "scene_type": "first_person"
+                  },
+                  "records": {
+                      "element": {
+                          "map": {
+                              "1669275642403": {
+                                  "id": 1669275642403,
+                                  "name": "Pano Image",
+                                  "type": "element",
+                                  "props": {
+                                      "hidden": false,
+                                      "locked": false,
+                                      "source": {
+                                          "name": "grid_02_white.jpg",
+                                          "type": "IMAGE",
+                                          "file_urls": {
+                                              "o": "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
+                                              "t": "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg"
+                                          }
+                                      },
+                                      "stereo": false,
+                                      "opacity": 1,
+                                      "pano_radius": 900,
+                                      "element_type": "pano_image",
+                                      "pano_yaw_correction": 0,
+                                      "pano_pitch_correction": 0
+                                  }
+                              },
+                              "1669277482709": {
+                                  "id": 1669277482709,
+                                  "type": "element",
+                                  "props": {
+                                      "element_type": "collider_box",
+                                      "hidden": false,
+                                      "locked": false,
+                                      "placer_3d": [
+                                          0,
+                                          0,
+                                          -8,
+                                          0,
+                                          0,
+                                          0,
+                                          1,
+                                          1,
+                                          1
+                                      ],
+                                      "whd": [
+                                          1,
+                                          1,
+                                          1
+                                      ],
+                                      "scale": 1
+                                  },
+                                  "name": "ColliderBox"
+                              }
+                          },
+                          "order": [
+                              1669275642403,
+                              1669277482709
+                          ]
+                      }
+                  }
+              }
+          },
+          "order": [
+              1669275504790,
+              1669277967126
+          ]
+      },
+      "variable": {
+          "map": {
+              "-8": {
+                  "id": -8,
+                  "name": "v_identifier_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              },
+              "-9": {
+                  "id": -9,
+                  "name": "device_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              },
+              "-10": {
+                  "id": -10,
+                  "name": "browser_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              },
+              "-11": {
+                  "id": -11,
+                  "name": "vrmode_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "boolean",
+                      "var_track": true,
+                      "var_default": false,
+                      "var_category": "predefined"
+                  }
+              },
+              "-12": {
+                  "id": -12,
+                  "name": "firstname_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              },
+              "-13": {
+                  "id": -13,
+                  "name": "scorm_progress",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "number",
+                      "var_track": true,
+                      "var_default": 0,
+                      "var_category": "predefined"
+                  }
+              },
+              "-14": {
+                  "id": -14,
+                  "name": "scorm_suspend_data",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "number",
+                      "var_track": true,
+                      "var_default": 0,
+                      "var_category": "predefined"
+                  }
+              },
+              "-15": {
+                  "id": -15,
+                  "name": "scorm_score",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "number",
+                      "var_track": true,
+                      "var_default": 0,
+                      "var_category": "predefined"
+                  }
+              },
+              "-16": {
+                  "id": -16,
+                  "name": "lastname_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              },
+              "-17": {
+                  "id": -17,
+                  "name": "fullname_var",
+                  "type": "variable",
+                  "props": {
+                      "var_type": "string",
+                      "var_track": true,
+                      "var_default": "Hi there!",
+                      "var_category": "predefined"
+                  }
+              }
+          },
+          "order": [
+              -10,
+              -9,
+              -8,
+              -12,
+              -11,
+              -13,
+              -14,
+              -15,
+              -16,
+              -17
+          ]
+      },
+      "tour_mode": {
+          "map": {
+              "1669274946084": {
+                  "id": 1669274946084,
+                  "type": "tour_mode",
+                  "props": {
+                      "tour_mode_scene_id": 1669275504790
+                  }
+              },
+              "1669277364127": {
+                  "id": 1669277364127,
+                  "type": "tour_mode",
+                  "props": {
+                      "tour_mode_scene_id": 1669277967126
+                  }
+              }
+          },
+          "order": [
+              1669274946084,
+              1669277364127
+          ]
+      }
+  }
+}

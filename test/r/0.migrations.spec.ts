@@ -1,11 +1,12 @@
 import { expect } from "chai";
-import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject, migrateDeployment, createNewDeployment} from "../../src";
+import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject, migrateDeployment, createNewDeployment, rtp} from "../../src";
 import { migrateElement } from "../../src/migrations/project/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
 import safehands_r100 from "./jsons/safehands.r100.json";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import platformVarMigrationJson from "./jsons/platform_var_migration.json";
+import colliderBoxJson from "./jsons/scenesWithColliderBoxElements.json";
 import { rMigrationTree } from "./../../src/migrations/project/rMigrations";
 
 import actionbar_json         from "./jsons/r3fJsons/elements/actionbar.json";
@@ -132,5 +133,17 @@ describe("r Migrations", () => {
     
     const newDeploymentJson = migrateDeployment(deploymentSettings);
     expect(newDeploymentJson.props.deployment_version).to.not.be.eq(undefined);
+  })
+
+  it ("should test migration to add default volume type to collider box element", () => {
+    const project = migrateProjectRJson(colliderBoxJson);
+    const projectF = r.project(project);
+
+    const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.collider_box);
+
+    for (const el of allColliderBoxElements) {
+      const elementF = r.element(el);
+      expect(elementF.get(rtp.element.volume_type)).to.be.eq(en.VolumeTypes.cube);
+    }
   })
 });

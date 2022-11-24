@@ -22,3 +22,12 @@ export enum BillboardingTypes {
   xy = "xy",
   xyz = "xyz"
 }
+
+export enum VolumeTypes {
+  cube = "cube",
+  cylinder = "cylinder",
+  cone = "cone",
+  sphere = "sphere",
+  torus = "torus",
+  polygon = "polygon"
+}
