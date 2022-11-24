@@ -37,6 +37,7 @@ import { Hotspot } from "./types/Hotspots";
 import { Environment } from "./types/Environment";
 import { Zone } from "./types/Zone";
 import { ColliderBox } from "./types/ColliderBox";
+import { WorkspaceLogo } from "./types/WorkspaceLogo";
 import { IElementDefinition } from "./ElementDefinition";
 
 import { 
@@ -90,7 +91,8 @@ export const elementList: IElementDefinition[] = [
   Hotspot,
   Environment,
   Zone,
-  ColliderBox
+  ColliderBox,
+  WorkspaceLogo,
 ];
 
 /**
