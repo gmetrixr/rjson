@@ -153,7 +153,8 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.text,
     ElementType.gif,
     ElementType.icon,
-    ElementType.hotspot
+    ElementType.hotspot,
+    ElementType.workspace_logo,
   ],
   audio: [
     ElementType.audio,
