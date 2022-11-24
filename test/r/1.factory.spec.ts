@@ -115,14 +115,16 @@ describe("Test RecordNode addresses", () => {
 
     if (sceneHome) {
       const sceneF = r.record(sceneHome);
-      const sceneHomeAddr = sceneF.getPropertyAddress(parentAddr, SceneProperty.scene_allow_zooming);
+      const sceneAddr = sceneF.getSelfRecordAddress(parentAddr);
+      const sceneHomeAddr = sceneF.getPropertyAddress(sceneAddr, SceneProperty.scene_allow_zooming);
       expect(sceneHomeAddr).to.equal("project:1|scene:1584704711152!scene_allow_zooming");
 
       const videoElement = sceneF.getRecord(RT.element, 1584704979049);
       if (videoElement) {
         const sceneHomeAddr = sceneF.getSelfRecordAddress(parentAddr);
         const recordF = r.record(videoElement);
-        expect(recordF.getPropertyAddress(sceneHomeAddr, ElementProperty.opacity)).to.equal("project:1|scene:1584704711152|element:1584704979049!opacity");
+        const recordAddr = recordF.getSelfRecordAddress(sceneHomeAddr);
+        expect(recordF.getPropertyAddress(recordAddr, ElementProperty.opacity)).to.equal("project:1|scene:1584704711152|element:1584704979049!opacity");
       }
     }
   });

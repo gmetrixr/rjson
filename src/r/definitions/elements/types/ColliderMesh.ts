@@ -3,9 +3,9 @@ import { ElementProperty } from "../../../recordTypes/Element";
 import { RuleAction, RuleEvent } from "../../rules";
 import { BasicElement, ElementType, IElementDefinition } from "../ElementDefinition";
 
-export const Object3d: IElementDefinition = {
-  element_type: ElementType.object_3d,
-  elementDefaultName: "3D Object",
+export const ColliderMesh: IElementDefinition = {
+  element_type: ElementType.collider_mesh,
+  elementDefaultName: "Collider Mesh",
   properties: [
     ...BasicElement.properties,
     ElementProperty.source,

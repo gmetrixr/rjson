@@ -484,10 +484,9 @@ export class RecordFactory<T extends RT> {
    * 1. project:1|scene:1|element:2!opacity
    * 2. project:1|scene:1|element:2!wh>1
    */
-  getPropertyAddress(this: RecordFactory<T>, parentAddr: string, property: RTP[T], index?: number): string {
-    const recordAddress = this.getSelfRecordAddress(parentAddr);
+  getPropertyAddress(this: RecordFactory<T>, recordAddress: string, property: RTP[T], index?: number): string {
     const recordPropertyAddress = `${recordAddress}!${property}`;
-    return index? `${recordPropertyAddress}>${index}`: recordPropertyAddress;
+    return (typeof index === "number")? `${recordPropertyAddress}>${index}`: recordPropertyAddress;
   }
 
   /**
