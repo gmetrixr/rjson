@@ -38,6 +38,7 @@ import { Environment } from "./types/Environment";
 import { Zone } from "./types/Zone";
 import { ColliderBox } from "./types/ColliderBox";
 import { ColliderMesh } from "./types/ColliderMesh";
+import { WorkspaceLogo } from "./types/WorkspaceLogo";
 import { IElementDefinition } from "./ElementDefinition";
 
 import { 
@@ -92,7 +93,8 @@ export const elementList: IElementDefinition[] = [
   Environment,
   Zone,
   ColliderBox,
-  ColliderMesh
+  ColliderMesh,
+  WorkspaceLogo,
 ];
 
 /**
