@@ -105,5 +105,5 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_description]: "",
   [ProjectProperty.project_metadata_tags]: [],
   [ProjectProperty.use_custom_branding]: false,
-  [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.adaptive,
+  [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.high,
 };
