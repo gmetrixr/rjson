@@ -239,6 +239,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.font_family]: "Montserrat",
   [ElementProperty.font_weight]: 400,
   [ElementProperty.collapsible]: false,
+  // Adding it as a string because it created a circular dependency while adding it from enum
   [ElementProperty.light_type]: "ambient",
   [ElementProperty.intensity]: 1,
   [ElementProperty.fall_off]: 10,
@@ -271,6 +272,7 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.apply_env_map]: true,
   [ElementProperty.env_map_intensity]: 1,
   [ElementProperty.preload]: false,
+  // Adding it as a string because it created a circular dependency while adding it from enum
   [ElementProperty.volume_type]: "cube",
   [ElementProperty.mouse_jump]: true
 }
