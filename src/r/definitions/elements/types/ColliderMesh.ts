@@ -9,6 +9,7 @@ export const ColliderMesh: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.source,
+    ElementProperty.opacity,
     ElementProperty.hidden,
     ElementProperty.wireframe,
     ElementProperty.auto_rotate,
