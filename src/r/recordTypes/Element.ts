@@ -126,7 +126,8 @@ export enum ElementProperty {
   env_map_intensity = "env_map_intensity",
   // Collider volume element properties
   volume_type = "volume_type",
-  mouse_jump = "mouse_jump"
+  mouse_jump = "mouse_jump",
+  visible = "visible",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -274,5 +275,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.preload]: false,
   // Adding it as a string because it created a circular dependency while adding it from enum
   [ElementProperty.volume_type]: "cube",
-  [ElementProperty.mouse_jump]: true
+  [ElementProperty.mouse_jump]: true,
+  [ElementProperty.visible]: false,
 }
