@@ -34,7 +34,8 @@ export const ColliderMesh: IElementDefinition = {
       name: "gmetri_logo.glb",
       type: FileType.THREED
     },
-    [ElementProperty.billboarding]: null
+    [ElementProperty.billboarding]: null,
+    [ElementProperty.opacity]: 0,
   },
   events: [
     ...BasicElement.events,
