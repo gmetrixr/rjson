@@ -9,6 +9,7 @@ export const ColliderMesh: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.source,
+    ElementProperty.opacity,
     ElementProperty.hidden,
     ElementProperty.wireframe,
     ElementProperty.auto_rotate,
@@ -33,7 +34,8 @@ export const ColliderMesh: IElementDefinition = {
       name: "gmetri_logo.glb",
       type: FileType.THREED
     },
-    [ElementProperty.billboarding]: null
+    [ElementProperty.billboarding]: null,
+    [ElementProperty.opacity]: 0,
   },
   events: [
     ...BasicElement.events,
