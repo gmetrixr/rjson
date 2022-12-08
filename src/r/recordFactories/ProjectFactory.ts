@@ -488,11 +488,6 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       fileIds.push(projectLogo.id);
     }
 
-    const customProjectLogo = <fn.Source>this.get(rtp.project.custom_project_logo_source);
-    if (customProjectLogo !== undefined) {
-      fileIds.push(customProjectLogo.id);
-    }
-
     const projectThumbnail = <fn.Source>this.get(rtp.project.project_thumbnail_source);
     if (projectThumbnail !== undefined) {
       fileIds.push(projectThumbnail.id);
@@ -513,14 +508,6 @@ export class ProjectFactory extends RecordFactory<RT.project> {
       const newValue = sourceMap[projectLogo.id];
       if (newValue !== undefined) {
         this.set(rtp.project.project_logo_source, newValue);
-      }
-    }
-
-    const customProjectLogo = <fn.Source>this.get(rtp.project.custom_project_logo_source);
-    if (customProjectLogo !== undefined) {
-      const newValue = sourceMap[customProjectLogo.id];
-      if (newValue !== undefined) {
-        this.set(rtp.project.custom_project_logo_source, newValue);
       }
     }
 
