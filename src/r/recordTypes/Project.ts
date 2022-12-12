@@ -39,7 +39,6 @@ export enum ProjectProperty {
   show_volume_control = "show_volume_control",
   show_powered_by_gmetri = "show_powered_by_gmetri",
   show_splash_screen = "show_splash_screen",
-  custom_project_logo_source = "custom_project_logo_source",
   use_custom_branding = "use_custom_branding",
   //TODO: Should be renamed to project_metadata_thumbnail via a migration
   project_thumbnail_source = "project_thumbnail_source",
@@ -77,6 +76,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.lead_gen_heading]: "",
   [ProjectProperty.lead_gen_tos]: "",
   [ProjectProperty.project_end_description]: "",
+  /** Shown in Click to Start, Loader Screen during transition, in the Workspace Logo element */
   [ProjectProperty.project_logo_source]: defaultLogo,
   [ProjectProperty.project_start_description]: "",
   [ProjectProperty.show_click_to_start]: false,
@@ -99,7 +99,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.show_volume_control]: true,
   [ProjectProperty.show_powered_by_gmetri]: true,
   [ProjectProperty.show_splash_screen]: true,
-  [ProjectProperty.custom_project_logo_source]: undefined,
+  /** Shown in the portal as the project thumbnail, or when you share the link on whatsapp */
   [ProjectProperty.project_thumbnail_source]: undefined,
   [ProjectProperty.project_metadata_title]: "",
   [ProjectProperty.project_metadata_description]: "",
