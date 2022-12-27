@@ -8,7 +8,7 @@
   "author": "Sahil Ahuja <sahil@gmetri.com>",
   "sideEffects": false,
   "files": [
-    "lib/*"
+    "lib"
   ],
   "scripts": {
     "@comment TEST": "Useful for testing",
