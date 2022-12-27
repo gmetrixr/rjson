@@ -50,6 +50,8 @@ steps:
     branch: [ main ]
     event:
       exclude: [ pull_request ]
+  commands:
+    - ls -al lib
   settings:
     email: sahil@gmetri.com
     token: 
