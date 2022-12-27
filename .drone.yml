@@ -51,7 +51,11 @@ steps:
     event:
       exclude: [ pull_request ]
   commands:
-    - ls -al lib
+    - export N=`node -p require\(\'./package.json\'\).name` && echo $N
+    - "pnpm version patch --message \"v%s: $N [CI SKIP]\""
+    - pnpm publish --no-git-check
+    - git push origin ${DRONE_BRANCH}
+    - git push --tags origin ${DRONE_BRANCH}
   settings:
     email: sahil@gmetri.com
     token: 
