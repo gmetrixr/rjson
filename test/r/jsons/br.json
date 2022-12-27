@@ -1484,6 +1484,19 @@
     "lead_gen_field": {
       "map": {},
       "order": []
+    },
+    "avatar": {
+      "map": {
+        "1": {
+          "id": 1,
+          "name": "Avatar1",
+          "type": "avatar",
+          "props": {
+
+          }
+        }
+      },
+      "order": [1]
     }
   }
 }

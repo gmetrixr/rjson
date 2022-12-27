@@ -8,3 +8,15 @@ export enum InitialGraphicsSetting {
   low = "low",
   high = "high",
 }
+
+export enum AvatarSystem {
+  basic = "basic",
+  basic_custom = "basic_custom",
+  basic_rpm = "basic_rpm"
+}
+
+export enum AvatarBodyType {
+  halfbody = "halfbody",
+  fullbody = "fullbody",
+  selectable = "selectable"
+}
