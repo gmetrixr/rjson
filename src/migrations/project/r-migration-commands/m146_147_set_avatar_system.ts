@@ -1,5 +1,6 @@
-import { RecordNode, r, rtp, RT, pn } from "../../../r";
+import { RecordNode, r, rtp, RT } from "../../../r";
 import { IOrder } from "../../IOrder";
+import { AvatarSystem } from "../../../r/definitions/project";
 
 /**
  * Set avatar system to basic + custom if avatars are set already
@@ -12,7 +13,7 @@ class Migration implements IOrder {
     const avatarSystem = projectF.get(rtp.project.avatar_system);
     // * if avatar system is undefined and avatars have been added, then set the avatar system to basic_custom
     if(avatars.length > 0 && avatarSystem === undefined) {
-      projectF.set(rtp.project.avatar_system, pn.AvatarSystem.basic_custom);
+      projectF.set(rtp.project.avatar_system, AvatarSystem.basic_custom);
     }
 
     projectF.set(rtp.project.version, 147);
