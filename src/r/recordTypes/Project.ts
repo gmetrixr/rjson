@@ -113,6 +113,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_tags]: [],
   [ProjectProperty.use_custom_branding]: false,
   [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.high,
-  [ProjectProperty.avatar_system]: AvatarSystem.basic,
   [ProjectProperty.avatar_system_body_type]: AvatarBodyType.fullbody,
+  [ProjectProperty.avatar_system]: AvatarSystem.basic,
 };
