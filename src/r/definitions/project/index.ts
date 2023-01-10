@@ -20,3 +20,8 @@ export enum AvatarBodyType {
   fullbody = "fullbody",
   selectable = "selectable"
 }
+
+export enum ViewerCameraMode {
+  first_person = "first_person",
+  third_person = "third_person"
+}
