@@ -1,9 +1,9 @@
 import { ElementProperty } from "../../../recordTypes/Element";
 import { BasicElement, ElementType, IElementDefinition } from "../ElementDefinition";
 
-export const Screenshare3D: IElementDefinition = {
-  element_type: ElementType.screenshare_3d,
-  elementDefaultName: "3D Screenshare",
+export const Screenshare: IElementDefinition = {
+  element_type: ElementType.screenshare,
+  elementDefaultName: "Screenshare",
   properties: [
     ...BasicElement.properties,
     ElementProperty.opacity,

@@ -39,7 +39,7 @@ import { Zone } from "./types/Zone";
 import { ColliderBox } from "./types/ColliderBox";
 import { ColliderMesh } from "./types/ColliderMesh";
 import { WorkspaceLogo } from "./types/WorkspaceLogo";
-import { Screenshare3D } from "./types/Screenshare3D";
+import { Screenshare } from "./types/Screenshare";
 import { IElementDefinition } from "./ElementDefinition";
 
 import { 
@@ -96,7 +96,7 @@ export const elementList: IElementDefinition[] = [
   ColliderBox,
   ColliderMesh,
   WorkspaceLogo,
-  Screenshare3D,
+  Screenshare,
 ];
 
 /**

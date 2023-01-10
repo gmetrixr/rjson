@@ -61,7 +61,7 @@ export enum ElementType {
   collider_box = "collider_box",
   collider_volume = "collider_volume",
   workspace_logo = "workspace_logo",
-  screenshare_3d = "screenshare_3d",
+  screenshare = "screenshare",
 }
 
 export const elementDisplayNames: Record<ElementType, string> = {
@@ -112,7 +112,7 @@ export const elementDisplayNames: Record<ElementType, string> = {
   collider_box: "Collider Volume",
   collider_volume: "Collider Volume",
   workspace_logo: "Workspace Logo",
-  screenshare_3d: "3D Screenshare"
+  screenshare: "Screenshare"
 };
 
 export enum ElementCategory {
@@ -176,7 +176,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.zone,
     ElementType.collider_volume,
     ElementType.collider_mesh,
-    ElementType.screenshare_3d,
+    ElementType.screenshare,
   ],
   spatial: [
     ElementType.ar,
