@@ -47,12 +47,14 @@ export enum SceneType {
   first_person = "first_person",
   orbit = "orbit",
   six_dof = "six_dof",
+  third_person = "third_person"
 }
 
 export const sceneTypeDisplayNames: Record<SceneType, string> = {
   first_person: "360 Scene",
   orbit: "Orbit Scene",
   six_dof: "3D Scene",
+  third_person: "Third Person",
 };
 
 export enum SceneCategory {
@@ -68,6 +70,7 @@ export const sceneTypeByCategory: Record<SceneCategory, SceneType[]> = {
     SceneType.first_person,
     SceneType.orbit,
     SceneType.six_dof,
+    SceneType.third_person,
   ]
 };
 

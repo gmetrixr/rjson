@@ -1,5 +1,10 @@
 import { Source } from "../definitions/files";
-import { InitialGraphicsSetting, ViewerControlPanelPosition } from "../definitions/project";
+import {
+  AvatarBodyType,
+  AvatarSystem,
+  InitialGraphicsSetting,
+  ViewerControlPanelPosition,
+} from "../definitions/project";
 
 export enum ProjectProperty {
   autotrack_connection = "autotrack_connection",
@@ -46,6 +51,8 @@ export enum ProjectProperty {
   project_metadata_description = "project_metadata_description",
   project_metadata_tags = "project_metadata_tags",
   initial_graphics_setting = "initial_graphics_setting",
+  avatar_system = "avatar_system",
+  avatar_system_body_type = "avatar_system_body_type"
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -106,4 +113,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.project_metadata_tags]: [],
   [ProjectProperty.use_custom_branding]: false,
   [ProjectProperty.initial_graphics_setting]: InitialGraphicsSetting.high,
+  [ProjectProperty.avatar_system_body_type]: AvatarBodyType.fullbody,
+  [ProjectProperty.avatar_system]: AvatarSystem.basic,
 };

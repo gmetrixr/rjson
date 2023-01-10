@@ -4,7 +4,7 @@ import { BasicElement, ElementType,  IElementDefinition } from "../ElementDefini
 
 export const Icon: IElementDefinition = {
   element_type: ElementType.icon,
-  elementDefaultName: "Icon",
+  elementDefaultName: "Emoji",
   properties: [
     ...BasicElement.properties,
     ElementProperty.icon_type,

@@ -46,6 +46,9 @@ import m142_143 from "./r-migration-commands/m142_143_move_point_to_and_change_s
 import m143_144 from "./r-migration-commands/m143_144_fixing_co_type_for_viewer_actions";
 import m144_145 from "./r-migration-commands/m144_145_add_volume_type_default_value_to_collider_box_element";
 import m145_146 from "./r-migration-commands/m145_146_update_custom_project_logo_source_to_project_logo_source";
+import m146_147 from "./r-migration-commands/m146_147_set_avatar_system";
+
+
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
 
@@ -97,6 +100,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [143]: m143_144,
   [144]: m144_145,
   [145]: m145_146,
+  [146]: m146_147,
 };
 
 export const getHighestProjectVersion = (): number => {

@@ -1,4 +1,4 @@
-import { en, fn, r, R, RecordNode, RT, rtp, sn } from "../../src/r";
+import { en, fn, r, R, RecordNode, RT, rtp, sn, pn } from "../../src/r";
 import { expect } from "chai";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
@@ -16,6 +16,7 @@ import { ElementType } from "../../src/r/definitions/elements";
 import unnamedRules from "./jsons/unnamedRulesProject.json";
 import thumbnailJson from "./jsons/thumbnail.json";
 import br from "./jsons/br.json";
+import { jsUtils } from "@gmetrixr/gdash";
 
 describe("r ProjectFactory tests", () => {
   /** 
@@ -464,5 +465,12 @@ describe("Test complex property updates", () => {
     const propertyAddr = sceneF.getPropertyAddress(sceneAddr, rtp.scene.scene_bounds, 3);
     projectF.updatePropertyAtAddress(propertyAddr, 100);
     expect(scene.props.scene_bounds).to.eql([ -15, 4.5, 0, 100, -4.5, 15 ]);
+  });
+
+  it("should update avatar system to basic + custom if avatars are selected", () => {
+    const clone = jsUtils.deepClone(br);
+    const migratedProject = migrateProjectRJson(clone);
+    const projectF = r.project(migratedProject);
+    expect(projectF.getValueOrDefault(rtp.project.avatar_system) === pn.AvatarSystem.basic_custom);
   });
 });
