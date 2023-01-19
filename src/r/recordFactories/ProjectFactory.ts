@@ -1236,8 +1236,9 @@ export class ProjectUtils {
         }
         case RT.then_action: {
           const ruleRecord = (record as RecordNode<RT.then_action>);
-          const properties = ruleRecord.props.properties as string[];
-          properties.map(property => property.replace(searchValue, replaceValue));
+          let properties = (ruleRecord.props.properties || []) as string[];
+          properties = properties.map(p => p?.replace(searchValue, replaceValue));
+          ruleRecord.props.properties = properties;
         }
       }
     }
