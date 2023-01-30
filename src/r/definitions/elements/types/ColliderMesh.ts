@@ -35,16 +35,6 @@ export const ColliderMesh: IElementDefinition = {
     [ElementProperty.billboarding]: null,
     [ElementProperty.opacity]: 0,
   },
-  events: [
-    ...BasicElement.events,
-    RuleEvent.on_press,
-    RuleEvent.on_release,
-  ],
-  actions: [
-    ...BasicElement.actions,
-    RuleAction.gltf_preset_start,
-    RuleAction.gltf_preset_stop,
-    RuleAction.gltf_preset_start_all,
-    RuleAction.gltf_preset_stop_all
-  ]
+  events: [],
+  actions: []
 }
