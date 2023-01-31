@@ -22,23 +22,18 @@ class Migration implements IOrder {
         for (const rule of rules) {
           const ruleF = r.record(rule);
           const whenEvents = ruleF.getRecords(RT.when_event);
-          let toDelete = false;
 
           for (const we of whenEvents) {
             if (colliderMeshElements.includes(we.props.co_id as unknown as number)) {
-              toDelete = true;
+              ruleF.deleteRecord(RT.when_event, we.id);
             }
           }
 
           const thenActions = ruleF.getRecords(RT.then_action);
           for (const ta of thenActions) {
             if (colliderMeshElements.includes(ta.props.co_id as unknown as number)) {
-              toDelete = true;
+              ruleF.deleteRecord(RT.then_action, ta.id);
             }
-          }
-
-          if (toDelete) {
-            sceneF.deleteRecord(RT.rule, rule.id);
           }
         }
       }

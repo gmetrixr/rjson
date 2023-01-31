@@ -79,6 +79,19 @@ describe("r RecordFactory tests", () => {
     const projectF = r.project(colliderMeshRulesJson);
     const rules = projectF.getAllDeepChildren(RT.rule);
 
-    expect(rules.length).to.be.eq(0);
+    let weLen = 0;
+    let taLen = 0;
+
+    for (const rule of rules) {
+      const ruleF = r.record(rule);
+      const whenEvents = ruleF.getRecords(RT.when_event);
+      const thenActions = ruleF.getRecords(RT.then_action);
+
+      weLen += whenEvents.length;
+      taLen += thenActions.length;
+    }
+
+    expect(weLen).to.be.eq(1);
+    expect(taLen).to.be.eq(1);
   })
 });
