@@ -14,7 +14,8 @@ export const PanoImage: IElementDefinition = {
     ElementProperty.hidden,
     ElementProperty.locked,
     ElementProperty.stereo,
-    ElementProperty.pano_radius
+    ElementProperty.pano_radius,
+    ElementProperty.placer_3d,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {

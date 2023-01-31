@@ -15,6 +15,7 @@ export const PanoVideo: IElementDefinition = {
     ElementProperty.opacity,
     ElementProperty.pano_pitch_correction,
     ElementProperty.pano_yaw_correction,
+    ElementProperty.placer_3d,
 
     ElementProperty.autoplay,
     ElementProperty.loop,
