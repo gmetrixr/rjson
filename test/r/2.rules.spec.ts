@@ -4,6 +4,7 @@ import { rulePrintUtils } from "../../src/r/definitions/rules";
 import projectSafehands from "./jsons/r3fJsons/projectsMigrated/project_safehands.json";
 import projectDealerxr from "./jsons/r3fJsons/projectsMigrated/project_dealerxr.json";
 import unnamedRulesProject from "./jsons/unnamedRulesProject.json";
+import colliderMeshRules from "./jsons/colliderMeshRules.json";
 import { migrateProjectRJson } from "../../src/migrations/index";
 
 const { rEventProperties, WhenEventProperty, rEventPropertyDefaults, ThenActionProperty, rActionPropertyDefaults } = rn;
@@ -72,4 +73,25 @@ describe("r RecordFactory tests", () => {
     expect(rules.length).to.be.eq(rulesWithNames);
     expect(rulesWithoutNames).to.be.eq(0);
   });
+
+  it ("should remove rules with collider mesh in when events and then actions", () => {
+    const colliderMeshRulesJson = migrateProjectRJson(colliderMeshRules)
+    const projectF = r.project(colliderMeshRulesJson);
+    const rules = projectF.getAllDeepChildren(RT.rule);
+
+    let weLen = 0;
+    let taLen = 0;
+
+    for (const rule of rules) {
+      const ruleF = r.record(rule);
+      const whenEvents = ruleF.getRecords(RT.when_event);
+      const thenActions = ruleF.getRecords(RT.then_action);
+
+      weLen += whenEvents.length;
+      taLen += thenActions.length;
+    }
+
+    expect(weLen).to.be.eq(1);
+    expect(taLen).to.be.eq(1);
+  })
 });
