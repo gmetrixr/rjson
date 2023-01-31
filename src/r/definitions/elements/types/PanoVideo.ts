@@ -10,29 +10,26 @@ export const PanoVideo: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.source,
-
     ElementProperty.volume,
     ElementProperty.opacity,
     ElementProperty.pano_pitch_correction,
     ElementProperty.pano_yaw_correction,
-
     ElementProperty.autoplay,
     ElementProperty.loop,
     ElementProperty.muted,
     ElementProperty.hidden,
     ElementProperty.locked,
-
     ElementProperty.stereo,
     ElementProperty.pano_radius,
     ElementProperty.start_time,
+
+    ElementProperty.placer_3d
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
       file_urls: {
         o: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/panoVideo/videopano_default.mp4",
         t: "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/panoVideo/videopano_default_thumbnail.png",
-        // o: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/videopano_default.mp4",
-        // t: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/videopano_default.mp4"
       },
       name: "videopano_default.mp4",
       type: FileType.VIDEO

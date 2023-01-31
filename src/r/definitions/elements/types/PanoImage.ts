@@ -14,15 +14,14 @@ export const PanoImage: IElementDefinition = {
     ElementProperty.hidden,
     ElementProperty.locked,
     ElementProperty.stereo,
-    ElementProperty.pano_radius
+    ElementProperty.pano_radius,
+    ElementProperty.placer_3d
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
       file_urls: {
         o: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
         t: "https://s.vrgmetri.com/image/w_400,q_90/gb-web/r3f-ui/assets/pano/0_grid_02_white.jpg",
-        // o: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/pano_default_1.jpg",
-        // t: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/pano_default_1.jpg"
       },
       name: "grid_02_white.jpg",
       type: FileType.IMAGE
