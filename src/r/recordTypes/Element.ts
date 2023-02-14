@@ -128,6 +128,7 @@ export enum ElementProperty {
   volume_type = "volume_type",
   mouse_jump = "mouse_jump",
   visible = "visible",
+  pose = "pose",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -277,4 +278,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.volume_type]: "cube",
   [ElementProperty.mouse_jump]: true,
   [ElementProperty.visible]: false,
+  [ElementProperty.pose]: "idle"
 }

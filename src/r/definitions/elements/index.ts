@@ -40,6 +40,7 @@ import { ColliderBox } from "./types/ColliderBox";
 import { ColliderMesh } from "./types/ColliderMesh";
 import { WorkspaceLogo } from "./types/WorkspaceLogo";
 import { Screenshare } from "./types/Screenshare";
+import { Character } from "./types/Character";
 import { IElementDefinition } from "./ElementDefinition";
 
 import { 
@@ -97,6 +98,7 @@ export const elementList: IElementDefinition[] = [
   ColliderMesh,
   WorkspaceLogo,
   Screenshare,
+  Character
 ];
 
 /**

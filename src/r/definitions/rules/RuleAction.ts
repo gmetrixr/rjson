@@ -84,6 +84,10 @@ export enum RuleAction {
   // viewer element
   // When image1 is clicked, then Viewer should teleport to zone1
   teleport = "teleport",
+  // character element
+  wave = "wave",
+  clap = "clap",
+  talk = "talk"
 }
 
 export enum ThenActionProperty {
@@ -110,7 +114,8 @@ export enum ThenActionProperty {
   item_id = "item_id",
   old = "old",
   new = "new",
-  var_id = "var_id"
+  var_id = "var_id",
+  duration = "duration",
 }
 
 export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | unknown>> = {
@@ -192,6 +197,9 @@ export const rActionProperties: Record<RuleAction, Array<ThenActionProperty | un
   hide_item: [ThenActionProperty.item_id],
   replace_screen_reader_text: [ThenActionProperty.string_value],
   teleport: [ThenActionProperty.element_id],
+  wave: [],
+  clap: [],
+  talk: [ThenActionProperty.duration],
 };
 
 export const rActionPropertyDefaults: Record<ThenActionProperty, string | number | null> =  {
@@ -219,6 +227,7 @@ export const rActionPropertyDefaults: Record<ThenActionProperty, string | number
   old: "",
   new: "",
   var_id: 0,
+  duration: 0,
 }
 
 export const rActionDisplayName: Record<RuleAction, string> = {
@@ -292,4 +301,7 @@ export const rActionDisplayName: Record<RuleAction, string> = {
   [RuleAction.hide_item]: "hide button",
   [RuleAction.replace_screen_reader_text]: "replace screen reader text",
   [RuleAction.teleport]: "teleport to",
+  [RuleAction.wave]: "wave",
+  [RuleAction.clap]: "clap",
+  [RuleAction.talk]: "talk for x seconds"
 };
