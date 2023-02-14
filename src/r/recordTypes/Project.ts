@@ -71,7 +71,7 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.autotrack_connection]: false,
   [ProjectProperty.auto_add_new_scene_to_menu]: false,
   [ProjectProperty.auto_add_new_scene_to_tour_mode]: true,
-  [ProjectProperty.contact_support_message]: `To contact support, mail [suport@gmetri.com](mailto:support@gmetri.com)`,
+  [ProjectProperty.contact_support_message]: `To contact support, mail [support@gmetri.com](mailto:support@gmetri.com)`,
   [ProjectProperty.custom_script]: "",
   [ProjectProperty.description]: "",
   [ProjectProperty.enable_gyro]: true,
