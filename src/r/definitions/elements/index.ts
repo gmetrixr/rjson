@@ -52,8 +52,8 @@ export {
   isElementType, sourcePropertyNames, elementsWithLinkedVariables, BasicElement 
 };
 
-import { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID, VolumeTypes } from "./ElementTypes";
-export { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID, VolumeTypes };
+import { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID, VolumeTypes, CharacterPoseTypes } from "./ElementTypes";
+export { lightType, BillboardingTypes, SHOPPING_ITEM_ELEMENT_ID, VolumeTypes, CharacterPoseTypes };
 
 export const elementList: IElementDefinition[] = [
   ActionBar,
