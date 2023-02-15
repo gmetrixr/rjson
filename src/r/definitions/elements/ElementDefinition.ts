@@ -179,6 +179,7 @@ export const elementTypeByCategory: Record<ElementCategory, ElementType[]> = {
     ElementType.collider_volume,
     ElementType.collider_mesh,
     ElementType.screenshare,
+    ElementType.character,
   ],
   spatial: [
     ElementType.ar,
