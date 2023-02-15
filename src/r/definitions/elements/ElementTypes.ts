@@ -31,3 +31,10 @@ export enum VolumeTypes {
   torus = "torus",
   polygon = "polygon"
 }
+
+export enum CharacterPoseTypes {
+  idle = "idle",
+  a_pose = "a_pose",
+  t_pose = "t_pose",
+  i_pose = "i_pose"
+}
