@@ -37,11 +37,11 @@ class Migration implements IOrder {
         //For each item in map, ensure the id matches that of map key, and type is the same is subRecordType
         for(const [key, value] of Object.entries(map)) {
           if(value.id !== Number(key)) {
-            console.log(`Record id ${key} has a different id in its value. Overwriting the internal id ${value.id} with ${key}`);
+            console.log(`Record id ${key} has a different record.id in its value. Overwriting the internal id ${value.id} with ${key}`);
             value.id = Number(key)
           }
           if(value.type !== subRecordType) {
-            console.log(`Record id ${key} has a different record.type. Overwriting the internal type ${value.type} with ${subRecordType}`);
+            console.log(`Record id ${key} has a different record.type in its value. Overwriting the internal type ${value.type} with ${subRecordType}`);
             value.type = subRecordType;
           }
         }
