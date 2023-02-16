@@ -35,6 +35,9 @@ export const migrateProjectRJson = (projectJson: any, uptoVersion?: number): Rec
   return rProjectJson;
 }
 
+/**
+ * Migrations to be run only on a new project (once)
+ */
 export const migrationsForNewProject = (projectJson: any): RecordNode<RT.project> => {
   const rProjectJson = projectJson as RecordNode<RT.project>;
   for(const key of newProjectMigrationVersions) {
@@ -42,6 +45,15 @@ export const migrationsForNewProject = (projectJson: any): RecordNode<RT.project
   }
   return rProjectJson;
 }
+
+/**
+ * Healthcheck migrations that are supposed to be run many times, ideally on the server
+ * WIP
+ */
+export const runHealthCheckMigrations = (projectJson: RecordNode<RT.project>): RecordNode<RT.project> => {
+
+  return projectJson;
+} 
 
 export const createNewProject = (): RecordNode<RT.project> => {
   const project = R.createRecord(RT.project);
