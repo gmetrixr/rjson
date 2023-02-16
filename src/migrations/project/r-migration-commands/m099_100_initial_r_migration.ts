@@ -24,7 +24,8 @@ const migrateProject = (tProject: any): RecordNode<RT.project> => {
 
   if(tProject.pp !== undefined){
     if(tProject.pp?.scenes_order !== undefined) {
-      for(const sceneId of tProject.pp?.scenes_order) {
+      const scenes_order = tProject.pp?.scenes_order;
+      for(const sceneId of scenes_order) {
         const tScene = tProject?.scenes[sceneId];
         if(tScene !== undefined) {
           const scene: RecordNode<RT.scene> = migrateScene(tScene);
@@ -35,7 +36,8 @@ const migrateProject = (tProject: any): RecordNode<RT.project> => {
     }
   
     if(tProject.pp?.vars_order !== undefined) {
-      for(const varId of tProject?.pp?.vars_order) {
+      const vars_order = tProject?.pp?.vars_order;
+      for(const varId of vars_order) {
         const tVar = tProject?.vars[varId];
         if(tVar !== undefined) {
           const varJson: RecordNode<RT.variable> = migrateVar(tVar);
@@ -46,7 +48,8 @@ const migrateProject = (tProject: any): RecordNode<RT.project> => {
     }
   
     if(tProject.pp?.menu_structure !== undefined) {
-      for(const tMenu of tProject?.pp?.menu_structure) {
+      const menu_structure = tProject?.pp?.menu_structure
+      for(const tMenu of menu_structure) {
         const menu: RecordNode<RT.menu> = migrateMenu(tMenu);
         projectF.addRecord(menu);
       }
@@ -64,7 +67,8 @@ const migrateProject = (tProject: any): RecordNode<RT.project> => {
       projectF.set(rtp.project.lead_gen_tos, tProject.pp.lead_gen_fields?.termsOfServiceLink);
     }
     if(tProject.pp.lead_gen_fields?.order !== undefined) {
-      for(const leadGenFieldId of tProject?.pp?.lead_gen_fields?.order) {
+      const order = tProject?.pp?.lead_gen_fields?.order
+      for(const leadGenFieldId of order) {
         const tLeadGenField = tProject.pp.lead_gen_fields.map[leadGenFieldId];
         const leadGenField: RecordNode<RT.lead_gen_field> = migrateLeadGenField(tLeadGenField);
         projectF.addRecord(leadGenField);
