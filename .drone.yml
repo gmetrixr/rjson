@@ -8,7 +8,7 @@ workspace:
 
 steps:
 - name: install-dependencies
-  image: gmetrixr/baseimage:node-16-dev-v1
+  image: gmetrixr/baseimage:node-18-dev-v1
   commands:
 # Substitution: parameter//substring/replacemenet. So "// \/ / -" means replace / with -
   - echo "The image tag is ${DRONE_BRANCH//\//-}-${DRONE_COMMIT_SHA:0:8}"
@@ -16,7 +16,7 @@ steps:
   - pnpm install
 
 - name: lint-and-build
-  image: gmetrixr/baseimage:node-16-dev-v1
+  image: gmetrixr/baseimage:node-18-dev-v1
   commands:
   - pnpm lint
   - pnpm check
@@ -25,7 +25,7 @@ steps:
 
 #Commits all modified files. npm publish doesn't work with unstaged changes
 - name: npm-prepare-main
-  image: gmetrixr/baseimage:node-16-dev-v1
+  image: gmetrixr/baseimage:node-18-dev-v1
   when:
     branch: [main]
     event:
@@ -45,7 +45,7 @@ steps:
   - git push --tags origin ${DRONE_BRANCH}
 
 - name: npm-publish-main
-  image: gmetrixr/baseimage:node-16-dev-v1
+  image: gmetrixr/baseimage:node-18-dev-v1
   when:
     branch: [ main ]
     event:
@@ -56,24 +56,7 @@ steps:
   commands:
     - npm set registry https://registry.npmjs.org/
     - npm set //registry.npmjs.org/:_authToken $REGISTRY_TOKEN
-    - npm config set always-auth true
     - npm publish
-
-# - name: on-conflict-main
-#   image: gmetrixr/baseimage:node-16-dev-v1
-#   when:
-#     branch: [main]
-#     status: [failure]
-#     event:
-#       exclude: [pull_request]
-#   commands:
-#   - git push origin ${DRONE_BRANCH}
-#   - git merge origin/${DRONE_BRANCH}
-#   - export N=`node -p require\(\'./package.json\'\).name` && echo $N
-#   - pnpm version patch --no-git-tag-version
-#   - "git commit -am \"trigger: $N [no skip]\""
-#   - git push origin ${DRONE_BRANCH}
-#   - git push --tags origin ${DRONE_BRANCH}
 
 trigger:
   branch: [main]
