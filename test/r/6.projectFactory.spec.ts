@@ -1,4 +1,5 @@
 import { en, fn, r, R, RecordNode, RT, rtp, sn, pn } from "../../src/r";
+import { migrations } from "../../src/migrations";
 import { expect } from "chai";
 import oneSceneWithGroup from "./jsons/oneSceneWithGroup.json";
 import simpleSceneWithPano from "./jsons/simpleSceneWithPano.json";
@@ -11,13 +12,13 @@ import sceneContainingScorm from "./jsons/r3fJsons/clipboardEntries/sceneContain
 import scormElementsInsideGroup from "./jsons/r3fJsons/clipboardEntries/scormElementsInsideGroup.json";
 import twoScenesWithScorm from "./jsons/twoScenesWithScorm.json";
 import twoScenesWithProductCard from "./jsons/twoScenesWithProductCard.json";
-import { createNewProject, migrateProjectRJson } from "../../src/migrations/index";
 import { ElementType } from "../../src/r/definitions/elements";
 import unnamedRules from "./jsons/unnamedRulesProject.json";
 import thumbnailJson from "./jsons/thumbnail.json";
 import br from "./jsons/br.json";
 import { jsUtils } from "@gmetrixr/gdash";
 
+const { createNewProject, migrateProjectRJson } = migrations;
 describe("r ProjectFactory tests", () => {
   /** 
    * Current JSON => Scene => { PanoImage, Group => { ImageFlat } }

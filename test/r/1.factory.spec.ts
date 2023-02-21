@@ -1,5 +1,5 @@
 import { createRecord, en, r, R, RecordNode, RT, rtp } from "../../src/r";
-import { migrateProjectRJson, createNewProject } from "../../src/migrations/index";
+import { migrations } from "../../src/migrations";
 import { expect } from "chai";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import project_variable_template from "./jsons/project_variable_template.json";
@@ -22,6 +22,7 @@ import { ElementType } from "../../src/r/definitions/elements";
 import copyPasteElementSampleJson from "./jsons/copyPasteElementSampleJson.json";
 import identicalScenesJson from "./jsons/identicalScenes.json";
 
+const { migrateProjectRJson, createNewProject } = migrations;
 const reprentingClone = jsUtils.deepClone(project_reparenting);
 const { deepClone } = jsUtils;
 

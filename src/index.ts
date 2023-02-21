@@ -1,50 +1,15 @@
-import { 
-  migrateProjectRJson, createNewProject, getHighestProjectVersion,
-  migrateDeployment, createNewDeployment, getHighestDeploymentVersion,
-  runHealthCheckMigrations, confirmNoCorruption,
-  gv
-} from "./migrations";
-
+import { migrations, gv } from "./migrations";
+import { FileType, Source } from "./r/definitions/files";
 import {
   R, r, RF, rUtils,
   RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM,
-  en, sn, vn, rn, pn, fn, CogObjectType, getFactory
+  en, sn, vn, rn, pn, fn, CogObjectType, getFactory,
 } from "./r";
 
-import { FileType, Source } from "./r/definitions/files";
-
+export { migrations, gv }
+export { FileType, Source };
 export {
   R, r, RF, rUtils,
-  RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM, getFactory,
-  en, sn, vn, rn, pn, fn, CogObjectType,
+  RecordNode, ROM, RecordMap, RT, RTP, rtp, createRecord, emptyROM,
+  en, sn, vn, rn, pn, fn, CogObjectType, getFactory,
 };
-
-/**
- * pn: Project Namespace
- * sn: Scene Namespace
- * rn: Rule Namespace
- * en: Element Namespace
- * vn: Variable Namespace
- * shn: Shopping Namespace
- * spn: Special Element Namespace
- */
-// export {pn, sn, rn, en, vn, tn, shn, spn};
-
-/**
- * rpn: Rule Print Namespace
- */
-// export {rpn};
-
-export {
-  migrateProjectRJson,
-  createNewProject,
-  getHighestProjectVersion,
-  migrateDeployment,
-  createNewDeployment,
-  getHighestDeploymentVersion,
-  runHealthCheckMigrations, 
-  confirmNoCorruption,
-  gv,
-};
-
-export { FileType, Source };

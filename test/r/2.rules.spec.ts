@@ -1,12 +1,13 @@
-import { r, rn, RT, rUtils } from "../../src/r";
+import { r, rn, RT } from "../../src/r";
+import { migrations } from "../../src/migrations";
 import { expect } from "chai";
 import { rulePrintUtils } from "../../src/r/definitions/rules";
 import projectSafehands from "./jsons/r3fJsons/projectsMigrated/project_safehands.json";
 import projectDealerxr from "./jsons/r3fJsons/projectsMigrated/project_dealerxr.json";
 import unnamedRulesProject from "./jsons/unnamedRulesProject.json";
 import colliderMeshRules from "./jsons/colliderMeshRules.json";
-import { migrateProjectRJson } from "../../src/migrations/index";
 
+const { migrateProjectRJson } = migrations;
 const { rEventProperties, WhenEventProperty, rEventPropertyDefaults, ThenActionProperty, rActionPropertyDefaults } = rn;
 
 
