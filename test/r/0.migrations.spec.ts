@@ -37,9 +37,11 @@ import torus_json             from "./jsons/r3fJsons/elements/torus.json";
 import videoFlat_json         from "./jsons/r3fJsons/elements/videoFlat.json";
 import { VarCategory } from "../../src/r/definitions/variables";
 
+const { migrateProjectRJson, createNewProject, migrateDeployment, runHealthCheckMigrations, confirmNoCorruption} = migrations;
+
 describe("r Migrations", () => {
   xit("should test r migration", () => {
-    const r100 = migrations.migrateProjectRJson(safehands_r0, 100);
+    const r100 = migrateProjectRJson(safehands_r0, 100);
     // const r101 = migrateProjectRJson(safehands_r0, 101);
     // const r107 = migrateProjectRJson(accenture_r0);
     // const emptyProject = migrateProjectRJson({});
@@ -87,7 +89,7 @@ describe("r Migrations", () => {
   });
 
   it("should test migrations on a new project", () => {
-    const newProject = migrations.createNewProject();
+    const newProject = createNewProject();
     const projectF = r.project(newProject);
     const initialSceneId = projectF.getInitialSceneId();
     // 100111 is the default id injected when migrating from a t -> r project json
@@ -101,7 +103,7 @@ describe("r Migrations", () => {
   });
 
   it("should test new migrations on vars and templates", () => {
-    const newProject = migrations.migrateProjectRJson(platformVarMigrationJson);
+    const newProject = migrateProjectRJson(platformVarMigrationJson);
     const projectF = r.project(newProject);
     const deviceVar = projectF.getRecord(RT.variable, -9);
     expect(deviceVar?.props.var_category).to.eq(VarCategory.predefined);
@@ -131,12 +133,12 @@ describe("r Migrations", () => {
       room_instance_member_limit: 20
     }
     
-    const newDeploymentJson = migrations.migrateDeployment(deploymentSettings);
+    const newDeploymentJson = migrateDeployment(deploymentSettings);
     expect(newDeploymentJson.props.deployment_version).to.not.be.eq(undefined);
   })
 
   it ("should test migration to add default volume type to collider box element", () => {
-    const project = migrations.migrateProjectRJson(colliderBoxJson);
+    const project = migrateProjectRJson(colliderBoxJson);
     const projectF = r.project(project);
 
     const allColliderBoxElements = projectF.getAllDeepChildrenWithFilter(RT.element, el => el.props.element_type === en.ElementType.collider_volume);
@@ -149,10 +151,10 @@ describe("r Migrations", () => {
   })
 
   it ("should test if json corruption issue get resolved", () => {
-    expect(migrations.confirmNoCorruption(projectJsonCorruptionTest)).to.be.false;
+    expect(confirmNoCorruption(projectJsonCorruptionTest)).to.be.false;
 
-    const {projectJson: fixedProject, corrections} = migrations.runHealthCheckMigrations(projectJsonCorruptionTest);
+    const {projectJson: fixedProject, corrections} = runHealthCheckMigrations(projectJsonCorruptionTest);
     console.log(corrections);
-    expect(migrations.confirmNoCorruption(fixedProject)).to.be.true;
+    expect(confirmNoCorruption(fixedProject)).to.be.true;
   })
 });
