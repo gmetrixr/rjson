@@ -14,4 +14,3 @@ Here’s the type diagram: https://drive.google.com/file/d/1f2eZQ3uCiKk_EBnxughX
 To create a new npmjs package the first need, need to run the following manually (after `p build`):
 `npm publish --access public`
 
- 
