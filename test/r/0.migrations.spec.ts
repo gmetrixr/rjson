@@ -1,5 +1,6 @@
 import { expect } from "chai";
-import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject, migrateDeployment, createNewDeployment, rtp} from "../../src";
+import {r, migrateProjectRJson, rUtils, en, RT, RecordNode, createNewProject, migrateDeployment, 
+  createNewDeployment, rtp, runHealthCheckMigrations, confirmNoCorruption} from "../../src";
 import { migrateElement } from "../../src/migrations/project/r-migration-commands/m099_100_initial_r_migration";
 import fs from "fs";
 import safehands_r0 from "./jsons/safehands.r0.json";
@@ -7,7 +8,7 @@ import safehands_r100 from "./jsons/safehands.r100.json";
 import safehands_r101 from "./jsons/safehands.r101.json";
 import platformVarMigrationJson from "./jsons/platform_var_migration.json";
 import colliderBoxJson from "./jsons/scenesWithColliderBoxElements.json";
-import { rMigrationTree } from "./../../src/migrations/project/rMigrations";
+import projectJsonCorruptionTest from "./jsons/project_json_corruption_test.json";
 
 import actionbar_json         from "./jsons/r3fJsons/elements/actionbar.json";
 import ar_json                from "./jsons/r3fJsons/elements/ar.json";
@@ -146,5 +147,12 @@ describe("r Migrations", () => {
       const elementF = r.element(el);
       expect(elementF.get(rtp.element.volume_type)).to.be.eq(en.VolumeTypes.cube);
     }
+  })
+
+  it ("should test if json corruption issue get resolved", () => {
+    expect(confirmNoCorruption(projectJsonCorruptionTest)).to.be.false;
+
+    const fixedProject = runHealthCheckMigrations(projectJsonCorruptionTest);
+    expect(confirmNoCorruption(fixedProject)).to.be.true;
   })
 });

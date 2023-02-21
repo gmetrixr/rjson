@@ -1,6 +1,7 @@
 import { 
   migrateProjectRJson, createNewProject, getHighestProjectVersion,
   migrateDeployment, createNewDeployment, getHighestDeploymentVersion,
+  runHealthCheckMigrations, confirmNoCorruption,
   gv
 } from "./migrations";
 
@@ -41,6 +42,8 @@ export {
   migrateDeployment,
   createNewDeployment,
   getHighestDeploymentVersion,
+  runHealthCheckMigrations, 
+  confirmNoCorruption,
   gv,
 };
 

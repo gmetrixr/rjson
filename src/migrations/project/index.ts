@@ -1,4 +1,4 @@
-import { getHighestProjectVersion, newProjectMigrationTree, rMigrationTree } from "./rMigrations";
+import { getHighestProjectVersion, newProjectMigrationTree, rMigrationTree, healthCheckMigrations, confirmNoCorruption } from "./migrationLists";
 import initialRMigration from "./r-migration-commands/m099_100_initial_r_migration";
 import { RT } from "../../r/R/RecordTypes";
 import { RecordNode } from "../../r/R/RecordNode";
@@ -6,6 +6,7 @@ import { r, R, rtp } from "../../r";
 
 const rMigrationVersions: number[] = Object.keys(rMigrationTree).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
 const newProjectMigrationVersions: number[] = Object.keys(newProjectMigrationTree).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
+const healthCheckMigrationVersions: number[] = Object.keys(healthCheckMigrations).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
 
 /**
  * Applies migrations for "r" type and returns a new project reference
@@ -51,8 +52,11 @@ export const migrationsForNewProject = (projectJson: any): RecordNode<RT.project
  * WIP
  */
 export const runHealthCheckMigrations = (projectJson: RecordNode<RT.project>): RecordNode<RT.project> => {
-
-  return projectJson;
+  const rProjectJson = projectJson as RecordNode<RT.project>;
+  for(const key of healthCheckMigrationVersions) {
+    healthCheckMigrations[key].execute(rProjectJson);
+  }
+  return rProjectJson;
 } 
 
 export const createNewProject = (): RecordNode<RT.project> => {
@@ -65,4 +69,4 @@ export const createNewProject = (): RecordNode<RT.project> => {
   return project;
 }
 
-export { getHighestProjectVersion };
+export { getHighestProjectVersion, confirmNoCorruption };
