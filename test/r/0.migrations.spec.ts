@@ -152,7 +152,8 @@ describe("r Migrations", () => {
   it ("should test if json corruption issue get resolved", () => {
     expect(confirmNoCorruption(projectJsonCorruptionTest)).to.be.false;
 
-    const fixedProject = runHealthCheckMigrations(projectJsonCorruptionTest);
+    const {projectJson: fixedProject, corrections} = runHealthCheckMigrations(projectJsonCorruptionTest);
+    console.log(corrections);
     expect(confirmNoCorruption(fixedProject)).to.be.true;
   })
 });

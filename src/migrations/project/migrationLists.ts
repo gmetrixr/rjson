@@ -53,7 +53,7 @@ import m147_148 from "./r-migration-commands/m147_148_remove_collider_mesh_rules
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
 
-import { fix_record_ids, confirmNoCorruption } from "./healthcheck-migration-commands/fix_record_ids";
+import { healthCheckMigration, confirmNoCorruption } from "./healthcheck-migration-commands/fix_record_ids";
 
 export const rMigrationTree: {[key: number]: IOrder} = {
   [99]: m099_100,
@@ -117,8 +117,4 @@ export const newProjectMigrationTree: {[key: number]: IOrder} = {
   [2]: create_predefined_vars,
 };
 
-export const healthCheckMigrations: {[key: number]: IOrder} = {
-  [1]: fix_record_ids,
-}
-
-export {confirmNoCorruption};
+export {healthCheckMigration, confirmNoCorruption};

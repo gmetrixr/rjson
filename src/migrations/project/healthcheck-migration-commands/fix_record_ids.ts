@@ -1,6 +1,6 @@
 import { RecordNode, r, RT } from "../../../r";
-import { IOrder } from "../../IOrder";
 import { symmetricDifference } from "ramda";
+
 /**
  * WIP
  * Migration to check and fix record integrity
@@ -26,13 +26,19 @@ import { symmetricDifference } from "ramda";
  *    }
  * }
  */
-class Migration implements IOrder {
-  execute(projectJson: unknown) {
+class HealthcheckMigration {
+  execute(projectJson: unknown): {corrections: string[]} {
     const pJson = projectJson as RecordNode<RT.project>;
-    this.fixRecord(pJson);
+    const corrections: string[] = [];
+    this.fixRecord(pJson, corrections);
+    // for(const correction of corrections) {
+    //   console.log(correction);
+    // }
+    //Note: The refernce of pJson and projectJson are the same. This function mutates the orginal input.
+    return {corrections};
   }
 
-  fixRecord(json: RecordNode<RT>) {
+  fixRecord(json: RecordNode<RT>, corrections: string[]) {
     const rf = r.record(json);
     const subRecordTypes = rf.getROMTypes();
     for(const subRecordType of subRecordTypes) {
@@ -48,7 +54,7 @@ class Migration implements IOrder {
         //Add items not in order but present in map
         for(const id of idsInMap) {
           if(!newOrder.includes(id)) {
-            console.log(`id ${id} present in map but not in order. Adding.`);
+            corrections.push(`id ${id} present in map but not in order. Adding ${id} to order array.`);
             newOrder.push(id);
           }
         }
@@ -60,11 +66,11 @@ class Migration implements IOrder {
         //For each item in map, ensure the id matches that of map key, and type is the same is subRecordType
         for(const [key, value] of Object.entries(map)) {
           if(value.id !== Number(key)) {
-            console.log(`Record id ${key} has a different record.id in its value. Overwriting the internal id ${value.id} with ${key}`);
+            corrections.push(`Record id ${key} has a different record.id in its value. Overwriting the internal id ${value.id} with ${key}`);
             value.id = Number(key)
           }
           if(value.type !== subRecordType) {
-            console.log(`Record id ${key} has a different record.type in its value. Overwriting the internal type ${value.type} with ${subRecordType}`);
+            corrections.push(`Record id ${key} has a different record.type in its value. Overwriting the internal type ${value.type} with ${subRecordType}`);
             value.type = subRecordType;
           }
         }
@@ -72,13 +78,13 @@ class Migration implements IOrder {
 
       const records = rf.getRecords(subRecordType);
       for(const record of records) {
-        this.fixRecord(record);
+        this.fixRecord(record, corrections);
       }
     }
   }
 }
 
-const fix_record_ids = new Migration();
+const healthCheckMigration = new HealthcheckMigration();
 
 const confirmNoCorruption = (json: RecordNode<RT>): boolean => {
   const rf = r.record(json);
@@ -128,4 +134,4 @@ const confirmNoCorruption = (json: RecordNode<RT>): boolean => {
   return true;
 }
 
-export { fix_record_ids, confirmNoCorruption };
+export { healthCheckMigration, confirmNoCorruption };
