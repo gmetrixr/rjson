@@ -12,7 +12,8 @@ export enum InitialGraphicsSetting {
 export enum AvatarSystem {
   basic = "basic",
   basic_custom = "basic_custom",
-  basic_rpm = "basic_rpm"
+  basic_rpm = "basic_rpm",
+  none = "none"
 }
 
 export enum AvatarBodyType {
