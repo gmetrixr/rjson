@@ -30,7 +30,7 @@ export const deploymentPropertyDefaults:  Record<DeploymentProperty, unknown> = 
   [DeploymentProperty.multiplayer_screenshare_enabled]: true,
   [DeploymentProperty.multiplayer_comments_enabled]: false,
   [DeploymentProperty.enable_room_instance]: false,
-  [DeploymentProperty.room_instance_count]: 5,
-  [DeploymentProperty.room_instance_member_limit]: 30,
+  [DeploymentProperty.room_instance_count]: 1,
+  [DeploymentProperty.room_instance_member_limit]: 6,
   [DeploymentProperty.room_instance_overspill_message]: "Looks like all rooms are full. Check back again after some time. You can still explore this space.",
 };
