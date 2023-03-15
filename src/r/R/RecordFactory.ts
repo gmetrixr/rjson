@@ -1,8 +1,9 @@
 import { RecordNode, ROM, RecordMap, createRecord, ClipboardR } from "./RecordNode";
 import { RT, RTP, recordTypeDefinitions, isRecordType, rtp, isTypeChildOf, isTypeSubChildOf } from "./RecordTypes";
-import { jsUtils } from "@gmetrixr/gdash";
+import { jsUtils, stringUtils } from "@gmetrixr/gdash";
 
-const { getSafeName, mapValuesToOrder, deepClone, generateId } = jsUtils;
+const { mapValuesToOrder, deepClone, generateId } = jsUtils;
+const { getSafeAndUniqueRecordName } = stringUtils;
 
 /**
  * A convenient Factory class to maninpulate a RecordNode object of any type
@@ -147,7 +148,7 @@ export class RecordFactory<T extends RT> {
       .filter(name => name !== undefined); //remove undefined names
 
     if (existingNames.includes(newName)) {
-      record.name = getSafeName(newName, existingNames);
+      record.name = getSafeAndUniqueRecordName(newName, existingNames);
     } else {
       record.name = newName;
     }
@@ -217,7 +218,7 @@ export class RecordFactory<T extends RT> {
         //If this name is already used, overwite the name with a new one
         const potentialName = record.name ?? defaultName;
         if (existingNames.includes(potentialName)) {
-          record.name = getSafeName(potentialName, existingNames);
+          record.name = getSafeAndUniqueRecordName(potentialName, existingNames);
         }
       }
 
