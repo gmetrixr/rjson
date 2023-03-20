@@ -35,19 +35,24 @@ class Migration implements IOrder {
         switch(fileType) {
           case FileType.IMAGE: {
             item.props.item_source_type = "image";
+            break;
           }
           case FileType.VIDEO: {
             item.props.item_source_type = "video";
+            break;
           }
           case FileType.AUDIO: {
             item.props.item_source_type = "audio";
+            break;
           }
           case FileType.THREED:
           case FileType.COMPRESSED: {
             item.props.item_source_type = "3d_model";
+            break;
           }
           case FileType.PDF: {
             item.props.item_source_type = "pdf";
+            break;
           }
         }
       }
