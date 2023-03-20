@@ -129,6 +129,7 @@ export enum ElementProperty {
   mouse_jump = "mouse_jump",
   visible = "visible",
   pose = "pose",
+  use_proximity_optimization = "use_proximity_optimization",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -278,5 +279,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.volume_type]: "cube",
   [ElementProperty.mouse_jump]: true,
   [ElementProperty.visible]: false,
-  [ElementProperty.pose]: "idle"
+  [ElementProperty.pose]: "idle",
+  [ElementProperty.use_proximity_optimization]: false
 }
