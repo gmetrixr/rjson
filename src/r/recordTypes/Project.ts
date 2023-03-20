@@ -53,7 +53,9 @@ export enum ProjectProperty {
   initial_graphics_setting = "initial_graphics_setting",
   avatar_system = "avatar_system",
   avatar_system_body_type = "avatar_system_body_type",
-  "viewer_camera_mode" = "viewer_camera_mode"
+  "viewer_camera_mode" = "viewer_camera_mode",
+  "enable_proximity_optimization" = "enable_proximity_optimization",
+  "proximity_radius" = "proximity_radius"
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -117,4 +119,6 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.avatar_system_body_type]: AvatarBodyType.fullbody,
   [ProjectProperty.avatar_system]: AvatarSystem.basic,
   [ProjectProperty.viewer_camera_mode]: ViewerCameraMode.first_person,
+  [ProjectProperty.enable_proximity_optimization]: false,
+  [ProjectProperty.proximity_radius]: 0,
 };
