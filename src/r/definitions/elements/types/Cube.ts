@@ -17,7 +17,8 @@ export const Cube: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.whd,
     ElementProperty.scale,
-    ElementProperty.animation
+    ElementProperty.animation,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#9FFF8A"

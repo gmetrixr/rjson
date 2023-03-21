@@ -22,6 +22,7 @@ export const Hotspot: IElementDefinition = {
     ElementProperty.variant,
     ElementProperty.color,
     ElementProperty.billboarding,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#0083EE",

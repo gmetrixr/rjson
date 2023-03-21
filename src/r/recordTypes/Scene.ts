@@ -26,7 +26,9 @@ export enum SceneProperty {
   scene_bounds = "scene_bounds",
   scene_enable_collisions = "scene_enable_collisions",
   scene_viewer_height = "scene_viewer_height",
-  scene_env_map_custom_source = "scene_env_map_custom_source"
+  scene_env_map_custom_source = "scene_env_map_custom_source",
+  "enable_proximity_optimization" = "enable_proximity_optimization",
+  "proximity_radius" = "proximity_radius"
 }
 
 export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
@@ -50,5 +52,7 @@ export const scenePropertyDefaults: Record<SceneProperty, unknown> = {
   [SceneProperty.scene_bounds]: [-15, 4.5, 0, 5, -4.5, 15],
   [SceneProperty.scene_enable_collisions]: true,
   [SceneProperty.scene_viewer_height]: 1.6,// approx 5'3" avg adult height. Also default height used by Oculus Quest
-  [SceneProperty.scene_env_map_custom_source]: undefined
+  [SceneProperty.scene_env_map_custom_source]: undefined,
+  [SceneProperty.enable_proximity_optimization]: false,
+  [SceneProperty.proximity_radius]: 8,// 8M
 };

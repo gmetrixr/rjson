@@ -14,6 +14,7 @@ export const Character: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.scale,
     ElementProperty.pose,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
