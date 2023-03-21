@@ -22,6 +22,7 @@ export const Object3d: IElementDefinition = {
     ElementProperty.pivot_point,
     ElementProperty.preload,
     ElementProperty.env_map_intensity,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {

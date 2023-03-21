@@ -20,6 +20,7 @@ export const Gif: IElementDefinition = {
     ElementProperty.scale,
     ElementProperty.animation,
     ElementProperty.billboarding,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {

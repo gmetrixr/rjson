@@ -14,6 +14,7 @@ export const Screenshare: IElementDefinition = {
     ElementProperty.wh,
     ElementProperty.scale,
     ElementProperty.billboarding,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.opacity]: 1,

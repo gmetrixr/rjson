@@ -20,6 +20,7 @@ export const Icon: IElementDefinition = {
     ElementProperty.scale,
     ElementProperty.animation,
     ElementProperty.billboarding,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.icon_name]: "blush",

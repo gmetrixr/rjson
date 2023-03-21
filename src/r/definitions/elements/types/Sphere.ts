@@ -18,7 +18,8 @@ export const Sphere: IElementDefinition = {
     ElementProperty.radius,
     ElementProperty.arc,
     ElementProperty.scale,
-    ElementProperty.animation
+    ElementProperty.animation,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: { 
     [ElementProperty.color]: "#9AF4FF"

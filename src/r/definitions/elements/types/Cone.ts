@@ -19,7 +19,8 @@ export const Cone: IElementDefinition = {
     ElementProperty.arc,
     ElementProperty.height,
     ElementProperty.scale,
-    ElementProperty.animation
+    ElementProperty.animation,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#A895E0"
