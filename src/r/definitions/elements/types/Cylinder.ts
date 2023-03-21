@@ -19,7 +19,8 @@ export const Cylinder: IElementDefinition = {
     ElementProperty.arc,
     ElementProperty.height,
     ElementProperty.scale,
-    ElementProperty.animation
+    ElementProperty.animation,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#87BEE1"

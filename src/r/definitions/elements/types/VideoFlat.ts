@@ -25,6 +25,7 @@ export const VideoFlat: IElementDefinition = {
     ElementProperty.animation,
     ElementProperty.billboarding,
     ElementProperty.start_time,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {

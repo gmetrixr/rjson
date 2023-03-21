@@ -34,6 +34,7 @@ export const Text: IElementDefinition = {
     ElementProperty.vertical_alignment,
     ElementProperty.horizontal_alignment,
     ElementProperty.text_version,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.text]: "welcome to the metaverse",

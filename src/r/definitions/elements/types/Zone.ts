@@ -14,6 +14,7 @@ export const Zone: IElementDefinition = {
     ElementProperty.placer_3d,
     ElementProperty.radius,
     ElementProperty.height,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     // So that the element can be placed on top of the floor in an environment

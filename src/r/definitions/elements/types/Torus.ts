@@ -19,7 +19,8 @@ export const Torus: IElementDefinition = {
     ElementProperty.inner_radius,
     ElementProperty.arc,
     ElementProperty.scale,
-    ElementProperty.animation
+    ElementProperty.animation,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: { 
     [ElementProperty.color]: "#F9F98A"

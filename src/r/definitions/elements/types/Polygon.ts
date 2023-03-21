@@ -19,6 +19,7 @@ export const Polygon: IElementDefinition = {
     ElementProperty.scale,
     ElementProperty.animation,
     ElementProperty.billboarding,
+    ElementProperty.use_proximity_optimization,
   ],
   defaultOverrides: {
     [ElementProperty.color]: "#FFC1A3"
