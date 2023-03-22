@@ -54,6 +54,7 @@ export enum ProjectProperty {
   avatar_system = "avatar_system",
   avatar_system_body_type = "avatar_system_body_type",
   "viewer_camera_mode" = "viewer_camera_mode",
+  "use_legacy_color_management" = "use_legacy_color_management"
 }
 
 //https://s.vrgmetri.com/gb-web/common/images/blackPixel-000000-1.png
@@ -117,4 +118,5 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.avatar_system_body_type]: AvatarBodyType.fullbody,
   [ProjectProperty.avatar_system]: AvatarSystem.basic,
   [ProjectProperty.viewer_camera_mode]: ViewerCameraMode.first_person,
+  [ProjectProperty.use_legacy_color_management]: false,
 };
