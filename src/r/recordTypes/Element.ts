@@ -280,5 +280,5 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.mouse_jump]: true,
   [ElementProperty.visible]: false,
   [ElementProperty.pose]: "idle",
-  [ElementProperty.use_proximity_optimization]: false
+  [ElementProperty.use_proximity_optimization]: true
 }
