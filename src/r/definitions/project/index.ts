@@ -26,3 +26,8 @@ export enum ViewerCameraMode {
   first_person = "first_person",
   third_person = "third_person"
 }
+
+export enum Language {
+  en = "en",
+  ja = "ja"
+}
