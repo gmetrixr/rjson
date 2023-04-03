@@ -123,5 +123,5 @@ export const projectPropertyDefaults:  Record<ProjectProperty, unknown> = {
   [ProjectProperty.viewer_camera_mode]: ViewerCameraMode.first_person,
   [ProjectProperty.use_legacy_color_management]: false,
   [ProjectProperty.viewer_language]: Language.en,
-  [ProjectProperty.linked_element_id]: 0,
+  [ProjectProperty.linked_element_id]: undefined,
 };
