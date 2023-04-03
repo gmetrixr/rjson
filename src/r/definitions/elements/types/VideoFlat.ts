@@ -26,14 +26,13 @@ export const VideoFlat: IElementDefinition = {
     ElementProperty.billboarding,
     ElementProperty.start_time,
     ElementProperty.use_proximity_optimization,
+    ElementProperty.linked_element_id,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
       file_urls: {
         o: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/video/video_default.mp4",
         t: "https://s.vrgmetri.com/gb-web/r3f-ui/assets/video/video_default_thumbnail.png",
-        // o: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/video_default.mp4",
-        // t: "https://s.vrgmetri.com/gb-web/fv4/common/defaults/video_default.mp4"
       },
       name: "video_default.mp4",
       type: FileType.VIDEO

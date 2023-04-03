@@ -9,6 +9,7 @@ export const Popup: IElementDefinition = {
   properties: [
     ...BasicElement.properties,
     ElementProperty.background_source,
+    ElementProperty.linked_element_id,
   ],
   defaultOverrides: {
     [ElementProperty.hidden]: true 

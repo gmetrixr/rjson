@@ -130,6 +130,7 @@ export enum ElementProperty {
   visible = "visible",
   pose = "pose",
   use_proximity_optimization = "use_proximity_optimization",
+  linked_element_id = "linked_element_id",
 }
 
 export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
@@ -280,5 +281,6 @@ export const elementPropertyDefaults: Record<ElementProperty, unknown> = {
   [ElementProperty.mouse_jump]: true,
   [ElementProperty.visible]: false,
   [ElementProperty.pose]: "idle",
-  [ElementProperty.use_proximity_optimization]: true
+  [ElementProperty.use_proximity_optimization]: true,
+  [ElementProperty.linked_element_id]: undefined
 }

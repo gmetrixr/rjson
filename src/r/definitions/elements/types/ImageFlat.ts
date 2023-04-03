@@ -19,6 +19,7 @@ export const ImageFlat: IElementDefinition = {
     ElementProperty.animation, //"bounce"/"fade"/"rotate"
     ElementProperty.billboarding,
     ElementProperty.use_proximity_optimization,
+    ElementProperty.linked_element_id,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
