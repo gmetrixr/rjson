@@ -106,7 +106,7 @@ export const predefinedVariableDefaults: Record<PredefinedVariableName, Predefin
   [PredefinedVariableName.fullname_var]: {id: -17, type: VariableType.string,
     description: "Stores the viewer's full name if available from the authentication mechanism" },
   [PredefinedVariableName.player_count_var]: {id: -18, type: VariableType.number,
-    description: "Stores the total number of viewer for the deployment. Socket layer will send player count to ui repos and ui repo will update this variable" },
+    description: "Stores the total number of live viewers in the experience" },
 }
 
 /** Note: JS keys get converted to strings in json */
