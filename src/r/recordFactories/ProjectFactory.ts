@@ -21,6 +21,8 @@ import { ShoppingProperty } from "../recordTypes/Shopping";
 import { MenuProperty } from "../recordTypes/Menu";
 import { ElementType } from "../definitions/elements/ElementDefinition";
 import { RuleAction } from "../definitions/rules";
+import { SceneCollisionOptions, SceneType } from "../definitions/special";
+import { sceneEnvironmentOptions } from "../definitions/special/SpecialTypes";
 
 const { deepClone, difference, union, intersection } = jsUtils;
 type variable = RT.variable;
@@ -1241,6 +1243,89 @@ export class ProjectUtils {
           ruleRecord.props.properties = properties;
         }
       }
+    }
+  }
+  static addNewScene(project: RecordNode<RT.project>, sceneType: SceneType) {
+    const projectF = new ProjectFactory(project);
+    const scene = projectF.addBlankRecord(RT.scene);
+    const sceneF = new SceneFactory(scene);
+    sceneF.set(rtp.scene.scene_type, sceneType);
+    const sceneId = sceneF.getId();
+
+    // * Add a default pano
+    projectF.addElementOfTypeToScene({
+      sceneId,
+      elementType: ElementType.pano_image
+    });
+
+    if(sceneType === SceneType.six_dof) {
+      sceneF.set(rtp.scene.scene_collision_type, SceneCollisionOptions.advanced_collision);
+      // * Add a default environment
+      const env = projectF.addElementOfTypeToScene({
+        sceneId,
+        elementType: ElementType.object_3d
+      });
+
+      if(env) {
+        const elementF = new ElementFactory(env);
+        sceneF.changeRecordName(RT.element, elementF.getId(), "Environment");
+        elementF.set(rtp.element.source, sceneEnvironmentOptions[0].source);
+        elementF.set(rtp.element.scale, sceneEnvironmentOptions[0].scale);
+        elementF.set(rtp.element.placer_3d, sceneEnvironmentOptions[0].placer_3d);
+        elementF.set(rtp.element.locked, true);
+        sceneF.set(rtp.scene.scene_bounds, sceneEnvironmentOptions[0].scene_bounds);
+      }
+
+      // * Add a spawn zone
+      const zone = projectF.addElementOfTypeToScene({
+        sceneId,
+        elementType: ElementType.zone
+      });
+      // * Reset the placer 3D for this zone element
+      if(zone) {
+        const elementF = new ElementFactory(zone);
+        const defaultPlacer3D = elementF.getDefault(rtp.element.placer_3d);
+        elementF.set(rtp.element.placer_3d, defaultPlacer3D);
+      }
+
+      const zoneElementId = zone? new ElementFactory(zone).getId(): undefined;
+      const envElementId = env? new ElementFactory(env).getId(): undefined;
+
+      // * Assign the spawn zone to the scene
+      sceneF.set(rtp.scene.scene_spawn_zone_id, zoneElementId);
+      // * Add default light rig
+      ProjectUtils.addDefaultLightRig(project, sceneId, envElementId);
+    } else {
+      // * Add default light rig
+      ProjectUtils.addDefaultLightRig(project, sceneId);
+    }
+  }
+
+  static addDefaultLightRig(project: RecordNode<RT.project>, sceneId: number, envElementId?: number) {
+    const projectF = new ProjectFactory(project);
+    const group = projectF.addElementOfTypeToScene({ sceneId, elementType: en.ElementType.group });
+    const useLegacyColorManagement = projectF.getValueOrDefault(rtp.project.use_legacy_color_management) as boolean;
+    if(group) {
+      group.name = `Lights`;
+      const groupF = new ElementFactory(group);
+      // add light rig to this groups
+      const ambientLight = groupF.addElementOfType(en.ElementType.light);
+      ambientLight.name = "Ambient Light";
+
+      const ambientLightF = new ElementFactory(ambientLight);
+      ambientLightF.set(rtp.element.light_type, en.lightType.ambient);
+      ambientLightF.set(rtp.element.color, "#FFFFFF");
+      ambientLightF.set(rtp.element.intensity, useLegacyColorManagement? 1: 3);
+
+      const directionalLight = groupF.addElementOfType(en.ElementType.light);
+      directionalLight.name = "Directional Light";
+
+      const directionalLightF = new ElementFactory(directionalLight);
+      directionalLightF.set(rtp.element.light_type, en.lightType.directional);
+      directionalLightF.set(rtp.element.color, "#FFFFFF");
+      directionalLightF.set(rtp.element.intensity, useLegacyColorManagement? 0.6: 3);
+      directionalLightF.set(rtp.element.placer_3d, [0, 12, 4, 0, 0, 0, 1, 1, 1]);
+      directionalLightF.set(rtp.element.target_element_id, envElementId);
     }
   }
 }
