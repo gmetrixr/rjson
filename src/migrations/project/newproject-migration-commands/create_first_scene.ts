@@ -1,5 +1,6 @@
-import { RecordNode, r, RT, sn, en } from "../../../r";
+import { RecordNode, RT, sn } from "../../../r";
 import { IOrder } from "../../IOrder";
+import { ProjectUtils } from "../../../r/recordFactories/ProjectFactory";
 
 /**
  * Adds predefined variables to the project json
@@ -7,11 +8,7 @@ import { IOrder } from "../../IOrder";
 class Migration implements IOrder {
   execute(projectJson: unknown) {
     const pJson = projectJson as RecordNode<RT.project>;
-    const projectF = r.project(pJson);
-
-    const scene = projectF.addBlankRecord(RT.scene);
-    scene.props.scene_type = sn.SceneType.first_person;
-    projectF.addElementOfTypeToScene({ sceneId: scene.id, elementType: en.ElementType.pano_image });
+    ProjectUtils.addNewScene(pJson, sn.SceneType.six_dof);
   }
 }
 
