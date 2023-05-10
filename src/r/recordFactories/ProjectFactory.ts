@@ -1158,7 +1158,7 @@ export class ProjectUtils {
       this.accentColorsDict[accentColor.toLowerCase()] :
       flatten(Object.values(this.accentColorsDict));
 
-    if (accentColor && !searchString) {
+    if (accentColor && idsForAccentColor && !searchString) {
       return uniq(idsForAccentColor);
     }
 
