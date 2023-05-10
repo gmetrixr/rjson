@@ -17,6 +17,7 @@ import unnamedRules from "./jsons/unnamedRulesProject.json";
 import thumbnailJson from "./jsons/thumbnail.json";
 import br from "./jsons/br.json";
 import { jsUtils } from "@gmetrixr/gdash";
+import { predefinedVariableDefaults, PredefinedVariableName } from "../../src/r/definitions/variables";
 
 const { createNewProject, migrateProjectRJson } = migrations;
 describe("r ProjectFactory tests", () => {
@@ -473,5 +474,18 @@ describe("Test complex property updates", () => {
     const migratedProject = migrateProjectRJson(clone);
     const projectF = r.project(migratedProject);
     expect(projectF.getValueOrDefault(rtp.project.avatar_system) === pn.AvatarSystem.basic_custom);
+  });
+});
+
+
+describe("Test New Added Predefined Variables", () => {
+  it("should project json include player_count_var in new project", () => {
+    const project = createNewProject();
+    const projectF = r.project(project);
+    const playerCountVar = projectF.getRecord(RT.variable, predefinedVariableDefaults["player_count_var"].id)
+    const variables = projectF.getRecords(RT.variable);
+    const variableNames = variables.map(v => v.name);
+    expect(variableNames.includes(PredefinedVariableName.player_count_var));
+    expect(playerCountVar?.props.var_default).to.be.eq(0)
   });
 });
