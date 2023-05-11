@@ -7,15 +7,21 @@ import { r, R, rtp } from "../../r";
 const rMigrationVersions: number[] = Object.keys(rMigrationTree).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
 const newProjectMigrationVersions: number[] = Object.keys(newProjectMigrationTree).map(numStr => parseInt(numStr)).sort((a, b) => (a - b));
 
-/**
- * Applies migrations for "r" type and returns a new project reference
- */
-export const migrateProjectRJson = (projectJson: any, uptoVersion?: number): RecordNode<RT.project> => {
+export const initialMigrateProjectRJson = (projectJson: any, uptoVersion?: number): RecordNode<RT.project> => {
   //Check if project hasn't been converted to recordNode yet
   if(projectJson?.props?.version === undefined || projectJson?.props?.version < 100) {
     //The following step converts the json to "r" type and makes the version number 100
     projectJson = initialRMigration.execute(projectJson);
   }
+
+  return projectJson;
+};
+
+/**
+ * Applies migrations for "r" type and returns a new project reference
+ */
+export const migrateProjectRJson = (projectJson: any, uptoVersion?: number): RecordNode<RT.project> => {
+  // ! Initial migrations have been moved to a separate function ->  initialMigrateProjectRJson
   
   const rProjectJson = projectJson as RecordNode<RT.project>;
   //rMigration version numbers start from 100
