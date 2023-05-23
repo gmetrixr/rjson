@@ -1157,7 +1157,7 @@ export class ProjectUtils {
   }): number[] {
     // to filter by accent colour
     const idsForAccentColor: number[] = accentColor ?
-      this.accentColorsDict[accentColor.toLowerCase()] :
+      this.accentColorsDict[accentColor.toLowerCase()] || []:
       flatten(Object.values(this.accentColorsDict));
 
     if (accentColor && idsForAccentColor && !searchString) {
