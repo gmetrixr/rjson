@@ -3,19 +3,21 @@ import { RecordNode, RT } from "../../R";
 import { RuleAction } from "./RuleAction";
 import { RuleEvent } from "./RuleEvent";
 
-export function getRuleError(rule: RecordNode<RT.rule>): boolean {
+export function isRuleValid(rule: RecordNode<RT.rule>): boolean {
   const ruleF = r.record(rule);
   const whenEvents = ruleF.getRecords(RT.when_event);
   const thenActions = ruleF.getRecords(RT.then_action);
+  // wI and tI should never be true
   const wI = whenEvents.findIndex((w: RecordNode<RT.when_event>) => w.props.event === "");
   const tI = thenActions.findIndex((t: RecordNode<RT.then_action>) => t.props.action === "");
-  let error = true;
+  
+  if (wI !== -1 || tI !== -1) return false;
 
   if (whenEvents.length === 0 || thenActions.length === 0) {
-    return true;
+    return false;
   }
 
-  whenEvents.forEach(w => {
+  for (const w of whenEvents) {
     switch (w.props.event) {
       case RuleEvent.on_hover:
       case RuleEvent.on_duration_match:
@@ -30,7 +32,7 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleEvent.on_is_not_in_list: {
         const properties = w.props.properties as string[];
         if (properties?.[0] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
@@ -38,14 +40,14 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleEvent.on_set_between: {
         const properties = w.props.properties as string[];
         if (properties?.[0] === undefined || properties?.[1] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
     }
-  });
+  }
 
-  thenActions.forEach(ta => {
+  for (const ta of thenActions) {
     switch (ta.props.action) {
       case RuleAction.set_to_string:
       case RuleAction.set_to_number:
@@ -58,7 +60,7 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleAction.change_scene: {
         const properties = ta.props.properties as string[];
         if (properties?.[0] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
@@ -71,7 +73,7 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleAction.point_to: {
         const properties = ta.props.properties as string[];
         if (properties?.[0] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
@@ -79,7 +81,7 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleAction.add_number: {
         const properties = ta.props.properties as string[];
         if (properties?.[0] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
@@ -89,12 +91,12 @@ export function getRuleError(rule: RecordNode<RT.rule>): boolean {
       case RuleAction.open_url: {
         const properties = ta.props.properties as string[];
         if (properties?.[0] === undefined || properties?.[1] === undefined) {
-          error = false;
+          return false;
         }
         break;
       }
     }
-  });
+  }
 
-  return !(wI === -1 && tI === -1 && error);
+  return true;
 }
