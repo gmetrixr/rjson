@@ -44,6 +44,7 @@ export const Character: IElementDefinition = {
     ...BasicElement.actions,
     RuleAction.wave,
     RuleAction.clap,
-    RuleAction.talk
+    RuleAction.talk,
+    RuleAction.speak
   ],
 }
