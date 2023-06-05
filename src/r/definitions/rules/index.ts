@@ -2,7 +2,9 @@ import { RuleAction, ThenActionProperty, rActionDisplayName, rActionProperties, 
 import { RuleEvent, WhenEventProperty, rEventDisplayName, rEventProperties, rEventPropertyDefaults } from "./RuleEvent";
 import { TriggeredAction, TriggeredEvent } from "./TriggeredObjects";
 import { rulePrintUtils, RuleText } from "./rulePrintUtils";
+import { getRuleError } from "./helper";
 export { RuleAction, ThenActionProperty, rActionDisplayName, rActionProperties, rActionPropertyDefaults };
 export { RuleEvent, WhenEventProperty, rEventDisplayName, rEventProperties, rEventPropertyDefaults };
 export { TriggeredAction, TriggeredEvent };
 export { rulePrintUtils, RuleText };
+export { getRuleError };
