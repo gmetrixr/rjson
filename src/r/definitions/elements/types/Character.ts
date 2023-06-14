@@ -24,6 +24,7 @@ export const Character: IElementDefinition = {
     ElementProperty.ssml_voice,
     ElementProperty.ssml_pitch,
     ElementProperty.ssml_speed,
+    ElementProperty.billboarding,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
@@ -44,6 +45,7 @@ export const Character: IElementDefinition = {
     ...BasicElement.actions,
     RuleAction.wave,
     RuleAction.clap,
-    RuleAction.talk
+    RuleAction.talk,
+    RuleAction.speak
   ],
 }
