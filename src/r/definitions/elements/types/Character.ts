@@ -25,6 +25,8 @@ export const Character: IElementDefinition = {
     ElementProperty.ssml_pitch,
     ElementProperty.ssml_speed,
     ElementProperty.billboarding,
+    ElementProperty.env_map_intensity,
+    ElementProperty.apply_env_map,
   ],
   defaultOverrides: {
     [ElementProperty.source]: {
@@ -35,7 +37,8 @@ export const Character: IElementDefinition = {
       name: "gmetri_character.glb",
       type: FileType.THREED
     },
-    [ElementProperty.billboarding]: null
+    [ElementProperty.billboarding]: null,
+    [ElementProperty.scale]: 0.9,
   },
   events: [
     ...BasicElement.events
