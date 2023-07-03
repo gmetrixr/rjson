@@ -20,6 +20,5 @@ services:
       - NAMESPACE=local
 
 networks:
-  default:
-    external:
-      name: gmetri
+  external:
+    name: gmetri

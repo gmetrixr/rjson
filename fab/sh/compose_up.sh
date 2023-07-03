@@ -13,8 +13,8 @@ fi
 #Make more verbose now
 set -x
 #Commenting recurring checks because we aren't using a private docker repo
-# docker-compose -f fab/d/docker-compose.yaml pull
-docker-compose \
+# docker compose -f fab/d/docker-compose.yaml pull
+docker compose \
   -f fab/d/docker-compose.yaml \
   -p ${PARENT_PROJECT} \
   --project-directory ${REPO_FOLDER} \
@@ -28,7 +28,7 @@ if [ "$ALREADY_RUNNING" -eq 0 ];
 then
   echo "Service already running, only opening shell"
 else
-  docker-compose \
+  docker compose \
     -f fab/d/docker-compose.yaml \
     --project-name ${PARENT_PROJECT} \
     --project-directory ${REPO_FOLDER} \
@@ -36,7 +36,7 @@ else
 fi
 
 echo "Connecting to docker shell and running command $COMMAND..."
-docker-compose \
+docker compose \
   -f fab/d/docker-compose.yaml \
   --project-name ${PARENT_PROJECT} \
   --project-directory ${REPO_FOLDER} \
