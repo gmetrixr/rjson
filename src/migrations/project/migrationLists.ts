@@ -55,6 +55,7 @@ import m151_152 from "./r-migration-commands/m151_152_changing_defaults_avatar_s
 import m152_153 from "./r-migration-commands/m152_153_rerun_migrate_popoup_item";
 import m153_154 from "./r-migration-commands/m153_154_changing_default_for_character_scale";
 import m154_155 from "./r-migration-commands/m154_155_changing_trigger_radius_default";
+import m155_156 from "./r-migration-commands/m155_156_linked_menu_tour_mode";
 
 import create_first_scene from "./newproject-migration-commands/create_first_scene";
 import create_predefined_vars from "./newproject-migration-commands/create_predefined_vars";
@@ -118,6 +119,7 @@ export const rMigrationTree: {[key: number]: IOrder} = {
   [152]: m152_153,
   [153]: m153_154,
   [154]: m154_155,
+  [155]: m155_156,
 };
 
 export const getHighestProjectVersion = (): number => {

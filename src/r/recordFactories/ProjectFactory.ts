@@ -240,15 +240,13 @@ export class ProjectFactory extends RecordFactory<RT.project> {
           const sceneF = new SceneFactory(scene);
           const childrenWithLinkedVariables = sceneF.getAllDeepChildrenWithFilter(RT.element, e => en.elementsWithLinkedVariables.includes(e.props.element_type as ElementType));
           this.deleteLinkedVariables(childrenWithLinkedVariables);
-          for (const record of this.getRecords(RT.menu)) {
-            if ((new RecordFactory(record)).get(rtp.menu.menu_scene_id) === id) {
-              this.deleteRecord(RT.menu, record.id);
-            }
+          const linkedMenuId = sceneF.get(rtp.scene.linked_menu_id);
+          if(typeof linkedMenuId === "number") {
+            this.deleteRecord(RT.menu, linkedMenuId);
           }
-          for (const record of this.getRecords(RT.tour_mode)) {
-            if ((new RecordFactory(record)).get(rtp.tour_mode.tour_mode_scene_id) === id) {
-              this.deleteRecord(RT.tour_mode, record.id);
-            }
+          const linkedTourModeId = sceneF.get(rtp.scene.linked_tour_mode_id);
+          if(typeof linkedTourModeId === "number") {
+            this.deleteRecord(RT.tour_mode, linkedTourModeId);
           }
         }
         break;
@@ -425,17 +423,24 @@ export class ProjectFactory extends RecordFactory<RT.project> {
   }
 
   addMenuAndTourModeRecord(this: ProjectFactory, sceneId: number) {
-    //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
-    //would end up in a cyclic call.
-    const menuRecord = super.addBlankRecord(RT.menu, sceneId + 10001);
-    menuRecord.props.menu_scene_id = sceneId;
-    menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
+    const scene = this.getRecord(RT.scene, sceneId);
+    if(scene) {
+      const sceneF = new SceneFactory(scene);
 
-    // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
-    if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
-      //Making id deterministic (although not needed) - for testing
-      const tourModeRecord = super.addBlankRecord(RT.tour_mode, sceneId + 10002);
-      tourModeRecord.props.tour_mode_scene_id = sceneId;
+      //Add menu entry. Calling super.addBlankRecord and not ProjectFactory.addBlankRecord because internally it call addRecord, 
+      //would end up in a cyclic call.
+      const menuRecord = super.addBlankRecord(RT.menu, sceneId + 10001);
+      menuRecord.props.menu_scene_id = sceneId;
+      menuRecord.props.menu_show = this.getValueOrDefault(rtp.project.auto_add_new_scene_to_menu);
+      sceneF.set(rtp.scene.linked_menu_id, menuRecord.id);
+
+      // Adding scene details every time to menu prop and making the boolean menu_show true / false based on the value given or default which is true.
+      if (this.getValueOrDefault(rtp.project.auto_add_new_scene_to_tour_mode) === true) {
+        //Making id deterministic (although not needed) - for testing
+        const tourModeRecord = super.addBlankRecord(RT.tour_mode, sceneId + 10002);
+        tourModeRecord.props.tour_mode_scene_id = sceneId;
+        sceneF.set(rtp.scene.linked_tour_mode_id, menuRecord.id);
+      }
     }
   }
 
