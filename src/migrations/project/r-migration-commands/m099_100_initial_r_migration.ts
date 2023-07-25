@@ -1,5 +1,6 @@
 import { R, RecordNode, createRecord, RT, rtp, r } from "../../../r";
 import { IOrder } from "../../IOrder";
+import { jsUtils } from "@gmetrixr/gdash";
 
 /**
  * @description Converts t type project json to r type project json
@@ -214,6 +215,13 @@ const migrateItem = (tItem: any): RecordNode<RT.item> => {
     delete tItem.options;
   }
   item.props = tItem;
+
+  // * if item props contain `source` prop, rename to `item_source`
+  if("source" in item.props) {
+    item.props["item_source"] = jsUtils.deepClone(item.props.source);
+    delete item.props.source;
+  }
+
   return item;
 }
 
