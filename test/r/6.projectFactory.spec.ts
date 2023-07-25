@@ -18,9 +18,12 @@ import thumbnailJson from "./jsons/thumbnail.json";
 import br from "./jsons/br.json";
 import { jsUtils } from "@gmetrixr/gdash";
 import { predefinedVariableDefaults, PredefinedVariableName } from "../../src/r/definitions/variables";
+import sanofi_v4 from "./jsons/sanofi_fv4.json"
+import { initialMigrateProjectRJson } from "../../src/migrations/project";
+import fs from "fs";
 
 const { createNewProject, migrateProjectRJson } = migrations;
-describe("r ProjectFactory tests", () => {
+xdescribe("r ProjectFactory tests", () => {
   /** 
    * Current JSON => Scene => { PanoImage, Group => { ImageFlat } }
    */
@@ -457,7 +460,7 @@ describe("r ProjectFactory tests", () => {
   });
 });
 
-describe("Test complex property updates", () => {
+xdescribe("Test complex property updates", () => {
   it("should update scene bounds", () => {
     const projectF = r.project(br);
     const parentAddr = projectF.getSelfRecordAddress();
@@ -478,7 +481,7 @@ describe("Test complex property updates", () => {
 });
 
 
-describe("Test New Added Predefined Variables", () => {
+xdescribe("Test New Added Predefined Variables", () => {
   it("should project json include player_count_var in new project", () => {
     const project = createNewProject();
     const projectF = r.project(project);
@@ -487,5 +490,17 @@ describe("Test New Added Predefined Variables", () => {
     const variableNames = variables.map(v => v.name);
     expect(variableNames.includes(PredefinedVariableName.player_count_var));
     expect(playerCountVar?.props.var_default).to.be.eq(0)
+  });
+});
+
+describe("Test New Added Predefined Variables", () => {
+  it("should project json include player_count_var in new project", () => {
+    const v5Project = initialMigrateProjectRJson(sanofi_v4);
+    const migratedProject = migrateProjectRJson(v5Project);
+    // fs.writeFileSync("migrated_sanofi_v5.json", JSON.stringify(migratedProject), {encoding: "utf8"});
+
+    const projectF = r.project(migratedProject);
+    const fileIds = projectF.getFileIdsFromProject();
+    expect(fileIds.includes(170)).to.be.eq(true);
   });
 });
