@@ -30,13 +30,13 @@ class Migration implements IOrder {
           case ElementType.text: {
             const recordF = r.element(record);
             const value = recordF.getValueOrDefault(rtp.element.text) as string;
-            recordF.set(rtp.element.text, value.replace(regex, "{{device_var}}"));
+            recordF.set(rtp.element.text, value?.replace(regex, "{{device_var}}"));
             break;
           }
           case ElementType.embed_html: {
             const recordF = r.element(record);
             const value = recordF.getValueOrDefault(rtp.element.embed_string) as string;
-            recordF.set(rtp.element.embed_string, value.replace(regex, "{{device_var}}"));
+            recordF.set(rtp.element.embed_string, value?.replace(regex, "{{device_var}}"));
             break;
           }
         }
@@ -44,7 +44,9 @@ class Migration implements IOrder {
         const recordF = r.record(record);
         const properties = recordF.getValueOrDefault(rtp.then_action.properties) as string[];
         if(properties.length > 0) {
-          properties[0] = properties[0].replace(regex, "{{device_var}}");
+          if(properties[0]){
+            properties[0] = properties[0]?.replace(regex, "{{device_var}}");
+          }
           recordF.set(rtp.then_action.properties, properties);
         }
       }
